@@ -1,14 +1,17 @@
 module.exports = {
+  flags: {
+    THE_FLAG: false
+  },
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Eight Branches`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Andrew Nowacki`,
+      summary: ``,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `Eight Branches Academy of Eastern Medicine is a Toronto Acupuncture School that offers students a comprehensive education with a firm foundation in Traditional Chinese Medicine.`,
     siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `eightbranches`,
     },
   },
   plugins: [
