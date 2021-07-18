@@ -1,6 +1,6 @@
 module.exports = {
   flags: {
-    THE_FLAG: false
+    THE_FLAG: false,
   },
   siteMetadata: {
     title: `Eight Branches`,
@@ -34,25 +34,29 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-           // gatsby-remark-relative-images must go before gatsby-remark-images
+          // gatsby-remark-relative-images must go before gatsby-remark-images
           {
             resolve: `gatsby-remark-relative-images`,
             options: {
               // [Optional] The root of "media_folder" in your config.yml
               // Defaults to "static"
-              staticFolderName: 'static',
+              staticFolderName: "static",
               // [Optional] Include the following fields, use dot notation for nested fields
               // All fields are included by default
-              include: ['featured'],
+              include: ["featured"],
               // [Optional] Exclude the following fields, use dot notation for nested fields
               // No fields are excluded by default
-              exclude: ['featured.skip'],
+              exclude: ["featured.skip"],
             },
           },
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 630,
+              maxWidth: 943,
+              quality: 90,
+              showCaptions: "true",
+              withWebp: { quality: 90 },
+              
             },
           },
           {
@@ -68,7 +72,15 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: [`auto`, `webp`],
+          quality: 100,
+        },
+      },
+    },
     // {
     //   resolve: `gatsby-plugin-google-analytics`,
     //   options: {
@@ -130,8 +142,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Eight Branches Official Website`,
+        short_name: `Eight branches`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,

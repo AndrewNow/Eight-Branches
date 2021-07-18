@@ -58,7 +58,7 @@ const News = ({ data, location }) => {
                             post.frontmatter.thumbnail.childImageSharp
                               .gatsbyImageData
                           }
-                          alt={post.excerpt}
+                          alt={post.frontmatter.description}
                         />
                       </Link>
                       <BulletinDescription>
