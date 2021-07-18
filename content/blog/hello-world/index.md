@@ -24,6 +24,12 @@ Oh, and here's a great quote from this Wikipedia on
 
 You can also write code blocks here!
 
+
+
+![Test picture of a group](eight_branches_060919-152.jpg.jpg "Group of people practising on a patient")
+
+
+
 ```js
 const saltyDuckEgg = "chinese preserved food product"
 ```
