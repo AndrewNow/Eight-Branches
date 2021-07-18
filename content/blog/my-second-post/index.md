@@ -2,6 +2,7 @@
 title: My Second Post!
 date: 2015-05-06T23:46:37.121Z
 readtime: 4
+thumbnail: copy-of-eight_branches_060919-082.jpg.jpg
 ---
 
 Wow! I love blogging so much already.
