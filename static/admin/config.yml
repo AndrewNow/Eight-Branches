@@ -11,6 +11,25 @@ collections:
     folder: "content/blog"
     create: true
     slug: "index"
+    media_folder: "static/img"
+    public_folder: ""
+    path: "{{title}}/index"
+    editor:
+      preview: true
+    fields:
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime", required: true}
+      - { label: "Estimated Read Time", name: "readtime", widget: "number", required: true}
+      - { label: "Thumbnail Image", name: "thumbnail", widget: "image", required: true }
+      - { label: "Body", name: "body", widget: "markdown", required: true }
+
+
+  - name: "upcomingevents"
+    label: "Upcoming Events"
+    folder: "content/events"
+    create: true
+    slug: "index"
     media_folder: ""
     public_folder: ""
     path: "{{title}}/index"
@@ -18,8 +37,8 @@ collections:
       preview: true
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Date of Event", name: "date", widget: "datetime" }
+      - { label: "Host", name: "host", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
 
   - name: "settings"

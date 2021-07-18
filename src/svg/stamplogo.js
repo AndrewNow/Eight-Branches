@@ -2,8 +2,8 @@ import React from "react"
 
 const StampLogo = () => (
   <svg
-    width="36"
-    height="51"
+    width="63"
+    height="88"
     viewBox="0 0 36 51"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

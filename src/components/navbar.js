@@ -1,5 +1,5 @@
 import React from "react"
-import { useState, useLayoutEffect } from "react"
+import { useState } from "react"
 import { Link } from "gatsby"
 import { motion, AnimatePresence } from "framer-motion"
 import styled from "styled-components"
@@ -79,7 +79,7 @@ const Navbar = () => {
             toggled={open}
             toggle={setOpen}
             onClick={() => setOpen(!open)}
-            color="#ffffff"
+            color="black"
           />
         </IconWrapper>
         <AnimatePresence>
@@ -90,7 +90,7 @@ const Navbar = () => {
               exit="hidden"
               variants={menuAnimation}
             >
-              <motion.h3 variants={navItem}>
+              <motion.h3 variants={navItem} exit="hidden">
                 <Link to="/aboutus">About Us</Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
@@ -125,6 +125,7 @@ const Navbar = () => {
 
 const HeaderWrapper = styled.header`
   position: fixed;
+  top: 0;
   z-index: 999;
   height: 100px;
   width: 100%;
@@ -137,7 +138,7 @@ const HeaderWrapper = styled.header`
 
 const IconWrapper = styled.div`
   display: relative;
-  mix-blend-mode: difference;
+  /* mix-blend-mode: difference; */
   z-index: 1000;
 `
 
@@ -153,20 +154,19 @@ const NavMenu = styled(motion.nav)`
   background-color: var(--color-beige);
   padding: 3rem;
 
-  
   & h3 {
     margin-bottom: 2rem;
     text-align: center;
-    
+
     &:nth-child(1) {
       padding-top: 15vh;
     }
   }
-  
+
   & a {
     text-decoration: none;
     color: var(--color-black);
-    transition: color ease-in-out .15s;
+    transition: color ease-in-out 0.15s;
 
     &:hover {
       color: var(--color-orange);
@@ -177,9 +177,10 @@ const NavMenu = styled(motion.nav)`
 const ClickOut = styled(motion.div)`
   width: 100vw;
   height: 100vh;
-  z-index: 0;
+  z-index: 99;
   position: fixed;
-  background-color: #00000032;
+  backdrop-filter: blur(3px);
+  /* background-color: #00000032; */
   top: 0;
 `
 

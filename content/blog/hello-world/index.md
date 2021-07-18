@@ -3,7 +3,7 @@ title: Hello World
 date: 2015-05-01T22:12:03.284Z
 description: Hello World
 readtime: 3
-thumbnail: eight_branches_060919-254.jpg.jpg
+thumbnail: eight_branches_060919-254.jpg
 ---
 This is my first post on my new fake blog! How exciting!
 

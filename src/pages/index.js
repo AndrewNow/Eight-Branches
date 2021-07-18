@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import styled from "styled-components"
 import StampLogo from '../svg/stamplogo'
-import ebgreen from '../images/ebgreen.png'
+// import ebgreen from '../images/ebgreen.png'
 
 const BlogIndex = () => {
   return (
@@ -16,26 +16,26 @@ const BlogIndex = () => {
         </LeftSection>
         <RightSection>
           <LandingTextWrapper>
+            <StampLogo />
             <h1>
               Ancient Wisdom, <br /> Modern Practice
             </h1>
-            <p>
+            <h6>
               Eight Branches offers treatment to the public, hosting classes and
               workshops promoting restoration of health and prevention of
               illness.
-            </p>
-            <StampLogo />
+            </h6>
           </LandingTextWrapper>
         </RightSection>
       </LandingSection>
       <AboutUsSection>
         <AboutUsTextWrapper>
-          <p>About Us</p>
-          <h4>
+          <h6>About Us</h6>
+          <h3>
             Eight Branches Academy of Eastern Medicine is a Toronto Acupuncture
             School that offers students a comprehensive education with a firm
             foundation in Traditional Chinese Medicine.
-          </h4>
+          </h3>
           <ReadMore to="/aboutus">Read More</ReadMore>
         </AboutUsTextWrapper>
         <div></div>
@@ -74,16 +74,17 @@ const LandingTextWrapper = styled.div`
   flex-direction: column;
   
   & h1,
-  p {
+  h6 {
     color: var(--color-white);
   }
-  & p {
-    width: 38%;
+  & h6 {
+    width: 60%;
     margin-bottom: 3rem;
   }
   
   & h1 {
-    margin-bottom: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
   `
 
@@ -98,7 +99,7 @@ const AboutUsSection = styled.div`
 `
 
 const AboutUsTextWrapper = styled.div`
-  width: 31%;
+  width: 80%;
 
   & p {
     font-size: 16px;
