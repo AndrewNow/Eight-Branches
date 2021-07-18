@@ -10,7 +10,7 @@ collections:
     label: "Blog"
     folder: "content/blog"
     create: true
-    slug: "index"
+    slug: "blog"
     media_folder: ""
     public_folder: ""
     path: "{{title}}/index"
@@ -26,13 +26,14 @@ collections:
 
 
   - name: "upcomingevents"
+    identifier_field: Events
     label: "Upcoming Events"
     folder: "content/events"
     create: true
-    slug: "index"
+    slug: "events"
     media_folder: ""
     public_folder: ""
-    path: "{{title}}/index"
+    path: "{{title}}/events"
     editor:
       preview: true
     fields:
@@ -56,4 +57,4 @@ collections:
             fields:
               - { label: Street, name: street, widget: string }
               - { label: Street2, name: street2, widget: string, required: false}
-              - { label: City, name: city, widget: string }
+              - { label: City, name: city, widget: string } 

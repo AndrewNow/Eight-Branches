@@ -68,8 +68,7 @@ const BlogPostTemplate = ({ data, location }) => {
                       <Link to={previous.fields.slug} itemProp="url">
                         <GatsbyImage
                           image={
-                            previous.frontmatter.thumbnail.childImageSharp
-                              .gatsbyImageData
+                            previous.frontmatter.thumbnail.childImageSharp.gatsbyImageData
                           }
                           alt={previous.frontmatter.description}
                         />
@@ -98,8 +97,7 @@ const BlogPostTemplate = ({ data, location }) => {
                       <Link to={next.fields.slug} itemProp="url">
                         <GatsbyImage
                           image={
-                            next.frontmatter.thumbnail.childImageSharp
-                              .gatsbyImageData
+                            next.frontmatter.thumbnail.childImageSharp.gatsbyImageData
                           }
                           alt={next.frontmatter.description}
                         />
