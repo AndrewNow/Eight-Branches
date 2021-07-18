@@ -1,5 +1,5 @@
 ---
-title: Title Lorem ipsum dolor sit amet
+title: Welcoming Zhi Jian (Ken) Luo to the Faculty
 date: 2021-07-18T18:14:36.232Z
 readtime: 6
 description: Zhi Jian (Ken) Luo recently joined the faculty at Eight Branches
