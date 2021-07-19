@@ -8,13 +8,16 @@ import { GatsbyImage } from "gatsby-plugin-image"
 
 const News = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes
+  // const posts = data.allMarkdownRemark.nodes
 
-  if (posts.length === 0) {
+  // const blogpost = data.blog.edges[0].node.childrenMarkdownRemark
+  // const blogpost = data.blog
+
+  if (data.blog.edges[0].node.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
         <Seo title="All posts" />
-        <p>No blog posts found.</p>
+        <p>No bulletin board posts found.</p>
       </Layout>
     )
   }
@@ -40,34 +43,45 @@ const News = ({ data, location }) => {
             </h6>
           </BulletinHeader>
           <Bulletingrid style={{ listStyle: `none` }}>
-            {posts.map(post => {
-              const title = post.frontmatter.title || post.fields.slug
+            
+            {data.blog.edges?.map(blogdata => {
+              
+              const [
+                title,
+                date,
+                readtime,
+              ] = blogdata.node.childrenMarkdownRemark[0].frontmatter
+
+              const thumbnail =
+                blogdata.node.childrenMarkdownRemark[0].frontmatter.thumbnail
+                  .childImageSharp.gatsbyImageData
+
+              const slug = blogdata.node.childrenMarkdownRemark[0].fields.slug
+
+              const entryTitle = title || slug
 
               return (
-                <BulletinPost key={post.fields.slug}>
-                  <article className="post-list-item">
-                    <header>
-                      <h6>
-                        <Link to={post.fields.slug} itemProp="url">
-                          <span itemProp="headline">{title}</span>
+                blogdata.node.childrenMarkdownRemark[0] &&
+                (
+                  <BulletinPost key={slug}>
+                    <article className="post-list-item">
+                      <header>
+                        <h6>
+                          <Link to={slug} itemProp="url">
+                            <span itemProp="headline">{entryTitle}</span>
+                          </Link>
+                        </h6>
+                        <Link to={slug} itemProp="url">
+                          <GatsbyImage image={thumbnail} alt={entryTitle} />
                         </Link>
-                      </h6>
-                      <Link to={post.fields.slug} itemProp="url">
-                        <GatsbyImage
-                          image={
-                            post.frontmatter.thumbnail.childImageSharp
-                              .gatsbyImageData
-                          }
-                          alt={post.frontmatter.description}
-                        />
-                      </Link>
-                      <BulletinDescription>
-                        <p>{post.frontmatter.readtime} minute read</p>
-                        <p>{post.frontmatter.date}</p>
-                      </BulletinDescription>
-                    </header>
-                  </article>
-                </BulletinPost>
+                        <BulletinDescription>
+                          <p>{readtime} minute read</p>
+                          <p>{date}</p>
+                        </BulletinDescription>
+                      </header>
+                    </article>
+                  </BulletinPost>
+                )
               )
             })}
           </Bulletingrid>
@@ -86,25 +100,78 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      nodes {
-        excerpt
-        fields {
-          slug
+    blog: allFile(filter: { sourceInstanceName: { eq: "blog" } }) {
+      edges {
+        node {
+          childrenMarkdownRemark {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              description
+              date(formatString: "DD.MM.YYYY")
+              readtime
+              thumbnail {
+                childImageSharp {
+                  gatsbyImageData(
+                    width: 550
+                    quality: 90
+                    placeholder: BLURRED
+                    formats: [WEBP]
+                    aspectRatio: 1.75
+                  )
+                }
+              }
+            }
+          }
         }
-        frontmatter {
-          date(formatString: "DD.MM.YYYY")
-          title
-          readtime
-          thumbnail {
-            childImageSharp {
-              gatsbyImageData(
-                width: 550
-                quality: 90
-                placeholder: BLURRED
-                formats: [WEBP]
-                aspectRatio: 1.75
-              )
+      }
+    }
+    # allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    #   nodes {
+    #     excerpt
+    #     fields {
+    #       slug
+    #     }
+    #     frontmatter {
+    #       date(formatString: "DD.MM.YYYY")
+    #       title
+    #       readtime
+    #       thumbnail {
+    #         childImageSharp {
+    #           gatsbyImageData(
+    #             width: 550
+    #             quality: 90
+    #             placeholder: BLURRED
+    #             formats: [WEBP]
+    #             aspectRatio: 1.75
+    #           )
+    #         }
+    #       }
+    #     }
+    #   }
+    # }
+    events: allFile(filter: { sourceInstanceName: { eq: "events" } }) {
+      edges {
+        node {
+          childrenMarkdownRemark {
+            frontmatter {
+              title
+              description
+              date(formatString: "DD.MM.YYYY")
+              readtime
+              # thumbnail {
+              #   childImageSharp {
+              #     gatsbyImageData(
+              #       width: 550
+              #       quality: 90
+              #       placeholder: BLURRED
+              #       formats: [WEBP]
+              #       aspectRatio: 1.75
+              #     )
+              #   }
+              # }
             }
           }
         }
