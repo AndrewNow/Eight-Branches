@@ -20,15 +20,9 @@ Oh, and here's a great quote from this Wikipedia on
 > salted duck eggs have a briny aroma, a gelatin-like egg white and a
 > firm-textured, round yolk that is bright orange-red in color.
 
-![Chinese Salty Egg](./salty_egg.jpg)
-
 You can also write code blocks here!
 
-
-
 ![Test picture of a group](eight_branches_060919-152.jpg.jpg "Group of people practising on a patient")
-
-
 
 ```js
 const saltyDuckEgg = "chinese preserved food product"
@@ -192,16 +186,6 @@ Paragraph:
 
     Code
 ```
-
-- - -
-
-- - -
-
-- - -
-
-- - -
-
-- - -
 
 ```
 * * *
