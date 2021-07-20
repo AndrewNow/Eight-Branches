@@ -1,6 +1,6 @@
 ---
 title: Welcoming Zhi Jian (Ken) Luo to the Faculty
-date: 2021-07-20T13:25:04.013Z
+date: 2021-07-20T15:02:31.099Z
 readtime: 6
 description: Zhi Jian (Ken) Luo recently joined the faculty at Eight Branches
   Academy of Eastern Medicine and has quickly become a valuable member of our
