@@ -8,12 +8,8 @@ import { GatsbyImage } from "gatsby-plugin-image"
 
 const News = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  // const posts = data.allMarkdownRemark.nodes
 
-  // const blogpost = data.blog.edges[0].node.childrenMarkdownRemark
-  // const blogpost = data.blog
-
-  if (data.blog.edges[0].node.length === 0) {
+  if (data.blog.edges.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
         <Seo title="All posts" />
@@ -29,6 +25,32 @@ const News = ({ data, location }) => {
       <UpcomingEventsWrapper>
         <SectionWrapper>
           <h2>Upcoming Events</h2>
+
+          <EventWrapper>
+            {data.events.edges?.map(eventData => {
+              const eventDataQuery = eventData.node.childrenMarkdownRemark[0]
+              if (!eventDataQuery) {
+                return null
+              }
+              const { title, date, host } = eventDataQuery.frontmatter
+              const slug = eventDataQuery.fields.slug
+
+              return (
+                eventDataQuery && (
+                  <Event>
+                    <h4 key={slug}>{title}</h4>
+                    <p>With {host}</p>
+                    <p>{date}</p>
+                    <Link to={slug} itemProp="url">
+                      <span itemProp="headline">
+                        <p>RSVP here</p>
+                      </span>
+                    </Link>
+                  </Event>
+                )
+              )
+            })}
+          </EventWrapper>
         </SectionWrapper>
       </UpcomingEventsWrapper>
 
@@ -42,44 +64,37 @@ const News = ({ data, location }) => {
               place to find updates.
             </h6>
           </BulletinHeader>
-          <Bulletingrid style={{ listStyle: `none` }}>
-            
-            {data.blog.edges?.map(blogdata => {
-              
-              const [
-                title,
-                date,
-                readtime,
-              ] = blogdata.node.childrenMarkdownRemark[0].frontmatter
 
-              const thumbnail =
-                blogdata.node.childrenMarkdownRemark[0].frontmatter.thumbnail
-                  .childImageSharp.gatsbyImageData
-
-              const slug = blogdata.node.childrenMarkdownRemark[0].fields.slug
-
+          <Bulletingrid>
+            {data.blog.edges?.map(blogData => {
+              const blogDataQuery = blogData.node.childrenMarkdownRemark[0]
+              // Check to see if a query exists; if it has empty data then don't render it
+              if (!blogDataQuery) {
+                return null
+              }
+              //abbreviations for the query routes
+              const { title, date, readtime } = blogDataQuery.frontmatter
+              const slug = blogDataQuery.fields.slug
               const entryTitle = title || slug
-
+              const thumbnail =
+                blogDataQuery.frontmatter.thumbnail.childImageSharp
+                  .gatsbyImageData
               return (
-                blogdata.node.childrenMarkdownRemark[0] &&
-                (
+                // second query check just in case
+                blogDataQuery && (
                   <BulletinPost key={slug}>
-                    <article className="post-list-item">
-                      <header>
-                        <h6>
-                          <Link to={slug} itemProp="url">
-                            <span itemProp="headline">{entryTitle}</span>
-                          </Link>
-                        </h6>
-                        <Link to={slug} itemProp="url">
-                          <GatsbyImage image={thumbnail} alt={entryTitle} />
-                        </Link>
-                        <BulletinDescription>
-                          <p>{readtime} minute read</p>
-                          <p>{date}</p>
-                        </BulletinDescription>
-                      </header>
-                    </article>
+                    <h6>
+                      <Link to={slug} itemProp="url">
+                        <span itemProp="headline">{entryTitle}</span>
+                      </Link>
+                    </h6>
+                    <Link to={slug} itemProp="url">
+                      <GatsbyImage image={thumbnail} alt={entryTitle} />
+                    </Link>
+                    <BulletinDescription>
+                      <p>{readtime} minute read</p>
+                      <p>{date}</p>
+                    </BulletinDescription>
                   </BulletinPost>
                 )
               )
@@ -100,7 +115,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    blog: allFile(filter: { sourceInstanceName: { eq: "blog" } }) {
+    blog: allFile(
+      filter: { sourceInstanceName: { eq: "blog" } }
+      sort: { fields: childMarkdownRemark___frontmatter___date, order: DESC }
+    ) {
       edges {
         node {
           childrenMarkdownRemark {
@@ -110,7 +128,7 @@ export const pageQuery = graphql`
             frontmatter {
               title
               description
-              date(formatString: "DD.MM.YYYY")
+              date(formatString: "DD.MM.YYYY", locale: "est")
               readtime
               thumbnail {
                 childImageSharp {
@@ -128,50 +146,20 @@ export const pageQuery = graphql`
         }
       }
     }
-    # allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-    #   nodes {
-    #     excerpt
-    #     fields {
-    #       slug
-    #     }
-    #     frontmatter {
-    #       date(formatString: "DD.MM.YYYY")
-    #       title
-    #       readtime
-    #       thumbnail {
-    #         childImageSharp {
-    #           gatsbyImageData(
-    #             width: 550
-    #             quality: 90
-    #             placeholder: BLURRED
-    #             formats: [WEBP]
-    #             aspectRatio: 1.75
-    #           )
-    #         }
-    #       }
-    #     }
-    #   }
-    # }
-    events: allFile(filter: { sourceInstanceName: { eq: "events" } }) {
+    events: allFile(
+      filter: { sourceInstanceName: { eq: "events" } }
+      sort: { fields: childMarkdownRemark___frontmatter___date, order: DESC }
+    ) {
       edges {
         node {
           childrenMarkdownRemark {
+            fields {
+              slug
+            }
             frontmatter {
               title
-              description
-              date(formatString: "DD.MM.YYYY")
-              readtime
-              # thumbnail {
-              #   childImageSharp {
-              #     gatsbyImageData(
-              #       width: 550
-              #       quality: 90
-              #       placeholder: BLURRED
-              #       formats: [WEBP]
-              #       aspectRatio: 1.75
-              #     )
-              #   }
-              # }
+              host
+              date(formatString: "MMMM DD, YYYY", locale: "est")
             }
           }
         }
@@ -180,32 +168,51 @@ export const pageQuery = graphql`
   }
 `
 
-const SectionWrapper = styled.div`
-  width: 90%;
-  margin: 0 auto;
-`
-const BulletinWrapper = styled.div`
-  width: 100%;
-  top: 65vh;
-  padding-top: 5rem;
-  z-index: 2;
-  position: relative;
-  background-color: var(--color-white);
-  margin: 0 auto;
-`
-
 const UpcomingEventsWrapper = styled.div`
   background-color: var(--color-darkgreen);
   position: fixed;
   z-index: 1;
   width: 100%;
   top: 0;
-  padding-top: 10rem;
+  padding-top: 15rem;
+  padding-bottom: 10rem;
 
   & h2 {
     color: var(--color-white);
     padding-bottom: 5rem;
   }
+`
+
+const SectionWrapper = styled.div`
+  width: 90%;
+  margin: 0 auto;
+`
+
+const EventWrapper = styled.section`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+
+  & article:not(:first-child) {
+    border-left: 1px solid var(--color-white);
+    padding-left: 5rem;
+  }
+`
+
+const Event = styled.article`
+  max-width: 33%;
+  color: var(--color-white);
+  margin-bottom: 5rem;  
+`
+
+const BulletinWrapper = styled.div`
+  width: 100%;
+  top: 70vh;
+  padding-top: 5rem;
+  z-index: 2;
+  position: relative;
+  background-color: var(--color-white);
+  margin: 0 auto;
 `
 
 const Bulletingrid = styled.div`

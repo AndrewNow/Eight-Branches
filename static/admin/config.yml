@@ -33,7 +33,7 @@ collections:
     slug: "events"
     media_folder: ""
     public_folder: ""
-    path: "{{title}}/events"
+    path: "{{title}}/index"
     editor:
       preview: true
     fields:

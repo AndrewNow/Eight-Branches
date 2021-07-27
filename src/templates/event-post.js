@@ -1,15 +1,15 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const BlogPostTemplate = ({ data }) => {
+const EventPostTemplate = ({ data }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
-  console.log(previous, next, data)
+  console.log(previous, next)
+
   return (
     <Layout title={siteTitle}>
       <Seo
@@ -31,10 +31,7 @@ const BlogPostTemplate = ({ data }) => {
           <BlogContentHeader>
             <h6>{post.frontmatter.description}</h6>
           </BlogContentHeader>
-          <GatsbyImage
-            image={post.frontmatter.thumbnail.childImageSharp.gatsbyImageData}
-            alt={post.frontmatter.description}
-          />
+
           <BlogContent
             dangerouslySetInnerHTML={{ __html: post.html }}
             itemProp="articleBody"
@@ -66,17 +63,11 @@ const BlogPostTemplate = ({ data }) => {
                           </span>
                         </Link>
                       </h6>
-                      <Link to={previous.fields.slug} itemProp="url">
-                        <GatsbyImage
-                          image={
-                            previous.frontmatter.thumbnail.childImageSharp
-                              .gatsbyImageData
-                          }
-                          alt={previous.frontmatter.description}
-                        />
-                      </Link>
+                      <Link
+                        to={previous.fields.slug}
+                        itemProp="url"
+                      ></Link>
                       <BulletinDescription>
-                        <p>{previous.frontmatter.readtime} minute read</p>
                         <p>{previous.frontmatter.date}</p>
                       </BulletinDescription>
                     </header>
@@ -96,19 +87,8 @@ const BlogPostTemplate = ({ data }) => {
                           </span>
                         </Link>
                       </h6>
-                      <Link to={next.fields.slug} itemProp="url">
-                        {next.frontmatter.thumbnail && (
-                          <GatsbyImage
-                            image={
-                              next.frontmatter.thumbnail.childImageSharp
-                                .gatsbyImageData
-                            }
-                            alt={next.frontmatter.description}
-                          />
-                        )}
-                      </Link>
+                      <Link to={next.fields.slug} itemProp="url"></Link>
                       <BulletinDescription>
-                        <p>{next.frontmatter.readtime} minute read</p>
                         <p>{next.frontmatter.date}</p>
                       </BulletinDescription>
                     </header>
@@ -123,13 +103,13 @@ const BlogPostTemplate = ({ data }) => {
   )
 }
 
-export default BlogPostTemplate
+export default EventPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug(
+  query EventPostBySlug(
     $id: String!
-    $previousPostId: String
-    $nextPostId: String
+    $previousEventId: String
+    $nextEventId: String
   ) {
     site {
       siteMetadata {
@@ -142,64 +122,31 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        readtime
+        host
         date(formatString: "DD.MM.YYYY")
-        description
-        thumbnail {
-          childImageSharp {
-            gatsbyImageData(
-              width: 1150
-              quality: 90
-              placeholder: BLURRED
-              formats: [WEBP]
-              aspectRatio: 1.75
-            )
-          }
-        }
+        # body
       }
     }
-    previous: markdownRemark(id: { eq: $previousPostId }) {
+    previous: markdownRemark(id: { eq: $previousEventId }) {
       fields {
         slug
       }
       frontmatter {
         title
-        readtime
+        host
         date(formatString: "DD.MM.YYYY")
-        description
-        thumbnail {
-          childImageSharp {
-            gatsbyImageData(
-              width: 1150
-              quality: 90
-              placeholder: BLURRED
-              formats: [WEBP]
-              aspectRatio: 1.75
-            )
-          }
-        }
+        # body
       }
     }
-    next: markdownRemark(id: { eq: $nextPostId }) {
+    next: markdownRemark(id: { eq: $nextEventId }) {
       fields {
         slug
       }
       frontmatter {
         title
-        readtime
+        host
         date(formatString: "DD.MM.YYYY")
-        description
-        thumbnail {
-          childImageSharp {
-            gatsbyImageData(
-              width: 1150
-              quality: 90
-              placeholder: BLURRED
-              formats: [WEBP]
-              aspectRatio: 1.75
-            )
-          }
-        }
+        # body
       }
     }
   }
