@@ -7,80 +7,97 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Get all markdown blog posts sorted by date
   const result = await graphql(`
-    {
-      blog: allMarkdownRemark(
-        sort: { order: ASC, fields: frontmatter___date }
-        filter: { fileAbsolutePath: { eq: "/src/content/blog" } }
+    query {
+      blog: allFile(
+        sort: {
+          fields: childrenMarkdownRemark___frontmatter___date
+          order: ASC
+        }
+        filter: { internal: { mediaType: { eq: "text/markdown" } } }
       ) {
         nodes {
-          id
-          fields {
-            slug
+          childMarkdownRemark {
+            fields {
+              slug
+            }
+            id
           }
         }
       }
-      events: allMarkdownRemark(
-        sort: { order: ASC, fields: frontmatter___date }
-        filter: { fileAbsolutePath: { eq: "/src/content/events" } }
+      events: allFile(
+        sort: {
+          fields: childrenMarkdownRemark___frontmatter___date
+          order: ASC
+        }
+        filter: { internal: { mediaType: { eq: "text/markdown" } } }
       ) {
         nodes {
-          id
-          fields {
-            slug
+          childMarkdownRemark {
+            fields {
+              slug
+            }
+            id
           }
         }
       }
     }
   `)
-  
+  // console.log(JSON.stringify(result, null, 2))
+
   if (result.errors) {
     reporter.panicOnBuild(
       `There was an error loading your blog posts`,
       result.errors
-      )
-      console.log("result:", results) 
-      return
+    )
+    return
   }
 
   const blogPosts = result.data.blog.nodes
   const eventPosts = result.data.events.nodes
-
-  console.log(blog, events)
-  console.log(blogPost, eventPost)
-
+  // console.log(JSON.stringify(blogPosts, null, 2))
 
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
   const eventPost = path.resolve(`./src/templates/event-post.js`)
 
   if (blogPosts.length > 0 && eventPosts.length > 0) {
+
     blogPosts.forEach((node, index) => {
-      const previousPostId = index === 0 ? null : blogPosts[index - 1].id
-      const nextPostId =
-        index === blogPosts.length - 1 ? null : blogPosts[index + 1].id
+      const previousBlogId =
+        index === 0 ? null : blogPosts[index - 1].childMarkdownRemark.id
+      const nextBlogId =
+        index === blogPosts.length - 1
+          ? null
+          : blogPosts[index + 1].childMarkdownRemark.id
+
+      // console.log(JSON.stringify(previousPostId, null, 0))
+      // console.log(JSON.stringify(node.childMarkdownRemark, null, 0))
 
       createPage({
-        path: node.fields.slug,
+        path: node.childMarkdownRemark.fields.slug,
         component: blogPost,
         context: {
-          id: node.id,
-          previousPostId,
-          nextPostId,
+          id: node.childMarkdownRemark.id,
+          previousBlogId,
+          nextBlogId,
         },
       })
     })
 
     eventPosts.forEach((node, index) => {
-      const previousPostId = index === 0 ? null : eventPosts[index - 1].id
-      const nextPostId =
-        index === eventPosts.length - 1 ? null : eventPosts[index + 1].id
-
+      const previousEventId =
+        index === 0 ? null : eventPosts[index - 1].childMarkdownRemark.id
+      const nextEventId =
+        index === eventPosts.length - 1
+          ? null
+          : eventPosts[index + 1].childMarkdownRemark.id
+      
       createPage({
-        path: node.fields.slug,
+        path: node.childMarkdownRemark.fields.slug,
         component: eventPost,
         context: {
-          id: node.id,
-          previousPostId,
-          nextPostId,
+          eventId: node.childMarkdownRemark.id,
+          previousEventId,
+          nextEventId,
         },
       })
     })

@@ -116,7 +116,10 @@ export const pageQuery = graphql`
       }
     }
     blog: allFile(
-      filter: { sourceInstanceName: { eq: "blog" } }
+      filter: {
+        sourceInstanceName: { eq: "blog" }
+        internal: { mediaType: { eq: "text/markdown" } }
+      }
       sort: { fields: childMarkdownRemark___frontmatter___date, order: DESC }
     ) {
       edges {
@@ -147,7 +150,10 @@ export const pageQuery = graphql`
       }
     }
     events: allFile(
-      filter: { sourceInstanceName: { eq: "events" } }
+      filter: {
+        sourceInstanceName: { eq: "events" }
+        internal: { mediaType: { eq: "text/markdown" } }
+      }
       sort: { fields: childMarkdownRemark___frontmatter___date, order: DESC }
     ) {
       edges {

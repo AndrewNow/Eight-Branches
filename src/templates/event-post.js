@@ -8,7 +8,7 @@ const EventPostTemplate = ({ data }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
-  console.log(previous, next)
+  // console.log(previous, next)
 
   return (
     <Layout title={siteTitle}>
@@ -107,7 +107,7 @@ export default EventPostTemplate
 
 export const pageQuery = graphql`
   query EventPostBySlug(
-    $id: String!
+    $eventId: String!
     $previousEventId: String
     $nextEventId: String
   ) {
@@ -116,7 +116,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    markdownRemark(id: { eq: $id }) {
+    markdownRemark(id: { eq: $eventId }) {
       id
       excerpt(pruneLength: 160)
       html

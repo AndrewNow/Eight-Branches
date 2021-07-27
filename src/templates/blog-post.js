@@ -9,7 +9,10 @@ const BlogPostTemplate = ({ data }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
-  console.log(previous, next, data)
+
+
+  console.log(data, previous, next)
+
   return (
     <Layout title={siteTitle}>
       <Seo
@@ -128,8 +131,8 @@ export default BlogPostTemplate
 export const pageQuery = graphql`
   query BlogPostBySlug(
     $id: String!
-    $previousPostId: String
-    $nextPostId: String
+    $previousBlogId: String
+    $nextBlogId: String
   ) {
     site {
       siteMetadata {
@@ -158,7 +161,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    previous: markdownRemark(id: { eq: $previousPostId }) {
+    previous: markdownRemark(id: { eq: $previousBlogId }) {
       fields {
         slug
       }
@@ -180,7 +183,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    next: markdownRemark(id: { eq: $nextPostId }) {
+    next: markdownRemark(id: { eq: $nextBlogId }) {
       fields {
         slug
       }
@@ -208,6 +211,7 @@ export const pageQuery = graphql`
 const SectionWrapper = styled.div`
   width: 75%;
   margin: 0 auto;
+  background-color: rebeccapurple;
 
   & img {
     /* padding-bottom: 5rem; */
