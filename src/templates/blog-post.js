@@ -131,8 +131,8 @@ export default BlogPostTemplate
 export const pageQuery = graphql`
   query BlogPostBySlug(
     $id: String!
-    $previousBlogId: String
-    $nextBlogId: String
+    $previousId: String
+    $nextId: String
   ) {
     site {
       siteMetadata {
@@ -161,7 +161,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    previous: markdownRemark(id: { eq: $previousBlogId }) {
+    previous: markdownRemark(id: { eq: $previousId }) {
       fields {
         slug
       }
@@ -183,7 +183,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    next: markdownRemark(id: { eq: $nextBlogId }) {
+    next: markdownRemark(id: { eq: $nextId }) {
       fields {
         slug
       }
@@ -211,7 +211,6 @@ export const pageQuery = graphql`
 const SectionWrapper = styled.div`
   width: 75%;
   margin: 0 auto;
-  background-color: rebeccapurple;
 
   & img {
     /* padding-bottom: 5rem; */

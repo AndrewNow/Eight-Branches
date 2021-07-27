@@ -13,7 +13,10 @@ exports.createPages = async ({ graphql, actions }) => {
           fields: childrenMarkdownRemark___frontmatter___date
           order: ASC
         }
-        filter: { internal: { mediaType: { eq: "text/markdown" } } }
+        filter: {
+          sourceInstanceName: { eq: "blog" }
+          internal: { mediaType: { eq: "text/markdown" } }
+        }
       ) {
         nodes {
           childMarkdownRemark {
@@ -29,7 +32,10 @@ exports.createPages = async ({ graphql, actions }) => {
           fields: childrenMarkdownRemark___frontmatter___date
           order: ASC
         }
-        filter: { internal: { mediaType: { eq: "text/markdown" } } }
+        filter: {
+          sourceInstanceName: { eq: "events" }
+          internal: { mediaType: { eq: "text/markdown" } }
+        }
       ) {
         nodes {
           childMarkdownRemark {
@@ -48,23 +54,22 @@ exports.createPages = async ({ graphql, actions }) => {
     reporter.panicOnBuild(
       `There was an error loading your blog posts`,
       result.errors
-    )
-    return
+    ) 
   }
 
   const blogPosts = result.data.blog.nodes
   const eventPosts = result.data.events.nodes
-  // console.log(JSON.stringify(blogPosts, null, 2))
 
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
   const eventPost = path.resolve(`./src/templates/event-post.js`)
 
-  if (blogPosts.length > 0 && eventPosts.length > 0) {
+  console.log(JSON.stringify(blogPosts, null, 2))
 
+  if (blogPosts.length > 0 && eventPosts.length > 0) {
     blogPosts.forEach((node, index) => {
-      const previousBlogId =
+      const previousId =
         index === 0 ? null : blogPosts[index - 1].childMarkdownRemark.id
-      const nextBlogId =
+      const nextId =
         index === blogPosts.length - 1
           ? null
           : blogPosts[index + 1].childMarkdownRemark.id
@@ -77,27 +82,27 @@ exports.createPages = async ({ graphql, actions }) => {
         component: blogPost,
         context: {
           id: node.childMarkdownRemark.id,
-          previousBlogId,
-          nextBlogId,
+          previousId,
+          nextId,
         },
       })
     })
 
     eventPosts.forEach((node, index) => {
-      const previousEventId =
+      const previousId =
         index === 0 ? null : eventPosts[index - 1].childMarkdownRemark.id
-      const nextEventId =
+      const nextId =
         index === eventPosts.length - 1
           ? null
           : eventPosts[index + 1].childMarkdownRemark.id
-      
+
       createPage({
         path: node.childMarkdownRemark.fields.slug,
         component: eventPost,
         context: {
-          eventId: node.childMarkdownRemark.id,
-          previousEventId,
-          nextEventId,
+          id: node.childMarkdownRemark.id,
+          previousId,
+          nextId,
         },
       })
     })

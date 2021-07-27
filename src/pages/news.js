@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 // import contactInfo from "../../site/settings/contact_info.json"
 import { GatsbyImage } from "gatsby-plugin-image"
+import Footer from '../components/footer'
 
 const News = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -38,14 +39,14 @@ const News = ({ data, location }) => {
               return (
                 eventDataQuery && (
                   <Event>
-                    <h4 key={slug}>{title}</h4>
+                    <EventLink to={slug} itemProp="url">
+                      <h4 key={slug}>{title}</h4>
+                    </EventLink>
                     <p>With {host}</p>
                     <p>{date}</p>
-                    <Link to={slug} itemProp="url">
-                      <span itemProp="headline">
-                        <p>RSVP here</p>
-                      </span>
-                    </Link>
+                    <SignUpLink to={slug} itemProp="url">
+                      <p>Sign up here</p>
+                    </SignUpLink>
                   </Event>
                 )
               )
@@ -102,6 +103,7 @@ const News = ({ data, location }) => {
           </Bulletingrid>
         </SectionWrapper>
       </BulletinWrapper>
+      {/* <Footer /> */}
     </Layout>
   )
 }
@@ -165,7 +167,7 @@ export const pageQuery = graphql`
             frontmatter {
               title
               host
-              date(formatString: "MMMM DD, YYYY", locale: "est")
+              date(formatString: "dddd, MMMM Do (hh:mma)", locale: "est")
             }
           }
         }
@@ -208,7 +210,43 @@ const EventWrapper = styled.section`
 const Event = styled.article`
   max-width: 33%;
   color: var(--color-white);
-  margin-bottom: 5rem;  
+  margin-bottom: 5rem;
+
+  & p {
+    padding-bottom: 1rem;
+    font-family: "Matter-light";
+  }
+`
+const EventLink = styled(Link)`
+  text-decoration: none;
+  
+  & h4 {
+    color: var(--color-white);
+    padding-bottom: 0.5rem;
+  }
+`
+
+const SignUpLink = styled(Link)`
+  text-decoration: none;
+  & p {
+    font-family: "Matter-light";
+    padding-bottom: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: var(--color-white);
+    border: 1px solid var(--color-white);
+    border-radius: 10px;
+    width: 160px;
+    height: 40px;
+    transition: var(--hover-transition);
+
+    &:hover {
+      background-color: var(--color-white);
+      color: var(--color-darkgreen);
+    }
+  }
 `
 
 const BulletinWrapper = styled.div`
@@ -249,7 +287,7 @@ const BulletinPost = styled.article`
   & h6 {
     padding-top: 0.75rem;
     padding-bottom: 1rem;
-    transition: color ease-in-out 0.15s;
+    transition: var(--hover-transition);
 
     &:hover {
       color: var(--color-orange);

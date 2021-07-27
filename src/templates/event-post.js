@@ -24,9 +24,9 @@ const EventPostTemplate = ({ data }) => {
         >
           <Header>
             <h1 itemProp="headline">{post.frontmatter.title}</h1>
-            <p>
-              {post.frontmatter.readtime} minute read | {post.frontmatter.date}
-            </p>
+              <p>
+                {post.frontmatter.date}
+              </p>
           </Header>
           <BlogContentHeader>
             <h6>{post.frontmatter.description}</h6>
@@ -39,7 +39,7 @@ const EventPostTemplate = ({ data }) => {
         </article>
       </SectionWrapper>
       <ContinueReading>
-        <h1>Continue Reading</h1>
+        <h1>Other events</h1>
         <nav className="blog-post-nav">
           <ul
             style={{
@@ -106,46 +106,42 @@ const EventPostTemplate = ({ data }) => {
 export default EventPostTemplate
 
 export const pageQuery = graphql`
-  query EventPostBySlug(
-    $eventId: String!
-    $previousEventId: String
-    $nextEventId: String
-  ) {
+  query EventPostBySlug($id: String!, $previousId: String, $nextId: String) {
     site {
       siteMetadata {
         title
       }
     }
-    markdownRemark(id: { eq: $eventId }) {
+    markdownRemark(id: { eq: $id }) {
       id
       excerpt(pruneLength: 160)
       html
       frontmatter {
         title
         host
-        date(formatString: "DD.MM.YYYY")
+        date(formatString: "dddd, MMMM Do (hh:mma)")
         # body
       }
     }
-    previous: markdownRemark(id: { eq: $previousEventId }) {
+    previous: markdownRemark(id: { eq: $previousId }) {
       fields {
         slug
       }
       frontmatter {
         title
         host
-        date(formatString: "DD.MM.YYYY")
+        date(formatString: "dddd, MMMM Do")
         # body
       }
     }
-    next: markdownRemark(id: { eq: $nextEventId }) {
+    next: markdownRemark(id: { eq: $nextId }) {
       fields {
         slug
       }
       frontmatter {
         title
         host
-        date(formatString: "DD.MM.YYYY")
+        date(formatString: "dddd, MMMM Do")
         # body
       }
     }
@@ -155,6 +151,7 @@ export const pageQuery = graphql`
 const SectionWrapper = styled.div`
   width: 75%;
   margin: 0 auto;
+
 
   & img {
     /* padding-bottom: 5rem; */

@@ -6,6 +6,7 @@
   --color-white: #ffffff;
   --color-black: #000000;
   --color-orange: #D33A21;
+  --hover-transition: all ease-in-out 0.15s;
 }
 
 @font-face {
