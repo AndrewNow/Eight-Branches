@@ -2,7 +2,7 @@
 name: Elyse Tera B.A., R.Ac, Dipl. Ac (NCCAOM)
 title: Sandy Antunes, M.OMSc.
 role: Management
-portrait: https://i.imgur.com/eGQpmJb.png
+portrait: egqpmjb.png
 briefdescription: Elyse Tera has been practicing and teaching Chinese medicine
   since 1994. She has a Bachelor’s Degree (Honours) in Comparative Religion and
   Feminist Ethics from Concordia University received her Shiatsu training at the
