@@ -1,7 +1,7 @@
 ---
 name: Elyse Tera B.A., R.Ac, Dipl. Ac (NCCAOM)
 role: Management
-portrait: https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80
+portrait: https://i.imgur.com/eGQpmJb.png
 briefdescription: Elyse Tera has been practicing and teaching Chinese medicine
   since 1994. She has a Bachelor’s Degree (Honours) in Comparative Religion and
   Feminist Ethics from Concordia University received her Shiatsu training at the
