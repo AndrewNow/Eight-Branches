@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import contactInfo from "../../site/settings/contact_info.json"
 import FooterStamp from "../svg/footerStamp"
 import { SiTiktok, SiInstagram, SiLinkedin } from "react-icons/si"
-import { ImArrowRight2 } from "react-icons/im"
+import MailchimpFormContainer from './Mailchimp/mailchimpFormContainer.js'
 
 const Footer = () => {
   return (
@@ -13,17 +13,7 @@ const Footer = () => {
         <Newsletter>
           <div>
             <h4>Sign up for our newsletter</h4>
-            <EmailForm>
-              <EmailInput
-                type="text"
-                placeholder="Enter Email Address"
-                required
-              />
-              <label>
-                <SubmitInput type="submit" value="Subscribe" />
-                <ImArrowRight2 size={27} />
-              </label>
-            </EmailForm>
+            <MailchimpFormContainer />
           </div>
           <FooterStamp />
         </Newsletter>
@@ -45,8 +35,8 @@ const Footer = () => {
           <Link to="/teachingclinic">
             <p>Teaching Clinic</p>
           </Link>
-          <Link to="/contact-us">
-            <p>Contact Us</p>
+          <Link to="/our-faculty">
+            <p>Meet Our Faculty</p>
           </Link>
           <Link to="/studentlogin">
             <p>Student Login</p>
@@ -128,34 +118,13 @@ const FlexWrapper = styled.span`
 
   & p {
     padding-bottom: 0.5rem;
-  }
+  }  
 
   & h4 {
     padding-bottom: 1.5rem;
   }
 `
-const EmailForm = styled.form`
-  width: 400px;
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid #00000050;
-`
 
-const EmailInput = styled.input`
-  width: 300px;
-  border: none;
-  background: none;
-  background-color: none;
-  font-family: "Matter-regular";
-  font-size: 18px;
-  box-sizing: border-box;
-  &:focus {
-    border-radius: 3px;
-    outline: none !important;
-    color: #00000090;
-  }
-`
-const SubmitInput = styled.input``
 
 const Newsletter = styled.section`
   display: flex;

@@ -8,7 +8,6 @@ const EventPostTemplate = ({ data }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
-  // console.log(previous, next)
 
   return (
     <Layout title={siteTitle}>

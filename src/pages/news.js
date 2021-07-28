@@ -21,8 +21,7 @@ const News = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo title="All posts" />
-
+      <Seo title="News" />
       <UpcomingEventsWrapper>
         <SectionWrapper>
           <h2>Upcoming Events</h2>
@@ -54,6 +53,7 @@ const News = ({ data, location }) => {
           </EventWrapper>
         </SectionWrapper>
       </UpcomingEventsWrapper>
+
 
       <BulletinWrapper>
         <SectionWrapper>

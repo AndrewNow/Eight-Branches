@@ -33,6 +33,20 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        path: `${__dirname}/content/facultyLeadership`,
+        name: `facultyLeadership`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/facultyInstructor`,
+        name: `facultyInstructor`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
@@ -63,7 +77,6 @@ module.exports = {
               quality: 90,
               showCaptions: "true",
               withWebp: { quality: 90 },
-              
             },
           },
           {

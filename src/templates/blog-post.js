@@ -11,7 +11,6 @@ const BlogPostTemplate = ({ data }) => {
   const { previous, next } = data
 
 
-  console.log(data, previous, next)
 
   return (
     <Layout title={siteTitle}>

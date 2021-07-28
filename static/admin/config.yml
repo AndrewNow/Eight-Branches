@@ -42,6 +42,49 @@ collections:
       - { label: "Host", name: "host", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
 
+
+
+  - name: "facultyLeadership"
+    identifier_field: facultyLeadership
+    label: "Faculty (Leadership)"
+    folder: "content/facultyLeadership"
+    create: true
+    slug: "facultyLeadership"
+    media_folder: ""
+    public_folder: ""
+    path: "{{name}}/index"
+    editor:
+      preview: true
+    fields:
+      - { label: "Name", name: "name", widget: "string", required: true  }
+      - { label: "Role", name: "role", widget: "string", required: true }
+      - { label: "Portrait", name: "portrait", widget: "image", required: true }
+      - { label: "Brief Description", name: "briefdescription", widget: "string", required: true }
+      - { label: "Bio", name: "bio", widget: "string", required: true }
+      - { label: "Email Address", name: "email", widget: "string", required: true }
+
+
+
+  - name: "facultyInstructor"
+    identifier_field: facultyInstructor
+    label: "Faculty (Instructor)"
+    folder: "content/facultyInstructor"
+    create: true
+    slug: "facultyInstructor"
+    media_folder: ""
+    public_folder: ""
+    path: "{{name}}/index"
+    editor:
+      preview: true
+    fields:
+      - { label: "Name", name: "name", widget: "string", required: true  }
+      - { label: "Role", name: "role", widget: "string", required: true, default: "Instructor" }
+      - { label: "Portrait", name: "portrait", widget: "image", required: true }
+      - { label: "Brief Description", name: "briefdescription", widget: "string", required: true }
+      - { label: "Bio", name: "bio", widget: "string", required: true }
+      - { label: "Email Address", name: "email", widget: "string", required: true }
+
+
   - name: "settings"
     label: "Settings"
     files:

@@ -103,6 +103,9 @@ const Navbar = () => {
                 <Link to="/teachingclinic">Teaching Clinic</Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
+                <Link to="/our-faculty">Meet Our Faculty</Link>
+              </motion.h3>
+              <motion.h3 variants={navItem}>
                 <Link to="/studentlogin">Student Login</Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
