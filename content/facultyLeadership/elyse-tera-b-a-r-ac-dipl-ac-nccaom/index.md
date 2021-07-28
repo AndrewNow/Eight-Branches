@@ -1,5 +1,6 @@
 ---
 name: Elyse Tera B.A., R.Ac, Dipl. Ac (NCCAOM)
+title: Sandy Antunes, M.OMSc.
 role: Management
 portrait: https://i.imgur.com/eGQpmJb.png
 briefdescription: Elyse Tera has been practicing and teaching Chinese medicine
