@@ -1,5 +1,6 @@
 ---
 name: Sandy Antunes, M.OMSc.
+title: Sandy Antunes, M.OMSc.
 role: Instructor
 portrait: untitled-4.png
 briefdescription: "Yan Yen is a licensed naturopathic doctor in Toronto. She has
