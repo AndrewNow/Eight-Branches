@@ -15,10 +15,12 @@ const Layout = ({ children }) => {
 
 const GlobalWrapper = styled.div`
   margin: 0 auto;
+  padding-bottom: 550px;
 `
 
 const Main = styled.main`
   margin: 0 auto;
+  border-bottom: 1px solid black;
 `
 
 export default Layout

@@ -63,7 +63,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
   const eventPost = path.resolve(`./src/templates/event-post.js`)
 
-  console.log(JSON.stringify(blogPosts, null, 2))
+  // console.log(JSON.stringify(blogPosts, null, 2))
 
   if (blogPosts.length > 0 && eventPosts.length > 0) {
     blogPosts.forEach((node, index) => {

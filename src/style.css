@@ -1,7 +1,9 @@
 :root {
   /* Eight branches color variables */
+  --color-sandbeige: #F7EDE5;
   --color-beige: #F5F1E5;
-  --color-lightgreen: #C3E0AB;
+  --color-lightestgreen: #C3E0AB;
+  --color-lightgreen: #82AF82;
   --color-darkgreen: #316C5F;
   --color-white: #ffffff;
   --color-black: #000000;
@@ -49,9 +51,9 @@ body {
 }
 /* Heading */
 
-html {
+/* html {
   overflow-y: scroll;
-}
+} */
 
 h1 {
   font-family: "Reckless-light";
@@ -94,6 +96,11 @@ p {
   font-size: 18px;
   line-height: 28px;
 }
+
+/* a {
+  font-family: "Matter-regular";
+  font-size: 18px;
+} */
 
 h1 > a
 h2 > a,

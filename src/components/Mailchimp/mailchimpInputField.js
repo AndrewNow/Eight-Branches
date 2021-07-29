@@ -12,7 +12,6 @@ const MailchimpInputField = props => {
     }
   }
   if (props.type === "submit") {
-    console.log(props.formValues)
     return (
       <SubmitLabel>
         <SubmitInput

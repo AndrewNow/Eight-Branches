@@ -4,8 +4,8 @@ import styled from "styled-components"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 // import contactInfo from "../../site/settings/contact_info.json"
+// import Footer from '../components/footer'
 import { GatsbyImage } from "gatsby-plugin-image"
-import Footer from '../components/footer'
 
 const News = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -178,12 +178,11 @@ export const pageQuery = graphql`
 
 const UpcomingEventsWrapper = styled.div`
   background-color: var(--color-darkgreen);
-  position: fixed;
-  z-index: 1;
+  position: sticky;
+  z-index: -1;
   width: 100%;
   top: 0;
   padding-top: 15rem;
-  padding-bottom: 10rem;
 
   & h2 {
     color: var(--color-white);
@@ -251,13 +250,12 @@ const SignUpLink = styled(Link)`
 
 const BulletinWrapper = styled.div`
   width: 100%;
-  top: 70vh;
   padding-top: 5rem;
   z-index: 2;
   position: relative;
   background-color: var(--color-white);
   margin: 0 auto;
-`
+  `
 
 const Bulletingrid = styled.div`
   display: grid;

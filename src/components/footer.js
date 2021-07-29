@@ -71,7 +71,7 @@ const Footer = () => {
         </GetInTouch>
         <StayConnected>
           <h4>Stay connected</h4>
-          <a href="" target="blank">
+          <a href="https://www.instagram.com/eightbranches/" target="blank">
             <SiTiktok size={27} />
           </a>
           <a href="https://www.instagram.com/eightbranches/" target="blank">
@@ -90,9 +90,13 @@ const Footer = () => {
 }
 
 const FooterComponent = styled.footer`
+  position: fixed;
+  bottom: 0;
+  z-index: -2;
   height: 550px;
+  width: 100%;
   background-color: var(--color-beige);
-  border-top: 1px solid black;
+  /* border-top: 1px solid black; */
 `
 
 const FlexWrapper = styled.span`

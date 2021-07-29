@@ -1,7 +1,4 @@
 module.exports = {
-  flags: {
-    THE_FLAG: false,
-  },
   siteMetadata: {
     title: `Eight Branches`,
     author: {

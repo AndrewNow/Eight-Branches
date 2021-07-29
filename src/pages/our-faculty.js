@@ -1,19 +1,30 @@
-import * as React from "react"
-import { Link, graphql } from "gatsby"
+import React from "react"
+import { graphql } from "gatsby"
 import styled from "styled-components"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 // import contactInfo from "../../site/settings/contact_info.json"
-import { GatsbyImage } from "gatsby-plugin-image"
+
+import FacultyLeadershipQuery from "../components/Faculty/facultyLeadershipQuery"
+import FacultyInstructorQuery from "../components/Faculty/facultyInstructorQuery"
 
 const OurFaculty = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
 
+
   if (data.facultyLeadership.edges.length === 0) {
     return (
-      <Layout location={location} title={siteTitle}>
+      <Layout title={siteTitle}>
         <Seo title="All posts" />
-        <p>No faculty member posts found.</p>
+        <p>No leadership faculty member posts found.</p>
+      </Layout>
+    )
+  }
+  if (data.facultyInstructor.edges.length === 0) {
+    return (
+      <Layout title={siteTitle}>
+        <Seo title="All posts" />
+        <p>No instructor faculty member posts found.</p>
       </Layout>
     )
   }
@@ -32,41 +43,14 @@ const OurFaculty = ({ data, location }) => {
             </h6>
           </FacultyHeader>
 
+          <h2>Leadership</h2>
           <FacultyGrid>
-            {data.facultyLeadership.edges?.map(facultyLeadershipData => {
-              const leadershipQuery =
-                facultyLeadershipData.node.childrenMarkdownRemark[0]
-              // Check to see if a query exists; if it has empty data then don't render it
-              if (!leadershipQuery) {
-                return null
-              }
-              //abbreviations for the query routes
-              const {
-                name,
-                role,
-                briefdescription,
-                bio,
-                email,
-              } = leadershipQuery.frontmatter
-              const slug = leadershipQuery.fields.slug
-              const portrait =
-                leadershipQuery.frontmatter.portrait.childImageSharp
-                  .gatsbyImageData
-              return (
-                // second query check just in case
-                leadershipQuery && (
-                  <FacultyPost key={slug}>
-                    <GatsbyImage image={portrait} alt={name} />
-                    <p>{role}</p>
-                    <h3>{name}</h3>
-                    <FacultyDescription>
-                      <p>{briefdescription}</p>
-                    </FacultyDescription>
-                    <ReadMore>Read More</ReadMore>
-                  </FacultyPost>
-                )
-              )
-            })}
+            <FacultyLeadershipQuery />
+          </FacultyGrid>
+          <h2>Instructors</h2>
+          <FacultyGrid>
+
+          <FacultyInstructorQuery />
           </FacultyGrid>
         </SectionWrapper>
       </FacultyWrapper>
@@ -97,24 +81,6 @@ export const pageQuery = graphql`
             fields {
               slug
             }
-            frontmatter {
-              name
-              role
-              briefdescription
-              bio
-              email
-              portrait {
-                childImageSharp {
-                  gatsbyImageData(
-                    width: 550
-                    quality: 90
-                    placeholder: BLURRED
-                    formats: [WEBP]
-                    aspectRatio: 1.75
-                  )
-                }
-              }
-            }
           }
         }
       }
@@ -132,24 +98,6 @@ export const pageQuery = graphql`
             fields {
               slug
             }
-            frontmatter {
-              title
-              role
-              briefdescription
-              bio
-              email
-              portrait {
-                childImageSharp {
-                  gatsbyImageData(
-                    width: 550
-                    quality: 90
-                    placeholder: BLURRED
-                    formats: [WEBP]
-                    aspectRatio: 1.75
-                  )
-                }
-              }
-            }
           }
         }
       }
@@ -159,6 +107,11 @@ export const pageQuery = graphql`
 const SectionWrapper = styled.div`
   width: 90%;
   margin: 0 auto;
+
+  & h2 {
+    padding-bottom: 5rem;
+  }
+  padding-bottom: 15rem;
 `
 
 const FacultyWrapper = styled.div`
@@ -192,54 +145,4 @@ const FacultyGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 2em;
-`
-
-const FacultyPost = styled.article`
-  border: 1px solid black;
-  justify-self: center;
-  width: 550px;
-  height: 580px;
-  margin-bottom: 5rem;
-  padding: 1.5rem 2rem;
-  transition: var(--hover-transition);
-
-
-  & p {
-    padding-top: 1rem;
-    letter-spacing: 0.01rem;
-  }
-
-  & h6 {
-    padding-top: 0.75rem;
-    padding-bottom: 1rem;
-    transition: var(--hover-transition);
-
-    &:hover {
-      color: var(--color-orange);
-    }
-  }
-
-
-  &:hover {
-    background-color: var(--color-lightgreen);
-  }
-`
-
-const FacultyDescription = styled.small`
-  display: flex;
-  justify-content: space-between;
-
-  & p {
-    padding-top: 0.75rem;
-    font-size: 16px;
-    color: #3a3a3a;
-  }
-`
-
-const ReadMore = styled.button`
-  margin-top: 2rem;
-  font-family: "Matter-light";
-  font-size: 18px;
-  border: none;
-  background: none;
 `

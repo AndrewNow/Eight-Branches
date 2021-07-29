@@ -56,11 +56,11 @@ collections:
     editor:
       preview: true
     fields:
-      - { label: "Name", name: "name", widget: "string", required: true  }
+      - { label: "Title", name: "title", widget: "string", required: true  }
       - { label: "Role", name: "role", widget: "string", required: true }
       - { label: "Portrait", name: "portrait", widget: "image", required: true }
-      - { label: "Brief Description", name: "briefdescription", widget: "string", required: true }
-      - { label: "Bio", name: "bio", widget: "string", required: true }
+      - { label: "Brief Description", name: "description", widget: "string", required: true }
+      - { label: "Bio", name: "body", widget: "markdown", required: true }
       - { label: "Email Address", name: "email", widget: "string", required: true }
 
 
@@ -77,11 +77,11 @@ collections:
     editor:
       preview: true
     fields:
-      - { label: "Name", name: "name", widget: "string", required: true  }
+      - { label: "Title", name: "title", widget: "string", required: true  }
       - { label: "Role", name: "role", widget: "string", required: true, default: "Instructor" }
       - { label: "Portrait", name: "portrait", widget: "image", required: true }
-      - { label: "Brief Description", name: "briefdescription", widget: "string", required: true }
-      - { label: "Bio", name: "bio", widget: "string", required: true }
+      - { label: "Brief Description", name: "description", widget: "string", required: true }
+      - { label: "Bio", name: "body", widget: "markdown", required: true }
       - { label: "Email Address", name: "email", widget: "string", required: true }
 
 
