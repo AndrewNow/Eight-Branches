@@ -9,6 +9,12 @@ briefdescription: Elyse Tera has been practicing and teaching Chinese medicine
   Dragon and Phoenix School in Montreal, and her Acupuncture certification from
   the prestigious New England School of Acupuncture, the oldest accredited
   Acupuncture school in the United States.
+description: Elyse Tera has been practicing and teaching Chinese medicine since
+  1994. She has a Bachelor’s Degree (Honours) in Comparative Religion and
+  Feminist Ethics from Concordia University received her Shiatsu training at the
+  Dragon and Phoenix School in Montreal, and her Acupuncture certification from
+  the prestigious New England School of Acupuncture, the oldest accredited
+  Acupuncture school in the United States.
 bio: >-
   Elyse Tera has been practicing and teaching Chinese medicine since 1994. She
   has a Bachelor’s Degree (Honours) in Comparative Religion and Feminist Ethics
