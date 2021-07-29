@@ -6,6 +6,8 @@ portrait: untitled-4.png
 briefdescription: "Yan Yen is a licensed naturopathic doctor in Toronto. She has
   a general practice that is grounded in mental, digestive and hormonal health.
   "
+description: Yan Yen is a licensed naturopathic doctor in Toronto. She has a
+  general practice that is grounded in mental, digestive and hormonal health.
 bio: >-
   Yan Yen is a licensed naturopathic doctor in Toronto. She has a general
   practice that is grounded in mental, digestive and hormonal health.   
