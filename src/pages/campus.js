@@ -69,8 +69,15 @@ const Campus = ({ data }) => {
             <EmblaContainer>
               {data.CampusImages.edges.map((image, index) => {
                 return (
-                  <EmblaSlide key={index} >
-                    <GatsbyImage image={image.node.childImageSharp.gatsbyImageData} alt={"Images of the campus, including lecture halls, teaching "} />
+                  <EmblaSlide key={index}>
+                    <EmblaSlideInner>
+                      <GatsbyImage
+                        image={image.node.childImageSharp.gatsbyImageData}
+                        alt={
+                          "Images of the campus, including lecture halls, teaching "
+                        }
+                      />
+                    </EmblaSlideInner>
                   </EmblaSlide>
                 )
               }
@@ -109,6 +116,7 @@ export const pageQuery = graphql`
           childImageSharp {
             gatsbyImageData(
               width: 1720
+              aspectRatio: 1.5
               placeholder: BLURRED
               quality: 90
               blurredOptions: { width: 80 }
@@ -198,4 +206,16 @@ const EmblaProgressBar = styled.div`
   top: 0;
   bottom: 0;
   left: -100%;
+`
+
+const EmblaSlideInner = styled.div`
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  min-height: 100%;
+  min-width: 100%;
+  max-width: none;
+  transform: translate(-50%, -50%);
 `
