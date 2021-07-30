@@ -6,10 +6,11 @@ import styled from "styled-components"
 import StampLogo from '../svg/stamplogo'
 // import ebgreen from '../images/ebgreen.png'
 
-const BlogIndex = () => {
+const HomePage = () => {
   return (
     <Layout>
       <Seo title="Home" />
+      <PageWrapper>
       <LandingSection>
         <LeftSection>
           {/* <img src={ebgreen} /> */}
@@ -38,12 +39,15 @@ const BlogIndex = () => {
           </h3>
           <ReadMore to="/aboutus">Read More</ReadMore>
         </AboutUsTextWrapper>
-        <div></div>
       </AboutUsSection>
+      </PageWrapper>
     </Layout>
   )
 }
 
+const PageWrapper = styled.div`
+  
+`
 
 const LandingSection = styled.span`
   height: 100vh;
@@ -131,4 +135,4 @@ const ReadMore = styled(Link)`
 
 
 
-export default BlogIndex
+export default HomePage

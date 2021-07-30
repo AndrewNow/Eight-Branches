@@ -15,89 +15,68 @@ const EventPostTemplate = ({ data }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <SectionWrapper>
-        <article
-          className="blog-post"
-          itemScope
-          itemType="http://schema.org/Article"
-        >
-          <Header>
-            <h1 itemProp="headline">{post.frontmatter.title}</h1>
-              <p>
-                {post.frontmatter.date}
-              </p>
-          </Header>
-          <BlogContentHeader>
-            <h6>{post.frontmatter.description}</h6>
-          </BlogContentHeader>
-
-          <BlogContent
-            dangerouslySetInnerHTML={{ __html: post.html }}
-            itemProp="articleBody"
-          />
-        </article>
-      </SectionWrapper>
-      <ContinueReading>
-        <h1>Other events</h1>
-        <nav className="blog-post-nav">
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0,
-            }}
+      <BgColor>
+        <SectionWrapper>
+          <article
+            className="blog-post"
+            itemScope
+            itemType="http://schema.org/Article"
           >
-            <li>
+            <Header>
+              <h1 itemProp="headline">{post.frontmatter.title}</h1>
+              <p>{post.frontmatter.date}</p>
+            </Header>
+            <BlogContentHeader>
+              <h6>{post.frontmatter.description}</h6>
+            </BlogContentHeader>
+
+            <BlogContent
+              dangerouslySetInnerHTML={{ __html: post.html }}
+              itemProp="articleBody"
+            />
+          </article>
+        </SectionWrapper>
+        <ContinueReading>
+          <h1>Other upcoming events</h1>
+          <ContinueReadingPostWrapper>
+            <div>
               {/* check to see if previous exists, if so display previous post */}
               {previous && (
                 <BulletinPost key={previous.fields.slug}>
-                  <article className="post-list-item">
-                    <header>
-                      <h6>
-                        <Link to={previous.fields.slug} itemProp="url">
-                          <span itemProp="headline">
-                            {previous.frontmatter.title}
-                          </span>
-                        </Link>
-                      </h6>
-                      <Link
-                        to={previous.fields.slug}
-                        itemProp="url"
-                      ></Link>
-                      <BulletinDescription>
-                        <p>{previous.frontmatter.date}</p>
-                      </BulletinDescription>
-                    </header>
+                  <article>
+                    <h6>
+                      <Link to={previous.fields.slug} itemProp="url">
+                        {previous.frontmatter.title}
+                      </Link>
+                    </h6>
+                    <Link to={previous.fields.slug} itemProp="url"></Link>
+                    <BulletinDescription>
+                      <p>{previous.frontmatter.date}</p>
+                    </BulletinDescription>
                   </article>
                 </BulletinPost>
               )}
-            </li>
-            <li>
+            </div>
+            <div>
               {next && (
                 <BulletinPost key={next.fields.slug}>
-                  <article className="post-list-item">
-                    <header>
-                      <h6>
-                        <Link to={next.fields.slug} itemProp="url">
-                          <span itemProp="headline">
-                            {next.frontmatter.title}
-                          </span>
-                        </Link>
-                      </h6>
-                      <Link to={next.fields.slug} itemProp="url"></Link>
-                      <BulletinDescription>
-                        <p>{next.frontmatter.date}</p>
-                      </BulletinDescription>
-                    </header>
+                  <article>
+                    <h6>
+                      <Link to={next.fields.slug} itemProp="url">
+                        {next.frontmatter.title}
+                      </Link>
+                    </h6>
+                    <Link to={next.fields.slug} itemProp="url"></Link>
+                    <BulletinDescription>
+                      <p>{next.frontmatter.date}</p>
+                    </BulletinDescription>
                   </article>
                 </BulletinPost>
               )}
-            </li>
-          </ul>
-        </nav>
-      </ContinueReading>
+            </div>
+          </ContinueReadingPostWrapper>
+        </ContinueReading>
+      </BgColor>
     </Layout>
   )
 }
@@ -146,11 +125,16 @@ export const pageQuery = graphql`
     }
   }
 `
+const BgColor = styled.div`
+  background-color: var(--color-white);
+  position: relative;
+  z-index: 5;
+  
+`
 
 const SectionWrapper = styled.div`
   width: 75%;
   margin: 0 auto;
-
 
   & img {
     /* padding-bottom: 5rem; */
@@ -331,4 +315,13 @@ const BulletinDescription = styled.small`
     font-size: 16px;
     color: #3a3a3a;
   }
+`
+const ContinueReadingPostWrapper = styled.div`
+  width: 75%;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: row;
+  justify-content: center;
+  list-style: none;
+  padding-bottom: 10rem;
 `

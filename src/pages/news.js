@@ -3,8 +3,6 @@ import { Link, graphql } from "gatsby"
 import styled from "styled-components"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-// import contactInfo from "../../site/settings/contact_info.json"
-// import Footer from '../components/footer'
 import { GatsbyImage } from "gatsby-plugin-image"
 
 const News = ({ data, location }) => {
@@ -54,7 +52,6 @@ const News = ({ data, location }) => {
         </SectionWrapper>
       </UpcomingEventsWrapper>
 
-
       <BulletinWrapper>
         <SectionWrapper>
           <BulletinHeader>
@@ -103,7 +100,6 @@ const News = ({ data, location }) => {
           </Bulletingrid>
         </SectionWrapper>
       </BulletinWrapper>
-      {/* <Footer /> */}
     </Layout>
   )
 }
@@ -179,7 +175,7 @@ export const pageQuery = graphql`
 const UpcomingEventsWrapper = styled.div`
   background-color: var(--color-darkgreen);
   position: sticky;
-  z-index: -1;
+  z-index: 1;
   width: 100%;
   top: 0;
   padding-top: 15rem;
@@ -218,7 +214,7 @@ const Event = styled.article`
 `
 const EventLink = styled(Link)`
   text-decoration: none;
-  
+
   & h4 {
     color: var(--color-white);
     padding-bottom: 0.5rem;
@@ -255,7 +251,7 @@ const BulletinWrapper = styled.div`
   position: relative;
   background-color: var(--color-white);
   margin: 0 auto;
-  `
+`
 
 const Bulletingrid = styled.div`
   display: grid;

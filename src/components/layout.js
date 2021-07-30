@@ -21,6 +21,8 @@ const GlobalWrapper = styled.div`
 const Main = styled.main`
   margin: 0 auto;
   border-bottom: 1px solid black;
+  position: relative;
+  z-index: 2;
 `
 
 export default Layout

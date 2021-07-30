@@ -92,11 +92,10 @@ const Footer = () => {
 const FooterComponent = styled.footer`
   position: fixed;
   bottom: 0;
-  z-index: -2;
-  height: 550px;
+  z-index: 0;
+  height: var(--footer-height);
   width: 100%;
   background-color: var(--color-beige);
-  /* border-top: 1px solid black; */
 `
 
 const FlexWrapper = styled.span`

@@ -46,15 +46,13 @@ const BlogPostTemplate = ({ data }) => {
           </article>
         </SectionWrapper>
         <ContinueReading>
-          <h1>Continue Reading</h1>
-          <nav>
+          <h1>Continue reading</h1>
             <ContinueReadingPostWrapper>
               <div>
                 {/* check to see if previous exists, if so display previous post */}
                 {previous && (
                   <BulletinPost key={previous.fields.slug}>
                     <article className="post-list-item">
-                      <header>
                         <h6>
                           <Link to={previous.fields.slug} itemProp="url">
                             <span itemProp="headline">
@@ -75,7 +73,6 @@ const BlogPostTemplate = ({ data }) => {
                           <p>{previous.frontmatter.readtime} minute read</p>
                           <p>{previous.frontmatter.date}</p>
                         </BulletinDescription>
-                      </header>
                     </article>
                   </BulletinPost>
                 )}
@@ -84,7 +81,6 @@ const BlogPostTemplate = ({ data }) => {
                 {next && (
                   <BulletinPost key={next.fields.slug}>
                     <article className="post-list-item">
-                      <header>
                         <h6>
                           <Link to={next.fields.slug} itemProp="url">
                             <span itemProp="headline">
@@ -107,13 +103,11 @@ const BlogPostTemplate = ({ data }) => {
                           <p>{next.frontmatter.readtime} minute read</p>
                           <p>{next.frontmatter.date}</p>
                         </BulletinDescription>
-                      </header>
-                    </article>
+                    </article>s
                   </BulletinPost>
                 )}
               </div>
             </ContinueReadingPostWrapper>
-          </nav>
         </ContinueReading>
       </BgColor>
     </Layout>
@@ -204,11 +198,14 @@ export const pageQuery = graphql`
 
 const BgColor = styled.div`
   background-color: var(--color-white);
+  position: relative;
+  z-index: 5;
 `
 
 const SectionWrapper = styled.div`
   width: 75%;
   margin: 0 auto;
+
 
   & img {
     /* padding-bottom: 5rem; */
