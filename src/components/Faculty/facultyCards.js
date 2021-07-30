@@ -1,6 +1,7 @@
 import React, { useState, useLayoutEffect } from "react"
 import styled from "styled-components"
 import { GatsbyImage } from "gatsby-plugin-image"
+import { motion, AnimatePresence } from "framer-motion"
 
 export const FacultyLeadership = ({
   title,
@@ -12,6 +13,7 @@ export const FacultyLeadership = ({
   portraitpic,
 }) => {
   const [open, setOpen] = useState(false)
+
   //lock scroll on background when Modal is open
   const useLockBodyScroll = () => {
     useLayoutEffect(() => {
@@ -26,6 +28,21 @@ export const FacultyLeadership = ({
     return <></>
   }
 
+  const fadeIn = {
+    hidden: {
+      opacity: 0,
+        transition: {
+        duration: 0.25,
+      },
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.45,
+      },
+    },
+  }
+
   return (
     <>
       {open && <ScrollLock />}
@@ -37,22 +54,33 @@ export const FacultyLeadership = ({
           <p>{excerpt}</p>
         </FacultyDescription>
         <ReadMore>Read More</ReadMore>
-
-        {open && (
-          <GreyBg>
-            <Modal>
-              <ModalImage>
-                <GatsbyImage image={portraitpic} alt={title} />
-              </ModalImage>
-              <ModalText>
-                <p>{role}</p>
-                <h3>{title}</h3>
-                <div dangerouslySetInnerHTML={{ __html: bio }} />
-                <GetInTouch href={`mailto:${email}`}>Get in touch</GetInTouch>
-              </ModalText>
-            </Modal>
-          </GreyBg>
-        )}
+        <AnimatePresence>
+          {open && (
+            <GreyBg
+              variants={fadeIn}
+              initial="hidden"
+              animate={open ? "visible" : "hidden"}
+              exit="hidden"
+            >
+              <Modal
+                variants={fadeIn}
+                initial="hidden"
+                animate={open ? "visible" : "hidden"}
+                exit="hidden"
+              >
+                <ModalImage>
+                  <GatsbyImage image={portraitpic} alt={title} />
+                </ModalImage>
+                <ModalText>
+                  <p>{role}</p>
+                  <h3>{title}</h3>
+                  <div dangerouslySetInnerHTML={{ __html: bio }} />
+                  <GetInTouch href={`mailto:${email}`}>Get in touch</GetInTouch>
+                </ModalText>
+              </Modal>
+            </GreyBg>
+          )}
+        </AnimatePresence>
       </FacultyPost>
     </>
   )
@@ -124,7 +152,7 @@ const FacultyPost = styled.article`
   height: 620px;
   margin-bottom: 5rem;
   padding: 1.5rem 2rem;
-  transition: var(--hover-transition);
+  transition: all ease-in-out 0.45s;
 
   & img {
     max-width: 550px;
@@ -179,7 +207,7 @@ const ReadMore = styled.button`
   border: none;
   background: none;
 `
-const GreyBg = styled.div`
+const GreyBg = styled(motion.div)`
   position: fixed;
   z-index: 10;
   display: flex;
@@ -188,17 +216,17 @@ const GreyBg = styled.div`
   height: 100vh;
   top: 0;
   left: 0;
-  background-color: #00000025;
+  background-color: #00000035;
 `
 
-const Modal = styled.div`
+const Modal = styled(motion.div)`
   position: relative;
   display: flex;
   justify-content: space-between;
   background-color: var(--color-sandbeige);
   border: 1px solid black;
   margin: 0 auto;
-  width: 75vw;
+  width: 85vw;
   max-height: 70vh;
   padding: 1.5rem;
 `
@@ -207,14 +235,14 @@ const ModalImage = styled.div`
   align-self: center;
   & img {
     border: 1px solid black;
-    max-width: 750px;
+    max-width: 850px;
     min-height: 600px;
   }
 `
 
 const ModalText = styled.div`
   overflow-y: scroll;
-  flex-basis: 40%;
+  flex-basis: 50%;
   padding-left: 2rem;
   padding-right: 5rem;
 

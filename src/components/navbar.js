@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import { motion, AnimatePresence } from "framer-motion"
 import styled from "styled-components"
 import { Squash as Hamburger } from "hamburger-react"
+import NavLogo from '../svg/navLogo'
 
 const Navbar = () => {
   const clickOut = {
@@ -55,25 +56,13 @@ const Navbar = () => {
 
   const [open, setOpen] = useState(false)
 
-  //below is a "modal" element to prevent scrolling on background when sidebar opens
-  // const useLockBodyScroll = () => {
-  //   useLayoutEffect(() => {
-  //     const originalStyle = window.getComputedStyle(document.body).overflow
-  //     document.body.style.overflow = "hidden"
-  //     return () => (document.body.style.overflow = originalStyle)
-  //   }, [])
-  // }
-
-  // const Modal = () => {
-  //   useLockBodyScroll()
-  //   return <></>
-  // }
-
   return (
     <>
       {/* {open && <Modal />} */}
       <HeaderWrapper>
-        <Link to="/">Eight Branches logo</Link>
+        <Link to="/">
+          <NavLogo />
+        </Link>
         <IconWrapper>
           <Hamburger
             toggled={open}
@@ -137,6 +126,10 @@ const HeaderWrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  & svg {
+    margin-top: 1rem;
+  }
 `
 
 const IconWrapper = styled.div`
