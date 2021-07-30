@@ -131,7 +131,22 @@ export const FacultyInstructor = ({
 
   const fadeIn = {
     hidden: {
-      y: 50,
+      y: -50,
+      opacity: 0,
+      transition: {
+        duration: 0.25,
+      },
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  }
+  const greybgfadein = {
+    hidden: {
       opacity: 0,
       transition: {
         duration: 0.25,
@@ -140,7 +155,7 @@ export const FacultyInstructor = ({
     visible: {
       opacity: 1,
       transition: {
-        duration: 0.45,
+        duration: 0.5,
       },
     },
   }
@@ -159,20 +174,22 @@ export const FacultyInstructor = ({
           <p>{briefdescription}</p>
         </FacultyDescription>
         <ReadMore>Read More</ReadMore>
+        <AnimatePresence>
 
         {open && (
           <GreyBg
-            variants={fadeIn}
-            initial="hidden"
-            animate={open ? "visible" : "hidden"}
-            exit="hidden"
+          onClick={() => setOpen(!open)}
+          variants={greybgfadein}
+          initial="hidden"
+          animate={open ? "visible" : "hidden"}
+          exit="hidden"
           >
             <Modal
               variants={fadeIn}
               initial="hidden"
               animate={open ? "visible" : "hidden"}
               exit="hidden"
-            >
+              >
               <ModalImage>
                 <GatsbyImage image={portraitpic} alt={title} />
               </ModalImage>
@@ -185,6 +202,7 @@ export const FacultyInstructor = ({
             </Modal>
           </GreyBg>
         )}
+        </AnimatePresence>
       </FacultyPost>
     </>
   )
@@ -256,6 +274,7 @@ const ReadMore = styled.button`
   font-size: 18px;
   border: none;
   background: none;
+  cursor: pointer;
 `
 const GreyBg = styled(motion.div)`
   position: fixed;
