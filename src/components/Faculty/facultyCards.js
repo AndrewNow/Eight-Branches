@@ -30,7 +30,7 @@ export const FacultyLeadership = ({
 
   const fadeIn = {
     hidden: {
-      y: -50,
+      y: 75,
       opacity: 0,
       transition: {
         duration: 0.25,
@@ -40,7 +40,8 @@ export const FacultyLeadership = ({
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.5,
+        delay: .15,
+        duration: 0.25,
       },
     },
   }
@@ -58,6 +59,7 @@ export const FacultyLeadership = ({
       },
     },
   }
+
 
   return (
     <>
@@ -131,7 +133,7 @@ export const FacultyInstructor = ({
 
   const fadeIn = {
     hidden: {
-      y: -50,
+      y: 75,
       opacity: 0,
       transition: {
         duration: 0.25,
@@ -141,7 +143,8 @@ export const FacultyInstructor = ({
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.5,
+        delay: 0.15,
+        duration: 0.25,
       },
     },
   }
@@ -175,33 +178,32 @@ export const FacultyInstructor = ({
         </FacultyDescription>
         <ReadMore>Read More</ReadMore>
         <AnimatePresence>
-
-        {open && (
-          <GreyBg
-          onClick={() => setOpen(!open)}
-          variants={greybgfadein}
-          initial="hidden"
-          animate={open ? "visible" : "hidden"}
-          exit="hidden"
-          >
-            <Modal
-              variants={fadeIn}
+          {open && (
+            <GreyBg
+              onClick={() => setOpen(!open)}
+              variants={greybgfadein}
               initial="hidden"
               animate={open ? "visible" : "hidden"}
               exit="hidden"
+            >
+              <Modal
+                variants={fadeIn}
+                initial="hidden"
+                animate={open ? "visible" : "hidden"}
+                exit="hidden"
               >
-              <ModalImage>
-                <GatsbyImage image={portraitpic} alt={title} />
-              </ModalImage>
-              <ModalText>
-                <p>{role}</p>
-                <h3>{title}</h3>
-                <div dangerouslySetInnerHTML={{ __html: bio }} />
-                <GetInTouch href={`mailto:${email}`}>Get in touch</GetInTouch>
-              </ModalText>
-            </Modal>
-          </GreyBg>
-        )}
+                <ModalImage>
+                  <GatsbyImage image={portraitpic} alt={title} />
+                </ModalImage>
+                <ModalText>
+                  <p>{role}</p>
+                  <h3>{title}</h3>
+                  <div dangerouslySetInnerHTML={{ __html: bio }} />
+                  <GetInTouch href={`mailto:${email}`}>Get in touch</GetInTouch>
+                </ModalText>
+              </Modal>
+            </GreyBg>
+          )}
         </AnimatePresence>
       </FacultyPost>
     </>
@@ -249,7 +251,6 @@ const FacultyPost = styled.article`
   }
 `
 
-
 const PortraitThumbnail = styled.div`
   & img {
     max-width: 550px;
@@ -278,7 +279,7 @@ const ReadMore = styled.button`
 `
 const GreyBg = styled(motion.div)`
   position: fixed;
-  z-index: 10;
+  z-index: 2000;
   display: flex;
   align-items: center;
   width: 100vw;

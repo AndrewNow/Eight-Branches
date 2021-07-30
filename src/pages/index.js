@@ -10,7 +10,6 @@ const HomePage = () => {
   return (
     <Layout>
       <Seo title="Home" />
-      <PageWrapper>
       <LandingSection>
         <LeftSection>
           {/* <img src={ebgreen} /> */}
@@ -40,14 +39,10 @@ const HomePage = () => {
           <ReadMore to="/aboutus">Read More</ReadMore>
         </AboutUsTextWrapper>
       </AboutUsSection>
-      </PageWrapper>
     </Layout>
   )
 }
 
-const PageWrapper = styled.div`
-  
-`
 
 const LandingSection = styled.span`
   height: 100vh;

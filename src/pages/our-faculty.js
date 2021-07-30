@@ -9,7 +9,7 @@ import FacultyLeadershipQuery from "../components/Faculty/facultyLeadershipQuery
 import FacultyInstructorQuery from "../components/Faculty/facultyInstructorQuery"
 
 const OurFaculty = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
+  const siteTitle = data.site.siteMetadata?.title || `Our Faculty`
 
 
   if (data.facultyLeadership.edges.length === 0) {

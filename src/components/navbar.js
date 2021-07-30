@@ -83,16 +83,16 @@ const Navbar = () => {
                 <Link to="/aboutus">About Us</Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
-                <Link to="/news">News</Link>
-              </motion.h3>
-              <motion.h3 variants={navItem}>
                 <Link to="/programs">Programs</Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
-                <Link to="/teachingclinic">Teaching Clinic</Link>
+                <Link to="/news">News</Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
-                <Link to="/our-faculty">Meet Our Faculty</Link>
+                <Link to="/our-faculty">Our Faculty</Link>
+              </motion.h3>
+              <motion.h3 variants={navItem}>
+                <Link to="/campus">Campus</Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
                 <Link to="/studentlogin">Student Login</Link>

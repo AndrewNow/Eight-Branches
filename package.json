@@ -8,6 +8,7 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
+    "embla-carousel": "^4.5.3",
     "framer-motion": "^4.1.17",
     "gatsby": "^3.6.2",
     "gatsby-plugin-feed": "^3.6.0",

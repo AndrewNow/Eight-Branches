@@ -6,7 +6,7 @@ import Seo from "../components/seo"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 const News = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
+  const siteTitle = data.site.siteMetadata?.title || `News`
 
   if (data.blog.edges.length === 0) {
     return (

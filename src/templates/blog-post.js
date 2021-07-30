@@ -4,6 +4,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import FooterStamp from '../svg/footerStamp'
 
 const BlogPostTemplate = ({ data }) => {
   const post = data.markdownRemark
@@ -43,10 +44,14 @@ const BlogPostTemplate = ({ data }) => {
               dangerouslySetInnerHTML={{ __html: post.html }}
               itemProp="articleBody"
             />
+
+            <EndArticle>
+              <FooterStamp />
+            </EndArticle>
           </article>
         </SectionWrapper>
         <ContinueReading>
-          <h1>Continue reading</h1>
+          <h1>More Posts</h1>
             <ContinueReadingPostWrapper>
               <div>
                 {/* check to see if previous exists, if so display previous post */}
@@ -103,7 +108,7 @@ const BlogPostTemplate = ({ data }) => {
                           <p>{next.frontmatter.readtime} minute read</p>
                           <p>{next.frontmatter.date}</p>
                         </BulletinDescription>
-                    </article>s
+                    </article>
                   </BulletinPost>
                 )}
               </div>
@@ -386,6 +391,17 @@ const BulletinDescription = styled.small`
     padding-top: 0.75rem;
     font-size: 16px;
     color: #3a3a3a;
+  }
+`
+
+const EndArticle = styled.div`
+  margin-top: 7.5rem;
+  margin-bottom: 25rem;
+  display: flex;
+
+
+  & svg {
+  margin: 0 auto;
   }
 `
 
