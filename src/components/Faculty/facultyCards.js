@@ -30,15 +30,31 @@ export const FacultyLeadership = ({
 
   const fadeIn = {
     hidden: {
+      y: -50,
       opacity: 0,
-        transition: {
+      transition: {
+        duration: 0.25,
+      },
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  }
+  const greybgfadein = {
+    hidden: {
+      opacity: 0,
+      transition: {
         duration: 0.25,
       },
     },
     visible: {
       opacity: 1,
       transition: {
-        duration: 0.45,
+        duration: 0.5,
       },
     },
   }
@@ -47,7 +63,9 @@ export const FacultyLeadership = ({
     <>
       {open && <ScrollLock />}
       <FacultyPost key={slug} onClick={() => setOpen(!open)}>
-        <GatsbyImage image={portraitpic} alt={title} />
+        <PortraitThumbnail>
+          <GatsbyImage image={portraitpic} alt={title} />
+        </PortraitThumbnail>
         <p>{role}</p>
         <h3>{title}</h3>
         <FacultyDescription>
@@ -57,7 +75,8 @@ export const FacultyLeadership = ({
         <AnimatePresence>
           {open && (
             <GreyBg
-              variants={fadeIn}
+              onClick={() => setOpen(!open)}
+              variants={greybgfadein}
               initial="hidden"
               animate={open ? "visible" : "hidden"}
               exit="hidden"
@@ -110,12 +129,30 @@ export const FacultyInstructor = ({
     return <></>
   }
 
+  const fadeIn = {
+    hidden: {
+      y: 50,
+      opacity: 0,
+      transition: {
+        duration: 0.25,
+      },
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.45,
+      },
+    },
+  }
+
   return (
     <>
       {open && <ScrollLock />}
 
       <FacultyPost key={slug} onClick={() => setOpen(!open)}>
-        <GatsbyImage image={portraitpic} alt={title} />
+        <PortraitThumbnail>
+          <GatsbyImage image={portraitpic} alt={title} />
+        </PortraitThumbnail>
         <p>{role}</p>
         <h3>{title}</h3>
         <FacultyDescription>
@@ -124,8 +161,18 @@ export const FacultyInstructor = ({
         <ReadMore>Read More</ReadMore>
 
         {open && (
-          <GreyBg>
-            <Modal>
+          <GreyBg
+            variants={fadeIn}
+            initial="hidden"
+            animate={open ? "visible" : "hidden"}
+            exit="hidden"
+          >
+            <Modal
+              variants={fadeIn}
+              initial="hidden"
+              animate={open ? "visible" : "hidden"}
+              exit="hidden"
+            >
               <ModalImage>
                 <GatsbyImage image={portraitpic} alt={title} />
               </ModalImage>
@@ -152,11 +199,7 @@ const FacultyPost = styled.article`
   height: 620px;
   margin-bottom: 5rem;
   padding: 1.5rem 2rem;
-  transition: all ease-in-out 0.45s;
-
-  & img {
-    max-width: 550px;
-  }
+  transition: all ease-out 0.55s;
 
   & h3 {
     /* white-space: nowrap; */
@@ -185,6 +228,13 @@ const FacultyPost = styled.article`
     & button {
       text-decoration: underline;
     }
+  }
+`
+
+
+const PortraitThumbnail = styled.div`
+  & img {
+    max-width: 550px;
   }
 `
 
@@ -229,6 +279,8 @@ const Modal = styled(motion.div)`
   width: 85vw;
   max-height: 70vh;
   padding: 1.5rem;
+
+  cursor: default;
 `
 
 const ModalImage = styled.div`
