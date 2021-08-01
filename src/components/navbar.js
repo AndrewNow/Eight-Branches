@@ -64,26 +64,24 @@ const Navbar = () => {
   }
 
   const [open, setOpen] = useState(false)
+
+  //logic for hiding the navbar when the user scrolls down
   const [show, setShow] = useState(true)
   const [currentOffset, setCurrentOffset] = useState(0)
-  
-    useEffect(() => {
-      if (typeof window !== `undefined`) {
-        window.onscroll = () => {
-          setCurrentOffset(window.scrollY)
-          if (currentOffset < window.scrollY) {
-            setShow(false)
-          }
-          else {
-            setShow(true)
-        }
+
+  useEffect(() => {
+    if (typeof window !== `undefined` ) {
+      window.onscroll = () => {
+        setCurrentOffset(window.scrollY)
+        if (currentOffset < window.scrollY && open === false) {
+          setShow(false)
+        } else {
+          setShow(true)
         }
       }
-    }, [currentOffset])
-    
-    
-  console.log(show)
-  
+    }
+  }, [currentOffset])
+
   return (
     <>
       {/* {open && <Modal />} */}
@@ -106,6 +104,7 @@ const Navbar = () => {
               color="black"
             />
           </IconWrapper>
+        </HeaderWrapper>
           {open ? (
             <NavMenu
               initial="hidden"
@@ -136,7 +135,6 @@ const Navbar = () => {
               </motion.h3>
             </NavMenu>
           ) : null}
-        </HeaderWrapper>
         <ClickOut
           variants={clickOut}
           animate={open ? "visible" : "hidden"}
@@ -152,7 +150,7 @@ const Navbar = () => {
 const HeaderWrapper = styled(motion.header)`
   position: fixed;
   top: 0;
-  z-index: 999;
+  z-index: 990;
   height: 100px;
   width: 100%;
   padding: 0 5vw;
@@ -160,6 +158,7 @@ const HeaderWrapper = styled(motion.header)`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* mix-blend-mode: difference; */
 
   & svg {
     margin-top: 1rem;
@@ -168,12 +167,11 @@ const HeaderWrapper = styled(motion.header)`
 
 const IconWrapper = styled.div`
   display: relative;
-  /* mix-blend-mode: difference; */
   z-index: 1000;
 `
 
 const NavMenu = styled(motion.nav)`
-  position: absolute;
+  position: fixed;
   z-index: 900;
   right: 0;
   top: 0;
