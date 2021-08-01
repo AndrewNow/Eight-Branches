@@ -3,6 +3,15 @@ import styled from "styled-components"
 import Navbar from "../components/navbar.js"
 import Footer from '../components/footer.js'
 
+export const breakpoints = {
+  xs: 375,
+  s: 576,
+  m: 768,
+  l: 992,
+  xl: 1280,
+  xxl: 1400,
+}
+
 const Layout = ({ children }) => {
   return (
     <GlobalWrapper>
