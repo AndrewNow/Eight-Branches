@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 import styled from "styled-components"
+import breakpoints from "../components/breakpoints"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { GatsbyImage } from "gatsby-plugin-image"
@@ -184,6 +185,15 @@ const UpcomingEventsWrapper = styled.div`
     color: var(--color-white);
     padding-bottom: 5rem;
   }
+
+  @media (max-width: ${breakpoints.m}px) {
+    position: relative;
+    padding-top: 10rem;
+
+    & h2 {
+      padding-bottom: 2.5rem;
+    }
+  }
 `
 
 const SectionWrapper = styled.div`
@@ -200,6 +210,17 @@ const EventWrapper = styled.section`
     border-left: 1px solid var(--color-white);
     padding-left: 5rem;
   }
+
+  @media (max-width: ${breakpoints.m}px) {
+    flex-direction: column;
+
+    & article:not(:first-child) {
+      border-top: 1px solid white;
+      padding-left: 0rem;
+      padding-top: 2.5rem;
+      border-left: none;
+    }
+  }
 `
 
 const Event = styled.article`
@@ -210,6 +231,11 @@ const Event = styled.article`
   & p {
     padding-bottom: 1rem;
     font-family: "Matter-light";
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    margin-bottom: 2.5rem;
+    max-width: 100%;
   }
 `
 const EventLink = styled(Link)`
@@ -257,6 +283,11 @@ const Bulletingrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 2em;
+  @media (max-width: ${breakpoints.m}px) {
+    grid-template-columns: 1fr;
+
+    column-gap: 0rem;
+  }
 `
 
 const BulletinHeader = styled.div`
@@ -268,6 +299,18 @@ const BulletinHeader = styled.div`
 
   & h6 {
     width: 70%;
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    gap: 0em;
+    display: flex;
+    flex-direction: column;
+    & h6 {
+      width: 100%;
+    }
+    & h2 {
+      padding-bottom: 1rem;
+    }
   }
 `
 
@@ -287,6 +330,11 @@ const BulletinPost = styled.article`
       color: var(--color-orange);
     }
   }
+
+  @media (max-width: ${breakpoints.m}px) {
+    width: auto;
+    height: auto;
+  }
 `
 
 const BulletinDescription = styled.small`
@@ -297,5 +345,12 @@ const BulletinDescription = styled.small`
     padding-top: 0.75rem;
     font-size: 16px;
     color: #3a3a3a;
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    & p {
+      font-size: 12px;
+      letter-spacing: 0.02rem;
+    }
   }
 `

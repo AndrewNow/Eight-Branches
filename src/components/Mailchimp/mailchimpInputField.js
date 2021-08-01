@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { ImArrowRight2 } from "react-icons/im"
+import breakpoints from "../breakpoints"
 
 const MailchimpInputField = props => {
   //Checks if all the fields are filled and if an @ sign is used in the email field
@@ -22,7 +23,7 @@ const MailchimpInputField = props => {
         {validateInput(props.formValues) ? (
           <ImArrowRight2 size={25} style={{ color: "#00000050" }} />
         ) : (
-          <ImArrowRight2 size={25} style={{ color: "#00000090" }}/>
+          <ImArrowRight2 size={25} style={{ color: "#00000090" }} />
         )}
       </SubmitLabel>
     )
@@ -85,8 +86,15 @@ const SubmitLabel = styled.label`
     transition: var(--hover-transition);
 
     &:hover {
-      color: var(--color-orange)!important;
+      color: var(--color-orange) !important;
       cursor: pointer;
+    }
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    & svg {
+      transform: translate(-3rem, -.25rem);
+      /* position: relative; */
     }
   }
 `
@@ -104,8 +112,10 @@ const SubmitInput = styled.input`
 
   &:disabled {
     cursor: default;
-  } 
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    /* padding-bottom: 0rem; */
+  }
 `
-
 
 const Label = styled.label``

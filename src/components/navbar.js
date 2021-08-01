@@ -1,12 +1,21 @@
 import React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Link } from "gatsby"
 import { motion, AnimatePresence } from "framer-motion"
 import styled from "styled-components"
 import { Squash as Hamburger } from "hamburger-react"
-import NavLogo from '../svg/navLogo'
+import NavLogo from "../svg/navLogo"
 
 const Navbar = () => {
+  const showNavbar = {
+    visible: {
+      opacity: 1,
+    },
+    hidden: {
+      opacity: 0,
+    },
+  }
+
   const clickOut = {
     visible: {
       visibility: "visible",
@@ -55,23 +64,48 @@ const Navbar = () => {
   }
 
   const [open, setOpen] = useState(false)
-
+  const [show, setShow] = useState(true)
+  const [currentOffset, setCurrentOffset] = useState(0)
+  
+    useEffect(() => {
+      if (typeof window !== `undefined`) {
+        window.onscroll = () => {
+          setCurrentOffset(window.scrollY)
+          if (currentOffset < window.scrollY) {
+            setShow(false)
+          }
+          else {
+            setShow(true)
+        }
+        }
+      }
+    }, [currentOffset])
+    
+    
+  console.log(show)
+  
   return (
     <>
       {/* {open && <Modal />} */}
-      <HeaderWrapper>
-        <Link to="/">
-          <NavLogo />
-        </Link>
-        <IconWrapper>
-          <Hamburger
-            toggled={open}
-            toggle={setOpen}
-            onClick={() => setOpen(!open)}
-            color="black"
-          />
-        </IconWrapper>
-        <AnimatePresence>
+      <AnimatePresence>
+        <HeaderWrapper
+          variants={showNavbar}
+          initial="visible"
+          animate={show ? "visible" : "hidden"}
+          exit="hidden"
+          key="header"
+        >
+          <Link to="/">
+            <NavLogo />
+          </Link>
+          <IconWrapper>
+            <Hamburger
+              toggled={open}
+              toggle={setOpen}
+              onClick={() => setOpen(!open)}
+              color="black"
+            />
+          </IconWrapper>
           {open ? (
             <NavMenu
               initial="hidden"
@@ -102,20 +136,20 @@ const Navbar = () => {
               </motion.h3>
             </NavMenu>
           ) : null}
-        </AnimatePresence>
-      </HeaderWrapper>
-      <ClickOut
-        variants={clickOut}
-        animate={open ? "visible" : "hidden"}
-        initial="hidden"
-        exit="hidden"
-        onClick={() => setOpen(!open)}
-      />
+        </HeaderWrapper>
+        <ClickOut
+          variants={clickOut}
+          animate={open ? "visible" : "hidden"}
+          initial="hidden"
+          exit="hidden"
+          onClick={() => setOpen(!open)}
+        />
+      </AnimatePresence>
     </>
   )
 }
 
-const HeaderWrapper = styled.header`
+const HeaderWrapper = styled(motion.header)`
   position: fixed;
   top: 0;
   z-index: 999;

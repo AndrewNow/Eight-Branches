@@ -4,7 +4,6 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import styled from "styled-components"
 import StampLogo from '../svg/stamplogo'
-// import ebgreen from '../images/ebgreen.png'
 
 const HomePage = () => {
   return (
@@ -12,7 +11,6 @@ const HomePage = () => {
       <Seo title="Home" />
       <LandingSection>
         <LeftSection>
-          {/* <img src={ebgreen} /> */}
         </LeftSection>
         <RightSection>
           <LandingTextWrapper>
@@ -126,8 +124,5 @@ const ReadMore = styled(Link)`
     background-color: var(--color-white);
   }
 `
-
-
-
 
 export default HomePage

@@ -7,7 +7,7 @@ import Seo from "../components/seo"
 import { useEmblaCarousel } from "embla-carousel/react"
 import { useRecursiveTimeout } from "../components/Embla/useRecursiveTimeout"
 import contactInfo from "../../site/settings/contact_info.json"
-import { breakpoints } from '../components/layout'
+// import { breakpoints } from '../components/breakpoints'
 
 const Campus = ({ data }) => {
   const siteTitle = data.site.siteMetadata?.title || `Campus`
@@ -172,6 +172,7 @@ const Campus = ({ data }) => {
           </MapText>
           <Map>
             <iframe
+              title="Eight Branches map"
               src="https://snazzymaps.com/embed/329034"
               width="100%"
               height="600px"

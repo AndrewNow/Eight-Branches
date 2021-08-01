@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import MailchimpInputField from "./mailchimpInputField"
 import styled from "styled-components"
 import { motion, AnimatePresence } from "framer-motion"
+import breakpoints from "../breakpoints"
 
 const MailchimpCustomForm = ({ status, message, onValidated }) => {
   const [email, setEmail] = useState("")
@@ -91,6 +92,10 @@ const EmailForm = styled.form`
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #00000050;
+
+  @media (max-width: ${breakpoints.m}px) {
+    width: 100%;
+  }
 `
 
 const Sending = styled(motion.div)`
@@ -112,6 +117,9 @@ const Sending = styled(motion.div)`
     font-family: "Matter-regular";
     font-size: 16px;
     line-height: 16px;
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    margin-top: 2.5rem;
   }
 `
 
@@ -135,6 +143,9 @@ const Error = styled(motion.div)`
     font-size: 16px;
     line-height: 16px;
   }
+  @media (max-width: ${breakpoints.m}px) {
+    margin-top: 2.5rem;
+  }
 `
 
 const Success = styled(motion.div)`
@@ -156,5 +167,9 @@ const Success = styled(motion.div)`
     font-family: "Matter-regular";
     font-size: 16px;
     line-height: 16px;
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    margin-top: 2.5rem;
   }
 `
