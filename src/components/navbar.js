@@ -80,7 +80,7 @@ const Navbar = () => {
         }
       }
     }
-  }, [currentOffset])
+  }, [currentOffset, open])
 
   return (
     <>

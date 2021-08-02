@@ -12,6 +12,7 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -48,6 +49,7 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    
     {
       resolve: `gatsby-transformer-remark`,
       options: {
