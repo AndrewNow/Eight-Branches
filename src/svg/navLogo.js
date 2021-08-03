@@ -2,8 +2,8 @@ import React from "react"
 
 const NavLogo = () => (
   <svg
-    width="177"
-    height="64"
+    // width="177"
+    // height="64"
     viewBox="0 0 177 64"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

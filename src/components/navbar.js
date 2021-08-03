@@ -5,9 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import styled from "styled-components"
 import { Squash as Hamburger } from "hamburger-react"
 import NavLogo from "../svg/navLogo"
-import breakpoints from '../components/breakpoints'
-import { visible } from "chalk"
-
+import breakpoints from "../components/breakpoints"
 
 const Navbar = () => {
   const showNavbar = {
@@ -74,7 +72,7 @@ const Navbar = () => {
   const [currentOffset, setCurrentOffset] = useState(0)
 
   useEffect(() => {
-    if (typeof window !== `undefined` ) {
+    if (typeof window !== `undefined`) {
       window.onscroll = () => {
         setCurrentOffset(window.scrollY)
         if (currentOffset < window.scrollY && open === false) {
@@ -85,6 +83,9 @@ const Navbar = () => {
       }
     }
   }, [currentOffset, open])
+
+  // console.log(currentOffset)
+  // console.log(window.scrollY)
 
   return (
     <>
@@ -97,9 +98,11 @@ const Navbar = () => {
           exit="hidden"
           key="header"
         >
-          <Link to="/">
-            <NavLogo />
-          </Link>
+          <LogoWrapper>
+            <Link to="/">
+              <NavLogo />
+            </Link>
+          </LogoWrapper>
           <IconWrapper>
             <Hamburger
               toggled={open}
@@ -109,36 +112,39 @@ const Navbar = () => {
             />
           </IconWrapper>
         </HeaderWrapper>
-          {open ? (
-            <NavMenu
-              initial="hidden"
-              animate={open ? "visible" : "hidden"}
-              exit="hidden"
-              variants={menuAnimation}
-            >
-              <motion.h3 variants={navItem} exit="hidden">
-                <Link to="/aboutus">About Us</Link>
-              </motion.h3>
-              <motion.h3 variants={navItem}>
-                <Link to="/programs">Programs</Link>
-              </motion.h3>
-              <motion.h3 variants={navItem}>
-                <Link to="/news">News</Link>
-              </motion.h3>
-              <motion.h3 variants={navItem}>
-                <Link to="/our-faculty">Our Faculty</Link>
-              </motion.h3>
-              <motion.h3 variants={navItem}>
-                <Link to="/campus">Campus</Link>
-              </motion.h3>
-              <motion.h3 variants={navItem}>
-                <Link to="/studentlogin">Student Login</Link>
-              </motion.h3>
-              <motion.h3 variants={navItem}>
-                <Link to="/applynow">Apply Now</Link>
-              </motion.h3>
-            </NavMenu>
-          ) : null}
+        <AnimatePresence>
+
+        {open ? (
+          <NavMenu
+          initial="hidden"
+          animate={open ? "visible" : "hidden"}
+          exit="hidden"
+          variants={menuAnimation}
+          >
+            <motion.h3 variants={navItem} exit="hidden">
+              <Link to="/aboutus">About Us</Link>
+            </motion.h3>
+            <motion.h3 variants={navItem}>
+              <Link to="/programs">Programs</Link>
+            </motion.h3>
+            <motion.h3 variants={navItem}>
+              <Link to="/news">News</Link>
+            </motion.h3>
+            <motion.h3 variants={navItem}>
+              <Link to="/our-faculty">Our Faculty</Link>
+            </motion.h3>
+            <motion.h3 variants={navItem}>
+              <Link to="/campus">Campus</Link>
+            </motion.h3>
+            <motion.h3 variants={navItem}>
+              <Link to="/studentlogin">Student Login</Link>
+            </motion.h3>
+            <motion.h3 variants={navItem}>
+              <Link to="/applynow">Apply Now</Link>
+            </motion.h3>
+          </NavMenu>
+        ) : null}
+        </AnimatePresence>
         <ClickOut
           variants={clickOut}
           animate={open ? "visible" : "hidden"}
@@ -156,16 +162,43 @@ const HeaderWrapper = styled(motion.header)`
   top: 0;
   z-index: 990;
   height: 100px;
-  width: 100%;
-  padding: 0 5vw;
-  /* border-bottom: 1px solid red; */
+  width: 90vw;
+  margin: 0 5vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
   /* mix-blend-mode: difference; */
 
   & svg {
+    margin-top: .25rem;
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    /* background-color: white; */
+    /* border: 1px solid black; */
+    /* border-radius: 5px; */
+
+    top: 1rem;
+    height: 60px;
+  }
+`
+
+const LogoWrapper = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  & svg {
+    height: 75px;
     margin-top: 1rem;
+  }
+  
+  @media (max-width: ${breakpoints.m}px) {
+    & svg {
+      margin-top: 0;
+      height: 50px;
+      max-width: 200px;
+    }
   }
 `
 

@@ -2,6 +2,7 @@ import React, { useState, useLayoutEffect } from "react"
 import styled from "styled-components"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { motion, AnimatePresence } from "framer-motion"
+import { GrClose } from "react-icons/gr"
 import breakpoints from "../breakpoints"
 
 export const FacultyLeadership = ({
@@ -76,15 +77,25 @@ export const FacultyLeadership = ({
           </FacultyDescription>
           <ReadMore>Read More</ReadMore>
         </TextWrapper>
-        <AnimatePresence>
-          {open && (
-            <GreyBg
-              onClick={() => setOpen(!open)}
-              variants={greybgfadein}
-              initial="hidden"
-              animate={open ? "visible" : "hidden"}
-              exit="hidden"
-            >
+      </FacultyPost>
+      <AnimatePresence>
+        {open && (
+          <GreyBg
+            onClick={() => setOpen(!open)}
+            variants={greybgfadein}
+            initial="hidden"
+            animate={open ? "visible" : "hidden"}
+            exit="hidden"
+          >
+            <ModalWrapper>
+              <MobileCloseButton>
+                <p>Close</p>
+                <GrClose
+                  size={25}
+                  style={{ color: "white" }}
+                  onClick={() => setOpen(!open)}
+                />
+              </MobileCloseButton>
               <Modal
                 variants={fadeIn}
                 initial="hidden"
@@ -101,10 +112,10 @@ export const FacultyLeadership = ({
                   <GetInTouch href={`mailto:${email}`}>Get in touch</GetInTouch>
                 </ModalText>
               </Modal>
-            </GreyBg>
-          )}
-        </AnimatePresence>
-      </FacultyPost>
+            </ModalWrapper>
+          </GreyBg>
+        )}
+      </AnimatePresence>
     </>
   )
 }
@@ -181,15 +192,21 @@ export const FacultyInstructor = ({
           </FacultyDescription>
           <ReadMore>Read More</ReadMore>
         </TextWrapper>
-        <AnimatePresence>
-          {open && (
-            <GreyBg
-              onClick={() => setOpen(!open)}
-              variants={greybgfadein}
-              initial="hidden"
-              animate={open ? "visible" : "hidden"}
-              exit="hidden"
-            >
+      </FacultyPost>
+      <AnimatePresence>
+        {open && (
+          <GreyBg
+            onClick={() => setOpen(!open)}
+            variants={greybgfadein}
+            initial="hidden"
+            animate={open ? "visible" : "hidden"}
+            exit="hidden"
+          >
+            <ModalWrapper>
+              <MobileCloseButton>
+                <p>Close</p>
+                <GrClose size={25} onClick={() => setOpen(!open)} />
+              </MobileCloseButton>
               <Modal
                 variants={fadeIn}
                 initial="hidden"
@@ -206,10 +223,10 @@ export const FacultyInstructor = ({
                   <GetInTouch href={`mailto:${email}`}>Get in touch</GetInTouch>
                 </ModalText>
               </Modal>
-            </GreyBg>
-          )}
-        </AnimatePresence>
-      </FacultyPost>
+            </ModalWrapper>
+          </GreyBg>
+        )}
+      </AnimatePresence>
     </>
   )
 }
@@ -288,22 +305,27 @@ const ReadMore = styled.button`
   border: none;
   background: none;
   cursor: pointer;
+
+  padding-left: 0;
 `
+
 const GreyBg = styled(motion.div)`
   position: fixed;
-  z-index: 2000;
+  z-index: 99998;
   display: flex;
+  flex-direction: column;
   align-items: center;
   width: 100vw;
   height: 100vh;
   top: 0;
   left: 0;
   background-color: #00000035;
+  backdrop-filter: blur(2px);
 `
 
 const Modal = styled(motion.div)`
   position: relative;
-  z-index: 2001;
+  z-index: 99999;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
@@ -315,26 +337,34 @@ const Modal = styled(motion.div)`
   border: 1px solid black;
   background-color: var(--color-sandbeige);
   cursor: default;
+  pointer-events: none;
   /* overflow-y: scroll; */
 
+  & a {
+    pointer-events: auto;
+  }
+
   @media (max-width: ${breakpoints.m}px) {
+    margin-bottom: 2.5rem;
     padding: 1rem;
+    padding-bottom: 2.5rem;
     flex-direction: column;
     width: 93vw;
-    max-height: 90vh;
+    /* max-height: 90vh; */
+    max-height: none;
     overflow: scroll;
     /* display: inline; */
-    margin-top: 25vh;
+    /* margin-top: 25vh; */
   }
 `
 
 const ModalImage = styled.div`
   border-radius: 5px;
   align-self: center;
+  border: 1px solid black;
 
   & img {
     border-radius: 5px;
-    border: 1px solid black;
     width: 50%;
     min-height: 600px;
     /* max-width: 850px; */
@@ -353,10 +383,11 @@ const ModalImage = styled.div`
 `
 
 const ModalText = styled.div`
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   flex-basis: 50%;
   padding-left: 2rem;
   padding-right: 5rem;
+  pointer-events: auto;
 
   & p {
     font-family: "Matter-light";
@@ -370,12 +401,12 @@ const ModalText = styled.div`
   }
 
   @media (max-width: ${breakpoints.m}px) {
-    overflow-y: visible;
+    /* overflow-y: visible; */
     flex-basis: 100%;
     margin-top: 1rem;
     padding-left: 0;
     padding-right: 0;
-    overflow-y: default;
+    /* overflow-y: default; */
   }
 `
 
@@ -386,4 +417,47 @@ const GetInTouch = styled.a`
   text-decoration: underline;
   color: var(--color-orange) !important;
   font-family: "Matter-light";
+
+  @media (max-width: ${breakpoints.m}px) {
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+    margin: 0 auto;
+  }
+`
+
+const ModalWrapper = styled.div`
+  overflow-y: scroll;
+  z-index: 1000;
+  top: 10vh;
+
+  /* pointer-events: none; */
+`
+
+const MobileCloseButton = styled.div`
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 10vh;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+
+  filter: invert(1);
+  cursor: pointer;
+
+  & svg {
+    margin-bottom: 1rem;
+    color: white !important;
+  }
+
+  & p {
+    margin-bottom: 1rem;
+    padding-top: 0;
+    padding-right: 0.25rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 `
