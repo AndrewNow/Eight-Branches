@@ -75,9 +75,13 @@ const Navbar = () => {
     if (typeof window !== `undefined`) {
       window.onscroll = () => {
         setCurrentOffset(window.scrollY)
-        if (currentOffset < window.scrollY && open === false) {
+        if (
+          currentOffset < window.scrollY &&
+          window.scrollY >= 100 &&
+          open === false
+        ) {
           setShow(false)
-        } else {
+        } else if (currentOffset > window.scrollY || window.scrollY <= 100) {
           setShow(true)
         }
       }

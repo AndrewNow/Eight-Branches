@@ -271,7 +271,7 @@ const SignUpLink = styled(Link)`
 `
 
 const BulletinWrapper = styled.div`
-  width: 100vw;
+  width: 100%;
   padding-top: 5rem;
   z-index: 2;
   position: relative;
