@@ -5,6 +5,9 @@ import { motion, AnimatePresence } from "framer-motion"
 import styled from "styled-components"
 import { Squash as Hamburger } from "hamburger-react"
 import NavLogo from "../svg/navLogo"
+import breakpoints from '../components/breakpoints'
+import { visible } from "chalk"
+
 
 const Navbar = () => {
   const showNavbar = {
@@ -13,6 +16,7 @@ const Navbar = () => {
     },
     hidden: {
       opacity: 0,
+      pointerEvents: "none",
     },
   }
 
@@ -199,6 +203,11 @@ const NavMenu = styled(motion.nav)`
     &:hover {
       color: var(--color-orange);
     }
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    width: 100vw;
+    left: 0;
   }
 `
 

@@ -3,6 +3,8 @@ import { Link, graphql } from "gatsby"
 import styled from "styled-components"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import FooterStamp from "../svg/footerStamp"
+import breakpoints from "../components/breakpoints"
 
 const EventPostTemplate = ({ data }) => {
   const post = data.markdownRemark
@@ -34,6 +36,9 @@ const EventPostTemplate = ({ data }) => {
               dangerouslySetInnerHTML={{ __html: post.html }}
               itemProp="articleBody"
             />
+            <EndArticle>
+              <FooterStamp />
+            </EndArticle>
           </article>
         </SectionWrapper>
         <ContinueReading>
@@ -129,7 +134,6 @@ const BgColor = styled.div`
   background-color: var(--color-white);
   position: relative;
   z-index: 5;
-  
 `
 
 const SectionWrapper = styled.div`
@@ -140,10 +144,13 @@ const SectionWrapper = styled.div`
     /* padding-bottom: 5rem; */
     /* padding-top: 5rem; */
   }
+  @media (max-width: ${breakpoints.m}px) {
+    width: 90%;
+  }
 `
 
 const Header = styled.div`
-  margin-top: 15rem;
+  padding-top: 15rem;
 
   & h1 {
     max-width: 55%;
@@ -155,11 +162,26 @@ const Header = styled.div`
     font-size: 16px;
     line-height: 26px;
   }
+
+  @media (max-width: ${breakpoints.m}px) {
+    padding-top: 10rem;
+    & h1 {
+      max-width: 100%;
+    }
+    & p {
+      padding-top: 1rem;
+    }
+  }
 `
 
 const BlogContentHeader = styled.section`
   padding-left: 25vw;
-  padding-bottom: 5rem;
+  /* padding-bottom: 5rem; */
+  padding-bottom: 2.5rem;
+
+  @media (max-width: ${breakpoints.m}px) {
+    padding-left: 0rem;
+  }
 `
 
 const BlogContent = styled.section`
@@ -272,6 +294,17 @@ const BlogContent = styled.section`
       padding-left: 1rem;
     }
   }
+  @media (max-width: ${breakpoints.m}px) {
+    padding-top: 0rem;
+    * {
+      padding-left: 0rem;
+    }
+
+    & p {
+      font-size: 16px;
+      line-height: 27.5px;
+    }
+  }
 `
 
 const ContinueReading = styled.section`
@@ -285,6 +318,15 @@ const ContinueReading = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    width: 100%;
+    margin-top: 10rem;
+
+    & h1 {
+      width: 90%;
+      text-align: center;
+    }
   }
 `
 
@@ -304,6 +346,14 @@ const BulletinPost = styled.article`
       color: var(--color-orange);
     }
   }
+  @media (max-width: ${breakpoints.m}px) {
+    width: auto;
+    height: auto;
+
+    & h6 {
+      padding-bottom: 0.5rem;
+    }
+  }
 `
 
 const BulletinDescription = styled.small`
@@ -315,7 +365,31 @@ const BulletinDescription = styled.small`
     font-size: 16px;
     color: #3a3a3a;
   }
+  @media (max-width: ${breakpoints.m}px) {
+    & p {
+      padding-top: 0rem;
+    }
+  }
 `
+
+const EndArticle = styled.div`
+  margin-top: 7.5rem;
+  margin-bottom: 25rem;
+  display: flex;
+
+  & svg {
+    margin: 0 auto;
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    & svg {
+      width: 30px;
+    }
+  }
+`
+
 const ContinueReadingPostWrapper = styled.div`
   width: 75%;
   display: flex;
@@ -324,4 +398,8 @@ const ContinueReadingPostWrapper = styled.div`
   justify-content: center;
   list-style: none;
   padding-bottom: 10rem;
+
+  @media (max-width: ${breakpoints.m}px) {
+    width: 100%;
+  }
 `

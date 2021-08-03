@@ -2,6 +2,7 @@ import React, { useState, useLayoutEffect } from "react"
 import styled from "styled-components"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { motion, AnimatePresence } from "framer-motion"
+import breakpoints from "../breakpoints"
 
 export const FacultyLeadership = ({
   title,
@@ -40,7 +41,7 @@ export const FacultyLeadership = ({
       y: 0,
       opacity: 1,
       transition: {
-        delay: .15,
+        delay: 0.15,
         duration: 0.25,
       },
     },
@@ -60,7 +61,6 @@ export const FacultyLeadership = ({
     },
   }
 
-
   return (
     <>
       {open && <ScrollLock />}
@@ -68,12 +68,14 @@ export const FacultyLeadership = ({
         <PortraitThumbnail>
           <GatsbyImage image={portraitpic} alt={title} />
         </PortraitThumbnail>
-        <p>{role}</p>
-        <h3>{title}</h3>
-        <FacultyDescription>
-          <p>{excerpt}</p>
-        </FacultyDescription>
-        <ReadMore>Read More</ReadMore>
+        <TextWrapper>
+          <p>{role}</p>
+          <h3>{title}</h3>
+          <FacultyDescription>
+            <p>{excerpt}</p>
+          </FacultyDescription>
+          <ReadMore>Read More</ReadMore>
+        </TextWrapper>
         <AnimatePresence>
           {open && (
             <GreyBg
@@ -171,12 +173,14 @@ export const FacultyInstructor = ({
         <PortraitThumbnail>
           <GatsbyImage image={portraitpic} alt={title} />
         </PortraitThumbnail>
-        <p>{role}</p>
-        <h3>{title}</h3>
-        <FacultyDescription>
-          <p>{briefdescription}</p>
-        </FacultyDescription>
-        <ReadMore>Read More</ReadMore>
+        <TextWrapper>
+          <p>{role}</p>
+          <h3>{title}</h3>
+          <FacultyDescription>
+            <p>{briefdescription}</p>
+          </FacultyDescription>
+          <ReadMore>Read More</ReadMore>
+        </TextWrapper>
         <AnimatePresence>
           {open && (
             <GreyBg
@@ -212,19 +216,15 @@ export const FacultyInstructor = ({
 
 const FacultyPost = styled.article`
   border: 1px solid black;
+  border-radius: 5px;
+  overflow: hidden;
   justify-self: center;
   display: flex;
   flex-direction: column;
   width: 550px;
   height: 620px;
   margin-bottom: 5rem;
-  padding: 1.5rem 2rem;
   transition: all ease-out 0.55s;
-
-  & h3 {
-    /* white-space: nowrap; */
-    /* overflow-x: hidden; */
-  }
 
   & p {
     padding-top: 1rem;
@@ -249,6 +249,18 @@ const FacultyPost = styled.article`
       text-decoration: underline;
     }
   }
+
+  @media (max-width: ${breakpoints.m}px) {
+    /* overflow: scroll; */
+    width: auto;
+    height: auto;
+    margin-bottom: 2.5rem;
+  }
+`
+
+const TextWrapper = styled.div`
+  border-top: 1px solid black;
+  padding: 1rem 1.5rem;
 `
 
 const PortraitThumbnail = styled.div`
@@ -291,24 +303,52 @@ const GreyBg = styled(motion.div)`
 
 const Modal = styled(motion.div)`
   position: relative;
+  z-index: 2001;
   display: flex;
   justify-content: space-between;
-  background-color: var(--color-sandbeige);
-  border: 1px solid black;
   margin: 0 auto;
   width: 85vw;
   max-height: 70vh;
   padding: 1.5rem;
 
+  border-radius: 5px;
+  border: 1px solid black;
+  background-color: var(--color-sandbeige);
   cursor: default;
+  /* overflow-y: scroll; */
+
+  @media (max-width: ${breakpoints.m}px) {
+    padding: 1rem;
+    flex-direction: column;
+    width: 93vw;
+    max-height: 90vh;
+    overflow: scroll;
+    /* display: inline; */
+    margin-top: 25vh;
+  }
 `
 
 const ModalImage = styled.div`
+  border-radius: 5px;
   align-self: center;
+
   & img {
+    border-radius: 5px;
     border: 1px solid black;
-    max-width: 850px;
+    width: 50%;
     min-height: 600px;
+    /* max-width: 850px; */
+    /* min-height: 600px; */
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    /* min-height: 100px; */
+    /* overflow: hidden; */
+    & img {
+      min-height: auto;
+      max-width: 100%;
+      height: auto;
+    }
   }
 `
 
@@ -327,6 +367,15 @@ const ModalText = styled.div`
     text-decoration: underline;
     color: var(--color-darkgreen);
     font-family: "Matter-light";
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    overflow-y: visible;
+    flex-basis: 100%;
+    margin-top: 1rem;
+    padding-left: 0;
+    padding-right: 0;
+    overflow-y: default;
   }
 `
 

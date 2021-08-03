@@ -3,10 +3,9 @@ import { graphql } from "gatsby"
 import styled from "styled-components"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-// import contactInfo from "../../site/settings/contact_info.json"
-
 import FacultyLeadershipQuery from "../components/Faculty/facultyLeadershipQuery"
 import FacultyInstructorQuery from "../components/Faculty/facultyInstructorQuery"
+import breakpoints from '../components/breakpoints'
 
 const OurFaculty = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Our Faculty`
@@ -107,11 +106,18 @@ export const pageQuery = graphql`
 const SectionWrapper = styled.div`
   width: 90%;
   margin: 0 auto;
+  padding-bottom: 15rem;
 
   & h2 {
     padding-bottom: 5rem;
   }
-  padding-bottom: 15rem;
+
+  @media (max-width: ${breakpoints.m}px) {
+    & h2 {
+      padding-top: 5rem;
+      padding-bottom: 2.5rem;
+    }
+  }
 `
 
 const FacultyWrapper = styled.div`
@@ -121,6 +127,10 @@ const FacultyWrapper = styled.div`
   position: relative;
   background-color: var(--color-white);
   margin: 0 auto;
+
+  @media (max-width: ${breakpoints.m}px) {
+    padding-top: 10rem;
+  }
 `
 
 const FacultyHeader = styled.div`
@@ -139,10 +149,20 @@ const FacultyHeader = styled.div`
   & h6 {
     width: 60%;
   }
+  @media (max-width: ${breakpoints.m}px) {
+    margin-bottom: 0rem;
+    & h6 {
+      width: 100%;
+    }
+  }
 `
 
 const FacultyGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 2em;
+
+  @media (max-width: ${breakpoints.m}px) {
+    display: inline;
+  }
 `
