@@ -90,36 +90,34 @@ const Navbar = () => {
   return (
     <>
       {/* {open && <Modal />} */}
+      <HeaderWrapper
+        variants={showNavbar}
+        initial="visible"
+        animate={show ? "visible" : "hidden"}
+        exit="hidden"
+        key="header"
+      >
+        <LogoWrapper>
+          <Link to="/">
+            <NavLogo />
+          </Link>
+        </LogoWrapper>
+        <IconWrapper>
+          <Hamburger
+            toggled={open}
+            toggle={setOpen}
+            onClick={() => setOpen(!open)}
+            color="black"
+          />
+        </IconWrapper>
+      </HeaderWrapper>
       <AnimatePresence>
-        <HeaderWrapper
-          variants={showNavbar}
-          initial="visible"
-          animate={show ? "visible" : "hidden"}
-          exit="hidden"
-          key="header"
-        >
-          <LogoWrapper>
-            <Link to="/">
-              <NavLogo />
-            </Link>
-          </LogoWrapper>
-          <IconWrapper>
-            <Hamburger
-              toggled={open}
-              toggle={setOpen}
-              onClick={() => setOpen(!open)}
-              color="black"
-            />
-          </IconWrapper>
-        </HeaderWrapper>
-        <AnimatePresence>
-
         {open ? (
           <NavMenu
-          initial="hidden"
-          animate={open ? "visible" : "hidden"}
-          exit="hidden"
-          variants={menuAnimation}
+            initial="hidden"
+            animate={open ? "visible" : "hidden"}
+            exit="hidden"
+            variants={menuAnimation}
           >
             <motion.h3 variants={navItem} exit="hidden">
               <Link to="/aboutus">About Us</Link>
@@ -144,15 +142,14 @@ const Navbar = () => {
             </motion.h3>
           </NavMenu>
         ) : null}
-        </AnimatePresence>
-        <ClickOut
-          variants={clickOut}
-          animate={open ? "visible" : "hidden"}
-          initial="hidden"
-          exit="hidden"
-          onClick={() => setOpen(!open)}
-        />
       </AnimatePresence>
+      <ClickOut
+        variants={clickOut}
+        animate={open ? "visible" : "hidden"}
+        initial="hidden"
+        exit="hidden"
+        onClick={() => setOpen(!open)}
+      />
     </>
   )
 }
@@ -170,7 +167,7 @@ const HeaderWrapper = styled(motion.header)`
   /* mix-blend-mode: difference; */
 
   & svg {
-    margin-top: .25rem;
+    margin-top: 0.25rem;
   }
 
   @media (max-width: ${breakpoints.m}px) {
@@ -192,7 +189,7 @@ const LogoWrapper = styled.div`
     height: 75px;
     margin-top: 1rem;
   }
-  
+
   @media (max-width: ${breakpoints.m}px) {
     & svg {
       margin-top: 0;

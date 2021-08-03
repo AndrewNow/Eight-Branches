@@ -64,7 +64,7 @@ export const FacultyLeadership = ({
 
   return (
     <>
-      {open && <ScrollLock />}
+      {/* {open && <ScrollLock />} */}
       <FacultyPost key={slug} onClick={() => setOpen(!open)}>
         <PortraitThumbnail>
           <GatsbyImage image={portraitpic} alt={title} />
@@ -178,8 +178,7 @@ export const FacultyInstructor = ({
 
   return (
     <>
-      {open && <ScrollLock />}
-
+      {/* {open && <ScrollLock />} */}
       <FacultyPost key={slug} onClick={() => setOpen(!open)}>
         <PortraitThumbnail>
           <GatsbyImage image={portraitpic} alt={title} />
@@ -323,6 +322,18 @@ const GreyBg = styled(motion.div)`
   backdrop-filter: blur(2px);
 `
 
+const ModalWrapper = styled.div`
+  overflow-y: default;
+  z-index: 99999;
+  top: 10vh;
+
+  /* pointer-events: none; */
+  @media (max-width: ${breakpoints.m}px) {
+
+    overflow-y: scroll;
+  }
+`
+
 const Modal = styled(motion.div)`
   position: relative;
   z-index: 99999;
@@ -338,7 +349,6 @@ const Modal = styled(motion.div)`
   background-color: var(--color-sandbeige);
   cursor: default;
   pointer-events: none;
-  /* overflow-y: scroll; */
 
   & a {
     pointer-events: auto;
@@ -350,11 +360,8 @@ const Modal = styled(motion.div)`
     padding-bottom: 2.5rem;
     flex-direction: column;
     width: 93vw;
-    /* max-height: 90vh; */
     max-height: none;
     overflow: scroll;
-    /* display: inline; */
-    /* margin-top: 25vh; */
   }
 `
 
@@ -367,13 +374,12 @@ const ModalImage = styled.div`
     border-radius: 5px;
     width: 50%;
     min-height: 600px;
-    /* max-width: 850px; */
-    /* min-height: 600px; */
   }
 
   @media (max-width: ${breakpoints.m}px) {
     /* min-height: 100px; */
     /* overflow: hidden; */
+
     & img {
       min-height: auto;
       max-width: 100%;
@@ -383,7 +389,7 @@ const ModalImage = styled.div`
 `
 
 const ModalText = styled.div`
-  /* overflow-y: scroll; */
+  overflow-y: scroll;
   flex-basis: 50%;
   padding-left: 2rem;
   padding-right: 5rem;
@@ -391,6 +397,7 @@ const ModalText = styled.div`
 
   & p {
     font-family: "Matter-light";
+    padding-top: 1rem;
   }
 
   & a {
@@ -406,7 +413,7 @@ const ModalText = styled.div`
     margin-top: 1rem;
     padding-left: 0;
     padding-right: 0;
-    /* overflow-y: default; */
+    overflow-y: default;
   }
 `
 
@@ -424,14 +431,6 @@ const GetInTouch = styled.a`
     padding-top: 2rem;
     margin: 0 auto;
   }
-`
-
-const ModalWrapper = styled.div`
-  overflow-y: scroll;
-  z-index: 1000;
-  top: 10vh;
-
-  /* pointer-events: none; */
 `
 
 const MobileCloseButton = styled.div`
