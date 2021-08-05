@@ -317,7 +317,7 @@ const BulletinHeader = styled.div`
 const BulletinPost = styled.article`
   border-top: 1px solid black;
   justify-self: center;
-  width: 550px;
+  max-width: 550px;
   height: 420px;
   margin-bottom: 5rem;
 

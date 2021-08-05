@@ -2,6 +2,8 @@
   /* Eight branches color variables */
   --color-sandbeige: #F7EDE5;
   --color-beige: #F5F1E5;
+  --color-brown: #CDB598;
+  --color-salmon: #E0BBA5;
   --color-lightestgreen: #C3E0AB;
   --color-lightgreen: #82AF82;
   --color-darkgreen: #316C5F;
@@ -60,8 +62,8 @@ body {
 
 h1 {
   font-family: "Reckless-light";
-  font-size: 70px;
-  line-height: 78px;
+  font-size: 68px;
+  line-height: 85px;
 }
 
 h2 {
