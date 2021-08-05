@@ -152,8 +152,8 @@ const OurPrograms = ({ data, location }) => {
           <SvgWrapper
             ref={contentRef}
             style={{
-              transform: `translate3D(0, calc(250px + ${
-                offsetY * -0.2
+              transform: `translate3D(0, calc(225px + ${
+                offsetY * -0.175
               }px), 0) rotate(180deg)`,
             }}
           >
@@ -248,8 +248,8 @@ const OurPrograms = ({ data, location }) => {
           <SvgWrapper
             ref={contentRef2}
             style={{
-              transform: `translate3D(0, calc(550px + ${
-                offsetY * -0.2
+              transform: `translate3D(0, calc(425px + ${
+                offsetY * -0.175
               }px), 0) rotate(0deg)`,
             }}
           >
