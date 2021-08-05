@@ -1,15 +1,99 @@
-import React from "react"
+import React, { useState, useEffect, useCallback, useRef } from "react"
 import { graphql, Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import { useInView } from "react-intersection-observer"
 import breakpoints from "../components/breakpoints"
 import LeafPattern from "../svg/leafPattern"
 import StampLogo from "../svg/stamplogo"
+import { motion } from "framer-motion"
 
 const OurPrograms = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Our Programs`
+
+  // ---------- INTERSECTION OBSERVER LOGIC ----------
+  const ref = useRef()
+  const [SectionRef1, sectionInView1] = useInView({
+    root: null,
+    threshold: 0.85,
+    triggerOnce: true,
+  })
+  const [SectionRef2, sectionInView2] = useInView({
+    root: null,
+    threshold: 0.85,
+    triggerOnce: true,
+  })
+  const [SectionRef3, sectionInView3] = useInView({
+    root: null,
+    threshold: 0.85,
+    triggerOnce: true,
+  })
+  const [SectionRef4, sectionInView4] = useInView({
+    root: null,
+    threshold: 0.85,
+    triggerOnce: true,
+  })
+  const [contentRef, inView] = useInView({
+    root: null,
+  })
+  const [contentRef2, inView2] = useInView({
+    root: null,
+  })
+
+  const setRefs = useCallback(
+    node => {
+      // Ref's from useRef needs to have the node assigned to `current`
+      ref.current = node
+      // Callback refs, like the one from `useInView`, is a function that takes the node as an argument
+      SectionRef1(node)
+      SectionRef2(node)
+      SectionRef3(node)
+      SectionRef4(node)
+      contentRef(node)
+      contentRef2(node)
+    },
+    [
+      SectionRef1,
+      SectionRef2,
+      SectionRef3,
+      SectionRef4,
+      contentRef,
+      contentRef2,
+    ]
+  )
+
+  // ---------- PARALLAX SCROLL LOGIC ----------
+
+  const [offsetY, setOffsetY] = useState(0)
+  const handleScroll = () => setOffsetY(window.pageYOffset)
+
+  useEffect(() => {
+    inView && window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [inView])
+
+  useEffect(() => {
+    inView2 && window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [inView2])
+
+  // ---------- FRAMER LOGIC ----------
+  const fadeIn = {
+    visible: {
+      opacity: 1,
+      top: 0,
+      transition: {
+        duration: 0.75,
+        staggerChildren: 0.35,
+      },
+    },
+    hidden: {
+      top: 30,
+      opacity: 0,
+    },
+  }
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -28,7 +112,6 @@ const OurPrograms = ({ data, location }) => {
             src="../images/ProgramsImages/image61.png"
             alt="Images of Toronto's skyline on a sunny day, with a body of water in the foreground."
             quality={100}
-            // objectPosition="50% 20%"
             height={530}
             layout="fullWidth"
           />
@@ -38,7 +121,11 @@ const OurPrograms = ({ data, location }) => {
       <ProgramContainer>
         <ProgramSection>
           <ProgramInner>
-            <ProgramImage>
+            <ProgramImage
+              variants={fadeIn}
+              initial="hidden"
+              animate={sectionInView1 ? "visible" : "hidden"}
+            >
               <StaticImage
                 src="../images/ProgramsImages/moxibustion.png"
                 alt="A practitioner performs moxibustion, igniting a bundle of herbs."
@@ -46,22 +133,38 @@ const OurPrograms = ({ data, location }) => {
                 width={590}
               />
             </ProgramImage>
-            <ProgramText>
-              <h1>Acupuncture & Moxibustion</h1>
-              <h6>
+            <ProgramText
+              variants={fadeIn}
+              initial="hidden"
+              animate={sectionInView1 ? "visible" : "hidden"}
+              ref={SectionRef1}
+            >
+              <motion.h1 variants={fadeIn}>Acupuncture & Moxibustion</motion.h1>
+              <motion.h6 variants={fadeIn}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et{" "}
-              </h6>
+              </motion.h6>
             </ProgramText>
           </ProgramInner>
         </ProgramSection>
 
         <ProgramSection>
-          <SvgWrapper>
+          <SvgWrapper
+            ref={contentRef}
+            style={{
+              transform: `translate3D(0, calc(250px + ${
+                offsetY * -0.2
+              }px), 0) rotate(180deg)`,
+            }}
+          >
             <LeafPattern />
           </SvgWrapper>
           <ProgramInner>
-            <ProgramImage>
+            <ProgramImage
+              variants={fadeIn}
+              initial="hidden"
+              animate={sectionInView2 ? "visible" : "hidden"}
+            >
               <StaticImage
                 src="../images/ProgramsImages/cupping.png"
                 alt="A practitioner performs moxibustion, igniting a bundle of herbs."
@@ -69,19 +172,30 @@ const OurPrograms = ({ data, location }) => {
                 width={590}
               />
             </ProgramImage>
-            <ProgramText>
-              <h1>Traditional Chinese Medicine Practitioner</h1>
-              <h6>
+            <ProgramText
+              variants={fadeIn}
+              initial="hidden"
+              animate={sectionInView2 ? "visible" : "hidden"}
+              ref={SectionRef2}
+            >
+              <motion.h1 variants={fadeIn}>
+                Traditional Chinese Medicine Practitioner
+              </motion.h1>
+              <motion.h6 variants={fadeIn}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </h6>
+              </motion.h6>
             </ProgramText>
           </ProgramInner>
         </ProgramSection>
 
         <ProgramSection>
           <ProgramInner>
-            <ProgramImage>
+            <ProgramImage
+              variants={fadeIn}
+              initial="hidden"
+              animate={sectionInView3 ? "visible" : "hidden"}
+            >
               <StaticImage
                 src="../images/ProgramsImages/tcmp.png"
                 alt="A practitioner performs moxibustion, igniting a bundle of herbs."
@@ -89,26 +203,40 @@ const OurPrograms = ({ data, location }) => {
                 width={590}
               />
             </ProgramImage>
-            <ProgramText>
-              <h1>Advanced TCMP</h1>
-              <h6>
+            <ProgramText
+              variants={fadeIn}
+              initial="hidden"
+              animate={sectionInView3 ? "visible" : "hidden"}
+              ref={SectionRef3}
+            >
+              <motion.h1 variants={fadeIn}>Advanced TCMP</motion.h1>
+              <motion.h6 variants={fadeIn}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </h6>
+              </motion.h6>
             </ProgramText>
           </ProgramInner>
         </ProgramSection>
 
         <ProgramSection>
           <ProgramInner>
-            <ProgramText>
-              <h1>Herbology</h1>
-              <h6>
+            <ProgramText
+              variants={fadeIn}
+              initial="hidden"
+              animate={sectionInView4 ? "visible" : "hidden"}
+              ref={SectionRef4}
+            >
+              <motion.h1 variants={fadeIn}>Herbology</motion.h1>
+              <motion.h6 variants={fadeIn}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </h6>
+              </motion.h6>
             </ProgramText>
-            <ProgramImage>
+            <ProgramImage
+              variants={fadeIn}
+              initial="hidden"
+              animate={sectionInView4 ? "visible" : "hidden"}
+            >
               <StaticImage
                 src="../images/ProgramsImages/herbology.png"
                 alt="A practitioner performs moxibustion, igniting a bundle of herbs."
@@ -117,7 +245,14 @@ const OurPrograms = ({ data, location }) => {
               />
             </ProgramImage>
           </ProgramInner>
-          <SvgWrapper>
+          <SvgWrapper
+            ref={contentRef2}
+            style={{
+              transform: `translate3D(0, calc(550px + ${
+                offsetY * -0.2
+              }px), 0) rotate(0deg)`,
+            }}
+          >
             <LeafPattern />
           </SvgWrapper>
         </ProgramSection>
@@ -172,8 +307,8 @@ const OurPrograms = ({ data, location }) => {
         <p>
           Certificate programs are designed for general interest or Regulated
           Health Practitioners interested in practicing TCM Modalities as an
-          <strong> adjunct therapy to their primary method of treatment</strong>.
-          You must complete one of our diploma programs if you would like to
+          <strong> adjunct therapy to their primary method of treatment</strong>
+          . You must complete one of our diploma programs if you would like to
           practice as a Registered TCMP Practitioner, Registered Acupuncturist
           or Registered Herbalist.
         </p>
@@ -244,8 +379,6 @@ const ImageBanner = styled.div`
   overflow: hidden;
   margin: 0 auto;
   position: relative;
-
-    
 `
 
 const BannerText = styled.div`
@@ -320,7 +453,7 @@ const ProgramInner = styled.div`
   }
 `
 
-const ProgramText = styled.div`
+const ProgramText = styled(motion.div)`
   max-width: 45%;
   padding-top: 1rem;
   position: relative;
@@ -347,7 +480,6 @@ const ProgramText = styled.div`
 const SvgWrapper = styled.div`
   position: absolute;
   top: -85%;
-  transform: rotate(180deg);
   left: 50px;
   z-index: 1;
 
@@ -357,7 +489,7 @@ const SvgWrapper = styled.div`
     transform: rotate(360deg);
   }
 `
-const ProgramImage = styled.div`
+const ProgramImage = styled(motion.div)`
   z-index: 2;
   position: relative;
   border-radius: 20px !important;
@@ -382,7 +514,7 @@ const CertificatePrograms = styled.section`
     color: #00000060;
 
     & strong {
-      color:  #00000090;
+      color: #00000090;
     }
   }
 
@@ -395,7 +527,7 @@ const CertificatePrograms = styled.section`
       width: 90%;
       padding-bottom: 5rem;
     }
-    
+
     & svg {
       width: 30px;
     }
@@ -418,9 +550,9 @@ const Title = styled.div`
   }
 
   @media (max-width: ${breakpoints.m}px) {
-  & h1 {
-    padding-top: 0rem;
-  }
+    & h1 {
+      padding-top: 0rem;
+    }
   }
 `
 
