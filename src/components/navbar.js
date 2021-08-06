@@ -88,9 +88,6 @@ const Navbar = () => {
     }
   }, [currentOffset, open])
 
-  // console.log(currentOffset)
-  // console.log(window.scrollY)
-
   return (
     <>
       {/* {open && <Modal />} */}
@@ -133,16 +130,19 @@ const Navbar = () => {
               <Link to="/news">News</Link>
             </motion.h3>
             <motion.h3 variants={navItem}>
+              <Link to="/campus">Campus</Link>
+            </motion.h3>
+            <motion.h3 variants={navItem}>
               <Link to="/our-faculty">Our Faculty</Link>
             </motion.h3>
             <motion.h3 variants={navItem}>
-              <Link to="/campus">Campus</Link>
+              <Link to="/teaching-clinic">Teaching Clinic</Link>
             </motion.h3>
             <motion.h3 variants={navItem}>
               <Link to="/studentlogin">Student Login</Link>
             </motion.h3>
             <motion.h3 variants={navItem}>
-              <Link to="/applynow">Apply Now</Link>
+              <Link to="/admissions">Admissions</Link>
             </motion.h3>
           </NavMenu>
         ) : null}

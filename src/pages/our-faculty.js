@@ -140,7 +140,7 @@ const FacultyHeader = styled.div`
   align-items: center;
   text-align: center;
   margin: 0 auto;
-  margin-bottom: 10rem;
+  margin-bottom: 5rem;
 
   & h1 {
     padding-bottom: 2rem;

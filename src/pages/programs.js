@@ -10,7 +10,7 @@ import LeafPattern from "../svg/leafPattern"
 import StampLogo from "../svg/stamplogo"
 import { motion } from "framer-motion"
 
-const OurPrograms = ({ data, location }) => {
+const OurPrograms = ({ data }) => {
   const siteTitle = data.site.siteMetadata?.title || `Our Programs`
 
   // ---------- INTERSECTION OBSERVER LOGIC ----------
@@ -96,7 +96,7 @@ const OurPrograms = ({ data, location }) => {
   }
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout title={siteTitle}>
       <Seo title="Our Programs" />
       <SectionWrapper>
         <ImageBanner>
@@ -110,12 +110,29 @@ const OurPrograms = ({ data, location }) => {
 
           <StaticImage
             src="../images/ProgramsImages/image61.png"
-            alt="Images of Toronto's skyline on a sunny day, with a body of water in the foreground."
+            alt="Beige background image with a bonsai in the foreground."
+            quality={100}
+            layout="fullWidth"
+          />
+        </ImageBanner>
+
+        <ImageBannerMobile>
+          <BannerText>
+            <h1>Our Programs</h1>
+            <h6>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </h6>
+          </BannerText>
+
+          <StaticImage
+            src="../images/ProgramsImages/mobilebanner.png"
+            alt="Beige background image with a bonsai in the foreground."
             quality={100}
             height={530}
             layout="fullWidth"
           />
-        </ImageBanner>
+        </ImageBannerMobile>
       </SectionWrapper>
 
       <ProgramContainer>
@@ -167,7 +184,7 @@ const OurPrograms = ({ data, location }) => {
             >
               <StaticImage
                 src="../images/ProgramsImages/cupping.png"
-                alt="A practitioner performs moxibustion, igniting a bundle of herbs."
+                alt="A practitioner performs cupping on a patient with 6 cups on their back."
                 quality={100}
                 width={590}
               />
@@ -198,7 +215,7 @@ const OurPrograms = ({ data, location }) => {
             >
               <StaticImage
                 src="../images/ProgramsImages/tcmp.png"
-                alt="A practitioner performs moxibustion, igniting a bundle of herbs."
+                alt="A professor leads a group in Tai Chi in one of our salons."
                 quality={100}
                 width={590}
               />
@@ -239,7 +256,7 @@ const OurPrograms = ({ data, location }) => {
             >
               <StaticImage
                 src="../images/ProgramsImages/herbology.png"
-                alt="A practitioner performs moxibustion, igniting a bundle of herbs."
+                alt="A picture of a collection of herbs and jars from our Apothecary."
                 quality={100}
                 width={590}
               />
@@ -270,8 +287,8 @@ const OurPrograms = ({ data, location }) => {
             </CardText>
             <CardImage>
               <StaticImage
-                src="../images/ProgramsImages/herbology.png"
-                alt="A practitioner performs moxibustion, igniting a bundle of herbs."
+                src="../images/ProgramsImages/acupuncture.png"
+                alt="A picture of a prosthetic foot with illustrated acupuncture points."
                 quality={100}
                 height={590}
               />
@@ -283,7 +300,7 @@ const OurPrograms = ({ data, location }) => {
             </CardText>
             <CardImage>
               <StaticImage
-                src="../images/ProgramsImages/herbology.png"
+                src="../images/ProgramsImages/bodywork.png"
                 alt="A practitioner performs moxibustion, igniting a bundle of herbs."
                 quality={100}
                 height={590}
@@ -296,7 +313,7 @@ const OurPrograms = ({ data, location }) => {
             </CardText>
             <CardImage>
               <StaticImage
-                src="../images/ProgramsImages/herbology.png"
+                src="../images/ProgramsImages/massage.png"
                 alt="A practitioner performs moxibustion, igniting a bundle of herbs."
                 quality={100}
                 height={590}
@@ -379,6 +396,23 @@ const ImageBanner = styled.div`
   overflow: hidden;
   margin: 0 auto;
   position: relative;
+
+  @media (max-width: ${breakpoints.m}px) {
+    display: none;
+  }
+`
+
+const ImageBannerMobile = styled.div`
+  display: none;
+
+  @media (max-width: ${breakpoints.m}px) {
+    display: block;
+    width: 100%;
+    height: 75vh;
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+  }
 `
 
 const BannerText = styled.div`
@@ -393,7 +427,15 @@ const BannerText = styled.div`
   }
 
   @media (max-width: ${breakpoints.m}px) {
-    width: 100%;
+    width: 90%;
+    bottom: 2.5rem;
+
+    & h1 {
+      padding-bottom: .5rem;
+    }
+  }
+  @media (max-width: ${breakpoints.xs}px) {
+    bottom: 1rem;
   }
 `
 
