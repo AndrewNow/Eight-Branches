@@ -408,7 +408,7 @@ const ImageBannerMobile = styled.div`
   @media (max-width: ${breakpoints.m}px) {
     display: block;
     width: 100%;
-    height: 75vh;
+    /* height: 75vh; */
     overflow: hidden;
     margin: 0 auto;
     position: relative;

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { graphql, Link } from "gatsby"
 import { StaticImage, GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
@@ -6,6 +6,9 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import breakpoints from "../components/breakpoints"
 import { motion, AnimatePresence } from "framer-motion"
+import contactInfo from "../../site/settings/contact_info.json"
+import { useInView } from "react-intersection-observer"
+import LeafPattern from "../svg/leafPattern"
 
 const TeachingClinic = ({ data }) => {
   const siteTitle = data.site.siteMetadata?.title || `Teaching Clinic`
@@ -25,7 +28,7 @@ const TeachingClinic = ({ data }) => {
       opacity: 0,
       transition: {
         ease: "easeOut",
-      }
+      },
     },
   }
 
@@ -45,6 +48,20 @@ const TeachingClinic = ({ data }) => {
       },
     },
   }
+
+  // ---------- Parallax for leaf when in view ----------
+  const [contentRef, inView] = useInView({
+    root: null,
+  })
+
+  // ---------- PARALLAX SCROLL LOGIC ----------
+  const [offsetY, setOffsetY] = useState(0)
+  const handleScroll = () => setOffsetY(window.pageYOffset)
+
+  useEffect(() => {
+    inView && window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [inView])
 
   // ---------- Info & data for the "Treatments Offered" section ----------
   const acupuncture = data.acupuncture.childImageSharp.gatsbyImageData
@@ -90,18 +107,33 @@ const TeachingClinic = ({ data }) => {
   const handleAcupunctureClick = () => (
     setAcupunctureExpanded(!acupunctureExpanded),
     setHerbsExpanded(false),
-    setBodyworkExpanded(false)
+    setBodyworkExpanded(false),
+    setTreatmentsImage({
+      imagesrc: TreatmentsData.acupunctureData.imagesrc,
+      imagealt: TreatmentsData.acupunctureData.imagealt,
+      key: TreatmentsData.acupunctureData.id,
+    })
   )
   const handleHerbsClick = () => (
     setHerbsExpanded(!herbsExpanded),
     setAcupunctureExpanded(false),
-    setBodyworkExpanded(false)
+    setBodyworkExpanded(false),
+    setTreatmentsImage({
+      imagesrc: TreatmentsData.herbsData.imagesrc,
+      imagealt: TreatmentsData.herbsData.imagealt,
+      key: TreatmentsData.herbsData.id,
+    })
   )
 
   const handleBodyworkClick = () => (
     setBodyworkExpanded(!bodyworkExpanded),
     setHerbsExpanded(false),
-    setAcupunctureExpanded(false)
+    setAcupunctureExpanded(false),
+    setTreatmentsImage({
+      imagesrc: TreatmentsData.bodyworkData.imagesrc,
+      imagealt: TreatmentsData.bodyworkData.imagealt,
+      key: TreatmentsData.bodyworkData.id,
+    })
   )
 
   return (
@@ -121,7 +153,25 @@ const TeachingClinic = ({ data }) => {
             layout="constrained"
           />
         </ImageBanner>
+
+        <ImageBannerMobile>
+          <BannerText>
+            <h1>The Teaching Clinic</h1>
+            <h6>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </h6>
+          </BannerText>
+
+          <StaticImage
+            src="../images/TeachingClinic/mobilebanner.png"
+            alt="Beige background image with a bonsai in the foreground."
+            quality={100}
+            layout="constrained"
+          />
+        </ImageBannerMobile>
       </SectionWrapper>
+
       <COVIDBanner onClick={() => setOpen(!open)}>
         <h6>Read COVID-19 Update</h6>
         <AnimatePresence>
@@ -135,8 +185,10 @@ const TeachingClinic = ({ data }) => {
               <motion.p variants={Covid} exit="closed">
                 Eight Branches continually supports the community by offering
                 acupuncture, herbs, and bodywork/shiatsu treatments at an
-                affordable price. With the recent changes in COVID-19 statistics, our Eight Branches Teaching Clinic will be reopening on February 1st,
-                2021, and will be operating in a “community acupuncture” style.
+                affordable price. With the recent changes in COVID-19
+                statistics, our Eight Branches Teaching Clinic will be reopening
+                on February 1st, 2021, and will be operating in a “community
+                acupuncture” style.
                 <br />
                 <br />
                 Extensive clinic safety and disinfection protocols are in place
@@ -220,9 +272,10 @@ const TeachingClinic = ({ data }) => {
         </TextWrapper>
       </HoursSection>
       <TreatmentsOffered>
-        <h1>Treatments Offered</h1>
+        <TreatmentsHeader>Treatments Offered</TreatmentsHeader>
 
         <TreatmentsMain>
+          <TreatmentsHeaderMobile>Treatments Offered</TreatmentsHeaderMobile>
           <TreatmentsItem>
             {/* ------------ ACUPUNCTURE TREATMENT ------------  */}
             {/* ------------ ACUPUNCTURE TREATMENT ------------  */}
@@ -356,6 +409,119 @@ const TeachingClinic = ({ data }) => {
           </TreatmentsImage>
         </TreatmentsMain>
       </TreatmentsOffered>
+      <CommonConditions>
+        <Inner>
+          <h2>
+            Common Conditions/
+            <br />
+            Illnesses We Treat:
+          </h2>
+          <List>
+            <h6>
+              Addiction
+              <br /> Allergies
+              <br /> Anxiety
+              <br /> Arthritis
+              <br /> Cold & Flu
+              <br /> Cough
+              <br /> Constipation
+              <br />
+            </h6>
+            <h6>
+              Depression
+              <br />
+              Diarrhea
+              <br />
+              Facial paralysis
+              <br />
+              Fatigue
+              <br />
+              Fibromyalgia
+              <br />
+              Gastritis
+              <br />
+              Headaches
+              <br />
+            </h6>
+            <h6>
+              Indigestion <br />
+              Infertility <br />
+              Immune disorders
+              <br /> ​Insomnia
+              <br /> Menstrual problems
+              <br /> Menopause
+              <br /> Nausea
+            </h6>
+            <h6>
+              PMS
+              <br />
+              Sports injuries
+              <br />
+              Stress
+              <br />
+              Skin conditions
+              <br />
+              Sciatica
+              <br />
+              Urination disorders
+            </h6>
+          </List>
+        </Inner>
+      </CommonConditions>
+      <BookAnAppointment>
+        <SvgWrapper
+          ref={contentRef}
+          style={{
+            transform: `translate3D(0, calc(425px + ${
+              offsetY * -0.175
+            }px), 0) rotate(180deg)`,
+          }}
+        >
+          <LeafPattern />
+        </SvgWrapper>
+        <InnerText>
+          <h1>Book an Appointment</h1>
+          <h6>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
+          </h6>
+          <BookNowButton>
+            <p>Book Now</p>
+          </BookNowButton>
+        </InnerText>
+      </BookAnAppointment>
+      <MapWrapper>
+        <MapFrame>
+          <MapText>
+            <h3>Visit Us</h3>
+            <a href="https://g.page/EightBranches?share" target="blank">
+              <h6>
+                112 Merton St 3rd floor, <br /> Toronto, ON M4S 2Z8
+              </h6>
+            </a>
+            <h3>Contact Us</h3>
+            <a href={`mailto: ${contactInfo.email}`}>
+              <h6>{contactInfo.email}</h6>
+            </a>
+
+            <a href={`tel: ${contactInfo.phone}`} alt="Main phone number">
+              <h6>{contactInfo.phone}</h6>
+            </a>
+            <a
+              href={`tel: ${contactInfo.phone2}`}
+              alt="Alternative toll-free phone number"
+            >
+              <h6>{contactInfo.phone2}</h6>
+            </a>
+          </MapText>
+          <Map>
+            <iframe
+              title="Eight Branches map"
+              src="https://snazzymaps.com/embed/329034"
+            />
+          </Map>
+        </MapFrame>
+      </MapWrapper>
     </Layout>
   )
 }
@@ -425,6 +591,19 @@ const ImageBanner = styled.div`
   }
 `
 
+const ImageBannerMobile = styled.div`
+  display: none;
+
+  @media (max-width: ${breakpoints.m}px) {
+    display: block;
+    width: 100%;
+    /* height: 75vh; */
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+  }
+`
+
 const BannerText = styled.div`
   position: absolute;
   z-index: 20;
@@ -438,7 +617,9 @@ const BannerText = styled.div`
 
   @media (max-width: ${breakpoints.m}px) {
     width: 90%;
-    bottom: 2.5rem;
+    left: 5vw;
+    top: 30vw;
+    /* bottom: 2.5rem; */
 
     & h1 {
       padding-bottom: 0.5rem;
@@ -459,6 +640,10 @@ const COVIDBanner = styled(motion.div)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: ${breakpoints.m}px) {
+    padding: 1rem;
+  }
 `
 
 const COVIDNews = styled(motion.div)`
@@ -469,11 +654,19 @@ const COVIDNews = styled(motion.div)`
     line-height: 28px;
     padding-top: 2.5rem;
   }
+
+  @media (max-width: ${breakpoints.m}px) {
+    width: 90%;
+  }
 `
 
 const HoursSection = styled.section`
   background-color: var(--color-beige);
   display: flex;
+
+  @media (max-width: ${breakpoints.m}px) {
+    flex-direction: column;
+  }
 `
 
 const ImageWrapper = styled.div`
@@ -481,6 +674,10 @@ const ImageWrapper = styled.div`
   height: 100%;
   overflow: hidden;
   flex-basis: 50%;
+
+  @media (max-width: ${breakpoints.m}px) {
+    width: 100%;
+  }
 `
 
 const TextWrapper = styled.div`
@@ -494,6 +691,21 @@ const TextWrapper = styled.div`
   & h2 {
     padding-bottom: 5rem;
   }
+
+  @media (max-width: ${breakpoints.m}px) {
+    margin: 0 auto;
+    flex-basis: 100%;
+    width: 90%;
+    padding: 2rem 0rem;
+
+    h6 {
+      padding-bottom: 0.5rem;
+    }
+
+    h2 {
+      padding-bottom: 2.5rem;
+    }
+  }
 `
 
 const Hours = styled.div`
@@ -504,6 +716,10 @@ const Hours = styled.div`
   & h6 {
     color: black;
   }
+
+  @media (max-width: ${breakpoints.m}px) {
+    width: 100%;
+  }
 `
 
 const TreatmentsOffered = styled.div`
@@ -512,10 +728,27 @@ const TreatmentsOffered = styled.div`
   margin: 0 auto;
   text-align: center;
   width: 100%;
+`
 
-  & h1 {
-    padding-top: 10rem;
-    padding-bottom: 5rem;
+const TreatmentsHeader = styled.h1`
+  padding-top: 10rem;
+  padding-bottom: 5rem;
+
+  @media (max-width: ${breakpoints.m}px) {
+    padding-top: 5rem;
+    display: none;
+  }
+`
+
+const TreatmentsHeaderMobile = styled.h1`
+  display: none;
+
+  @media (max-width: ${breakpoints.m}px) {
+    padding-top: 2.5rem;
+    width: 60%;
+    margin: 0 auto;
+    display: inline;
+    order: 1;
   }
 `
 
@@ -525,14 +758,28 @@ const TreatmentsMain = styled.div`
   width: 85%;
   margin: 0 auto;
   padding-bottom: 10rem;
+
+  @media (max-width: ${breakpoints.m}px) {
+    width: 100%;
+    flex-direction: column-reverse;
+    padding-bottom: 5rem;
+  }
 `
 const TreatmentsItem = styled(motion.div)`
   flex-basis: 50%;
   padding-left: 2rem;
   cursor: pointer;
+
+  @media (max-width: ${breakpoints.m}px) {
+    padding-top: 2.5rem;
+    padding-left: 0rem;
+    margin: 0 auto;
+    width: 90%;
+  }
 `
 
 const TreatmentsText = styled(motion.div)`
+  order: 2;
   border-bottom: 1px solid white;
   text-align: left;
   display: flex;
@@ -548,14 +795,25 @@ const TreatmentsText = styled(motion.div)`
   &:first-child {
     border-top: 1px solid white;
   }
+
+  @media (max-width: ${breakpoints.m}px) {
+    h2 {
+      padding: 1.5rem 0rem;
+    }
+  }
 `
 
 const Dropdown = styled(motion.div)`
   border-bottom: 1px solid white;
-  
+
   h6 {
     padding: 3rem;
     text-align: left;
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    h6 {
+      padding: 1.5rem;
+    }
   }
 `
 
@@ -563,4 +821,220 @@ const TreatmentsImage = styled.div`
   flex-basis: 45%;
   border-radius: 20px;
   overflow: hidden;
+
+  @media (max-width: ${breakpoints.m}px) {
+    border-radius: 0px;
+    order: 2;
+  }
+`
+
+const CommonConditions = styled.section`
+  background-color: var(--color-beige);
+  width: 100%;
+  padding: 3rem 0;
+`
+
+const Inner = styled.div`
+  width: 90%;
+  margin: 0 auto;
+  border-top: 2px solid var(--color-darkgreen);
+  border-bottom: 2px solid var(--color-darkgreen);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  h2 {
+    padding: 5rem;
+    color: var(--color-darkgreen);
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    border-top: 1px solid var(--color-darkgreen);
+    border-bottom: 1px solid var(--color-darkgreen);
+
+    h2 {
+      padding: 1rem;
+    }
+  }
+`
+
+const List = styled.div`
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 5rem;
+
+  @media (max-width: ${breakpoints.m}px) {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* justify-self: end; */
+    align-items: start;
+    padding-bottom: 2.5rem;
+  }
+`
+
+const BookAnAppointment = styled.section`
+  background-color: var(--color-brown);
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  padding: 7rem 0;
+`
+
+const InnerText = styled.div`
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin: 0 auto;
+  width: 45%;
+
+  h1 {
+    padding-bottom: 1rem;
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    width: 80%;
+  }
+`
+
+const SvgWrapper = styled.div`
+  z-index: 1;
+  position: absolute;
+  top: -5%;
+  left: 50px;
+  z-index: 1;
+
+  @media (max-width: ${breakpoints.m}px) {
+    left: -60%;
+    top: -55%;
+  }
+`
+
+const BookNowButton = styled.a`
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2.5rem;
+  & p {
+    font-family: "Matter-regular";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-darkgreen);
+    border: 1px solid var(--color-darkgreen);
+    border-radius: 10px;
+    width: 130px;
+    height: 40px;
+    transition: var(--hover-transition);
+
+    &:hover {
+      background-color: var(--color-white);
+      color: var(--color-darkgreen);
+    }
+  }
+`
+
+const MapWrapper = styled.div`
+  background-color: var(--color-darkgreen);
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 2.5rem;
+
+  @media (max-width: ${breakpoints.m}px) {
+    padding: 0;
+    margin: 0;
+  }
+`
+const MapFrame = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5rem;
+  border: 1px solid white;
+  width: 100%;
+  height: 90%;
+  border-radius: 40px;
+
+  @media (max-width: ${breakpoints.m}px) {
+    padding: 0rem;
+    flex-direction: column-reverse;
+    border: none;
+  }
+`
+
+
+const MapText = styled.div`
+  flex-basis: 30%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: var(--color-white);
+
+  & > :nth-child(2) {
+    margin-bottom: 5rem;
+  }
+
+  & a {
+    font-size: 24px;
+    line-height: 35px;
+    text-decoration: none;
+    color: white;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    border: 1px solid white;
+    padding: 4rem;
+    margin: 1rem auto;
+    text-align: left;
+    align-self: flex-start;
+    flex-basis: 100%;
+    border-radius: 20px;
+    width: 90%;
+
+    & > :nth-child(2) {
+      margin-bottom: 2.5rem;
+    }
+    a {
+      font-size: 18px;
+    }
+  }
+`
+
+const Map = styled.div`
+  flex-basis: 60%;
+  /* border-radius: 10px; */
+  /* overflow: hidden; */
+  height: 600px;
+  
+  & iframe {
+    height: 100%;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    width: 100%;
+
+    iframe {
+      height: 400px;
+      border-radius: 0px;
+      overflow: default;  
+    }
+  }
 `
