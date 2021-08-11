@@ -2,12 +2,34 @@ import * as React from "react"
 import styled from "styled-components"
 import Navbar from "../components/navbar.js"
 import Footer from "../components/footer.js"
-import breakpoints from './breakpoints'
-
+import breakpoints from "./breakpoints"
+import { motion } from "framer-motion"
 
 const Layout = ({ children }) => {
+  const PageTransition = {
+    initial: {
+      opacity: 0,
+      transition: {
+        duration: 0.35,
+        transition: "easeOut",
+      },
+    },
+    animate: {
+      opacity: 1,
+      transition: {
+        duration: 0.35,
+        transition: "easeOut",
+      },
+    },
+  }
+
   return (
-    <GlobalWrapper>
+    <GlobalWrapper
+      variants={PageTransition}
+      initial="initial"
+      animate="animate"
+      exit="initial"
+    >
       <Navbar />
       <Main>{children}</Main>
       <Footer />
@@ -15,9 +37,10 @@ const Layout = ({ children }) => {
   )
 }
 
-const GlobalWrapper = styled.div`
+const GlobalWrapper = styled(motion.div)`
   margin: 0 auto;
   padding-bottom: 550px;
+  /* overflow-x: hidden; */
 
   @media (max-width: ${breakpoints.m}px) {
     h1 {

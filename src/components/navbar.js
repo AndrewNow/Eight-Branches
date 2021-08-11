@@ -40,11 +40,10 @@ const Navbar = () => {
   const menuAnimation = {
     visible: {
       opacity: 1,
+      y: 0,
       transition: {
         delay: 0.1,
         duration: 0.35,
-        staggerChildren: 0.1,
-        delayChildren: 0.1,
       },
     },
     hidden: {
@@ -53,6 +52,23 @@ const Navbar = () => {
         delay: 0,
         duration: 0.35,
       },
+    },
+  }
+
+  const innerMenuAnimation = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.1,
+        duration: .5,
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      y: 50,
     },
   }
 
@@ -112,7 +128,7 @@ const Navbar = () => {
           />
         </IconWrapper>
       </HeaderWrapper>
-      <AnimatePresence>
+      <AnimatePresence exitBeforeEnter>
         {open ? (
           <NavMenu
             initial="hidden"
@@ -120,30 +136,37 @@ const Navbar = () => {
             exit="hidden"
             variants={menuAnimation}
           >
-            <motion.h3 variants={navItem} exit="hidden">
-              <Link to="/aboutus">About Us</Link>
-            </motion.h3>
-            <motion.h3 variants={navItem}>
-              <Link to="/programs">Programs</Link>
-            </motion.h3>
-            <motion.h3 variants={navItem}>
-              <Link to="/news">News</Link>
-            </motion.h3>
-            <motion.h3 variants={navItem}>
-              <Link to="/campus">Campus</Link>
-            </motion.h3>
-            <motion.h3 variants={navItem}>
-              <Link to="/our-faculty">Our Faculty</Link>
-            </motion.h3>
-            <motion.h3 variants={navItem}>
-              <Link to="/teaching-clinic">Teaching Clinic</Link>
-            </motion.h3>
-            <motion.h3 variants={navItem}>
-              <Link to="/studentlogin">Student Login</Link>
-            </motion.h3>
-            <motion.h3 variants={navItem}>
-              <Link to="/admissions">Admissions</Link>
-            </motion.h3>
+            <motion.div
+              variants={innerMenuAnimation}
+              // initial="hidden"
+              // animate={open ? "visible" : "hidden"}
+              // exit="hidden"
+            >
+              <motion.h3 variants={navItem} exit="hidden">
+                <Link to="/aboutus">About Us</Link>
+              </motion.h3>
+              <motion.h3 variants={navItem}>
+                <Link to="/programs">Programs</Link>
+              </motion.h3>
+              <motion.h3 variants={navItem}>
+                <Link to="/news">News</Link>
+              </motion.h3>
+              <motion.h3 variants={navItem}>
+                <Link to="/campus">Campus</Link>
+              </motion.h3>
+              <motion.h3 variants={navItem}>
+                <Link to="/our-faculty">Our Faculty</Link>
+              </motion.h3>
+              <motion.h3 variants={navItem}>
+                <Link to="/teaching-clinic">Teaching Clinic</Link>
+              </motion.h3>
+              <motion.h3 variants={navItem}>
+                <Link to="/studentlogin">Student Login</Link>
+              </motion.h3>
+              <motion.h3 variants={navItem}>
+                <Link to="/admissions">Admissions</Link>
+              </motion.h3>
+            </motion.div>
           </NavMenu>
         ) : null}
       </AnimatePresence>
@@ -169,7 +192,6 @@ const HeaderWrapper = styled(motion.header)`
   justify-content: space-between;
   align-items: center;
   /* mix-blend-mode: difference; */
-
   & svg {
     margin-top: 0.25rem;
   }
@@ -209,6 +231,8 @@ const IconWrapper = styled.div`
 `
 
 const NavMenu = styled(motion.nav)`
+  border-left: 1px solid black;
+
   position: fixed;
   z-index: 900;
   right: 0;
@@ -224,22 +248,27 @@ const NavMenu = styled(motion.nav)`
     margin-bottom: 2rem;
     text-align: center;
 
+    
     &:nth-child(1) {
       padding-top: 15vh;
     }
   }
-
-  & a {
+  
+  & h3 > a {
     text-decoration: none;
     color: var(--color-black);
     transition: color ease-in-out 0.15s;
-
+    
     &:hover {
+      color: var(--color-orange);
+    }
+    &:active {
       color: var(--color-orange);
     }
   }
 
   @media (max-width: ${breakpoints.m}px) {
+    border: none;
     width: 100vw;
     left: 0;
   }

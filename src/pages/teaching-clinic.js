@@ -6,9 +6,10 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import breakpoints from "../components/breakpoints"
 import { motion, AnimatePresence } from "framer-motion"
-import contactInfo from "../../site/settings/contact_info.json"
 import { useInView } from "react-intersection-observer"
 import LeafPattern from "../svg/leafPattern"
+
+import { GoogleMaps } from '../components/GeneralComponents/generalcomponents'
 
 const TeachingClinic = ({ data }) => {
   const siteTitle = data.site.siteMetadata?.title || `Teaching Clinic`
@@ -174,7 +175,7 @@ const TeachingClinic = ({ data }) => {
 
       <COVIDBanner onClick={() => setOpen(!open)}>
         <h6>Read COVID-19 Update</h6>
-        <AnimatePresence>
+        <AnimatePresence exitBeforeEnter>
           {open && (
             <COVIDNews
               variants={Covid}
@@ -223,8 +224,10 @@ const TeachingClinic = ({ data }) => {
             src="../images/TeachingClinic/apothecary.jpg"
             alt="Image of two practitioners observing apothecary herbs."
             quality={100}
+            // aspectRatio={1 / 1}
             transformOptions={{ cropFocus: "center" }}
-            aspectRatio={1 / 1}
+            imgStyle={{ objectFit: "cover" }}
+            style={{ minHeight: "100%" }}
           />
         </ImageWrapper>
         <TextWrapper>
@@ -490,38 +493,7 @@ const TeachingClinic = ({ data }) => {
           </BookNowButton>
         </InnerText>
       </BookAnAppointment>
-      <MapWrapper>
-        <MapFrame>
-          <MapText>
-            <h3>Visit Us</h3>
-            <a href="https://g.page/EightBranches?share" target="blank">
-              <h6>
-                112 Merton St 3rd floor, <br /> Toronto, ON M4S 2Z8
-              </h6>
-            </a>
-            <h3>Contact Us</h3>
-            <a href={`mailto: ${contactInfo.email}`}>
-              <h6>{contactInfo.email}</h6>
-            </a>
-
-            <a href={`tel: ${contactInfo.phone}`} alt="Main phone number">
-              <h6>{contactInfo.phone}</h6>
-            </a>
-            <a
-              href={`tel: ${contactInfo.phone2}`}
-              alt="Alternative toll-free phone number"
-            >
-              <h6>{contactInfo.phone2}</h6>
-            </a>
-          </MapText>
-          <Map>
-            <iframe
-              title="Eight Branches map"
-              src="https://snazzymaps.com/embed/329034"
-            />
-          </Map>
-        </MapFrame>
-      </MapWrapper>
+      <GoogleMaps />
     </Layout>
   )
 }
@@ -641,6 +613,13 @@ const COVIDBanner = styled(motion.div)`
   justify-content: center;
   align-items: center;
 
+
+  :hover {
+    h6 {
+      text-decoration: underline;
+    }
+  }
+
   @media (max-width: ${breakpoints.m}px) {
     padding: 1rem;
   }
@@ -664,18 +643,20 @@ const HoursSection = styled.section`
   background-color: var(--color-beige);
   display: flex;
 
-  @media (max-width: ${breakpoints.m}px) {
+  @media (max-width: ${breakpoints.xl}px) {
     flex-direction: column;
   }
 `
 
 const ImageWrapper = styled.div`
-  width: 50%;
-  height: 100%;
-  overflow: hidden;
   flex-basis: 50%;
+  max-width: 50%;
+  min-height: 100%;
+  overflow-x: hidden;
 
-  @media (max-width: ${breakpoints.m}px) {
+  @media (max-width: ${breakpoints.xl}px) {
+    min-height: auto;
+    max-width: 100%;
     width: 100%;
   }
 `
@@ -759,18 +740,22 @@ const TreatmentsMain = styled.div`
   margin: 0 auto;
   padding-bottom: 10rem;
 
-  @media (max-width: ${breakpoints.m}px) {
+  @media (max-width: ${breakpoints.xl}px) {
+    width: 95%;
+  }
+  @media (max-width: ${breakpoints.l}px) {
     width: 100%;
     flex-direction: column-reverse;
     padding-bottom: 5rem;
   }
 `
+
 const TreatmentsItem = styled(motion.div)`
   flex-basis: 50%;
   padding-left: 2rem;
   cursor: pointer;
 
-  @media (max-width: ${breakpoints.m}px) {
+  @media (max-width: ${breakpoints.l}px) {
     padding-top: 2.5rem;
     padding-left: 0rem;
     margin: 0 auto;
@@ -796,7 +781,8 @@ const TreatmentsText = styled(motion.div)`
     border-top: 1px solid white;
   }
 
-  @media (max-width: ${breakpoints.m}px) {
+  @media (max-width: ${breakpoints.l}px) {
+    padding-left: 0;
     h2 {
       padding: 1.5rem 0rem;
     }
@@ -937,104 +923,6 @@ const BookNowButton = styled.a`
     &:hover {
       background-color: var(--color-white);
       color: var(--color-darkgreen);
-    }
-  }
-`
-
-const MapWrapper = styled.div`
-  background-color: var(--color-darkgreen);
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  padding: 2.5rem;
-
-  @media (max-width: ${breakpoints.m}px) {
-    padding: 0;
-    margin: 0;
-  }
-`
-const MapFrame = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5rem;
-  border: 1px solid white;
-  width: 100%;
-  height: 90%;
-  border-radius: 40px;
-
-  @media (max-width: ${breakpoints.m}px) {
-    padding: 0rem;
-    flex-direction: column-reverse;
-    border: none;
-  }
-`
-
-
-const MapText = styled.div`
-  flex-basis: 30%;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  color: var(--color-white);
-
-  & > :nth-child(2) {
-    margin-bottom: 5rem;
-  }
-
-  & a {
-    font-size: 24px;
-    line-height: 35px;
-    text-decoration: none;
-    color: white;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  @media (max-width: ${breakpoints.m}px) {
-    border: 1px solid white;
-    padding: 4rem;
-    margin: 1rem auto;
-    text-align: left;
-    align-self: flex-start;
-    flex-basis: 100%;
-    border-radius: 20px;
-    width: 90%;
-
-    & > :nth-child(2) {
-      margin-bottom: 2.5rem;
-    }
-    a {
-      font-size: 18px;
-    }
-  }
-`
-
-const Map = styled.div`
-  flex-basis: 60%;
-  /* border-radius: 10px; */
-  /* overflow: hidden; */
-  height: 600px;
-  
-  & iframe {
-    height: 100%;
-    width: 100%;
-    border: none;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-
-  @media (max-width: ${breakpoints.m}px) {
-    width: 100%;
-
-    iframe {
-      height: 400px;
-      border-radius: 0px;
-      overflow: default;  
     }
   }
 `

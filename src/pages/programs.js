@@ -9,6 +9,10 @@ import breakpoints from "../components/breakpoints"
 import LeafPattern from "../svg/leafPattern"
 import StampLogo from "../svg/stamplogo"
 import { motion } from "framer-motion"
+import {
+  ApplyNow,
+  AcademicAdvisor,
+} from "../components/GeneralComponents/generalcomponents"
 
 const OurPrograms = ({ data }) => {
   const siteTitle = data.site.siteMetadata?.title || `Our Programs`
@@ -330,13 +334,8 @@ const OurPrograms = ({ data }) => {
           or Registered Herbalist.
         </p>
       </CertificatePrograms>
-
-      <ApplyNowSection>
-        <ApplyNowInner>
-          <h1>Apply Now Lorem ipsum dolor sit amet</h1>
-          <ReadMore to="/admissions">Apply Now</ReadMore>
-        </ApplyNowInner>
-      </ApplyNowSection>
+      <ApplyNow />
+      <AcademicAdvisor />
     </Layout>
   )
 }
@@ -431,7 +430,7 @@ const BannerText = styled.div`
     bottom: 2.5rem;
 
     & h1 {
-      padding-bottom: .5rem;
+      padding-bottom: 0.5rem;
     }
   }
   @media (max-width: ${breakpoints.xs}px) {
@@ -635,62 +634,4 @@ const CardText = styled.div`
 const CardImage = styled.div`
   border-top: 1px solid black;
   overflow: hidden;
-`
-
-const ApplyNowSection = styled.section`
-  background-color: var(--color-darkgreen);
-  height: 67.5vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2.5rem;
-
-  @media (max-width: ${breakpoints.m}px) {
-    padding: 1rem;
-  }
-`
-
-const ApplyNowInner = styled.div`
-  border: 1px solid white;
-  border-radius: 40px;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-
-  & h1 {
-    color: white;
-    max-width: 35%;
-    text-align: center;
-  }
-
-  @media (max-width: ${breakpoints.m}px) {
-    border-radius: 20px;
-    & h1 {
-      max-width: 90%;
-    }
-  }
-`
-
-const ReadMore = styled(Link)`
-  margin-top: 2.5rem;
-  width: 170px;
-  text-align: center;
-  border-radius: 10px;
-  line-height: 26px;
-  font-size: 16px;
-  border: 1px solid var(--color-white);
-  color: var(--color-white);
-  padding: 0.5rem 1.6rem;
-  padding-bottom: 0.6rem;
-  text-decoration: none;
-  font-family: "Matter-regular";
-
-  transition: 0.25s all ease-in-out;
-  &:hover {
-    color: var(--color-darkgreen);
-    background-color: var(--color-white);
-  }
 `

@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useState } from "react"
+import React, { useEffect, useCallback, useState, useRef } from "react"
 import { graphql } from "gatsby"
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
@@ -7,18 +7,60 @@ import Seo from "../components/seo"
 import { useEmblaCarousel } from "embla-carousel/react"
 import { useRecursiveTimeout } from "../components/Embla/useRecursiveTimeout"
 import contactInfo from "../../site/settings/contact_info.json"
-// import { breakpoints } from '../components/breakpoints'
-
+import breakpoints from "../components/breakpoints"
+import { motion } from "framer-motion"
+import { useInView } from "react-intersection-observer"
+import { GoogleMaps } from "../components/GeneralComponents/generalcomponents"
 const Campus = ({ data }) => {
   const siteTitle = data.site.siteMetadata?.title || `Campus`
 
-  //Initialize Embla Carousel
+  // ---------- INTERSECTION OBSERVER LOGIC ----------
+  const ref = useRef()
+  const [SectionRef1, sectionInView1] = useInView({
+    root: null,
+    threshold: 0.85,
+    triggerOnce: true,
+  })
+  const [SectionRef2, sectionInView2] = useInView({
+    root: null,
+    threshold: 0.85,
+    triggerOnce: true,
+  })
+
+  const setRefs = useCallback(
+    node => {
+      // Ref's from useRef needs to have the node assigned to `current`
+      ref.current = node
+      // Callback refs, like the one from `useInView`, is a function that takes the node as an argument
+      SectionRef1(node)
+      SectionRef2(node)
+    },
+    [SectionRef1, SectionRef2]
+  )
+
+  // ---------- FRAMER LOGIC ----------
+  const fadeIn = {
+    visible: {
+      opacity: 1,
+      top: 0,
+      transition: {
+        duration: 0.75,
+        staggerChildren: 0.35,
+      },
+    },
+    hidden: {
+      top: 30,
+      opacity: 0,
+    },
+  }
+
+  // ---------- Initialize Embla Carousel ----------
   const [emblaRef, embla] = useEmblaCarousel({
     loop: true,
     // containScroll: "trimSnaps",
   })
 
-  //Embla config for autoplay scrolling
+  // ---------- Embla config for autoplay scrolling ----------
   const AUTOPLAY_INTERVAL = 3000
   const autoplay = useCallback(() => {
     if (!embla) return
@@ -30,7 +72,7 @@ const Campus = ({ data }) => {
   }, [embla])
   const { play, stop } = useRecursiveTimeout(autoplay, AUTOPLAY_INTERVAL)
 
-  //Embla config for progressbar
+  // ---------- Embla config for progressbar ----------
   const [scrollProgress, setScrollProgress] = useState(0)
   const onScroll = useCallback(() => {
     if (!embla) return
@@ -38,7 +80,7 @@ const Campus = ({ data }) => {
     setScrollProgress(progress * 100)
   }, [embla, setScrollProgress])
 
-  //Run configurations
+  // ---------- Run configurations ----------
   useEffect(() => {
     if (!embla) return
     onScroll()
@@ -53,12 +95,12 @@ const Campus = ({ data }) => {
       <HeaderWrapper>
         <CampusHeader>
           <h1>Our Campus</h1>
-          <h5>
+          <h6>
             Eight Branches offers students a range of classroom environments to
             suit different types of study, including academic classrooms, a
             serene studio and a teaching clinic, which features 8 fully equipped
             teaching spaces.
-          </h5>
+          </h6>
         </CampusHeader>
 
         <Embla>
@@ -92,14 +134,19 @@ const Campus = ({ data }) => {
       <Facilities>
         <h1>Facilities</h1>
         <CardWrapper>
-          <Apothecary>
-            <ApothecaryText>
-              <h4>Our Apothecary</h4>
-              <h6>
+          <Card
+            ref={SectionRef1}
+            variants={fadeIn}
+            initial="hidden"
+            animate={sectionInView1 ? "visible" : "hidden"}
+          >
+            <CardText variants={fadeIn}>
+              <motion.h4 variants={fadeIn}>Our Apothecary</motion.h4>
+              <motion.h6 variants={fadeIn}>
                 Discover the Eight Branches apothecary, which houses a unique &
                 extensive collection of raw Chinese herbs & granules.
-              </h6>
-            </ApothecaryText>
+              </motion.h6>
+            </CardText>
             <StaticImage
               src="../images/Facilities/apothecary.png"
               alt="Images of traditional Chinese herbs and granules."
@@ -107,9 +154,14 @@ const Campus = ({ data }) => {
               width={450}
               height={450}
             />
-          </Apothecary>
+          </Card>
 
-          <Library>
+          <Card
+            ref={SectionRef2}
+            variants={fadeIn}
+            initial="hidden"
+            animate={sectionInView2 ? "visible" : "hidden"}
+          >
             <StaticImage
               src="../images/Facilities/library.png"
               alt="Images of a woman reading in our library, with a traditional Chinese scroll painting behind her."
@@ -117,14 +169,14 @@ const Campus = ({ data }) => {
               width={450}
               height={450}
             />
-            <LibraryText>
-              <h4>Our Library</h4>
-              <h6>
+            <CardText variants={fadeIn}>
+              <motion.h4 variants={fadeIn}>Our Library</motion.h4>
+              <motion.h6 variants={fadeIn}>
                 Eight Branches has an ever expanding library. Students can
                 browse our collection in person or through our online catalogue.
-              </h6>
-            </LibraryText>
-          </Library>
+              </motion.h6>
+            </CardText>
+          </Card>
         </CardWrapper>
       </Facilities>
       <TorontoBanner>
@@ -146,41 +198,24 @@ const Campus = ({ data }) => {
         />
       </TorontoBanner>
 
-      <MapWrapper>
-        <MapFrame>
-          <MapText>
-            <h3>Visit Us</h3>
-            <a href="https://g.page/EightBranches?share" target="blank">
-              <h6>
-                112 Merton St 3rd floor, <br /> Toronto, ON M4S 2Z8
-              </h6>
-            </a>
-            <h3>Contact Us</h3>
-            <a href={`mailto: ${contactInfo.email}`}>
-              <h6>{contactInfo.email}</h6>
-            </a>
+      <TorontoBannerMobile>
+        <TorontoText>
+          <h2>Conveniently Located</h2>
+          <p>
+            Our academy is in the heart of Midtown Toronto, a pleasant
+            neighborhood rich in character and with a long history of embracing
+            healthy and community-focused lifestyles.
+          </p>
+        </TorontoText>
 
-            <a href={`tel: ${contactInfo.phone}`} alt="Main phone number">
-              <h6>{contactInfo.phone}</h6>
-            </a>
-            <a
-              href={`tel: ${contactInfo.phone2}`}
-              alt="Alternative toll-free phone number"
-            >
-              <h6>{contactInfo.phone2}</h6>
-            </a>
-          </MapText>
-          <Map>
-            <iframe
-              title="Eight Branches map"
-              src="https://snazzymaps.com/embed/329034"
-              width="100%"
-              height="600px"
-              style={{ borderRadius: "10px", border: "none" }}
-            />
-          </Map>
-        </MapFrame>
-      </MapWrapper>
+        <StaticImage
+          src="../images/Facilities/torontomobile.png"
+          alt="Images of Toronto's skyline on a sunny day, with a body of water in the foreground."
+          quality={100}
+        />
+      </TorontoBannerMobile>
+
+      <GoogleMaps />
     </Layout>
   )
 }
@@ -225,6 +260,10 @@ const HeaderWrapper = styled.section`
   position: relative;
   background-color: var(--color-beige);
   margin: 0 auto;
+
+  @media (max-width: ${breakpoints.m}px) {
+    padding-top: 10rem;
+  }
 `
 
 const CampusHeader = styled.div`
@@ -240,8 +279,16 @@ const CampusHeader = styled.div`
     padding-bottom: 2rem;
   }
 
-  & h5 {
+  & h6 {
     width: 47.5%;
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    padding-bottom: 2.5rem;
+
+    h6 {
+      width: 90%;
+    }
   }
 `
 
@@ -250,12 +297,21 @@ const Embla = styled.div`
   width: 80%;
   margin: 0 auto;
   padding-bottom: 15rem;
+
+  @media (max-width: ${breakpoints.m}px) {
+    width: 90%;
+    padding-bottom: 5rem;
+  }
 `
 
 const EmblaViewport = styled.div`
   border-radius: 20px;
   overflow: hidden;
   width: 100%;
+
+  @media (max-width: ${breakpoints.m}px) {
+    border-radius: 10px;
+  }
 `
 
 const EmblaContainer = styled.div`
@@ -267,38 +323,17 @@ const EmblaContainer = styled.div`
 `
 
 const EmblaSlide = styled.div`
-  border-radius: 20px;
   /* flex: 0 0 80%; */
   position: relative;
   min-width: 100%;
   padding-left: 10px;
   height: 650px;
   cursor: grab;
-`
 
-const EmblaProgress = styled.div`
-  position: relative;
-  background-color: white;
-  margin-top: 20px;
-  max-width: 930px;
-  width: calc(100% - 40px);
-  height: 10px;
-  overflow: hidden;
-  border-radius: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  top: -75px;
+  @media (max-width: ${breakpoints.m}px) {
+    height: 200px;
+  }
 `
-const EmblaProgressBar = styled.div`
-  position: absolute;
-  background-color: var(--color-lightestgreen);
-  border-radius: 20px;
-  width: 100%;
-  top: -75px;
-  bottom: -75px;
-  left: -100%;
-`
-
 const EmblaSlideInner = styled.div`
   position: absolute;
   display: block;
@@ -311,6 +346,38 @@ const EmblaSlideInner = styled.div`
   transform: translate(-50%, -50%);
 `
 
+const EmblaProgress = styled.div`
+  position: relative;
+  background-color: white;
+  max-width: 930px;
+  width: calc(100% - 40px);
+  height: 10px;
+  overflow: hidden;
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  top: -75px;
+
+  @media (max-width: ${breakpoints.m}px) {
+    margin-top: 50px;
+    top: -30px;
+    height: 7px;
+  }
+`
+const EmblaProgressBar = styled.div`
+  position: absolute;
+  background-color: var(--color-lightestgreen);
+  border-radius: 20px;
+  width: 100%;
+  top: -75px;
+  bottom: -75px;
+  left: -100%;
+
+  @media (max-width: ${breakpoints.m}px) {
+    top: -30px;
+  }
+`
+
 const Facilities = styled.section`
   background-color: var(--color-beige);
   display: flex;
@@ -321,6 +388,12 @@ const Facilities = styled.section`
     margin: 0 auto;
     padding-bottom: 10rem;
   }
+
+  @media (max-width: ${breakpoints.m}px) {
+    & h1 {
+      padding-bottom: 2.5rem;
+    }
+  }
 `
 
 const CardWrapper = styled.div`
@@ -329,45 +402,75 @@ const CardWrapper = styled.div`
   margin: 0 auto;
   padding-bottom: 15rem;
   width: 80%;
+
+  @media (max-width: ${breakpoints.m}px) {
+    width: 90%;
+    padding-bottom: 5rem;
+  }
 `
 
-const Apothecary = styled.div`
+const Card = styled(motion.div)`
   display: flex;
   overflow: hidden;
   width: 72.5%;
   border: 1px solid black;
   border-radius: 20px;
   background-color: white;
+
+  margin-bottom: 5rem;
+
+  &:nth-child(odd) {
+    align-self: flex-start;
+  }
+  &:nth-child(even) {
+    align-self: flex-end;
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    flex-direction: column;
+    width: 100%;
+
+    &:nth-child(odd) {
+      align-self: center;
+    }
+    &:nth-child(even) {
+      align-self: center;
+    }
+  }
 `
 
-const ApothecaryText = styled.div`
-  border-right: 1px solid black;
+const CardText = styled(motion.div)`
   width: 65%;
   padding: 4rem 6rem;
 
   & h4 {
     padding-bottom: 2rem;
   }
-`
 
-const Library = styled.div`
-  margin-top: 5rem;
-  align-self: flex-end;
-  display: flex;
-  overflow: hidden;
-  width: 72.5%;
-  border: 1px solid black;
-  border-radius: 20px;
-  background-color: white;
-`
+  &:nth-child(odd) {
+    border-right: 1px solid black;
+  }
+  &:nth-child(even) {
+    border-left: 1px solid black;
+  }
 
-const LibraryText = styled.div`
-  border-left: 1px solid black;
-  width: 65%;
-  padding: 4rem 6rem;
+  @media (max-width: ${breakpoints.m}px) {
+    width: 100%;
+    padding: 2rem;
+    border: none;
 
-  & h4 {
-    padding-bottom: 2rem;
+    & h4 {
+      padding-bottom: 1rem;
+    }
+
+    &:nth-child(odd) {
+      border-right: none;
+      border-bottom: 1px solid black;
+    }
+    &:nth-child(even) {
+      border-left: none;
+      border-top: 1px solid black;
+    }
   }
 `
 
@@ -376,8 +479,24 @@ const TorontoBanner = styled.div`
   overflow: hidden;
   margin: 0 auto;
   position: relative;
-`
 
+  @media (max-width: ${breakpoints.m}px) {
+    display: none;
+  }
+`
+const TorontoBannerMobile = styled.div`
+  display: none;
+
+  @media (max-width: ${breakpoints.m}px) {
+    display: inline-block;
+    height: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+    border-bottom: 1px solid black;
+  }
+`
 
 const TorontoText = styled.div`
   position: absolute;
@@ -386,53 +505,18 @@ const TorontoText = styled.div`
   bottom: 5rem;
   left: 15rem;
   width: 55%;
-`
 
-const MapWrapper = styled.div`
-  background-color: var(--color-darkgreen);
-  height: 800px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  `
-const MapFrame = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5rem;
-  border: 1px solid white;
-  width: 95%;
-  height: 90%;
-
-  border-radius: 40px;
-`
-const MapText = styled.div`
-  flex-basis: 30%;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  color: var(--color-white);
-
-  & > :nth-child(2) {
-    margin-bottom: 5rem;
+  @media (max-width: ${breakpoints.m}px) {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    left: 0vw;
+    bottom: 0vw;
+    padding: 7vw 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    backdrop-filter: blur(2px);
+    overflow: hidden;
   }
-
-  & a {
-    font-size: 24px;
-    line-height: 35px;
-    text-decoration: none;
-    color: white;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-`
-
-
-const Map = styled.div`
-  flex-basis: 60%;
-  border-radius: 10px;
-  overflow: hidden;
 `
