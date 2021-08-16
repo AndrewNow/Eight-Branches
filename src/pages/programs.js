@@ -84,6 +84,8 @@ const OurPrograms = ({ data }) => {
   }, [inView2])
 
   // ---------- FRAMER LOGIC ----------
+
+
   const fadeIn = {
     visible: {
       opacity: 1,
@@ -98,6 +100,7 @@ const OurPrograms = ({ data }) => {
       opacity: 0,
     },
   }
+
 
   return (
     <Layout title={siteTitle}>
@@ -165,6 +168,26 @@ const OurPrograms = ({ data }) => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et{" "}
               </motion.h6>
+              <ProgramLink
+                variants={fadeIn}
+                to="/certificate-programs/acupuncture-moxibustion"
+              >
+                <LinkWrapper variants={fadeIn}>
+                  <p>Learn more</p>{" "}
+                  <svg
+                    width="8"
+                    height="12"
+                    viewBox="0 0 8 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0.590088 10.59L5.17009 6L0.590088 1.41L2.00009 0L8.00009 6L2.00009 12L0.590088 10.59Z"
+                      fill="black"
+                    />
+                  </svg>
+                </LinkWrapper>
+              </ProgramLink>
             </ProgramText>
           </ProgramInner>
         </ProgramSection>
@@ -206,6 +229,23 @@ const OurPrograms = ({ data }) => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </motion.h6>
+              <ProgramLink variants={fadeIn} to="/certificate-programs/TCMP">
+                <LinkWrapper variants={fadeIn}>
+                  <p>Learn more</p>{" "}
+                  <svg
+                    width="8"
+                    height="12"
+                    viewBox="0 0 8 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0.590088 10.59L5.17009 6L0.590088 1.41L2.00009 0L8.00009 6L2.00009 12L0.590088 10.59Z"
+                      fill="black"
+                    />
+                  </svg>
+                </LinkWrapper>
+              </ProgramLink>
             </ProgramText>
           </ProgramInner>
         </ProgramSection>
@@ -235,6 +275,26 @@ const OurPrograms = ({ data }) => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </motion.h6>
+              <ProgramLink
+                variants={fadeIn}
+                to="/certificate-programs/advanced-TCMP"
+              >
+                <LinkWrapper variants={fadeIn}>
+                  <p>Learn more</p>{" "}
+                  <svg
+                    width="8"
+                    height="12"
+                    viewBox="0 0 8 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0.590088 10.59L5.17009 6L0.590088 1.41L2.00009 0L8.00009 6L2.00009 12L0.590088 10.59Z"
+                      fill="black"
+                    />
+                  </svg>
+                </LinkWrapper>
+              </ProgramLink>
             </ProgramText>
           </ProgramInner>
         </ProgramSection>
@@ -252,6 +312,26 @@ const OurPrograms = ({ data }) => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </motion.h6>
+              <ProgramLink
+                variants={fadeIn}
+                to="/certificate-programs/herbology"
+              >
+                <LinkWrapper variants={fadeIn}>
+                  <p>Learn more</p>{" "}
+                  <svg
+                    width="8"
+                    height="12"
+                    viewBox="0 0 8 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0.590088 10.59L5.17009 6L0.590088 1.41L2.00009 0L8.00009 6L2.00009 12L0.590088 10.59Z"
+                      fill="black"
+                    />
+                  </svg>
+                </LinkWrapper>
+              </ProgramLink>
             </ProgramText>
             <ProgramImage
               variants={fadeIn}
@@ -518,6 +598,35 @@ const ProgramText = styled(motion.div)`
     }
   }
 `
+
+const ProgramLink = styled(Link)`
+  color: black;
+  text-decoration: none;
+`
+
+const LinkWrapper = styled(motion.div)`
+  display: flex;
+  align-items: baseline;
+  svg {
+    transition: 0.2s all cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  & p {
+    padding-right: 0.75rem;
+    padding-top: 1rem;
+    font-family: "Matter-regular";
+    font-size: 19px;
+  }
+
+  & :hover {
+    color: #00000095;
+    svg {
+      opacity: 0.65;
+      transform: translate3d(8px, 0, 0);
+    }
+  }
+`
+
 const SvgWrapper = styled.div`
   position: absolute;
   top: -85%;
@@ -542,7 +651,7 @@ const ProgramImage = styled(motion.div)`
 `
 
 const CertificatePrograms = styled.section`
-  background-color: var(--color-sandbeige);
+  background-color: var(--color-lightestbeige);
   padding-top: 10rem;
 
   & p {

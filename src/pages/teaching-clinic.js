@@ -8,7 +8,6 @@ import breakpoints from "../components/breakpoints"
 import { motion, AnimatePresence } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import LeafPattern from "../svg/leafPattern"
-
 import { GoogleMaps } from '../components/GeneralComponents/generalcomponents'
 
 const TeachingClinic = ({ data }) => {
@@ -224,7 +223,6 @@ const TeachingClinic = ({ data }) => {
             src="../images/TeachingClinic/apothecary.jpg"
             alt="Image of two practitioners observing apothecary herbs."
             quality={100}
-            // aspectRatio={1 / 1}
             transformOptions={{ cropFocus: "center" }}
             imgStyle={{ objectFit: "cover" }}
             style={{ minHeight: "100%" }}

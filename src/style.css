@@ -1,6 +1,7 @@
 :root {
   /* Eight branches color variables */
   --color-sandbeige: #F7EDE5;
+  --color-lightestbeige: #FDFAF1;
   --color-beige: #F5F1E5;
   --color-brown: #CDB598;
   --color-salmon: #E0BBA5;
@@ -39,7 +40,6 @@
   src: url(../src/fonts/matter-light.woff2) format("woff2");
   font-display: fallback;
 } 
-
 
 
 /* HTML elements */
@@ -98,10 +98,10 @@ h6 {
   line-height: 35px;
 }
 
-p {
+p, ul, li {
   font-family: "Matter-regular";
-  font-size: 18px;
-  line-height: 28px;
+  font-size: 22px;
+  line-height: 34px;
 }
 
 
@@ -145,9 +145,4 @@ blockquote > ol {
 a:hover,
 a:focus {
   text-decoration: none;
-}
-
-
-/* Media queries */
-@media (max-width: 42rem) {
 }

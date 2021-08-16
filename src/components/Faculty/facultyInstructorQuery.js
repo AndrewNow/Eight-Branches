@@ -25,7 +25,7 @@ const FacultyInstructorQuery = () => {
                 portrait {
                   childImageSharp {
                     gatsbyImageData(
-                      width: 750
+                      width: 950
                       quality: 100
                       placeholder: BLURRED
                       formats: [WEBP]
