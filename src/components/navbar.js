@@ -143,7 +143,6 @@ const Navbar = () => {
               // exit="hidden"
             >
               <motion.h3 variants={navItem}
-                // exit="hidden"
               >
                 <Link to="/about-us">About Us</Link>
               </motion.h3>
