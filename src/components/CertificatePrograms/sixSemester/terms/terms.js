@@ -206,13 +206,15 @@ const Term = styled(motion.div)`
     padding: 2.5rem;
   }
   @media (max-width: ${breakpoints.m}px) {
-    padding: .25rem;
+    padding: 0.25rem;
 
     h6 {
       padding: 1.5rem 2rem;
+      &:last-child {
+        text-align: center;
+      }
     }
   }
-  
 `
 
 const TermInfo = styled(motion.div)`
@@ -222,22 +224,22 @@ const TermInfo = styled(motion.div)`
   justify-items: space-between;
   margin: 0 auto;
   padding: 0rem 2.5rem;
-  /*
-  & p:last-child {
-    justify-self: end;
-  } */
 
   @media (max-width: ${breakpoints.m}px) {
     padding: 0rem;
     grid-template-columns: 1fr 2fr 2fr 1fr;
     border-bottom: 1px dotted var(--color-salmon);
+
     p {
       padding: .5rem .25rem;
       font-size: 11px;
       line-height: 16px;
       padding-bottom: 1rem;
       align-self: center;
-      /* text-align: center; */
+  
+      &:nth-child(3) {
+        width: 90%;
+      }
     }
   }
 `
@@ -271,5 +273,7 @@ const TermHeader = styled(motion.div)`
       letter-spacing: 0.02rem;
       align-self: center;
     }
+
+
   }
 `

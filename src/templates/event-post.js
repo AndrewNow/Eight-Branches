@@ -400,6 +400,6 @@ const ContinueReadingPostWrapper = styled.div`
   padding-bottom: 10rem;
 
   @media (max-width: ${breakpoints.m}px) {
-    width: 100%;
+    width: 90%;
   }
 `

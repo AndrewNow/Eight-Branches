@@ -64,7 +64,7 @@ export const FacultyLeadership = ({
 
   return (
     <>
-      {/* {open && <ScrollLock />} */}
+      {open && <ScrollLock />}
       <FacultyPost key={slug} onClick={() => setOpen(!open)}>
         <PortraitThumbnail>
           <GatsbyImage image={portraitpic} alt={title} />
@@ -178,7 +178,7 @@ export const FacultyInstructor = ({
 
   return (
     <>
-      {/* {open && <ScrollLock />} */}
+      {open && <ScrollLock />}
       <FacultyPost key={slug} onClick={() => setOpen(!open)}>
         <PortraitThumbnail>
           <GatsbyImage image={portraitpic} alt={title} />
@@ -233,6 +233,8 @@ export const FacultyInstructor = ({
 const FacultyPost = styled.article`
   border: 1px solid black;
   border-radius: 5px;
+  position: relative;
+  z-index: 5;
   overflow: hidden;
   justify-self: center;
   display: flex;
@@ -246,26 +248,21 @@ const FacultyPost = styled.article`
     padding-top: 1rem;
     letter-spacing: 0.01rem;
   }
-
   & h6 {
     padding-top: 0.75rem;
     padding-bottom: 1rem;
     transition: var(--hover-transition);
-
     &:hover {
       color: var(--color-orange);
     }
   }
-
   &:hover {
     background-color: var(--color-lightestgreen);
     cursor: pointer;
-
     & button {
       text-decoration: underline;
     }
   }
-
   @media (max-width: ${breakpoints.m}px) {
     /* overflow: scroll; */
     width: auto;
@@ -288,7 +285,6 @@ const PortraitThumbnail = styled.div`
 const FacultyDescription = styled.small`
   display: flex;
   justify-content: space-between;
-
   & p {
     padding-top: 0.75rem;
     font-size: 16px;
@@ -304,7 +300,6 @@ const ReadMore = styled.button`
   border: none;
   background: none;
   cursor: pointer;
-
   padding-left: 0;
 `
 
@@ -326,10 +321,8 @@ const ModalWrapper = styled.div`
   overflow-y: default;
   z-index: 99999;
   top: 10vh;
-
   /* pointer-events: none; */
   @media (max-width: ${breakpoints.m}px) {
-
     overflow-y: scroll;
   }
 `
@@ -343,17 +336,14 @@ const Modal = styled(motion.div)`
   width: 85vw;
   max-height: 70vh;
   padding: 1.5rem;
-
   border-radius: 5px;
   border: 1px solid black;
   background-color: var(--color-sandbeige);
   cursor: default;
   pointer-events: none;
-
   & a {
     pointer-events: auto;
   }
-
   @media (max-width: ${breakpoints.m}px) {
     margin-bottom: 2.5rem;
     padding: 1rem;
@@ -369,17 +359,14 @@ const ModalImage = styled.div`
   border-radius: 5px;
   align-self: center;
   border: 1px solid black;
-
   & img {
     border-radius: 5px;
     width: 50%;
     min-height: 600px;
   }
-
   @media (max-width: ${breakpoints.m}px) {
     /* min-height: 100px; */
     /* overflow: hidden; */
-
     & img {
       min-height: auto;
       max-width: 100%;
@@ -394,19 +381,16 @@ const ModalText = styled.div`
   padding-left: 2rem;
   padding-right: 5rem;
   pointer-events: auto;
-
   & p {
     font-family: "Matter-light";
     padding-top: 1rem;
   }
-
   & a {
     font-size: 18px;
     text-decoration: underline;
     color: var(--color-darkgreen);
     font-family: "Matter-light";
   }
-
   @media (max-width: ${breakpoints.m}px) {
     /* overflow-y: visible; */
     flex-basis: 100%;
@@ -424,7 +408,6 @@ const GetInTouch = styled.a`
   text-decoration: underline;
   color: var(--color-orange) !important;
   font-family: "Matter-light";
-
   @media (max-width: ${breakpoints.m}px) {
     display: flex;
     justify-content: center;
@@ -441,20 +424,16 @@ const MobileCloseButton = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: row;
-
   filter: invert(1);
   cursor: pointer;
-
   & svg {
     margin-bottom: 1rem;
     color: white !important;
   }
-
   & p {
     margin-bottom: 1rem;
     padding-top: 0;
     padding-right: 0.25rem;
-
     &:hover {
       text-decoration: underline;
     }

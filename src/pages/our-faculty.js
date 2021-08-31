@@ -5,11 +5,10 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import FacultyLeadershipQuery from "../components/Faculty/facultyLeadershipQuery"
 import FacultyInstructorQuery from "../components/Faculty/facultyInstructorQuery"
-import breakpoints from '../components/breakpoints'
+import breakpoints from "../components/breakpoints"
 
 const OurFaculty = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Our Faculty`
-
 
   if (data.facultyLeadership.edges.length === 0) {
     return (
@@ -48,12 +47,10 @@ const OurFaculty = ({ data, location }) => {
           </FacultyGrid>
           <h2>Instructors</h2>
           <FacultyGrid>
-
-          <FacultyInstructorQuery />
+            <FacultyInstructorQuery />
           </FacultyGrid>
         </SectionWrapper>
       </FacultyWrapper>
-      {/* <Footer /> */}
     </Layout>
   )
 }
@@ -108,12 +105,12 @@ const SectionWrapper = styled.div`
   margin: 0 auto;
   padding-bottom: 15rem;
 
-  & h2 {
+  h2 {
     padding-bottom: 5rem;
   }
 
   @media (max-width: ${breakpoints.m}px) {
-    & h2 {
+    h2 {
       padding-top: 5rem;
       padding-bottom: 2.5rem;
     }
@@ -142,16 +139,20 @@ const FacultyHeader = styled.div`
   margin: 0 auto;
   margin-bottom: 5rem;
 
-  & h1 {
+  h1 {
     padding-bottom: 2rem;
   }
 
-  & h6 {
+  h6 {
     width: 60%;
   }
   @media (max-width: ${breakpoints.m}px) {
     margin-bottom: 0rem;
-    & h6 {
+
+    h1 {
+      padding-bottom: 1rem;
+    }
+    h6 {
       width: 100%;
     }
   }

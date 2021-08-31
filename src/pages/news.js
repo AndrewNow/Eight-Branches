@@ -194,6 +194,9 @@ const UpcomingEventsWrapper = styled.div`
       padding-bottom: 2.5rem;
     }
   }
+  @media (max-width: ${breakpoints.s}px) {
+    padding-top: 7rem;
+  }
 `
 
 const SectionWrapper = styled.div`

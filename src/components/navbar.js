@@ -39,8 +39,8 @@ const Navbar = () => {
 
   const menuAnimation = {
     visible: {
+      // y: 0,
       opacity: 1,
-      y: 0,
       transition: {
         delay: 0.1,
         duration: 0.35,
@@ -142,8 +142,10 @@ const Navbar = () => {
               // animate={open ? "visible" : "hidden"}
               // exit="hidden"
             >
-              <motion.h3 variants={navItem} exit="hidden">
-                <Link to="/aboutus">About Us</Link>
+              <motion.h3 variants={navItem}
+                // exit="hidden"
+              >
+                <Link to="/about-us">About Us</Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
                 <Link to="/programs">Programs</Link>
@@ -232,7 +234,6 @@ const IconWrapper = styled.div`
 
 const NavMenu = styled(motion.nav)`
   border-left: 1px solid black;
-
   position: fixed;
   z-index: 900;
   right: 0;
@@ -248,17 +249,16 @@ const NavMenu = styled(motion.nav)`
     margin-bottom: 2rem;
     text-align: center;
 
-    
     &:nth-child(1) {
       padding-top: 15vh;
     }
   }
-  
+
   & h3 > a {
     text-decoration: none;
     color: var(--color-black);
     transition: color ease-in-out 0.15s;
-    
+
     &:hover {
       color: var(--color-orange);
     }
@@ -271,6 +271,21 @@ const NavMenu = styled(motion.nav)`
     border: none;
     width: 100vw;
     left: 0;
+
+    & h3 {
+      &:nth-child(1) {
+        padding-top: 5vh;
+      }
+    }
+  }
+  @media (max-width: ${breakpoints.xs}px) {
+    & h3 {
+      font-size: 24px;
+      margin-bottom: 1rem;
+      &:nth-child(1) {
+        padding-top: 7vh;
+      }
+    }
   }
 `
 

@@ -816,6 +816,9 @@ const CommonConditions = styled.section`
   background-color: var(--color-beige);
   width: 100%;
   padding: 3rem 0;
+  @media (max-width: ${breakpoints.m}px) {
+    text-align: left;
+  }
 `
 
 const Inner = styled.div`
@@ -841,6 +844,10 @@ const Inner = styled.div`
 
     h2 {
       padding: 1rem;
+      padding-left: 0rem;
+      padding-bottom: 1.5rem;
+      margin-left: 0rem;
+      text-align: left;
     }
   }
 `

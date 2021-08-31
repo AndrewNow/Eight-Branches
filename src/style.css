@@ -1,6 +1,6 @@
 :root {
   /* Eight branches color variables */
-  --color-sandbeige: #F7EDE5;
+  --color-sandbeige: #EFE9DD;
   --color-lightestbeige: #FDFAF1;
   --color-beige: #F5F1E5;
   --color-brown: #CDB598;
@@ -12,6 +12,7 @@
   --color-black: #000000;
   --color-charcoal: #3D3841;
   --color-orange: #D33A21;
+  --color-lightorange: #D27241;
   --hover-transition: all ease-in-out 0.15s;
 
   --footer-height: 550px;

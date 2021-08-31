@@ -162,3 +162,15 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
   `)
 }
+
+
+if (typeof document !== `undefined`) {
+  return {
+    // Do something with the document
+    // Call your modules and libraries
+  }
+} else {
+  return {
+    // Do something different while window and document are not defined on the server
+  }
+}

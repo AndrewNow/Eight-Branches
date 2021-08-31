@@ -487,7 +487,6 @@ const ImageBannerMobile = styled.div`
   @media (max-width: ${breakpoints.m}px) {
     display: block;
     width: 100%;
-    /* height: 75vh; */
     overflow: hidden;
     margin: 0 auto;
     position: relative;
@@ -507,14 +506,14 @@ const BannerText = styled.div`
 
   @media (max-width: ${breakpoints.m}px) {
     width: 90%;
-    bottom: 2.5rem;
+    bottom: 5rem;
 
     & h1 {
       padding-bottom: 0.5rem;
     }
   }
   @media (max-width: ${breakpoints.xs}px) {
-    bottom: 1rem;
+    bottom: 2.5rem;
   }
 `
 
@@ -563,7 +562,7 @@ const ProgramInner = styled.div`
 
   @media (max-width: ${breakpoints.m}px) {
     flex-direction: column;
-    padding: 2.5rem 0;
+    padding: 2rem 0;
 
     &:nth-child(odd) {
       flex-direction: column;
@@ -594,7 +593,6 @@ const ProgramText = styled(motion.div)`
 
     & h6 {
       max-width: 100%;
-      padding-bottom: 2.5rem;
     }
   }
 `
@@ -623,6 +621,12 @@ const LinkWrapper = styled(motion.div)`
     svg {
       opacity: 0.65;
       transform: translate3d(8px, 0, 0);
+    }
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    p {
+      font-size: 17px;
     }
   }
 `
@@ -729,6 +733,8 @@ const Card = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  position: relative;
+  z-index: 3;
 
   @media (max-width: ${breakpoints.m}px) {
     width: 100%;
@@ -743,4 +749,6 @@ const CardText = styled.div`
 const CardImage = styled.div`
   border-top: 1px solid black;
   overflow: hidden;
+  position: relative;
+  z-index: 2;
 `

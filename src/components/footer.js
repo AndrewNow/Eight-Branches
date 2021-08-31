@@ -21,26 +21,29 @@ const Footer = () => {
         <MobileWrapper>
           <Website>
             <h4>Website</h4>
-            <Link to="/aboutus">
+            <Link to="/about-us">
               <p>About Us</p>
-            </Link>
-            <Link to="/news">
-              <p>News</p>
             </Link>
             <Link to="/programs">
               <p>Programs</p>
             </Link>
-            <Link to="/admissions">
-              <p>Admissions</p>
+            <Link to="/news">
+              <p>News</p>
+            </Link>
+            <Link to="/campus">
+              <p>Campus</p>
+            </Link>
+            <Link to="/our-faculty">
+              <p>Our Faculty</p>
             </Link>
             <Link to="/teachingclinic">
               <p>Teaching Clinic</p>
             </Link>
-            <Link to="/our-faculty">
-              <p>Meet Our Faculty</p>
-            </Link>
             <Link to="/studentlogin">
               <p>Student Login</p>
+            </Link>
+            <Link to="/admissions">
+              <p>Admissions</p>
             </Link>
             <Link to="/applynow">
               <p>Apply Now</p>

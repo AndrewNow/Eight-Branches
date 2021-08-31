@@ -262,7 +262,7 @@ const HeaderWrapper = styled.section`
   margin: 0 auto;
 
   @media (max-width: ${breakpoints.m}px) {
-    padding-top: 10rem;
+    padding-top: 7rem;
   }
 `
 
@@ -300,7 +300,7 @@ const Embla = styled.div`
 
   @media (max-width: ${breakpoints.m}px) {
     width: 90%;
-    padding-bottom: 5rem;
+    padding-bottom: 1rem;
   }
 `
 
