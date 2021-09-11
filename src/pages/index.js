@@ -16,8 +16,8 @@ const HomePage = () => {
     hidden: {
       height: 0,
       transition: {
-        ease: "easeInOut",
         delay: 0.5,
+        ease: "easeInOut",
         duration: 1,
       },
     },

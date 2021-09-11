@@ -150,7 +150,7 @@ const Navbar = () => {
                 <Link to="/programs">Programs</Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
-                <Link to="/news">News</Link>
+                <Link to="/bulletin-board">Bulletin Board</Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
                 <Link to="/campus">Campus</Link>

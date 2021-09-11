@@ -273,7 +273,5 @@ const TermHeader = styled(motion.div)`
       letter-spacing: 0.02rem;
       align-self: center;
     }
-
-
   }
 `

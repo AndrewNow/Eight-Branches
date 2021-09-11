@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { useState } from "react"
 import { Link, graphql } from "gatsby"
 import styled from "styled-components"
 import breakpoints from "../components/breakpoints"
@@ -8,6 +8,16 @@ import { GatsbyImage } from "gatsby-plugin-image"
 
 const News = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `News`
+
+  // Only display 6 posts at first
+  const [visiblePosts, setVisiblePosts] = useState(6)
+
+  // When user clicks on the load more button, load 2 more posts (see: MORE_POSTS)
+  const MORE_POSTS = 6
+  const handleLoadNewPosts = () =>
+    setVisiblePosts(visiblePosts => visiblePosts + MORE_POSTS)
+  // When we reach the end of the array, load more posts button becomes a "close posts" button
+  const handleClosePosts = () => setVisiblePosts(6)
 
   if (data.blog.edges.length === 0) {
     return (
@@ -26,7 +36,7 @@ const News = ({ data, location }) => {
           <h2>Upcoming Events</h2>
 
           <EventWrapper>
-            {data.events.edges?.map(eventData => {
+            {data.events.edges?.slice(0, 3).map(eventData => {
               const eventDataQuery = eventData.node.childrenMarkdownRemark[0]
               if (!eventDataQuery) {
                 return null
@@ -40,10 +50,10 @@ const News = ({ data, location }) => {
                     <EventLink to={slug} itemProp="url">
                       <h4 key={slug}>{title}</h4>
                     </EventLink>
-                    <p>With {host}</p>
+                    <p>Hosted by: {host}</p>
                     <p>{date}</p>
                     <SignUpLink to={slug} itemProp="url">
-                      <p>Sign up here</p>
+                      <p>View details</p>
                     </SignUpLink>
                   </Event>
                 )
@@ -65,7 +75,7 @@ const News = ({ data, location }) => {
           </BulletinHeader>
 
           <Bulletingrid>
-            {data.blog.edges?.map(blogData => {
+            {data.blog.edges?.slice(0, visiblePosts).map(blogData => {
               const blogDataQuery = blogData.node.childrenMarkdownRemark[0]
               // Check to see if a query exists; if it has empty data then don't render it
               if (!blogDataQuery) {
@@ -99,6 +109,23 @@ const News = ({ data, location }) => {
               )
             })}
           </Bulletingrid>
+          {console.log(data.blog.edges?.length)}
+          {console.log(visiblePosts)}
+          {visiblePosts >= data.blog.edges?.length ? (
+            // if user hits end of data.blog.edges array, button closes posts
+            <LoadMore>
+              <EventsButton layout onClick={handleClosePosts}>
+                <p>View less posts</p>
+              </EventsButton>
+            </LoadMore>
+          ) : (
+            // Button to open more posts
+            <LoadMore>
+              <EventsButton layout onClick={handleLoadNewPosts}>
+                <p>Load more posts</p>
+              </EventsButton>
+            </LoadMore>
+          )}
         </SectionWrapper>
       </BulletinWrapper>
     </Layout>
@@ -212,6 +239,7 @@ const EventWrapper = styled.section`
   & article:not(:first-child) {
     border-left: 1px solid var(--color-white);
     padding-left: 5rem;
+    padding-right: 5rem;
   }
 
   @media (max-width: ${breakpoints.m}px) {
@@ -230,6 +258,9 @@ const Event = styled.article`
   max-width: 33%;
   color: var(--color-white);
   margin-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   & p {
     padding-bottom: 1rem;
@@ -253,6 +284,7 @@ const EventLink = styled(Link)`
 const SignUpLink = styled(Link)`
   text-decoration: none;
   & p {
+    font-size: 18px;
     font-family: "Matter-light";
     padding-bottom: 4px;
     display: flex;
@@ -355,5 +387,39 @@ const BulletinDescription = styled.small`
       font-size: 12px;
       letter-spacing: 0.02rem;
     }
+  }
+`
+
+const LoadMore = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
+  padding-top: 1rem;
+`
+
+const EventsButton = styled.button`
+  background: none;
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
+  padding: 0.25rem;
+  cursor: pointer;
+  margin: 0 auto;
+  font-family: "Matter-regular";
+  transition: var(--hover-transition);
+  :hover {
+    color: var(--color-orange);
+    border: 1px solid var(--color-orange);
+  }
+  p {
+    font-size: 18px;
+    font-family: "Matter-light";
+    padding-bottom: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    width: 160px;
   }
 `

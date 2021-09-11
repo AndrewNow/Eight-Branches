@@ -7,7 +7,7 @@ public_folder: /img
 
 collections:
   - name: "blog"
-    label: "Blog"
+    label: "Bulletin Board"
     folder: "content/blog"
     create: true
     slug: "blog"
@@ -19,7 +19,7 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string", required: true }
       - { label: "Publish Date", name: "date", widget: "datetime", required: true}
-      - { label: "Estimated Read Time", name: "readtime", widget: "number", required: true}
+      - { label: "Estimated Read Time (minutes, enter only a number)", name: "readtime", widget: "number", required: true}
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Thumbnail Image", name: "thumbnail", widget: "image", required: true }
       - { label: "Body", name: "body", widget: "markdown", required: true }
@@ -63,8 +63,6 @@ collections:
       - { label: "Bio", name: "body", widget: "markdown", required: true }
       - { label: "Email Address", name: "email", widget: "string", required: true }
 
-
-
   - name: "facultyInstructor"
     identifier_field: facultyInstructor
     label: "Faculty (Instructor)"
@@ -83,7 +81,6 @@ collections:
       - { label: "Brief Description", name: "description", widget: "string", required: true }
       - { label: "Bio", name: "body", widget: "markdown", required: true }
       - { label: "Email Address", name: "email", widget: "string", required: true }
-
 
   - name: "settings"
     label: "Settings"

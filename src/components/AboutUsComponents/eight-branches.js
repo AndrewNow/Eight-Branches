@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 import { motion, AnimatePresence } from "framer-motion"
-import AboutUsClose from '../../svg/aboutUsClose'
+import AboutUsClose from "../../svg/aboutUsClose"
 
 const EightBranches = () => {
   const dropdown = {
@@ -12,8 +12,8 @@ const EightBranches = () => {
         delay: 0.2,
         duration: 0.6,
         ease: "easeInOut",
-        staggerChildren: .4,
-        delayChildren: .6,
+        staggerChildren: 0.4,
+        delayChildren: 0.6,
       },
     },
     hidden: {
@@ -31,13 +31,13 @@ const EightBranches = () => {
       opacity: 1,
       transition: {
         ease: "easeInOut",
-        duration: .5
-      }
+        duration: 0.5,
+      },
     },
 
     hidden: {
-      opacity: 0
-    }
+      opacity: 0,
+    },
   }
 
   const [expand, setExpand] = useState({
@@ -50,6 +50,13 @@ const EightBranches = () => {
     taoist: null,
     bodywork: null,
   })
+
+  // this component is a little convoluted - I wrote this under time constraints and
+  // did not have time to come up with an ideal way to manage state w/ .map() considering
+  // the design requirement of having two separate areas in which the dropdown could expand
+  // this should ideally be refactored in the future, but for now it works.
+
+  // there are two wrapper sections, and underneath each is a list of the associated dropdown blurbs
 
   return (
     <>
@@ -136,6 +143,15 @@ const EightBranches = () => {
               initial="hidden"
               exit="hidden"
             >
+              <div
+                onClick={() =>
+                  setExpand({
+                    acupuncture: false,
+                  })
+                }
+              >
+                <AboutUsClose />
+              </div>
               <motion.h4 variants={fadeout}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -153,6 +169,15 @@ const EightBranches = () => {
               initial="hidden"
               exit="hidden"
             >
+              <div
+                onClick={() =>
+                  setExpand({
+                    moxibustion: false,
+                  })
+                }
+              >
+                <AboutUsClose />
+              </div>
               <motion.h4 variants={fadeout}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -170,6 +195,15 @@ const EightBranches = () => {
               initial="hidden"
               exit="hidden"
             >
+              <div
+                onClick={() =>
+                  setExpand({
+                    cupping: false,
+                  })
+                }
+              >
+                <AboutUsClose />
+              </div>
               <motion.h4 variants={fadeout}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -187,6 +221,15 @@ const EightBranches = () => {
               initial="hidden"
               exit="hidden"
             >
+              <div
+                onClick={() =>
+                  setExpand({
+                    herbology: false,
+                  })
+                }
+              >
+                <AboutUsClose />
+              </div>
               <motion.h4 variants={fadeout}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -197,8 +240,8 @@ const EightBranches = () => {
           )}
         </AnimatePresence>
       </Wrapper>
-
-      <Wrapper>
+      {/* beginning of wrapper 2 */}
+      <Wrapper style={{ paddingBottom: "5rem" }}>
         <Grid>
           <Block
             onClick={() =>
@@ -274,7 +317,7 @@ const EightBranches = () => {
             </BlockInner>
           </Block>
         </Grid>
-
+        {/* start of dropdown area 2 */}
         <AnimatePresence>
           {expand.guasha && (
             <InfoDropDown
@@ -283,6 +326,15 @@ const EightBranches = () => {
               initial="hidden"
               exit="hidden"
             >
+              <div
+                onClick={() =>
+                  setExpand({
+                    guasha: false,
+                  })
+                }
+              >
+                <AboutUsClose />
+              </div>
               <motion.h4 variants={fadeout}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -300,6 +352,15 @@ const EightBranches = () => {
               initial="hidden"
               exit="hidden"
             >
+              <div
+                onClick={() =>
+                  setExpand({
+                    nutrition: false,
+                  })
+                }
+              >
+                <AboutUsClose />
+              </div>
               <motion.h4 variants={fadeout}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -317,6 +378,15 @@ const EightBranches = () => {
               initial="hidden"
               exit="hidden"
             >
+              <div
+                onClick={() =>
+                  setExpand({
+                    taoist: false,
+                  })
+                }
+              >
+                <AboutUsClose />
+              </div>
               <motion.h4 variants={fadeout}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -334,6 +404,15 @@ const EightBranches = () => {
               initial="hidden"
               exit="hidden"
             >
+              <div
+                onClick={() =>
+                  setExpand({
+                    bodywork: false,
+                  })
+                }
+              >
+                <AboutUsClose />
+              </div>
               <motion.h4 variants={fadeout}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -393,8 +472,16 @@ const InfoDropDown = styled(motion.div)`
   display: flex;
   position: relative;
   flex-basis: 0;
-  
+
   h4 {
+    width: 95%;
     padding: 5rem 5rem;
+  }
+
+  svg {
+    cursor: pointer;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
   }
 `
