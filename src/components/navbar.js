@@ -138,9 +138,6 @@ const Navbar = () => {
           >
             <motion.div
               variants={innerMenuAnimation}
-              // initial="hidden"
-              // animate={open ? "visible" : "hidden"}
-              // exit="hidden"
             >
               <motion.h3 variants={navItem}
               >
@@ -192,16 +189,11 @@ const HeaderWrapper = styled(motion.header)`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* mix-blend-mode: difference; */
   & svg {
     margin-top: 0.25rem;
   }
 
   @media (max-width: ${breakpoints.m}px) {
-    /* background-color: white; */
-    /* border: 1px solid black; */
-    /* border-radius: 5px; */
-
     top: 1rem;
     height: 60px;
   }
@@ -248,20 +240,20 @@ const NavMenu = styled(motion.nav)`
     margin-bottom: 2rem;
     text-align: center;
 
-    &:nth-child(1) {
+    :nth-child(1) {
       padding-top: 15vh;
     }
   }
 
-  & h3 > a {
+  h3 > a {
     text-decoration: none;
     color: var(--color-black);
     transition: color ease-in-out 0.15s;
 
-    &:hover {
+    :hover {
       color: var(--color-orange);
     }
-    &:active {
+    :active {
       color: var(--color-orange);
     }
   }
@@ -277,11 +269,21 @@ const NavMenu = styled(motion.nav)`
       }
     }
   }
-  @media (max-width: ${breakpoints.xs}px) {
+  @media (max-width: ${breakpoints.s}px) {
     & h3 {
       font-size: 24px;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       &:nth-child(1) {
+        padding-top: 7vh;
+      }
+    }
+  }
+  @media (max-width: ${breakpoints.xs}px) {
+    h3 {
+      font-size: 20px;
+      margin-bottom: 1rem;
+
+      :nth-child(1) {
         padding-top: 7vh;
       }
     }

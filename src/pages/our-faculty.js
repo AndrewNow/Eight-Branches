@@ -110,6 +110,7 @@ const SectionWrapper = styled.div`
   }
 
   @media (max-width: ${breakpoints.m}px) {
+    padding-bottom: 5rem;
     h2 {
       padding-top: 5rem;
       padding-bottom: 2.5rem;
@@ -163,6 +164,9 @@ const FacultyGrid = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 2em;
 
+  @media (max-width: ${breakpoints.xl}px) {
+    grid-template-columns: 1fr 1fr;
+  }
   @media (max-width: ${breakpoints.m}px) {
     display: inline;
   }

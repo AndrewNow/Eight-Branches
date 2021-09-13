@@ -179,7 +179,7 @@ const AcademicAdvisorWrapper = styled.div`
   background-color: var(--color-lightgreen);
   display: flex;
 
-  @media (max-width: ${breakpoints.xl}px) {
+  @media (max-width: ${breakpoints.l}px) {
     flex-direction: column-reverse;
   }
 `
@@ -205,8 +205,8 @@ const AcademicAdvisorText = styled.div`
     width: 90%;
     border-radius: 20px;
   }
-  @media (max-width: ${breakpoints.l}px) {
-    padding: 2rem 1rem;
+  @media (max-width: ${breakpoints.m}px) {
+    padding: 2rem 1.5rem;
   }
 `
 
@@ -214,9 +214,14 @@ const AcademicAdvisorImage = styled.div`
   min-height: 400px;
   max-width: 50%;
   overflow-x: hidden;
+  position: relative;
 
-  @media (max-width: ${breakpoints.xl}px) {
+  @media (max-width: ${breakpoints.l}px) {
     max-width: 100%;
+    min-height: 300px;
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    min-height: 200px;
   }
 `
 

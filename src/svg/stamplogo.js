@@ -1,17 +1,6 @@
 import React from "react"
-import { motion } from "framer-motion"
+
 const StampLogo = () => {
-  const PathAnimation = {
-    initial: {
-      pathLength: 0,
-    },
-    animate: {
-      pathLength: 1,
-      transition: {
-        duration: 3,
-      },
-    },
-  }
   return (
     <svg
       width="64"

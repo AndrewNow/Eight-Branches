@@ -242,6 +242,13 @@ const EventWrapper = styled.section`
     padding-right: 5rem;
   }
 
+  @media (max-width: ${breakpoints.xxl}px) {
+    article:not(:first-child) {
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
+  }
+
   @media (max-width: ${breakpoints.m}px) {
     flex-direction: column;
 
@@ -255,7 +262,7 @@ const EventWrapper = styled.section`
 `
 
 const Event = styled.article`
-  max-width: 33%;
+  width: 33%;
   color: var(--color-white);
   margin-bottom: 5rem;
   display: flex;
@@ -267,9 +274,15 @@ const Event = styled.article`
     font-family: "Matter-light";
   }
 
+  @media (max-width: ${breakpoints.xxl}px) {
+    min-width: 33%;
+    max-width: 50%;
+  }
   @media (max-width: ${breakpoints.m}px) {
     margin-bottom: 2.5rem;
+    min-width: 100%;
     max-width: 100%;
+    width: 100%;
   }
 `
 const EventLink = styled(Link)`
@@ -278,6 +291,7 @@ const EventLink = styled(Link)`
   & h4 {
     color: var(--color-white);
     padding-bottom: 0.5rem;
+    padding-right: 0.5rem;
   }
 `
 
@@ -318,7 +332,14 @@ const Bulletingrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 2em;
+  @media (max-width: ${breakpoints.xl}px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
   @media (max-width: ${breakpoints.m}px) {
+
+  }
+  @media (max-width: ${breakpoints.s}px) {
     grid-template-columns: 1fr;
 
     column-gap: 0rem;
@@ -358,12 +379,23 @@ const BulletinPost = styled.article`
 
   & h6 {
     padding-top: 0.75rem;
-    padding-bottom: 1rem;
+    margin-bottom: 1rem;
     transition: var(--hover-transition);
+    -webkit-line-clamp: 1;
+    display: -webkit-box; 
+    line-clamp: 1;
+    width: 100%;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 
     &:hover {
       color: var(--color-orange);
     }
+  }
+
+  @media (max-width: ${breakpoints.xxl}px) {
+    margin-bottom: 3.5rem;
+    height: auto;
   }
 
   @media (max-width: ${breakpoints.m}px) {

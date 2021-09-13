@@ -239,34 +239,35 @@ const FacultyPost = styled.article`
   justify-self: center;
   display: flex;
   flex-direction: column;
-  width: 550px;
+  width: auto;
   height: 620px;
   margin-bottom: 5rem;
   transition: all ease-out 0.55s;
 
-  & p {
+  p {
     padding-top: 1rem;
     letter-spacing: 0.01rem;
   }
-  & h6 {
+  h6 {
     padding-top: 0.75rem;
     padding-bottom: 1rem;
     transition: var(--hover-transition);
-    &:hover {
+    :hover {
       color: var(--color-orange);
     }
   }
-  &:hover {
+  :hover {
     background-color: var(--color-lightestgreen);
     cursor: pointer;
-    & button {
+    button {
       text-decoration: underline;
     }
   }
-  @media (max-width: ${breakpoints.m}px) {
-    /* overflow: scroll; */
-    width: auto;
+  @media (max-width: ${breakpoints.xxl}px) {
     height: auto;
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    width: auto;
     margin-bottom: 2.5rem;
   }
 `
@@ -277,7 +278,7 @@ const TextWrapper = styled.div`
 `
 
 const PortraitThumbnail = styled.div`
-  & img {
+  img {
     max-width: 550px;
   }
 `
@@ -285,10 +286,15 @@ const PortraitThumbnail = styled.div`
 const FacultyDescription = styled.small`
   display: flex;
   justify-content: space-between;
-  & p {
+  p {
     padding-top: 0.75rem;
-    font-size: 16px;
+    font-size: 18px;
+    line-height: 28px;
     color: #3a3a3a;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
   }
 `
 
@@ -341,9 +347,10 @@ const Modal = styled(motion.div)`
   background-color: var(--color-sandbeige);
   cursor: default;
   pointer-events: none;
-  & a {
+  a {
     pointer-events: auto;
   }
+
   @media (max-width: ${breakpoints.m}px) {
     margin-bottom: 2.5rem;
     padding: 1rem;
@@ -359,16 +366,23 @@ const ModalImage = styled.div`
   border-radius: 5px;
   align-self: center;
   border: 1px solid black;
-  & img {
+  max-width: 50%;
+  img {
+    min-height: 65vh;
     border-radius: 5px;
-    width: 50%;
-    min-height: 600px;
+    max-width: 50%;
+  }
+
+  @media (max-width: ${breakpoints.xl}px) {
+    max-width: 50%;
+    min-height: 90%;
   }
   @media (max-width: ${breakpoints.m}px) {
     /* min-height: 100px; */
     /* overflow: hidden; */
-    & img {
-      min-height: auto;
+    max-width: 100%;
+    img {
+      min-height: 100%;
       max-width: 100%;
       height: auto;
     }
@@ -386,10 +400,17 @@ const ModalText = styled.div`
     padding-top: 1rem;
   }
   & a {
-    font-size: 18px;
+    font-size: 22px;
+    line-height: 34px;
     text-decoration: underline;
     color: var(--color-darkgreen);
     font-family: "Matter-light";
+  }
+  @media (max-width: ${breakpoints.xl}px) {
+    a {
+      font-size: 18px;
+      line-height: 31px;
+    }
   }
   @media (max-width: ${breakpoints.m}px) {
     /* overflow-y: visible; */
@@ -398,6 +419,10 @@ const ModalText = styled.div`
     padding-left: 0;
     padding-right: 0;
     overflow-y: default;
+    a {
+      font-size: 16px;
+      line-height: 27px;
+    }
   }
 `
 

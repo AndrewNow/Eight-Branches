@@ -145,7 +145,6 @@ const TeachingClinic = ({ data }) => {
             <h1>The Teaching Clinic</h1>
             <h5>Lorem ipsum dolor sit amet, consectetur adipiscing.</h5>
           </BannerText>
-
           <StaticImage
             src="../images/TeachingClinic/banner.png"
             alt="Beige background image with a tea set in the foreground."
@@ -580,8 +579,8 @@ const BannerText = styled.div`
   top: 37.5%;
   left: 12.5%;
   width: 37.5%;
-
   & h1 {
+    white-space: nowrap;
     padding-bottom: 0.5rem;
   }
 
@@ -641,7 +640,7 @@ const HoursSection = styled.section`
   background-color: var(--color-beige);
   display: flex;
 
-  @media (max-width: ${breakpoints.xl}px) {
+  @media (max-width: ${breakpoints.l}px) {
     flex-direction: column;
   }
 `
@@ -652,7 +651,7 @@ const ImageWrapper = styled.div`
   min-height: 100%;
   overflow-x: hidden;
 
-  @media (max-width: ${breakpoints.xl}px) {
+  @media (max-width: ${breakpoints.l}px) {
     min-height: auto;
     max-width: 100%;
     width: 100%;
@@ -688,16 +687,23 @@ const TextWrapper = styled.div`
 `
 
 const Hours = styled.div`
-  width: 70%;
+  width: 60%;
   display: flex;
   justify-content: space-between;
 
-  & h6 {
+  h6 {
+    padding-right: 1.5rem;
+    white-space: nowrap;
     color: black;
   }
 
+
+  @media (max-width: ${breakpoints.l}px) {
+    width: 50%;
+  }
+
   @media (max-width: ${breakpoints.m}px) {
-    width: 100%;
+    width: 70%;
   }
 `
 

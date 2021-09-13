@@ -88,7 +88,7 @@ const MailchimpCustomForm = ({ status, message, onValidated }) => {
 export default MailchimpCustomForm
 
 const EmailForm = styled.form`
-  width: 400px;
+  max-width: 400px;
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #00000050;

@@ -56,7 +56,7 @@ export const FAQ = ({ index, question, answer }) => {
       </Header>
       <AnimatePresence exitBeforeEnter>
         {expand && (
-          <Term
+          <Answer
             key={index}
             variants={expandAnimation}
             initial="hidden"
@@ -64,7 +64,7 @@ export const FAQ = ({ index, question, answer }) => {
             exit="hidden"
           >
             <motion.p variants={children}>{answer}</motion.p>
-          </Term>
+          </Answer>
         )}
       </AnimatePresence>
     </>
@@ -77,6 +77,10 @@ const Header = styled(motion.div)`
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2.5rem;
+
+  h5 {
+    max-width: 90%;
+  }
 
   &:hover {
     cursor: pointer;
@@ -92,10 +96,19 @@ const Header = styled(motion.div)`
   }
   @media (max-width: ${breakpoints.m}px) {
     padding: 1rem;
+
+    h5 {
+      max-width: 85%;
+    }
+
+    svg {
+      min-width: 35px;
+      min-height: 35px;
+    }
   }
 `
 
-const Term = styled(motion.div)`
+const Answer = styled(motion.div)`
   background-color: white;
   border-bottom: 1px solid black;
   overflow-y: hidden;
@@ -110,38 +123,14 @@ const Term = styled(motion.div)`
   }
   @media (max-width: ${breakpoints.m}px) {
     padding: 0.25rem;
-
+    p {
+      width: 95%;
+      padding: 1rem;
+    }
     h6 {
       padding: 1.5rem 2rem;
       &:last-child {
         text-align: center;
-      }
-    }
-  }
-`
-
-const TermInfo = styled(motion.div)`
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 3fr 2fr 1fr;
-  justify-items: space-between;
-  margin: 0 auto;
-  padding: 0rem 2.5rem;
-
-  @media (max-width: ${breakpoints.m}px) {
-    padding: 0rem;
-    grid-template-columns: 1fr 2fr 2fr 1fr;
-    border-bottom: 1px dotted var(--color-salmon);
-
-    p {
-      padding: 0.5rem 0.25rem;
-      font-size: 11px;
-      line-height: 16px;
-      padding-bottom: 1rem;
-      align-self: center;
-
-      &:nth-child(3) {
-        width: 90%;
       }
     }
   }

@@ -110,6 +110,7 @@ const Campus = ({ data }) => {
                   <EmblaSlide key={index}>
                     <EmblaSlideInner>
                       <GatsbyImage
+                        imgStyle={{ borderRadius: "20px" }}
                         image={image.node.childImageSharp.gatsbyImageData}
                         alt={
                           "Images of the campus, including lecture halls, teaching "
@@ -151,7 +152,7 @@ const Campus = ({ data }) => {
               alt="Images of traditional Chinese herbs and granules."
               quality={100}
               width={450}
-              height={450}
+              // height={450}
             />
           </Card>
 
@@ -166,7 +167,7 @@ const Campus = ({ data }) => {
               alt="Images of a woman reading in our library, with a traditional Chinese scroll painting behind her."
               quality={100}
               width={450}
-              height={450}
+              // height={450}
             />
             <CardText variants={fadeIn}>
               <motion.h4 variants={fadeIn}>Our Library</motion.h4>
@@ -282,6 +283,11 @@ const CampusHeader = styled.div`
     width: 47.5%;
   }
 
+  @media (max-width: ${breakpoints.xl}px) {
+    h6 {
+      width: 70%;
+    }
+  }
   @media (max-width: ${breakpoints.m}px) {
     padding-bottom: 2.5rem;
 
@@ -304,7 +310,6 @@ const Embla = styled.div`
 `
 
 const EmblaViewport = styled.div`
-  border-radius: 20px;
   overflow: hidden;
   width: 100%;
 
@@ -322,14 +327,23 @@ const EmblaContainer = styled.div`
 `
 
 const EmblaSlide = styled.div`
-  /* flex: 0 0 80%; */
   position: relative;
   min-width: 100%;
   padding-left: 10px;
   height: 650px;
   cursor: grab;
-
+  border-radius: 20px;
+  overflow: hidden;
+  @media (max-width: ${breakpoints.xl}px) {
+    height: 530px;
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    height: 400px;
+  }
   @media (max-width: ${breakpoints.m}px) {
+    height: 300px;
+  }
+  @media (max-width: ${breakpoints.s}px) {
     height: 200px;
   }
 `
@@ -424,10 +438,15 @@ const Card = styled(motion.div)`
   &:nth-child(even) {
     align-self: flex-end;
   }
-
-  @media (max-width: ${breakpoints.m}px) {
-    flex-direction: column;
+  @media (max-width: ${breakpoints.xl}px) {
+    width: 90%;
+  }
+  @media (max-width: ${breakpoints.l}px) {
     width: 100%;
+  }
+
+  @media (max-width: ${breakpoints.s}px) {
+    flex-direction: column;
 
     &:nth-child(odd) {
       align-self: center;
@@ -453,7 +472,10 @@ const CardText = styled(motion.div)`
     border-left: 1px solid black;
   }
 
-  @media (max-width: ${breakpoints.m}px) {
+  @media (max-width: ${breakpoints.xxl}px) {
+    padding: 3rem;
+  }
+  @media (max-width: ${breakpoints.s}px) {
     width: 100%;
     padding: 2rem;
     border: none;
@@ -479,16 +501,17 @@ const TorontoBanner = styled.div`
   margin: 0 auto;
   position: relative;
 
-  @media (max-width: ${breakpoints.m}px) {
+  @media (max-width: ${breakpoints.s}px) {
     display: none;
   }
 `
 const TorontoBannerMobile = styled.div`
   display: none;
 
-  @media (max-width: ${breakpoints.m}px) {
+  @media (max-width: ${breakpoints.s}px) {
     display: inline-block;
     height: 100%;
+    width: 100%;
     overflow: hidden;
     margin: 0 auto;
     position: relative;
@@ -505,7 +528,13 @@ const TorontoText = styled.div`
   left: 15rem;
   width: 55%;
 
-  @media (max-width: ${breakpoints.m}px) {
+
+
+  @media (max-width: ${breakpoints.l}px) {
+    left: 5rem;
+  
+  }
+  @media (max-width: ${breakpoints.s}px) {
     margin: 0 auto;
     width: 100%;
     height: 100%;

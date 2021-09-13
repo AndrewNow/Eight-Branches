@@ -241,8 +241,8 @@ const AboutUs = ({ data }) => {
               fill="#D27241"
             />
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M13.9809 0.148438H49.3991C57.1205 0.148438 63.38 6.32115 63.38 13.9356V75.2118C63.38 82.8262 57.1205 88.9989 49.3991 88.9989H13.9809C6.25945 88.9989 0 82.8262 0 75.2118V13.9356C0 6.32115 6.25945 0.148438 13.9809 0.148438ZM13.9809 1.68034C7.11739 1.68034 1.55343 7.1672 1.55343 13.9356V75.2118C1.55343 81.9801 7.11739 87.467 13.9809 87.467H49.3991C56.2626 87.467 61.8266 81.9801 61.8266 75.2118V13.9356C61.8266 7.1672 56.2626 1.68034 49.3991 1.68034H13.9809Z"
               fill="#D27241"
             />
@@ -355,6 +355,7 @@ const AboutUs = ({ data }) => {
               src="../images/AboutUs/teachingclinic.png"
               alt="Image of a woman with a prosthetic foot in hand, which has a number of acupuncture points inked upon it"
               placeholder="blurred"
+              style={{minHeight: "640px"}}
               quality={100}
             />
           </TCLeft>
@@ -384,7 +385,7 @@ const AboutUs = ({ data }) => {
                 mauris.
               </h6>
             </Header>
-            <Details>
+            <Bottom>
               <Treatments>
                 <h6>List of Treatments:</h6>
                 <p>
@@ -393,7 +394,7 @@ const AboutUs = ({ data }) => {
                   Acupuncture and Seeding.
                 </p>
               </Treatments>
-              <div>
+              <Hours>
                 <h6>Clinic Hours:</h6>
                 <Details>
                   <p style={{ paddingRight: "1.5rem" }}>
@@ -422,8 +423,8 @@ const AboutUs = ({ data }) => {
                     Closed <br />
                   </p>
                 </Details>
-              </div>
-            </Details>
+              </Hours>
+            </Bottom>
           </TCRight>
         </TeachingClinicFlex>
       </OurTeachingClinic>
@@ -764,8 +765,11 @@ const Embla = styled.div`
   position: relative;
   padding: 5rem 0;
 
+  @media (max-width: ${breakpoints.xl}px) {
+    width: 70%;
+  }
   @media (max-width: ${breakpoints.m}px) {
-    width: 90%;
+    width: 95%;
   }
 `
 
@@ -808,6 +812,23 @@ const NextEmblaButton = styled(motion.button)`
     opacity: 0.2;
     cursor: default;
   }
+  @media (max-width: ${breakpoints.xl}px) {
+    right: -15%;
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    width: 45px;
+    height: 45px;
+    top: 90%;
+    right: 25%;
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    top: 85%;
+  }
 `
 
 const PrevEmblaButton = styled(motion.button)`
@@ -827,6 +848,23 @@ const PrevEmblaButton = styled(motion.button)`
     opacity: 0.2;
     cursor: default;
   }
+
+  @media (max-width: ${breakpoints.xl}px) {
+    left: -15%;
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    width: 45px;
+    height: 45px;
+    top: 90%;
+    left: 25%;
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    top: 85%;
+  }
 `
 
 const OurTeachingClinic = styled.section`
@@ -837,9 +875,19 @@ const OurTeachingClinic = styled.section`
 const TeachingClinicFlex = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   padding: 10rem 0;
+
+  @media (max-width: ${breakpoints.l}px) {
+    flex-direction: column;
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    padding: 5rem 0;
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    width: 100%;
+  }
 `
 
 const TCLeft = styled.div`
@@ -847,11 +895,18 @@ const TCLeft = styled.div`
   margin-right: 2rem;
   border-radius: 20px;
   overflow: hidden;
+
+  @media (max-width: ${breakpoints.xxl}px) {
+    max-width: 40vw;
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    display: none;
+  }
 `
 
 const TCRight = styled.div`
   flex-basis: 50%;
-  margin-left: 2rem;
+  margin: 0 2rem;
 `
 
 const Header = styled.div`
@@ -880,6 +935,29 @@ const Header = styled.div`
   }
 `
 
+const Bottom = styled.div`
+  color: var(--color-beige);
+  display: flex;
+  justify-content: space-between;
+  p {
+    padding-top: 1rem;
+    font-family: "matter-light";
+  }
+  h6 {
+    font-family: "matter-regular";
+    letter-spacing: 0.02rem;
+  }
+  @media (max-width: ${breakpoints.xl}px) {
+    flex-direction: column;
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    flex-direction: row;
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    flex-direction: column;
+  }
+`
+
 const Details = styled.div`
   color: var(--color-beige);
   display: flex;
@@ -888,10 +966,46 @@ const Details = styled.div`
     padding-top: 1rem;
     font-family: "matter-light";
   }
+
+  @media (max-width: ${breakpoints.l}px) {
+    justify-content: flex-start;
+    p :nth-of-type(1) {
+      margin-right: 2rem;
+    }
+  }
 `
 
+const Hours = styled.div`
+  white-space: nowrap;
+
+  @media (max-width: ${breakpoints.xl}px) {
+    padding-top: 2rem;
+  }
+
+  @media (max-width: ${breakpoints.l}px) {
+    padding-top: 2rem;
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    padding-top: 2rem;
+  }
+`
 const Treatments = styled.div`
   width: 45%;
+  margin-right: 2rem;
+
+  @media (max-width: ${breakpoints.xl}px) {
+    width: 100%;
+    margin-right: 1rem;
+  }
+  
+  @media (max-width: ${breakpoints.l}px) {
+    width: 45%;
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    width: 100%;
+  }
+
 `
 
 const FAQBg = styled.section`
@@ -904,6 +1018,15 @@ const FAQBg = styled.section`
     padding: 5rem 0;
     color: var(--color-darkgreen);
   }
+
+  @media (max-width: ${breakpoints.m}px) {
+    padding-top: 0rem;
+    padding-bottom: 5rem;
+
+    h1 {
+      padding-bottom: 2.5rem;
+    }
+  }
 `
 
 const FAQWrapper = styled.div`
@@ -911,4 +1034,7 @@ const FAQWrapper = styled.div`
   margin: 0 auto;
   border: 1px solid black;
   border-bottom: none;
+  @media (max-width: ${breakpoints.m}px) {
+    width: 90%;
+}
 `

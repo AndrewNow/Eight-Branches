@@ -85,7 +85,6 @@ const OurPrograms = ({ data }) => {
 
   // ---------- FRAMER LOGIC ----------
 
-
   const fadeIn = {
     visible: {
       opacity: 1,
@@ -101,7 +100,6 @@ const OurPrograms = ({ data }) => {
     },
   }
 
-
   return (
     <Layout title={siteTitle}>
       <Seo title="Our Programs" />
@@ -114,7 +112,6 @@ const OurPrograms = ({ data }) => {
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </h6>
           </BannerText>
-
           <StaticImage
             src="../images/ProgramsImages/image61.png"
             alt="Beige background image with a bonsai in the foreground."
@@ -136,7 +133,7 @@ const OurPrograms = ({ data }) => {
             src="../images/ProgramsImages/mobilebanner.png"
             alt="Beige background image with a bonsai in the foreground."
             quality={100}
-            height={530}
+            height={400}
             layout="fullWidth"
           />
         </ImageBannerMobile>
@@ -155,6 +152,7 @@ const OurPrograms = ({ data }) => {
                 alt="A practitioner performs moxibustion, igniting a bundle of herbs."
                 quality={100}
                 width={590}
+                imgStyle={{ borderRadius: "20px" }}
               />
             </ProgramImage>
             <ProgramText
@@ -163,7 +161,10 @@ const OurPrograms = ({ data }) => {
               animate={sectionInView1 ? "visible" : "hidden"}
               ref={SectionRef1}
             >
-              <motion.h1 variants={fadeIn}>Acupuncture & Moxibustion</motion.h1>
+              <motion.h1 variants={fadeIn}>
+                Acupuncture & <br />
+                Moxibustion
+              </motion.h1>
               <motion.h6 variants={fadeIn}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et{" "}
@@ -214,6 +215,7 @@ const OurPrograms = ({ data }) => {
                 alt="A practitioner performs cupping on a patient with 6 cups on their back."
                 quality={100}
                 width={590}
+                imgStyle={{ borderRadius: "20px" }}
               />
             </ProgramImage>
             <ProgramText
@@ -223,7 +225,7 @@ const OurPrograms = ({ data }) => {
               ref={SectionRef2}
             >
               <motion.h1 variants={fadeIn}>
-                Traditional Chinese Medicine Practitioner
+                Traditional Chinese <br /> Medicine Practitioner
               </motion.h1>
               <motion.h6 variants={fadeIn}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -262,6 +264,8 @@ const OurPrograms = ({ data }) => {
                 alt="A professor leads a group in Tai Chi in one of our salons."
                 quality={100}
                 width={590}
+                imgStyle={{ borderRadius: "20px" }}
+                imgStyle={{ borderRadius: "20px" }}
               />
             </ProgramImage>
             <ProgramText
@@ -343,6 +347,7 @@ const OurPrograms = ({ data }) => {
                 alt="A picture of a collection of herbs and jars from our Apothecary."
                 quality={100}
                 width={590}
+                imgStyle={{ borderRadius: "20px" }}
               />
             </ProgramImage>
           </ProgramInner>
@@ -471,12 +476,16 @@ const SectionWrapper = styled.div`
 
 const ImageBanner = styled.div`
   width: 100%;
-  height: 70vh;
   overflow: hidden;
   margin: 0 auto;
   position: relative;
+  aspect-ratio: 24/9;
 
   @media (max-width: ${breakpoints.m}px) {
+    aspect-ratio: 16/9;
+  }
+
+  @media (max-width: ${breakpoints.s}px) {
     display: none;
   }
 `
@@ -484,7 +493,7 @@ const ImageBanner = styled.div`
 const ImageBannerMobile = styled.div`
   display: none;
 
-  @media (max-width: ${breakpoints.m}px) {
+  @media (max-width: ${breakpoints.s}px) {
     display: block;
     width: 100%;
     overflow: hidden;
@@ -504,13 +513,21 @@ const BannerText = styled.div`
     padding-bottom: 1rem;
   }
 
-  @media (max-width: ${breakpoints.m}px) {
-    width: 90%;
-    bottom: 5rem;
+  @media (max-width: ${breakpoints.xl}px) {
+    bottom: 2rem;
+    width: 40%;
+  }
+
+  @media (max-width: ${breakpoints.l}px) {
+    width: 70%;
+    bottom: 1.5rem;
 
     & h1 {
       padding-bottom: 0.5rem;
     }
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    bottom: 4rem;
   }
   @media (max-width: ${breakpoints.xs}px) {
     bottom: 2.5rem;
@@ -538,6 +555,9 @@ const ProgramSection = styled.div`
   &:nth-child(4) {
     background-color: var(--color-salmon);
   }
+  @media (max-width: ${breakpoints.xl}px) {
+    max-height: 80vh;
+  }
 
   @media (max-width: ${breakpoints.m}px) {
     max-height: none;
@@ -546,8 +566,8 @@ const ProgramSection = styled.div`
 `
 
 const ProgramInner = styled.div`
-  max-width: 90%;
-  padding: 6rem 5rem;
+  width: 90%;
+  padding: 6rem 0;
   display: flex;
   justify-content: space-around;
   flex-direction: row;
@@ -560,10 +580,19 @@ const ProgramInner = styled.div`
     flex-direction: row;
   }
 
+  @media (max-width: ${breakpoints.xl}px) {
+    width: 100%;
+    padding: 3rem;
+    justify-content: space-between;
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    padding: 2.5rem 0;
+    width: 90%;
+    margin: 0 auto;
+  }
   @media (max-width: ${breakpoints.m}px) {
     flex-direction: column;
     padding: 2rem 0;
-
     &:nth-child(odd) {
       flex-direction: column;
     }
@@ -579,17 +608,40 @@ const ProgramText = styled(motion.div)`
   position: relative;
   z-index: 2;
 
-  & h1 {
+  h1 {
     padding-bottom: 1rem;
+    white-space: nowrap;
   }
 
-  & h6 {
+  h6 {
     max-width: 80%;
   }
 
+  @media (max-width: ${breakpoints.xxl}px) {
+    h1 {
+      font-size: 50px;
+      line-height: 58px;
+    }
+  }
+  @media (max-width: ${breakpoints.xl}px) {
+    max-width: 50%;
+    padding-top: 0rem;
+    margin: 0 2.5rem;
+
+    h6 {
+      max-width: 90%;
+    }
+  }
+
+  @media (max-width: ${breakpoints.l}px) {
+    h1 {
+      white-space: normal;
+    }
+  }
   @media (max-width: ${breakpoints.m}px) {
     max-width: 100%;
     padding-top: 0rem;
+    margin: 0;
 
     & h6 {
       max-width: 100%;
@@ -648,7 +700,11 @@ const ProgramImage = styled(motion.div)`
   position: relative;
   border-radius: 20px !important;
   overflow: hidden;
+  margin: 0.5rem;
 
+  @media (max-width: ${breakpoints.xl}px) {
+    margin: 1rem 0;
+  }
   @media (max-width: ${breakpoints.m}px) {
     margin: 2rem 0;
   }
@@ -670,8 +726,15 @@ const CertificatePrograms = styled.section`
     & strong {
       color: #00000090;
     }
+
   }
 
+  @media (max-width: ${breakpoints.xl}px) {
+    padding-top: 7rem 0;
+    p {
+      padding-bottom: 7rem;
+    }
+  }
   @media (max-width: ${breakpoints.m}px) {
     padding-top: 5rem;
 
@@ -700,7 +763,9 @@ const Title = styled.div`
     padding-bottom: 5rem;
   }
   & svg {
-    filter: invert(1);
+    fill: black;
+    filter: brightness(0);
+    /* filter: invert(1); */
   }
 
   @media (max-width: ${breakpoints.m}px) {
