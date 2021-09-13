@@ -42,6 +42,36 @@ const GlobalWrapper = styled(motion.div)`
   padding-bottom: 550px;
   /* overflow-x: hidden; */
 
+  @media (max-width: ${breakpoints.xl}px) {
+    h1 {
+      font-size: 50px;
+      line-height: 58px;
+    }
+    h2 {
+      font-size: 30px;
+      line-height: 45px;
+    }
+    h3 {
+      font-size: 25px;
+      line-height: 37px;
+    }
+    h4 {
+      font-size: 22px;
+      line-height: 32px;
+    }
+    h5 {
+      font-size: 23px;
+      line-height: 30px;
+    }
+    h6 {
+      font-size: 20px;
+      line-height: 29px;
+    }
+    p {
+      font-size: 18px;
+      line-height: 31px;
+    }
+  }
   @media (max-width: ${breakpoints.m}px) {
     h1 {
       font-size: 36px;

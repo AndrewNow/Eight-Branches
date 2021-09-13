@@ -14,7 +14,6 @@ import FAQMap from "../components/AboutUsComponents/FAQMap"
 const AboutUs = ({ data }) => {
   const siteTitle = data.site.siteMetadata?.title || `About Us`
   const [expand, setExpand] = useState(false)
-  console.log(expand)
 
   const clickExpand = {
     hidden: {
@@ -137,7 +136,7 @@ const AboutUs = ({ data }) => {
 
           <StaticImage
             src="../images/AboutUs/banner.png"
-            alt="Beige background image with an in the foreground."
+            alt="Beige background image with an orchid in the foreground."
             quality={100}
             layout="fullWidth"
           />
@@ -150,10 +149,9 @@ const AboutUs = ({ data }) => {
           </BannerText>
 
           <StaticImage
-            src="../images/AboutUs/banner.png"
-            alt="Beige background image with an in the foreground."
+            src="../images/AboutUs/aboutusbannermobile.png"
+            alt="Beige background image with an orchid in the foreground."
             quality={100}
-            // height={530}
             layout="fullWidth"
           />
         </ImageBannerMobile>
@@ -164,6 +162,7 @@ const AboutUs = ({ data }) => {
             src="../images/AboutUs/moxibustion.png"
             alt="A practitioner performing moxibustion and acupuncture on a patient."
             quality={100}
+            layout="constrained"
           />
         </Left>
         <Right>
@@ -478,11 +477,29 @@ const EightBranchesSection = styled.section`
     margin: 0 auto;
     text-align: center;
     color: var(--color-lightorange);
-    width: 45%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    h1 {
+      padding: 2.5rem 0;
+      width: 100%;
+      svg {
+        padding-bottom: 1rem;
+      }
+    }
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    padding-top: 1rem;
+    h1 {
+      font-size: 34px;
+      svg {
+        padding-bottom: 1.5rem;
+      }
+    }
   }
 `
 
@@ -493,7 +510,13 @@ const ImageBanner = styled.div`
   margin: 0 auto;
   position: relative;
 
-  @media (max-width: ${breakpoints.m}px) {
+  @media (max-width: ${breakpoints.xl}px) {
+    height: 60vh;
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    height: auto;
+  }
+  @media (max-width: ${breakpoints.s}px) {
     display: none;
   }
 `
@@ -501,7 +524,7 @@ const ImageBanner = styled.div`
 const ImageBannerMobile = styled.div`
   display: none;
 
-  @media (max-width: ${breakpoints.m}px) {
+  @media (max-width: ${breakpoints.s}px) {
     display: block;
     width: 100%;
     overflow: hidden;
@@ -515,7 +538,6 @@ const BannerText = styled.div`
   z-index: 20;
   bottom: 5rem;
   left: 5vw;
-  width: 37.5%;
   color: white;
 
   & h1 {
@@ -524,14 +546,21 @@ const BannerText = styled.div`
 
   @media (max-width: ${breakpoints.m}px) {
     width: 90%;
-    bottom: 5rem;
+    bottom: 10%;
 
     & h1 {
+      font-size: 50px;
+      line-height: 58px;
       padding-bottom: 0.5rem;
     }
   }
-  @media (max-width: ${breakpoints.xs}px) {
+  @media (max-width: ${breakpoints.s}px) {
     bottom: 2.5rem;
+    h1 {
+      font-size: 36px;
+      line-height: 46px;
+      white-space: nowrap;
+    }
   }
 `
 
@@ -540,12 +569,28 @@ const AboutUsSection = styled.section`
   display: flex;
   justify-content: space-around;
   padding: 10rem 0;
+
+  @media (max-width: ${breakpoints.xl}px) {
+    padding: 7rem 0;
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    flex-direction: column-reverse;
+    padding: 5rem 0;
+  }
 `
 
 const Left = styled.div`
   border-radius: 20px;
   overflow: hidden;
   margin-left: 5rem;
+
+  @media (max-width: ${breakpoints.xxl}px) {
+    margin-left: 1rem;
+  }
+
+  @media (max-width: ${breakpoints.l}px) {
+    display: none;
+  }
 `
 const Right = styled.div`
   flex-basis: 50%;
@@ -553,6 +598,27 @@ const Right = styled.div`
   h3 {
     padding-top: 7rem;
     padding-bottom: 2.5rem;
+  }
+
+  @media (max-width: ${breakpoints.xxl}px) {
+    width: 90%;
+    margin: 0 auto;
+  }
+  @media (max-width: ${breakpoints.xl}px) {
+    h3 {
+      margin: 0 2rem;
+    }
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    h3 {
+      padding-top: 0rem;
+    }
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    width: 95%;
+    h3 {
+      margin: 0 1rem;
+    }
   }
 `
 
@@ -563,6 +629,10 @@ const HiddenText = styled(motion.div)`
   position: relative;
   p {
     font-family: "Matter-light";
+  }
+
+  @media (max-width: ${breakpoints.xl}px) {
+    width: 80%;
   }
 `
 
@@ -609,6 +679,9 @@ const OurCorePrinciples = styled.section`
     text-align: center;
     color: var(--color-darkgreen);
   }
+  @media (max-width: ${breakpoints.m}px) {
+    padding: 2.5rem 0;
+  }
 `
 
 const PrinciplesWrapper = styled.div`
@@ -617,6 +690,13 @@ const PrinciplesWrapper = styled.div`
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: ${breakpoints.m}px) {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: 2.5rem;
+  }
 `
 
 const PrinciplesItem = styled.div`
@@ -629,6 +709,14 @@ const PrinciplesItem = styled.div`
   p {
     padding-top: 1rem;
     text-align: center;
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    width: 90%;
+    p {
+      padding-bottom: 3rem;
+      width: 90%;
+    }
   }
 `
 
@@ -654,6 +742,19 @@ const GraphTop = styled.section`
   h6 {
     width: 55%;
     align-self: flex-end;
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    flex-direction: column;
+    padding-bottom: 2rem;
+    h1 {
+      padding-right: 0rem;
+    }
+    h6 {
+      padding-top: 2rem;
+      align-self: flex-start;
+      width: 100%;
+    }
   }
 `
 

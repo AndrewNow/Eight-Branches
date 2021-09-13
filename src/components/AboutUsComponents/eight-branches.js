@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import { motion, AnimatePresence } from "framer-motion"
 import AboutUsClose from "../../svg/aboutUsClose"
+import breakpoints from "../breakpoints"
 
 const EightBranches = () => {
   const dropdown = {
@@ -440,12 +441,23 @@ const Grid = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr;
   position: relative;
   margin: 0 auto;
+
+  @media (max-width: ${breakpoints.m}px) {
+    grid-template-columns: 1fr 1fr;
+  }
 `
 
 const Block = styled.div`
   height: auto;
   position: relative;
   margin: 2rem;
+
+  @media (max-width: ${breakpoints.xl}px) {
+    margin: 1rem;
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    margin: .5rem;
+  }
 `
 
 const BlockInner = styled.div`
@@ -457,10 +469,33 @@ const BlockInner = styled.div`
   height: 200px;
   transition: var(--hover-transition);
   cursor: pointer;
-
+  h3 {
+    text-align: center;
+  }
   &:hover {
     background-color: var(--color-lightorange);
     color: var(--color-beige);
+  }
+  @media (max-width: ${breakpoints.xl}px) {
+    height: 150px;
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    height: 100px;
+    border-radius: 10px;
+
+    h3 {
+      font-size: 3vw;
+    }
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    h3 {
+      font-size: 3.5vw;
+    }
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    h3 {
+      font-size: 20px;
+    }
   }
 `
 
@@ -475,7 +510,7 @@ const InfoDropDown = styled(motion.div)`
 
   h4 {
     width: 95%;
-    padding: 5rem 5rem;
+    padding: 5rem;
   }
 
   svg {
@@ -483,5 +518,22 @@ const InfoDropDown = styled(motion.div)`
     position: absolute;
     top: 2rem;
     right: 2rem;
+  }
+
+  @media (max-width: ${breakpoints.xl}px) {
+    margin: 1.5rem 1rem;
+    h4 {
+      padding: 2rem;
+    }
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    svg {
+      width: 35px;
+      height: 35px;
+    }
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    margin: 0.5rem;
+    border-radius: 10px;
   }
 `
