@@ -109,8 +109,8 @@ const News = ({ data, location }) => {
               )
             })}
           </Bulletingrid>
-          {console.log(data.blog.edges?.length)}
-          {console.log(visiblePosts)}
+          {/* {console.log(data.blog.edges?.length)}
+          {console.log(visiblePosts)} */}
           {visiblePosts >= data.blog.edges?.length ? (
             // if user hits end of data.blog.edges array, button closes posts
             <LoadMore>

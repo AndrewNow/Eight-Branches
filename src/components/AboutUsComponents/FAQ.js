@@ -37,7 +37,7 @@ export const FAQ = ({ index, question, answer }) => {
         animate={{
           backgroundColor: expand
             ? "var(--color-lightestgreen)"
-            : "var(--color-beige)",
+            : "var(--color-lightestbeige)",
         }}
         whileHover={{ filter: "brightness(.95)" }}
       >
@@ -82,12 +82,13 @@ const Header = styled(motion.div)`
     max-width: 90%;
   }
 
-  &:hover {
+  :hover {
     cursor: pointer;
     background-color: var(--color-lightestgreen);
   }
 
   svg {
+    // make svg black
     filter: invert(1);
   }
 
@@ -109,12 +110,11 @@ const Header = styled(motion.div)`
 `
 
 const Answer = styled(motion.div)`
-  background-color: white;
   border-bottom: 1px solid black;
   overflow-y: hidden;
 
   p {
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
     padding: 2.5rem;
   }

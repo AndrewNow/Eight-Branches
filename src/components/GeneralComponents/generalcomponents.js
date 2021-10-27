@@ -53,8 +53,8 @@ export const AcademicAdvisor = () => {
       </AcademicAdvisorText>
       <AcademicAdvisorImage>
         <StaticImage
-          src="../../images/Misc/tea.png"
-          alt="A tea set pictured overtop a handwritten scroll, shot from above."
+          src="../../images/Misc/bg.png"
+          alt="An image of a bookshelf within our school."
           quality={100}
           imgStyle={{ objectFit: "cover" }}
           style={{minHeight: "100%"}}
@@ -178,6 +178,7 @@ const AcademicAdvisorWrapper = styled.div`
   width: 100%;
   background-color: var(--color-lightgreen);
   display: flex;
+  position: relative;
 
   @media (max-width: ${breakpoints.l}px) {
     flex-direction: column-reverse;
@@ -192,11 +193,12 @@ const AcademicAdvisorText = styled.div`
   border-radius: 40px;
   width: 100%;
   height: 100%;
-  margin: 2.5rem;
-  padding: 4.5rem 3rem;
+  margin: 1.5rem;
+  padding: 5rem 3rem;
 
   & h2 {
     margin-bottom: 2.5rem;
+    margin-top: 5rem;
     color: white;
   }
   
@@ -208,6 +210,12 @@ const AcademicAdvisorText = styled.div`
   @media (max-width: ${breakpoints.m}px) {
     padding: 2rem 1.5rem;
   }
+  @media (max-width: ${breakpoints.s}px) {
+    /* border: none; */
+    margin: 1rem;
+    text-align: center;
+    align-items: center;
+}
 `
 
 const AcademicAdvisorImage = styled.div`
@@ -225,7 +233,7 @@ const AcademicAdvisorImage = styled.div`
   }
 `
 
-const BookAnAppointment = styled(Link)`
+const BookAnAppointment = styled.a`
   width: 170px;
   text-align: center;
   border-radius: 10px;
@@ -241,7 +249,7 @@ const BookAnAppointment = styled(Link)`
   transition: 0.25s all ease-in-out;
 
   &:hover {
-    color: var(--color-darkgreen);
+    color: var(--color-lightgreen);
     background-color: var(--color-white);
   }
 `

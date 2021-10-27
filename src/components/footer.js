@@ -12,7 +12,6 @@ const Footer = () => {
   const [visible, setVisible] = useState(false)
 
   const footerRef = useRef()
-
   // logic to hide the footer unless it is within a certain threshold from the top of the viewport
   // this is to prevent it appearing when an iOS user triggers a "scroll bounce" when scrolling to the top of the page, revealing the footer behind the <body>
   const showFooter = () => {
@@ -84,7 +83,7 @@ const Footer = () => {
                     <p>Programs</p>
                   </Link>
                   <Link to="/bulletin-board">
-                    <p>News</p>
+                    <p>Bulletin Board</p>
                   </Link>
                   <Link to="/campus">
                     <p>Campus</p>
@@ -92,21 +91,23 @@ const Footer = () => {
                   <Link to="/our-faculty">
                     <p>Our Faculty</p>
                   </Link>
-                  <Link to="/teachingclinic">
+                  <Link to="/teaching-clinic">
                     <p>Teaching Clinic</p>
                   </Link>
-                  <Link to="/studentlogin">
+                  <Link
+                  // to="/studentlogin"
+                  >
                     <p>Student Login</p>
                   </Link>
                   <Link to="/admissions">
                     <p>Admissions</p>
                   </Link>
-                  <Link to="/applynow">
+                  {/* <Link to="/applynow">
                     <p>Apply Now</p>
                   </Link>
                   <Link to="/careers">
                     <p>Careers</p>
-                  </Link>
+                  </Link> */}
                 </Website>
 
                 <GetInTouch>
@@ -146,19 +147,22 @@ const Footer = () => {
                   <h4>Stay connected</h4>
                   <a
                     href="https://www.instagram.com/eightbranches/"
-                    target="blank"
+                    target="_blank"
+                    rel="noreferrer noopener"
                   >
                     <SiTiktok size={27} />
                   </a>
                   <a
                     href="https://www.instagram.com/eightbranches/"
-                    target="blank"
+                    target="_blank"
+                    rel="noreferrer noopener"
                   >
                     <SiInstagram size={27} />
                   </a>
                   <a
                     href="https://ca.linkedin.com/company/eight-branches-academy-of-eastern-medicine"
-                    target="blank"
+                    target="_blank"
+                    rel="noreferrer noopener"
                   >
                     <SiLinkedin size={27} />
                   </a>

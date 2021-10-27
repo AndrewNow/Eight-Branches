@@ -499,6 +499,7 @@ const ImageBannerMobile = styled.div`
     overflow: hidden;
     margin: 0 auto;
     position: relative;
+    max-height: 600px;
   }
 `
 
@@ -528,6 +529,7 @@ const BannerText = styled.div`
   }
   @media (max-width: ${breakpoints.s}px) {
     bottom: 4rem;
+    width: 80%;
   }
   @media (max-width: ${breakpoints.xs}px) {
     bottom: 2.5rem;
@@ -645,6 +647,12 @@ const ProgramText = styled(motion.div)`
 
     & h6 {
       max-width: 100%;
+    }
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    h1 {
+      font-size: 32px;
+      line-height: 40px;
     }
   }
 `

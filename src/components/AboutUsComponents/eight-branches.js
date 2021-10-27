@@ -154,10 +154,12 @@ const EightBranches = () => {
                 <AboutUsClose />
               </div>
               <motion.h4 variants={fadeout}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.{" "}
+                The theory and practice of acupuncture is based on Traditional
+                Chinese Medicine, a comprehensive natural health care system
+                that has been used in Asia for thousands of years.
+                Acupuncturists stimulate “acupuncture points” found at specific
+                locations on the surface of the body by inserting very thin
+                needles through the skin, or with heat and/or finger-pressure.
               </motion.h4>
             </InfoDropDown>
           )}
@@ -180,10 +182,16 @@ const EightBranches = () => {
                 <AboutUsClose />
               </div>
               <motion.h4 variants={fadeout}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.{" "}
+                This form of heat therapy has been used for centuries throughout
+                China. Since the early development of this medical system moxa
+                has been used as a stand-alone therapy as well as in combination
+                with acupuncture, herbal medicine and bodywork. The herb used in
+                this therapy is dried Mugwort (Artemisia Vulgaris) which is
+                burnt directly or indirectly on the skin at the site of
+                acupuncture points and along meridian channels. Moxa therapy
+                produces a pleasant warming sensation that penetrates deep
+                beneath the skin, while stimulating circulation of qi and blood
+                throughout the body.
               </motion.h4>
             </InfoDropDown>
           )}
@@ -206,10 +214,15 @@ const EightBranches = () => {
                 <AboutUsClose />
               </div>
               <motion.h4 variants={fadeout}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.{" "}
+                This is one of the oldest manual therapies in Chinese medicine,
+                with recorded use dating back to early fourth century. Thick
+                glass or plastic cups are most commonly used today, however
+                originally practitioners used animal horns, bamboo, and iron or
+                pottery cups to perform cupping on patients. Glass cups require
+                a small flame to remove the oxygen inside and to create suction
+                needed to anchor the cup to the skin. The soothing warmth of the
+                cups aids the circulation of qi and blood in the body and has a
+                relaxing effect on the patient.
               </motion.h4>
             </InfoDropDown>
           )}
@@ -232,10 +245,14 @@ const EightBranches = () => {
                 <AboutUsClose />
               </div>
               <motion.h4 variants={fadeout}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.{" "}
+                Eastern Herbology has its roots in nutrition, in particular in
+                China where herbs, seeds, minerals, barks and other remedies are
+                a part of the daily traditional diet. That being said, the term
+                herbology or herbal medicine itself doesn’t quite encompass the
+                array of natural substances used in this medicine. The broad
+                range of medicinal substances used in traditional Chinese
+                medicine includes minerals, seeds, dried fruits, mushrooms,
+                grasses, flowers and animal products amongst others.
               </motion.h4>
             </InfoDropDown>
           )}
@@ -295,7 +312,9 @@ const EightBranches = () => {
             }
           >
             <BlockInner>
-              <h3>Taoist Arts</h3>
+              <h3>
+                Taoist Arts <br /> (Yang Shen)
+              </h3>
             </BlockInner>
           </Block>
 
@@ -337,10 +356,17 @@ const EightBranches = () => {
                 <AboutUsClose />
               </div>
               <motion.h4 variants={fadeout}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
+                Gua sha is an ancient Chinese healing technique that involves
+                using a round edged instrument to stroke the surface of the skin
+                with the goal of clearing stagnation from the body via movement.
+                This motion has the effect of raising small red or purple
+                petequia, or sha, to the surface of the skin. This sha is an
+                indication of pathogenic blood or qi stagnation, which is a
+                possible cause of pain, stiffness, cough, and congestion,
+                amongst other health issues.? The sha that results from
+                treatment may feel slightly sensitive to the touch, though both
+                redness and sensitivity fades within a few days of the
+                treatment.
               </motion.h4>
             </InfoDropDown>
           )}
@@ -363,10 +389,13 @@ const EightBranches = () => {
                 <AboutUsClose />
               </div>
               <motion.h4 variants={fadeout}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.{" "}
+                Nutrition is at the very foundation of traditional Chinese
+                medicine as it is used to create harmony between one’s internal
+                and external environment. Food from local flora and fauna was
+                the earliest form of medicine. The plants, fruits vegetables,
+                minerals and wildlife of each region were studied and used for
+                their medicinal properties and ability to prevent illness
+                brought on by weather conditions, physical labor and infection.
               </motion.h4>
             </InfoDropDown>
           )}
@@ -389,10 +418,16 @@ const EightBranches = () => {
                 <AboutUsClose />
               </div>
               <motion.h4 variants={fadeout}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.{" "}
+                Yang Shen refers to traditional Chinese practices meant to
+                promote health or nourishing life through harmonized breathing,
+                moving and stretching exercises. They often include
+                self-massage, self-defense, meditative and energy projecting
+                techniques. Early historical recording such as the Daoyin Tu
+                (exercise chart), illustrate exercise postures in China dating
+                back to the 2nd Century BCE. Eight Branches focuses on Qi Gong,
+                which includes systems of coordinated body-posture and movement,
+                breathing, and meditation used for the purposes of health and
+                spirituality.
               </motion.h4>
             </InfoDropDown>
           )}
@@ -415,10 +450,14 @@ const EightBranches = () => {
                 <AboutUsClose />
               </div>
               <motion.h4 variants={fadeout}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
+                The principle of Asian bodywork is based in correcting the flow
+                of energy through the body and balancing yin and yang energies.
+                Through this approach, the body improves it’s ability to heal
+                and prevent diseases and addresses not only physical but also
+                psycho-emotional health. Using fingers, hands, elbows and knees,
+                practitioners can stimulate acupuncture points, correct the flow
+                of meridian pathways and activate the circulation of qi and
+                blood in muscles, joints and tissues.
               </motion.h4>
             </InfoDropDown>
           )}
@@ -451,21 +490,23 @@ const Block = styled.div`
   height: auto;
   position: relative;
   margin: 2rem;
-
+  
   @media (max-width: ${breakpoints.xl}px) {
     margin: 1rem;
   }
   @media (max-width: ${breakpoints.s}px) {
-    margin: .5rem;
+    margin: 0.5rem;
   }
-`
+  `
 
 const BlockInner = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  background: white;
   border: 1px solid var(--color-lightorange);
   border-radius: 20px;
+  overflow: hidden;
   height: 200px;
   transition: var(--hover-transition);
   cursor: pointer;
@@ -482,7 +523,7 @@ const BlockInner = styled.div`
   @media (max-width: ${breakpoints.l}px) {
     height: 100px;
     border-radius: 10px;
-
+    
     h3 {
       font-size: 3vw;
     }
@@ -500,8 +541,10 @@ const BlockInner = styled.div`
 `
 
 const InfoDropDown = styled(motion.div)`
+  background: white;
   border: 1px solid var(--color-lightorange);
   border-radius: 20px;
+  overflow: hidden;
   margin: 0 2rem;
   left: 0;
   display: flex;

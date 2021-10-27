@@ -7,23 +7,22 @@ const FAQMap = () => {
       question:
         "What traditions of Acupuncture and Eastern Medicine are taught at the school?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum varius, orci a accumsan tempus, libero orci lobortis ante, id consectetur mauris turpis ut nunc. Cras facilisis mi magna, vel tincidunt metus volutpat sed. Nullam sit amet libero lorem. Suspendisse sed luctus lorem, at malesuada urna. Nulla feugiat tempor urna eget vestibulum. Sed eu erat et leo aliquam dictum. Vivamus vulputate tortor nibh, egestas aliquam tortor volutpat ultrices. Quisque sit amet diam a diam porttitor fringilla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec dignissim eros eu ultrices porta. Nullam rhoncus, elit sollicitudin luctus pharetra, elit odio dignissim ante, quis fringilla dolor neque quis diam.",
+        "Over the years, our college has developed a time-honored reputation for delivering an enriching education which incorporates hands-on learning and extensive practice - breadth and depth of knowledge are equally important to us. Eight Branches is renowned in Ontario for its advanced training in Bodywork, Cupping, Nutrition, Gua Sha, Moxibustion, Herbology, Acupuncture and Self Healing Arts. By highlighting each of these eight branches, our curriculum provides our students with a truly holistic and comprehensive education, staying true to the historical roots of TCM.",
     },
     {
-      question: "Is the curriculum comprehensive and complete?",
+      question: "Am I eligible for student loans?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum varius, orci a accumsan tempus, libero orci lobortis ante, id consectetur mauris turpis ut nunc. Cras facilisis mi magna, vel tincidunt metus volutpat sed. Nullam sit amet libero lorem. Suspendisse sed luctus lorem, at malesuada urna. Nulla feugiat tempor urna eget vestibulum. Sed eu erat et leo aliquam dictum. Vivamus vulputate tortor nibh, egestas aliquam tortor volutpat ultrices. Quisque sit amet diam a diam porttitor fringilla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec dignissim eros eu ultrices porta. Nullam rhoncus, elit sollicitudin luctus pharetra, elit odio dignissim ante, quis fringilla dolor neque quis diam.",
+        "Eight Branches is recognized by OSAP and most other student loan services from other provinces. Students in our full time programs may be eligible for student loan funding. To find out if you are eligible, please contact student loan services in your province.",
     },
     {
-      question:
-        "How does the school prepare you for successful entry into the professional field?",
+      question: "How much is tuition?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum varius, orci a accumsan tempus, libero orci lobortis ante, id consectetur mauris turpis ut nunc. Cras facilisis mi magna, vel tincidunt metus volutpat sed. Nullam sit amet libero lorem. Suspendisse sed luctus lorem, at malesuada urna. Nulla feugiat tempor urna eget vestibulum. Sed eu erat et leo aliquam dictum. Vivamus vulputate tortor nibh, egestas aliquam tortor volutpat ultrices. Quisque sit amet diam a diam porttitor fringilla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec dignissim eros eu ultrices porta. Nullam rhoncus, elit sollicitudin luctus pharetra, elit odio dignissim ante, quis fringilla dolor neque quis diam.",
+        "For tuition details, please email admissions@eightbranches with the name of the program you are interested in for a breakdown of class fees and supplies.",
     },
     {
       question: "Why Choose Eight Branches?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum varius, orci a accumsan tempus, libero orci lobortis ante, id consectetur mauris turpis ut nunc. Cras facilisis mi magna, vel tincidunt metus volutpat sed. Nullam sit amet libero lorem. Suspendisse sed luctus lorem, at malesuada urna. Nulla feugiat tempor urna eget vestibulum. Sed eu erat et leo aliquam dictum. Vivamus vulputate tortor nibh, egestas aliquam tortor volutpat ultrices. Quisque sit amet diam a diam porttitor fringilla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec dignissim eros eu ultrices porta. Nullam rhoncus, elit sollicitudin luctus pharetra, elit odio dignissim ante, quis fringilla dolor neque quis diam.",
+        "Eight Branches does not only focus on theory-based pracitioner training, but also incorporates business management and marketing into the curriculum to ensure our students are set up for success. Our Student Clinic with clinical residency also gives practitioners the ability to apply the training they’ve received and convey it in a professional manner in a mixture of clinical settings.",
     },
   ]
 
