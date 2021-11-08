@@ -144,25 +144,25 @@ const Navbar = () => {
                 <Link to="/about-us">About Us</Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
+                <Link to="/bulletin-board">Bulletin Board</Link>
+              </motion.h3>
+              <motion.h3 variants={navItem}>
                 <Link to="/programs">Programs</Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
-                <Link to="/bulletin-board">Bulletin Board</Link>
+                <Link to="/admissions">Admissions</Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
                 <Link to="/campus">Campus</Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
-                <Link to="/our-faculty">Our Faculty</Link>
+                <Link to="/our-faculty">Meet Our Faculty</Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
                 <Link to="/teaching-clinic">Teaching Clinic</Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
-                <Link to="/studentlogin">Student Login</Link>
-              </motion.h3>
-              <motion.h3 variants={navItem}>
-                <Link to="/admissions">Admissions</Link>
+                <Link to="/studentlogin">Student Portal</Link>
               </motion.h3>
             </motion.div>
           </NavMenu>

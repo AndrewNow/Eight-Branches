@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from "react"
+import React, { useState, useEffect } from "react"
 import { graphql, Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
@@ -18,7 +18,6 @@ const OurPrograms = ({ data }) => {
   const siteTitle = data.site.siteMetadata?.title || `Our Programs`
 
   // ---------- INTERSECTION OBSERVER LOGIC ----------
-  const ref = useRef()
   const [SectionRef1, sectionInView1] = useInView({
     root: null,
     threshold: 0.85,
@@ -45,31 +44,13 @@ const OurPrograms = ({ data }) => {
   const [contentRef2, inView2] = useInView({
     root: null,
   })
-
-  const setRefs = useCallback(
-    node => {
-      // Ref's from useRef needs to have the node assigned to `current`
-      ref.current = node
-      // Callback refs, like the one from `useInView`, is a function that takes the node as an argument
-      SectionRef1(node)
-      SectionRef2(node)
-      SectionRef3(node)
-      SectionRef4(node)
-      contentRef(node)
-      contentRef2(node)
-    },
-    [
-      SectionRef1,
-      SectionRef2,
-      SectionRef3,
-      SectionRef4,
-      contentRef,
-      contentRef2,
-    ]
-  )
+  const [CertificatesRef, CertificatesInView] = useInView({
+    root: null,
+    triggerOnce: true,
+    threshold: 0.5
+  })
 
   // ---------- PARALLAX SCROLL LOGIC ----------
-
   const [offsetY, setOffsetY] = useState(0)
   const handleScroll = () => setOffsetY(window.pageYOffset)
 
@@ -88,35 +69,74 @@ const OurPrograms = ({ data }) => {
   const fadeIn = {
     visible: {
       opacity: 1,
-      top: 0,
+      y: 0,
       transition: {
-        duration: 0.75,
-        staggerChildren: 0.35,
+        duration: 1,
+        delayChildren: .3,
+        staggerChildren: 0.15,
+        ease: "easeInOut",
       },
     },
     hidden: {
-      top: 30,
+      y: 25,
       opacity: 0,
+    },
+  }
+  const cardsParent = {
+    visible: {
+      transition: {
+        staggerChildren: 0.15,
+      },
+    }
+  }
+  const fadeCards = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+    hidden: {
+      y: 20,
+      opacity: 0,
+    },
+  }
+
+  const hideImage = {
+    visible: {
+      y: 0,
+    },
+    hidden: {
+      y: "-100%",
+      transition: {
+        delay: 0.2,
+        ease: "easeInOut",
+        duration: 1,
+      },
     },
   }
 
   return (
     <Layout title={siteTitle}>
       <Seo title="Our Programs" />
+
       <SectionWrapper>
         <ImageBanner>
           <BannerText>
             <h1>Our Programs</h1>
-            <h6>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </h6>
+            <h5>
+              Interested in Eastern Medicine? Our academy offers a rich
+              experience across a wide gamut of academic environments. Explore
+              our programs to find one that suits you best.
+            </h5>
           </BannerText>
           <StaticImage
-            src="../images/ProgramsImages/image61.png"
-            alt="Beige background image with a bonsai in the foreground."
+            src="../images/TeachingClinic/banner.png"
+            alt="Beige background image with a tea set in the foreground."
             quality={100}
-            layout="fullWidth"
+            layout="constrained"
           />
         </ImageBanner>
 
@@ -124,17 +144,16 @@ const OurPrograms = ({ data }) => {
           <BannerText>
             <h1>Our Programs</h1>
             <h6>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Explore affordable, community-based treatments from our
+              student-run clinic.
             </h6>
           </BannerText>
 
           <StaticImage
-            src="../images/ProgramsImages/mobilebanner.png"
+            src="../images/TeachingClinic/mobilebanner.png"
             alt="Beige background image with a bonsai in the foreground."
             quality={100}
-            height={400}
-            layout="fullWidth"
+            layout="constrained"
           />
         </ImageBannerMobile>
       </SectionWrapper>
@@ -147,13 +166,21 @@ const OurPrograms = ({ data }) => {
               initial="hidden"
               animate={sectionInView1 ? "visible" : "hidden"}
             >
-              <StaticImage
-                src="../images/ProgramsImages/moxibustion.png"
-                alt="A practitioner performs moxibustion, igniting a bundle of herbs."
-                quality={100}
-                width={590}
-                imgStyle={{ borderRadius: "20px" }}
-              />
+              <BorderRadius>
+                <HideImage
+                  style={{ backgroundColor: "var(--color-beige)" }}
+                  variants={hideImage}
+                  initial="visible"
+                  animate={sectionInView1 ? "hidden" : "visible"}
+                  exit="hidden"
+                />
+                <StaticImage
+                  src="../images/Programs/programs-acupuncture.png"
+                  alt="A practitioner carefully performs acupuncture on a patient's foot."
+                  quality={100}
+                  width={590}
+                />
+              </BorderRadius>
             </ProgramImage>
             <ProgramText
               variants={fadeIn}
@@ -166,12 +193,13 @@ const OurPrograms = ({ data }) => {
                 Moxibustion
               </motion.h1>
               <motion.h6 variants={fadeIn}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et{" "}
+                This program qualifies graduates to write the Pan-Canadian
+                regulatory examinations and to become a Registered Acupuncturist
+                (R.Ac).
               </motion.h6>
               <ProgramLink
                 variants={fadeIn}
-                to="/certificate-programs/acupuncture-moxibustion"
+                to="/diploma-programs/acupuncture-and-moxibustion"
               >
                 <LinkWrapper variants={fadeIn}>
                   <p>Learn more</p>{" "}
@@ -210,13 +238,21 @@ const OurPrograms = ({ data }) => {
               initial="hidden"
               animate={sectionInView2 ? "visible" : "hidden"}
             >
-              <StaticImage
-                src="../images/ProgramsImages/cupping.png"
-                alt="A practitioner performs cupping on a patient with 6 cups on their back."
-                quality={100}
-                width={590}
-                imgStyle={{ borderRadius: "20px" }}
-              />
+              <BorderRadius>
+                <HideImage
+                  style={{ backgroundColor: "var(--color-brown)" }}
+                  variants={hideImage}
+                  initial="visible"
+                  animate={sectionInView2 ? "hidden" : "visible"}
+                  exit="hidden"
+                />
+                <StaticImage
+                  src="../images/Programs/programs-cupping.png"
+                  alt="A practitioner performs cupping on a patient with 6 cups on their back."
+                  quality={100}
+                  width={590}
+                />
+              </BorderRadius>
             </ProgramImage>
             <ProgramText
               variants={fadeIn}
@@ -228,10 +264,11 @@ const OurPrograms = ({ data }) => {
                 Traditional Chinese <br /> Medicine Practitioner
               </motion.h1>
               <motion.h6 variants={fadeIn}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                This program qualifies graduates to write the Pan-Canadian
+                regulatory examinations and to become a Registered Acupuncturist
+                (R.Ac) and a Registered TCM Practitioner (R.TCMP).
               </motion.h6>
-              <ProgramLink variants={fadeIn} to="/certificate-programs/TCMP">
+              <ProgramLink variants={fadeIn} to="/diploma-programs/TCMP">
                 <LinkWrapper variants={fadeIn}>
                   <p>Learn more</p>{" "}
                   <svg
@@ -259,14 +296,21 @@ const OurPrograms = ({ data }) => {
               initial="hidden"
               animate={sectionInView3 ? "visible" : "hidden"}
             >
-              <StaticImage
-                src="../images/ProgramsImages/tcmp.png"
-                alt="A professor leads a group in Tai Chi in one of our salons."
-                quality={100}
-                width={590}
-                imgStyle={{ borderRadius: "20px" }}
-                imgStyle={{ borderRadius: "20px" }}
-              />
+              <BorderRadius>
+                <HideImage
+                  style={{ backgroundColor: "var(--color-sandbeige)" }}
+                  variants={hideImage}
+                  initial="visible"
+                  animate={sectionInView3 ? "hidden" : "visible"}
+                  exit="hidden"
+                />
+                <StaticImage
+                  src="../images/Programs/programs-tcmp.png"
+                  alt="A professor leads a group in Tai Chi in one of our salons."
+                  quality={100}
+                  width={590}
+                />
+              </BorderRadius>
             </ProgramImage>
             <ProgramText
               variants={fadeIn}
@@ -274,14 +318,19 @@ const OurPrograms = ({ data }) => {
               animate={sectionInView3 ? "visible" : "hidden"}
               ref={SectionRef3}
             >
-              <motion.h1 variants={fadeIn}>Advanced TCMP</motion.h1>
+              <motion.h1 variants={fadeIn}>
+                Post-Graduate <br />
+                Advanced TCMP
+              </motion.h1>
               <motion.h6 variants={fadeIn}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                This one year post-graduate program is available for R. TCMPs to
+                qualify as an Advanced Registered Traditional Chinese Medicine
+                Practitioner or Doctor of Traditional Chinese Medicine,
+                according to different Provincial designations.
               </motion.h6>
               <ProgramLink
                 variants={fadeIn}
-                to="/certificate-programs/advanced-TCMP"
+                to="/diploma-programs/advanced-TCMP"
               >
                 <LinkWrapper variants={fadeIn}>
                   <p>Learn more</p>{" "}
@@ -313,12 +362,15 @@ const OurPrograms = ({ data }) => {
             >
               <motion.h1 variants={fadeIn}>Herbology</motion.h1>
               <motion.h6 variants={fadeIn}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                This program qualifies graduates to apply for professional
+                membership as a Registered Herbalist (RH) with the Ontario
+                Herbalists Association and to write the Pan-Canadian regulatory
+                examinations. Herbology graduates can become a Registered TCM
+                Herbalist. (R.TCM.H)
               </motion.h6>
               <ProgramLink
                 variants={fadeIn}
-                to="/certificate-programs/herbology"
+                to="/diploma-programs/herbology"
               >
                 <LinkWrapper variants={fadeIn}>
                   <p>Learn more</p>{" "}
@@ -342,13 +394,21 @@ const OurPrograms = ({ data }) => {
               initial="hidden"
               animate={sectionInView4 ? "visible" : "hidden"}
             >
-              <StaticImage
-                src="../images/ProgramsImages/herbology.png"
-                alt="A picture of a collection of herbs and jars from our Apothecary."
-                quality={100}
-                width={590}
-                imgStyle={{ borderRadius: "20px" }}
-              />
+              <BorderRadius>
+                <HideImage
+                  style={{ backgroundColor: "var(--color-salmon)" }}
+                  variants={hideImage}
+                  initial="visible"
+                  animate={sectionInView4 ? "hidden" : "visible"}
+                  exit="hidden"
+                />
+                <StaticImage
+                  src="../images/Programs/programs-herbology.png"
+                  alt="A picture of a collection of herbs and jars from our Apothecary."
+                  quality={100}
+                  width={590}
+                />
+              </BorderRadius>
             </ProgramImage>
           </ProgramInner>
           <SvgWrapper
@@ -369,11 +429,34 @@ const OurPrograms = ({ data }) => {
           <StampLogo />
           <h1>Certificate Programs</h1>
         </Title>
-        <Cards>
-          <Card>
+        <Cards
+          ref={CertificatesRef}
+          variants={cardsParent}
+          initial="hidden"
+          animate={CertificatesInView ? "visible" : "hidden"}
+        >
+          <Card variants={fadeCards}>
             <CardText>
               <h4>Acupuncture & Moxibustion Certificate</h4>
+              <CertificateLink to="/certificate-programs/acupuncture-and-moxibustion">
+                <CertificateLinkWrapper>
+                  <p>Learn more</p>
+                  <svg
+                    width="8"
+                    height="12"
+                    viewBox="0 0 8 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0.590088 10.59L5.17009 6L0.590088 1.41L2.00009 0L8.00009 6L2.00009 12L0.590088 10.59Z"
+                      fill="black"
+                    />
+                  </svg>
+                </CertificateLinkWrapper>
+              </CertificateLink>
             </CardText>
+
             <CardImage>
               <StaticImage
                 src="../images/ProgramsImages/acupuncture.png"
@@ -383,9 +466,26 @@ const OurPrograms = ({ data }) => {
               />
             </CardImage>
           </Card>
-          <Card>
+          <Card variants={fadeCards}>
             <CardText>
               <h4>Certificate in Asian Bodywork Therapy</h4>
+              <CertificateLink to="/certificate-programs/asian-bodywork-therapy">
+                <CertificateLinkWrapper>
+                  <p>Learn more</p>
+                  <svg
+                    width="8"
+                    height="12"
+                    viewBox="0 0 8 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0.590088 10.59L5.17009 6L0.590088 1.41L2.00009 0L8.00009 6L2.00009 12L0.590088 10.59Z"
+                      fill="black"
+                    />
+                  </svg>
+                </CertificateLinkWrapper>
+              </CertificateLink>
             </CardText>
             <CardImage>
               <StaticImage
@@ -396,9 +496,26 @@ const OurPrograms = ({ data }) => {
               />
             </CardImage>
           </Card>
-          <Card>
+          <Card variants={fadeCards}>
             <CardText>
               <h4>TCM Preparatory Certificate</h4>
+              <CertificateLink to="/certificate-programs/tcm-preparatory-certificate">
+                <CertificateLinkWrapper>
+                  <p>Learn more</p>
+                  <svg
+                    width="8"
+                    height="12"
+                    viewBox="0 0 8 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0.590088 10.59L5.17009 6L0.590088 1.41L2.00009 0L8.00009 6L2.00009 12L0.590088 10.59Z"
+                      fill="black"
+                    />
+                  </svg>
+                </CertificateLinkWrapper>
+              </CertificateLink>
             </CardText>
             <CardImage>
               <StaticImage
@@ -462,16 +579,6 @@ const SectionWrapper = styled.div`
   width: 100%;
   margin: 0 auto;
   background-color: var(--color-beige);
-  & h2 {
-    padding-bottom: 5rem;
-  }
-
-  @media (max-width: ${breakpoints.m}px) {
-    & h2 {
-      padding-top: 5rem;
-      padding-bottom: 2.5rem;
-    }
-  }
 `
 
 const ImageBanner = styled.div`
@@ -479,13 +586,9 @@ const ImageBanner = styled.div`
   overflow: hidden;
   margin: 0 auto;
   position: relative;
-  aspect-ratio: 24/9;
+  bottom: 0;
 
   @media (max-width: ${breakpoints.m}px) {
-    aspect-ratio: 16/9;
-  }
-
-  @media (max-width: ${breakpoints.s}px) {
     display: none;
   }
 `
@@ -493,46 +596,44 @@ const ImageBanner = styled.div`
 const ImageBannerMobile = styled.div`
   display: none;
 
-  @media (max-width: ${breakpoints.s}px) {
+  @media (max-width: ${breakpoints.m}px) {
     display: block;
     width: 100%;
+    /* height: 75vh; */
     overflow: hidden;
     margin: 0 auto;
     position: relative;
-    max-height: 600px;
   }
 `
 
 const BannerText = styled.div`
   position: absolute;
   z-index: 20;
-  bottom: 5rem;
-  left: 5vw;
+  top: 37.5%;
+  left: 12.5%;
   width: 37.5%;
-
-  & h1 {
-    padding-bottom: 1rem;
+  h1 {
+    white-space: nowrap;
+    padding-bottom: 0.5rem;
   }
 
-  @media (max-width: ${breakpoints.xl}px) {
-    bottom: 2rem;
-    width: 40%;
+  h5 {
+    margin-top: 1rem;
+    width: 95%;
   }
 
-  @media (max-width: ${breakpoints.l}px) {
-    width: 70%;
-    bottom: 1.5rem;
+  @media (max-width: ${breakpoints.m}px) {
+    width: 90%;
+    left: 5vw;
+    top: 30vw;
+    /* bottom: 2.5rem; */
 
-    & h1 {
+    h1 {
       padding-bottom: 0.5rem;
     }
   }
-  @media (max-width: ${breakpoints.s}px) {
-    bottom: 4rem;
-    width: 80%;
-  }
   @media (max-width: ${breakpoints.xs}px) {
-    bottom: 2.5rem;
+    bottom: 1rem;
   }
 `
 
@@ -565,6 +666,15 @@ const ProgramSection = styled.div`
     max-height: none;
     padding: 2rem 0;
   }
+`
+
+const HideImage = styled(motion.div)`
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 `
 
 const ProgramInner = styled.div`
@@ -665,19 +775,24 @@ const ProgramLink = styled(Link)`
 const LinkWrapper = styled(motion.div)`
   display: flex;
   align-items: baseline;
+  font-family: "matter-regular";
+
   svg {
     transition: 0.2s all cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
-  & p {
+  p {
     padding-right: 0.75rem;
     padding-top: 1rem;
     font-family: "Matter-regular";
     font-size: 19px;
+    transition: var(--hover-transition);
   }
 
-  & :hover {
-    color: #00000095;
+  :hover {
+    p {
+      color: #00000095;
+    }
     svg {
       opacity: 0.65;
       transform: translate3d(8px, 0, 0);
@@ -718,42 +833,93 @@ const ProgramImage = styled(motion.div)`
   }
 `
 
+const BorderRadius = styled.div`
+  border-radius: 20px;
+  overflow: hidden;
+`
+
+const CertificateLink = styled(Link)`
+  color: black;
+  text-decoration: none;
+  display: inline;
+  margin-top: 2rem;
+  cursor: pointer;
+
+  p {
+    color: black;
+  }
+`
+
+const CertificateLinkWrapper = styled.div`
+  display: flex;
+  align-items: baseline;
+  font-family: "matter-regular";
+
+  svg {
+    transition: 0.2s all cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  p {
+    padding-right: 0.75rem;
+    padding-top: 1rem;
+    font-family: "Matter-regular";
+    font-size: 19px;
+    transition: var(--hover-transition);
+  }
+
+  :hover {
+    p {
+      color: #00000095;
+    }
+    svg {
+      opacity: 0.65;
+      transform: translate3d(8px, 0, 0);
+    }
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    p {
+      font-size: 17px;
+    }
+  }
+`
+
+
 const CertificatePrograms = styled.section`
   background-color: var(--color-lightestbeige);
   padding-top: 10rem;
 
-  & p {
+  p:last-child {
     font-size: 22px;
     line-height: 34px;
     margin: 0 auto;
     padding-top: 1rem;
     padding-bottom: 10rem;
-    width: 80%;
+    width: 75%;
     color: #00000060;
 
-    & strong {
+    strong {
       color: #00000090;
     }
-
   }
 
   @media (max-width: ${breakpoints.xl}px) {
     padding-top: 7rem 0;
-    p {
+    p:last-child {
       padding-bottom: 7rem;
     }
   }
   @media (max-width: ${breakpoints.m}px) {
     padding-top: 5rem;
 
-    & p {
+    p:last-child {
       font-size: 16px;
       line-height: 24px;
       width: 90%;
       padding-bottom: 5rem;
     }
 
-    & svg {
+    svg {
       width: 30px;
     }
   }
@@ -766,11 +932,11 @@ const Title = styled.div`
   flex-direction: column;
   text-align: center;
 
-  & h1 {
+  h1 {
     padding-top: 2rem;
     padding-bottom: 5rem;
   }
-  & svg {
+  svg {
     fill: black;
     filter: brightness(0);
     /* filter: invert(1); */
@@ -783,8 +949,8 @@ const Title = styled.div`
   }
 `
 
-const Cards = styled.div`
-  width: 80%;
+const Cards = styled(motion.div)`
+  width: 75%;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
@@ -797,9 +963,9 @@ const Cards = styled.div`
   }
 `
 
-const Card = styled.div`
+const Card = styled(motion.div)`
   overflow: hidden;
-  width: 30%;
+  width: 32%;
   border-radius: 20px;
   border: 1px solid black;
   background-color: white;
@@ -817,6 +983,11 @@ const Card = styled.div`
 
 const CardText = styled.div`
   padding: 2.5rem 2rem;
+
+  h4 {
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+  }
 `
 
 const CardImage = styled.div`

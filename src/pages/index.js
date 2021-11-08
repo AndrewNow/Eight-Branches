@@ -318,13 +318,15 @@ const HomePage = ({ data }) => {
               </DiplomaReadMore>
             </EntryText>
             <EntryImage>
-              <HideImageLightestBeige
-                variants={hideDiplomaImage}
-                initial="visible"
-                animate={diploma.inView ? "hidden" : "visible"}
-                exit="hidden"
-              />
-              {diploma.image}
+              <BorderRadius>
+                <HideImageLightestBeige
+                  variants={hideDiplomaImage}
+                  initial="visible"
+                  animate={diploma.inView ? "hidden" : "visible"}
+                  exit="hidden"
+                />
+                {diploma.image}
+              </BorderRadius>
             </EntryImage>
           </DiplomaEntry>
         ))}
@@ -384,46 +386,48 @@ const HomePage = ({ data }) => {
           <NextButton onClick={scrollNext} enabled={nextBtnEnabled} />
         </Embla>
       </GraphSection>
-      <UpcomingEvents>
-        <EventsHeader>
-          <h1>Upcoming Events</h1>
-          <BulletinBoardLink to="/bulletin-board">
-            <p>Learn More</p> <Arrow />
-          </BulletinBoardLink>
-        </EventsHeader>
-        <EventWrapper>
-          {data.events.edges?.slice(0, 2).map(eventData => {
-            const eventDataQuery = eventData.node.childrenMarkdownRemark[0]
-            if (!eventDataQuery) {
-              return null
-            }
-            const { title, date, host } = eventDataQuery.frontmatter
-            const slug = eventDataQuery.fields.slug
+      {data.events ? (
+        <UpcomingEvents>
+          <EventsHeader>
+            <h1>Upcoming Events</h1>
+            <BulletinBoardLink to="/bulletin-board">
+              <p>Learn More</p> <Arrow />
+            </BulletinBoardLink>
+          </EventsHeader>
+          <EventWrapper>
+            {data.events.edges?.slice(0, 2).map(eventData => {
+              const eventDataQuery = eventData.node.childrenMarkdownRemark[0]
+              if (!eventDataQuery) {
+                return null
+              }
+              const { title, date, host } = eventDataQuery.frontmatter
+              const slug = eventDataQuery.fields.slug
 
-            return (
-              eventDataQuery && (
-                <Event>
-                  <EventTitle to={slug} itemProp="url">
-                    <h4 key={slug}>{title}</h4>
-                  </EventTitle>
-                  <h6>
-                    With {host}&nbsp; &nbsp;|&nbsp; &nbsp;{date}
-                  </h6>
-                  <SignUpLink to={slug} itemProp="url">
-                    <p>RSVP</p>
-                  </SignUpLink>
-                </Event>
+              return (
+                eventDataQuery && (
+                  <Event>
+                    <EventTitle to={slug} itemProp="url">
+                      <h4 key={slug}>{title}</h4>
+                    </EventTitle>
+                    <h6>
+                      With {host}&nbsp; &nbsp;|&nbsp; &nbsp;{date}
+                    </h6>
+                    <SignUpLink to={slug} itemProp="url">
+                      <p>RSVP</p>
+                    </SignUpLink>
+                  </Event>
+                )
               )
-            )
-          })}
-        </EventWrapper>
-        <LeftPattern>
-          <LeftLogoPattern />
-        </LeftPattern>
-        <RightPattern>
-          <LeftLogoPattern />
-        </RightPattern>
-      </UpcomingEvents>
+            })}
+          </EventWrapper>
+          <LeftPattern>
+            <LeftLogoPattern />
+          </LeftPattern>
+          <RightPattern>
+            <LeftLogoPattern />
+          </RightPattern>
+        </UpcomingEvents>
+      ) : null}
       <AcademicAdvisor />
     </Layout>
   )
@@ -649,9 +653,14 @@ const EntryText = styled(motion.div)`
 `
 
 const EntryImage = styled.div`
-  border-radius: 30px;
+  /* border-radius: 30px; */
   overflow: hidden;
   position: relative;
+`
+
+const BorderRadius = styled.div`
+  border-radius: 30px;
+  overflow: hidden;
 `
 
 const DiplomaReadMore = styled(Link)`

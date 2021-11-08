@@ -12,10 +12,9 @@ import {
 } from "../../components/CertificatePrograms/certificateprograms"
 import { ApplyNow } from "../../components/GeneralComponents/generalcomponents"
 
-
 const AcupunctureMoxibustion = ({ data }) => {
   const siteTitle =
-    data.site.siteMetadata?.title || `Acupuncture & Moxibustion Program`
+    data.site.siteMetadata?.title || `Asian Bodywork Therapy Certificate`
 
   return (
     <Layout title={siteTitle}>
@@ -204,7 +203,7 @@ const AboutTheProgram = styled.section`
   @media (max-width: ${breakpoints.xl}px) {
     flex-direction: column;
     padding: 3.5rem 1.5rem;
-}
+  }
 `
 
 const AboutLeft = styled.div`
@@ -217,7 +216,7 @@ const AboutLeft = styled.div`
       margin-bottom: 2.5rem;
     }
   }
-  `
+`
 const AboutRight = styled.div`
   flex-basis: 35%;
   margin-left: 10rem;

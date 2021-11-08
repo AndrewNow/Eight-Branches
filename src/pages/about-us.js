@@ -150,7 +150,7 @@ const AboutUs = ({ data }) => {
   return (
     <Layout title={siteTitle}>
       <Seo title="About Us" />
-      <SectionWrapper>
+      {/* <SectionWrapper>
         <ImageBanner>
           <BannerText>
             <h1>
@@ -177,39 +177,15 @@ const AboutUs = ({ data }) => {
             layout="fullWidth"
           />
         </ImageBannerMobile>
-      </SectionWrapper>
-      <EightBranchesFacts>
-        <h1>
-          <svg
-            width="64"
-            height="89"
-            viewBox="0 0 64 89"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M46.1941 68.4199C42.8549 71.3584 37.8305 73.0537 32.5253 73.0537C22.4765 73.0537 14.3002 66.8094 14.3002 59.1523C14.3002 50.0543 20.6353 45.2509 32.5253 45.2509C45.3515 45.2509 50.7503 48.359 50.7503 55.79V62.6842C36.2389 62.5994 31.9635 59.7457 31.9635 50.8171V38.0177C31.9635 29.0891 36.3326 26.2354 50.7503 26.1506V31.3778C50.7503 40.3063 45.9132 43.5839 32.5253 43.5839C20.5104 43.5839 14.3002 38.7806 14.3002 29.6825C14.3002 22.0819 22.4765 15.7811 32.5253 15.7811C37.7369 15.7811 42.8549 17.5612 46.1941 20.4997L47.5048 19.313C43.7911 16.0354 38.2986 14.0858 32.5253 14.0858C21.5403 14.0858 12.4277 21.0648 12.4277 29.6825C12.4277 39.7977 19.5118 45.2792 32.5253 45.2792C46.8494 45.2792 52.6228 41.3235 52.6228 31.3778V24.4553C35.7708 24.3706 30.0911 27.5634 30.0911 38.0177V50.8171C30.0911 61.2714 35.7708 64.4642 52.6228 64.3795V55.79C52.6228 47.2853 46.2877 43.5839 32.5253 43.5839C19.6054 43.5839 12.4277 49.1218 12.4277 59.1523C12.4277 67.7418 21.4467 74.749 32.5253 74.749C38.2986 74.749 43.7911 72.8842 47.5048 69.6066L46.1941 68.4199Z"
-              fill="#D27241"
-            />
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M13.9809 0.148438H49.3991C57.1205 0.148438 63.38 6.32115 63.38 13.9356V75.2118C63.38 82.8262 57.1205 88.9989 49.3991 88.9989H13.9809C6.25945 88.9989 0 82.8262 0 75.2118V13.9356C0 6.32115 6.25945 0.148438 13.9809 0.148438ZM13.9809 1.68034C7.11739 1.68034 1.55343 7.1672 1.55343 13.9356V75.2118C1.55343 81.9801 7.11739 87.467 13.9809 87.467H49.3991C56.2626 87.467 61.8266 81.9801 61.8266 75.2118V13.9356C61.8266 7.1672 56.2626 1.68034 49.3991 1.68034H13.9809Z"
-              fill="#D27241"
-            />
-          </svg>
-          The Eight Branches <br /> of Chinese Medicine
-        </h1>
-        <EightBranches />
-      </EightBranchesFacts>
+      </SectionWrapper> */}
       <AboutUsSection ref={OurStoryRef}>
         <Left>
-          {/* <HideImageBeige
+          <HideImageBeige
             variants={hideImage}
             initial="visible"
             animate={OurStoryInView ? "hidden" : "false"}
             exit="hidden"
-          /> */}
+          />
           <StaticImage
             src="../images/AboutUs/school.png"
             alt="Image of an office within our school. A wooden table is pictured against a green wall backdrop, surrounded by decorative plants."
@@ -279,6 +255,30 @@ const AboutUs = ({ data }) => {
           </ExpandButton>
         </Right>
       </AboutUsSection>
+      <EightBranchesFacts>
+        <h1>
+          <svg
+            width="64"
+            height="89"
+            viewBox="0 0 64 89"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M46.1941 68.4199C42.8549 71.3584 37.8305 73.0537 32.5253 73.0537C22.4765 73.0537 14.3002 66.8094 14.3002 59.1523C14.3002 50.0543 20.6353 45.2509 32.5253 45.2509C45.3515 45.2509 50.7503 48.359 50.7503 55.79V62.6842C36.2389 62.5994 31.9635 59.7457 31.9635 50.8171V38.0177C31.9635 29.0891 36.3326 26.2354 50.7503 26.1506V31.3778C50.7503 40.3063 45.9132 43.5839 32.5253 43.5839C20.5104 43.5839 14.3002 38.7806 14.3002 29.6825C14.3002 22.0819 22.4765 15.7811 32.5253 15.7811C37.7369 15.7811 42.8549 17.5612 46.1941 20.4997L47.5048 19.313C43.7911 16.0354 38.2986 14.0858 32.5253 14.0858C21.5403 14.0858 12.4277 21.0648 12.4277 29.6825C12.4277 39.7977 19.5118 45.2792 32.5253 45.2792C46.8494 45.2792 52.6228 41.3235 52.6228 31.3778V24.4553C35.7708 24.3706 30.0911 27.5634 30.0911 38.0177V50.8171C30.0911 61.2714 35.7708 64.4642 52.6228 64.3795V55.79C52.6228 47.2853 46.2877 43.5839 32.5253 43.5839C19.6054 43.5839 12.4277 49.1218 12.4277 59.1523C12.4277 67.7418 21.4467 74.749 32.5253 74.749C38.2986 74.749 43.7911 72.8842 47.5048 69.6066L46.1941 68.4199Z"
+              fill="#D27241"
+            />
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M13.9809 0.148438H49.3991C57.1205 0.148438 63.38 6.32115 63.38 13.9356V75.2118C63.38 82.8262 57.1205 88.9989 49.3991 88.9989H13.9809C6.25945 88.9989 0 82.8262 0 75.2118V13.9356C0 6.32115 6.25945 0.148438 13.9809 0.148438ZM13.9809 1.68034C7.11739 1.68034 1.55343 7.1672 1.55343 13.9356V75.2118C1.55343 81.9801 7.11739 87.467 13.9809 87.467H49.3991C56.2626 87.467 61.8266 81.9801 61.8266 75.2118V13.9356C61.8266 7.1672 56.2626 1.68034 49.3991 1.68034H13.9809Z"
+              fill="#D27241"
+            />
+          </svg>
+          The Eight Branches <br /> of Chinese Medicine
+        </h1>
+        <EightBranches />
+      </EightBranchesFacts>
       <OurCorePrinciples>
         <h2>Our Core Principles</h2>
         <PrinciplesWrapper>
@@ -586,9 +586,8 @@ const AboutUsSection = styled.section`
   background-color: var(--color-sandbeige);
   display: flex;
   justify-content: space-around;
+  position: relative;
 
-  @media (max-width: ${breakpoints.xl}px) {
-  }
   @media (max-width: ${breakpoints.l}px) {
     flex-direction: column-reverse;
   }
@@ -596,7 +595,9 @@ const AboutUsSection = styled.section`
 
 const Left = styled.div`
   width: 50vw;
-  position: relative;
+  position: sticky;
+  height: 100vh;
+  top: 0;
   overflow: hidden;
 
   @media (max-width: ${breakpoints.l}px) {
@@ -660,7 +661,7 @@ const HiddenText = styled(motion.div)`
 `
 
 const Gradient = styled(motion.div)`
-  &:before {
+  :before {
     content: "";
     width: 100%;
     height: 100%;
@@ -678,6 +679,7 @@ const Gradient = styled(motion.div)`
 const ExpandButton = styled.button`
   width: 65%;
   margin: 0 auto;
+  margin-bottom: 5rem;
   border: none;
   background: none;
   position: relative;

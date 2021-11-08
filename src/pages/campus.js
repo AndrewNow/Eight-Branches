@@ -110,7 +110,6 @@ const Campus = ({ data }) => {
                   <EmblaSlide key={index}>
                     <EmblaSlideInner>
                       <GatsbyImage
-                        imgStyle={{ borderRadius: "20px" }}
                         image={image.node.childImageSharp.gatsbyImageData}
                         alt={
                           "Images of the campus, including lecture halls, teaching "
@@ -239,10 +238,10 @@ export const pageQuery = graphql`
           base
           childImageSharp {
             gatsbyImageData(
-              width: 1525
+              width: 1920
               aspectRatio: 1.5
               placeholder: BLURRED
-              quality: 85
+              quality: 90
               blurredOptions: { width: 120 }
               webpOptions: { quality: 90 }
               formats: WEBP
@@ -255,10 +254,10 @@ export const pageQuery = graphql`
 `
 const HeaderWrapper = styled.section`
   width: 100%;
-  padding-top: 15rem;
+  padding-top: 12.5rem;
   z-index: 2;
   position: relative;
-  background-color: var(--color-beige);
+  background-color: var(--color-lightestbeige);
   margin: 0 auto;
 
   @media (max-width: ${breakpoints.m}px) {
@@ -275,11 +274,11 @@ const CampusHeader = styled.div`
   margin: 0 auto;
   padding-bottom: 7.5rem;
 
-  & h1 {
+  h1 {
     padding-bottom: 2rem;
   }
 
-  & h6 {
+  h6 {
     width: 47.5%;
   }
 
@@ -298,8 +297,7 @@ const CampusHeader = styled.div`
 `
 
 const Embla = styled.div`
-  border-radius: 20px;
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   padding-bottom: 15rem;
 
@@ -314,7 +312,6 @@ const EmblaViewport = styled.div`
   width: 100%;
 
   @media (max-width: ${breakpoints.m}px) {
-    border-radius: 10px;
   }
 `
 
@@ -330,10 +327,8 @@ const EmblaSlide = styled.div`
   position: relative;
   min-width: 100%;
   padding-left: 10px;
-  height: 650px;
+  height: 750px;
   cursor: grab;
-  border-radius: 20px;
-  overflow: hidden;
   @media (max-width: ${breakpoints.xl}px) {
     height: 530px;
   }
@@ -392,18 +387,17 @@ const EmblaProgressBar = styled.div`
 `
 
 const Facilities = styled.section`
-  background-color: var(--color-beige);
+  background-color: var(--color-lightestbeige);
   display: flex;
   flex-direction: column;
 
-  & h1 {
-    color: var(--color-darkgreen);
+  h1 {
     margin: 0 auto;
     padding-bottom: 10rem;
   }
 
   @media (max-width: ${breakpoints.m}px) {
-    & h1 {
+    h1 {
       padding-bottom: 2.5rem;
     }
   }
@@ -528,11 +522,8 @@ const TorontoText = styled.div`
   left: 15rem;
   width: 55%;
 
-
-
   @media (max-width: ${breakpoints.l}px) {
     left: 5rem;
-  
   }
   @media (max-width: ${breakpoints.s}px) {
     margin: 0 auto;

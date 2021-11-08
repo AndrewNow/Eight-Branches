@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import { StaticImage, GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import Layout from "../components/layout"
@@ -8,7 +8,7 @@ import breakpoints from "../components/breakpoints"
 import { motion, AnimatePresence } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import LeafPattern from "../svg/leafPattern"
-import { GoogleMaps } from '../components/GeneralComponents/generalcomponents'
+import { GoogleMaps } from "../components/GeneralComponents/generalcomponents"
 
 const TeachingClinic = ({ data }) => {
   const siteTitle = data.site.siteMetadata?.title || `Teaching Clinic`
@@ -48,6 +48,32 @@ const TeachingClinic = ({ data }) => {
       },
     },
   }
+  const hideTCImage = {
+    visible: {
+      y: 0,
+    },
+    hidden: {
+      y: "-100%",
+      transition: {
+        delay: 0.2,
+        ease: "easeInOut",
+        duration: 1,
+      },
+    },
+  }
+  const hideApptImage = {
+    visible: {
+      y: 0,
+    },
+    hidden: {
+      y: "-100%",
+      transition: {
+        delay: 0.2,
+        ease: "easeInOut",
+        duration: 1,
+      },
+    },
+  }
 
   // ---------- Parallax for leaf when in view ----------
   const [contentRef, inView] = useInView({
@@ -64,6 +90,7 @@ const TeachingClinic = ({ data }) => {
   }, [inView])
 
   // ---------- Info & data for the "Treatments Offered" section ----------
+  // see graphql query for image details
   const acupuncture = data.acupuncture.childImageSharp.gatsbyImageData
   const bodywork = data.bodywork.childImageSharp.gatsbyImageData
   const herbs = data.herbs.childImageSharp.gatsbyImageData
@@ -72,21 +99,24 @@ const TeachingClinic = ({ data }) => {
     acupunctureData: {
       id: 0,
       title: "Acupuncture",
-      text: "Lorem Ipsum",
+      text:
+        "Acupuncture involves the insertion of very thin needles through the skin at strategic points on the body. Please note that during your acupuncture treatment you may receive 15 minutes of other allied therapies such as moxibustion, cupping, guasha, or tuina depending on your treatment plan.",
       imagesrc: acupuncture,
       imagealt: "Acupuncture image",
     },
     herbsData: {
       id: 1,
       title: "TCM/Herbs",
-      text: "Lorem Ipsum",
+      text:
+        "This treatment in focused on Chinese Herb prescriptions. Please note that during the treatment you may receive 15 minutes of allied therapies such as acupuncture, moxibustion, cupping, guasha, and tuina depending on your treatment plan.",
       imagesrc: herbs,
       imagealt: "TCM/Herbs image",
     },
     bodyworkData: {
       id: 2,
-      title: "Bodywork/Shiatsu",
-      text: "Lorem Ipsum",
+      title: "Eastern Bodywork",
+      text:
+        "We provide Eastern bodywork based on concepts in Traditional Chinese Medicine (TCM) for balancing Qi and blood in the meridians.",
       imagesrc: bodywork,
       imagealt: "Bodywork/Shiatsu image",
     },
@@ -94,12 +124,11 @@ const TeachingClinic = ({ data }) => {
 
   const [treatmentsImage, setTreatmentsImage] = useState({
     imagesrc: acupuncture,
-    imagealt: "test",
+    imagealt: "Acupuncture image.",
     key: "0",
   })
 
   // due to time constraints I had to create state for each option as creating component for each was too complicated (since the state also updates the image on hover)
-
   const [acupunctureExpanded, setAcupunctureExpanded] = useState(false)
   const [herbsExpanded, setHerbsExpanded] = useState(false)
   const [bodyworkExpanded, setBodyworkExpanded] = useState(false)
@@ -136,14 +165,29 @@ const TeachingClinic = ({ data }) => {
     })
   )
 
+  // ---------- INTERSECTION OBSERVER LOGIC ----------
+  const [TeachingClinicRef, TeachingClinicInView] = useInView({
+    root: null,
+    threshold: 0.5,
+    triggerOnce: true,
+  })
+  const [AppointmentRef, AppointmentInView] = useInView({
+    root: null,
+    threshold: 0.5,
+    triggerOnce: true,
+  })
+
   return (
     <Layout title={siteTitle}>
       <Seo title="Teaching Clinic" />
-      <SectionWrapper>
+      {/* <SectionWrapper>
         <ImageBanner>
           <BannerText>
             <h1>The Teaching Clinic</h1>
-            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing.</h5>
+            <h5>
+              Explore affordable, community-based treatments from our
+              student-run clinic.
+            </h5>
           </BannerText>
           <StaticImage
             src="../images/TeachingClinic/banner.png"
@@ -157,8 +201,8 @@ const TeachingClinic = ({ data }) => {
           <BannerText>
             <h1>The Teaching Clinic</h1>
             <h6>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Explore affordable, community-based treatments from our
+              student-run clinic.
             </h6>
           </BannerText>
 
@@ -167,6 +211,42 @@ const TeachingClinic = ({ data }) => {
             alt="Beige background image with a bonsai in the foreground."
             quality={100}
             layout="constrained"
+          />
+        </ImageBannerMobile>
+      </SectionWrapper> */}
+
+      <SectionWrapper>
+        <ImageBanner>
+          <BannerText>
+            <h1>The Teaching Clinic</h1>
+            <h6>
+              Explore affordable, community-based treatments from our
+              student-run clinic.
+            </h6>
+          </BannerText>
+          <StaticImage
+            src="../images/ProgramsImages/image61.png"
+            alt="Beige background image with a bonsai in the foreground."
+            quality={100}
+            layout="fullWidth"
+          />
+        </ImageBanner>
+
+        <ImageBannerMobile>
+          <BannerText>
+            <h1>The Teaching Clinic</h1>
+            <h6>
+              Explore affordable, community-based treatments from our
+              student-run clinic.
+            </h6>
+          </BannerText>
+
+          <StaticImage
+            src="../images/ProgramsImages/mobilebanner.png"
+            alt="Beige background image with a bonsai in the foreground."
+            quality={100}
+            height={400}
+            layout="fullWidth"
           />
         </ImageBannerMobile>
       </SectionWrapper>
@@ -215,12 +295,17 @@ const TeachingClinic = ({ data }) => {
           )}
         </AnimatePresence>
       </COVIDBanner>
-
-      <HoursSection>
+      <HoursSection ref={TeachingClinicRef}>
         <ImageWrapper>
+          <HideImageBeige
+            variants={hideTCImage}
+            initial="visible"
+            animate={TeachingClinicInView ? "hidden" : "visible"}
+            exit="hidden"
+          />
           <StaticImage
-            src="../images/TeachingClinic/apothecary.jpg"
-            alt="Image of two practitioners observing apothecary herbs."
+            src="../images/TeachingClinic/practitioner.png"
+            alt="Image of a practitioners working on a patient, who is lying on a massage table."
             quality={100}
             transformOptions={{ cropFocus: "center" }}
             imgStyle={{ objectFit: "cover" }}
@@ -231,8 +316,9 @@ const TeachingClinic = ({ data }) => {
           <div>
             <h6>About the clinic</h6>
             <h2>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna.
+              Supervised by our most talented instructors, the clinc is a great
+              way for our students to gain real-world expertise and knowledge in
+              patient care.
             </h2>
           </div>
           <h6>Clinic Hours</h6>
@@ -272,140 +358,136 @@ const TeachingClinic = ({ data }) => {
         </TextWrapper>
       </HoursSection>
       <TreatmentsOffered>
-        <TreatmentsHeader>Treatments Offered</TreatmentsHeader>
-
         <TreatmentsMain>
           <TreatmentsHeaderMobile>Treatments Offered</TreatmentsHeaderMobile>
-          <TreatmentsItem>
-            {/* ------------ ACUPUNCTURE TREATMENT ------------  */}
-            {/* ------------ ACUPUNCTURE TREATMENT ------------  */}
-
-            <TreatmentsText
-              onHoverStart={() =>
-                setTreatmentsImage({
-                  imagesrc: TreatmentsData.acupunctureData.imagesrc,
-                  imagealt: TreatmentsData.acupunctureData.imagealt,
-                  key: TreatmentsData.acupunctureData.id,
-                })
-              }
-              onClick={handleAcupunctureClick}
-            >
-              <h2>{TreatmentsData.acupunctureData.title}</h2>
-              <motion.svg
-                animate={{ rotate: acupunctureExpanded ? 45 : 0 }}
-                width="35"
-                height="35"
-                viewBox="0 0 32 32"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+          <TreatmentsSelection>
+            <TreatmentsHeader>Treatments Offered</TreatmentsHeader>
+            <div>
+              {/* ------------ ACUPUNCTURE TREATMENT ------------  */}
+              {/* ------------ ACUPUNCTURE TREATMENT ------------  */}
+              <TreatmentsText
+                onHoverStart={() =>
+                  setTreatmentsImage({
+                    imagesrc: TreatmentsData.acupunctureData.imagesrc,
+                    imagealt: TreatmentsData.acupunctureData.imagealt,
+                    key: TreatmentsData.acupunctureData.id,
+                  })
+                }
+                onClick={handleAcupunctureClick}
               >
-                <path d="M0 16H32" stroke="white" />
-                <path d="M16 0L16 32" stroke="white" />
-              </motion.svg>
-            </TreatmentsText>
-            <AnimatePresence>
-              {acupunctureExpanded && (
-                <Dropdown
-                  variants={dropdown}
-                  initial="closed"
-                  animate={acupunctureExpanded ? "expanded" : "closed"}
-                  exit="closed"
+                <h2>{TreatmentsData.acupunctureData.title}</h2>
+                <motion.svg
+                  animate={{ rotate: acupunctureExpanded ? 45 : 0 }}
+                  width="35"
+                  height="35"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <h6>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna.
-                  </h6>
-                </Dropdown>
-              )}
-            </AnimatePresence>
-
-            {/* ------------ TCM/HERBS TREATMENT ------------  */}
-            {/* ------------ TCM/HERBS TREATMENT ------------  */}
-            <TreatmentsText
-              onHoverStart={() =>
-                setTreatmentsImage({
-                  imagesrc: TreatmentsData.herbsData.imagesrc,
-                  imagealt: TreatmentsData.herbsData.imagealt,
-                  key: TreatmentsData.herbsData.id,
-                })
-              }
-              onClick={handleHerbsClick}
-            >
-              <h2>{TreatmentsData.herbsData.title}</h2>
-              <motion.svg
-                animate={{ rotate: herbsExpanded ? 45 : 0 }}
-                width="35"
-                height="35"
-                viewBox="0 0 32 32"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+                  <path d="M0 16H32" stroke="white" />
+                  <path d="M16 0L16 32" stroke="white" />
+                </motion.svg>
+              </TreatmentsText>
+              <AnimatePresence>
+                {acupunctureExpanded && (
+                  <Dropdown
+                    variants={dropdown}
+                    initial="closed"
+                    animate={acupunctureExpanded ? "expanded" : "closed"}
+                    exit="closed"
+                  >
+                    <h6>{TreatmentsData.acupunctureData.text}</h6>
+                  </Dropdown>
+                )}
+              </AnimatePresence>
+              {/* ------------ TCM/HERBS TREATMENT ------------  */}
+              {/* ------------ TCM/HERBS TREATMENT ------------  */}
+              <TreatmentsText
+                onHoverStart={() =>
+                  setTreatmentsImage({
+                    imagesrc: TreatmentsData.herbsData.imagesrc,
+                    imagealt: TreatmentsData.herbsData.imagealt,
+                    key: TreatmentsData.herbsData.id,
+                  })
+                }
+                onClick={handleHerbsClick}
               >
-                <path d="M0 16H32" stroke="white" />
-                <path d="M16 0L16 32" stroke="white" />
-              </motion.svg>
-            </TreatmentsText>
-            <AnimatePresence>
-              {herbsExpanded && (
-                <Dropdown
-                  variants={dropdown}
-                  initial="closed"
-                  animate={herbsExpanded ? "expanded" : "closed"}
-                  exit="closed"
+                <h2>{TreatmentsData.herbsData.title}</h2>
+                <motion.svg
+                  animate={{ rotate: herbsExpanded ? 45 : 0 }}
+                  width="35"
+                  height="35"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <h6>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna.
-                  </h6>
-                </Dropdown>
-              )}
-            </AnimatePresence>
-
-            {/* ------------ BODYWORK TREATMENT ------------  */}
-            {/* ------------ BODYWORK TREATMENT ------------  */}
-            <TreatmentsText
-              onHoverStart={() =>
-                setTreatmentsImage({
-                  imagesrc: TreatmentsData.bodyworkData.imagesrc,
-                  imagealt: TreatmentsData.bodyworkData.imagealt,
-                  key: TreatmentsData.bodyworkData.id,
-                })
-              }
-              onClick={handleBodyworkClick}
-            >
-              <h2>{TreatmentsData.bodyworkData.title}</h2>
-              <motion.svg
-                animate={{ rotate: bodyworkExpanded ? 45 : 0 }}
-                width="35"
-                height="35"
-                viewBox="0 0 32 32"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+                  <path d="M0 16H32" stroke="white" />
+                  <path d="M16 0L16 32" stroke="white" />
+                </motion.svg>
+              </TreatmentsText>
+              <AnimatePresence>
+                {herbsExpanded && (
+                  <Dropdown
+                    variants={dropdown}
+                    initial="closed"
+                    animate={herbsExpanded ? "expanded" : "closed"}
+                    exit="closed"
+                  >
+                    <h6>{TreatmentsData.herbsData.text}</h6>
+                  </Dropdown>
+                )}
+              </AnimatePresence>
+              {/* ------------ BODYWORK TREATMENT ------------  */}
+              {/* ------------ BODYWORK TREATMENT ------------  */}
+              <TreatmentsText
+                onHoverStart={() =>
+                  setTreatmentsImage({
+                    imagesrc: TreatmentsData.bodyworkData.imagesrc,
+                    imagealt: TreatmentsData.bodyworkData.imagealt,
+                    key: TreatmentsData.bodyworkData.id,
+                  })
+                }
+                onClick={handleBodyworkClick}
               >
-                <path d="M0 16H32" stroke="white" />
-                <path d="M16 0L16 32" stroke="white" />
-              </motion.svg>
-            </TreatmentsText>
-            <AnimatePresence>
-              {bodyworkExpanded && (
-                <Dropdown
-                  variants={dropdown}
-                  initial="closed"
-                  animate={bodyworkExpanded ? "expanded" : "closed"}
-                  exit="closed"
+                <h2>{TreatmentsData.bodyworkData.title}</h2>
+                <motion.svg
+                  animate={{ rotate: bodyworkExpanded ? 45 : 0 }}
+                  width="35"
+                  height="35"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <h6>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna.
-                  </h6>
-                </Dropdown>
-              )}
-            </AnimatePresence>
-          </TreatmentsItem>
+                  <path d="M0 16H32" stroke="white" />
+                  <path d="M16 0L16 32" stroke="white" />
+                </motion.svg>
+              </TreatmentsText>
+              <AnimatePresence>
+                {bodyworkExpanded && (
+                  <Dropdown
+                    variants={dropdown}
+                    initial="closed"
+                    animate={bodyworkExpanded ? "expanded" : "closed"}
+                    exit="closed"
+                  >
+                    <h6>{TreatmentsData.bodyworkData.text}</h6>
+                  </Dropdown>
+                )}
+              </AnimatePresence>
+            </div>
+          </TreatmentsSelection>
           <TreatmentsImage>
-            <GatsbyImage
-              image={treatmentsImage.imagesrc}
-              alt={treatmentsImage.imagealt}
-            />
+            <TreatmentsImageWrapper>
+              <GatsbyImage
+                image={treatmentsImage.imagesrc}
+                alt={treatmentsImage.imagealt}
+                imgStyle={{
+                  borderRadius: "30px",
+                  width: "100%",
+                  height: "100%",
+                }}
+              />
+            </TreatmentsImageWrapper>
           </TreatmentsImage>
         </TreatmentsMain>
       </TreatmentsOffered>
@@ -468,27 +550,31 @@ const TeachingClinic = ({ data }) => {
           </List>
         </Inner>
       </CommonConditions>
-      <BookAnAppointment>
-        <SvgWrapper
-          ref={contentRef}
-          style={{
-            transform: `translate3D(0, calc(425px + ${
-              offsetY * -0.175
-            }px), 0) rotate(180deg)`,
-          }}
-        >
-          <LeafPattern />
-        </SvgWrapper>
-        <InnerText>
-          <h1>Book an Appointment</h1>
-          <h6>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
-          </h6>
-          <BookNowButton>
-            <p>Book Now</p>
-          </BookNowButton>
-        </InnerText>
+      <BookAnAppointment ref={AppointmentRef}>
+        <BookAnAppointmentInner>
+          <BookAnAppointmentImage>
+            <HideImageSandBeige
+              variants={hideApptImage}
+              initial="visible"
+              animate={AppointmentInView ? "hidden" : "visible"}
+              exit="hidden"
+            />
+            <StaticImage
+              src="../images/TeachingClinic/bookanappointment.png"
+              alt="Image of an empty massage table with windows in the background, lush green trees casting a calming atmosphere."
+              quality={100}
+              layout="constrained"
+            />
+          </BookAnAppointmentImage>
+          <InnerText>
+            <h1>Book an Appointment</h1>
+            <h6>
+              Explore low-cost treatments performed by our students with careful
+              supervision from certified professionals.
+            </h6>
+            <BookNowButton>Book A Slot</BookNowButton>
+          </InnerText>
+        </BookAnAppointmentInner>
       </BookAnAppointment>
       <GoogleMaps />
     </Layout>
@@ -542,10 +628,22 @@ export const pageQuery = graphql`
   }
 `
 
+
+
 const SectionWrapper = styled.div`
   width: 100%;
   margin: 0 auto;
   background-color: var(--color-beige);
+  & h2 {
+    padding-bottom: 5rem;
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    & h2 {
+      padding-top: 5rem;
+      padding-bottom: 2.5rem;
+    }
+  }
 `
 
 const ImageBanner = styled.div`
@@ -553,9 +651,13 @@ const ImageBanner = styled.div`
   overflow: hidden;
   margin: 0 auto;
   position: relative;
-  bottom: 0;
+  aspect-ratio: 24/9;
 
   @media (max-width: ${breakpoints.m}px) {
+    aspect-ratio: 16/9;
+  }
+
+  @media (max-width: ${breakpoints.s}px) {
     display: none;
   }
 `
@@ -563,39 +665,46 @@ const ImageBanner = styled.div`
 const ImageBannerMobile = styled.div`
   display: none;
 
-  @media (max-width: ${breakpoints.m}px) {
+  @media (max-width: ${breakpoints.s}px) {
     display: block;
     width: 100%;
-    /* height: 75vh; */
     overflow: hidden;
     margin: 0 auto;
     position: relative;
+    max-height: 600px;
   }
 `
 
 const BannerText = styled.div`
   position: absolute;
   z-index: 20;
-  top: 37.5%;
-  left: 12.5%;
+  bottom: 5rem;
+  left: 5vw;
   width: 37.5%;
+
   & h1 {
-    white-space: nowrap;
-    padding-bottom: 0.5rem;
+    padding-bottom: 1rem;
   }
 
-  @media (max-width: ${breakpoints.m}px) {
-    width: 90%;
-    left: 5vw;
-    top: 30vw;
-    /* bottom: 2.5rem; */
+  @media (max-width: ${breakpoints.xl}px) {
+    bottom: 2rem;
+    width: 40%;
+  }
+
+  @media (max-width: ${breakpoints.l}px) {
+    width: 70%;
+    bottom: 1.5rem;
 
     & h1 {
       padding-bottom: 0.5rem;
     }
   }
+  @media (max-width: ${breakpoints.s}px) {
+    bottom: 4rem;
+    width: 80%;
+  }
   @media (max-width: ${breakpoints.xs}px) {
-    bottom: 1rem;
+    bottom: 2.5rem;
   }
 `
 
@@ -609,7 +718,6 @@ const COVIDBanner = styled(motion.div)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 
   :hover {
     h6 {
@@ -627,8 +735,9 @@ const COVIDNews = styled(motion.div)`
 
   & p {
     letter-spacing: 0.01rem;
-    line-height: 28px;
-    padding-top: 2.5rem;
+    line-height: 140%;
+    padding: 2.5rem 0;
+    font-family: "matter-light";
   }
 
   @media (max-width: ${breakpoints.m}px) {
@@ -639,17 +748,30 @@ const COVIDNews = styled(motion.div)`
 const HoursSection = styled.section`
   background-color: var(--color-beige);
   display: flex;
+  position: relative;
+  height: 105vh;
 
   @media (max-width: ${breakpoints.l}px) {
     flex-direction: column;
   }
 `
 
-const ImageWrapper = styled.div`
+const HideImageBeige = styled(motion.div)`
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-beige);
+  top: 0;
+  left: 0;
+`
+const ImageWrapper = styled(motion.div)`
   flex-basis: 50%;
   max-width: 50%;
   min-height: 100%;
-  overflow-x: hidden;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
 
   @media (max-width: ${breakpoints.l}px) {
     min-height: auto;
@@ -660,13 +782,19 @@ const ImageWrapper = styled.div`
 
 const TextWrapper = styled.div`
   flex-basis: 50%;
-  padding: 7.5rem;
+  /* align-self: center; */
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 10rem;
 
-  & h6 {
+  h6 {
     color: var(--color-darkgreen);
     padding-bottom: 1rem;
   }
-  & h2 {
+
+  h2 {
     padding-bottom: 5rem;
   }
 
@@ -697,7 +825,6 @@ const Hours = styled.div`
     color: black;
   }
 
-
   @media (max-width: ${breakpoints.l}px) {
     width: 50%;
   }
@@ -716,11 +843,12 @@ const TreatmentsOffered = styled.div`
 `
 
 const TreatmentsHeader = styled.h1`
-  padding-top: 10rem;
   padding-bottom: 5rem;
+  text-align: left;
+  width: 100%;
+  margin: 0 auto;
 
   @media (max-width: ${breakpoints.m}px) {
-    padding-top: 5rem;
     display: none;
   }
 `
@@ -738,11 +866,13 @@ const TreatmentsHeaderMobile = styled.h1`
 `
 
 const TreatmentsMain = styled.div`
+  position: relative;
   display: flex;
   justify-content: space-between;
-  width: 85%;
+  width: 80%;
+  min-height: 100vh;
   margin: 0 auto;
-  padding-bottom: 10rem;
+  /* padding: 15rem 0; */
 
   @media (max-width: ${breakpoints.xl}px) {
     width: 95%;
@@ -754,8 +884,14 @@ const TreatmentsMain = styled.div`
   }
 `
 
-const TreatmentsItem = styled(motion.div)`
-  flex-basis: 50%;
+const TreatmentsSelection = styled(motion.div)`
+  /* align-self: flex-start; */
+  height: 100%;
+  display: block;
+  width: 50%;
+  margin: 5rem 0;
+  padding-top: 15rem;
+  padding-bottom: 25rem;
   padding-left: 2rem;
   cursor: pointer;
 
@@ -770,6 +906,7 @@ const TreatmentsItem = styled(motion.div)`
 const TreatmentsText = styled(motion.div)`
   order: 2;
   border-bottom: 1px solid white;
+  background-color: var(--color-darkgreen);
   text-align: left;
   display: flex;
   justify-content: space-between;
@@ -795,7 +932,7 @@ const TreatmentsText = styled(motion.div)`
 
 const Dropdown = styled(motion.div)`
   border-bottom: 1px solid white;
-
+  background-color: var(--color-darkgreen);
   h6 {
     padding: 3rem;
     text-align: left;
@@ -808,9 +945,11 @@ const Dropdown = styled(motion.div)`
 `
 
 const TreatmentsImage = styled.div`
-  flex-basis: 45%;
-  border-radius: 20px;
-  overflow: hidden;
+  height: auto;
+  align-self: flex-start;
+  position: sticky;
+  top: 6rem;
+  margin: 6rem 0;
 
   @media (max-width: ${breakpoints.m}px) {
     border-radius: 0px;
@@ -818,8 +957,15 @@ const TreatmentsImage = styled.div`
   }
 `
 
+const TreatmentsImageWrapper = styled.div`
+  overflow: hidden;
+  border-radius: 30px;
+  width: auto;
+  height: auto;
+`
+
 const CommonConditions = styled.section`
-  background-color: var(--color-beige);
+  background-color: var(--color-lightestbeige);
   width: 100%;
   padding: 3rem 0;
   @media (max-width: ${breakpoints.m}px) {
@@ -876,22 +1022,51 @@ const List = styled.div`
 `
 
 const BookAnAppointment = styled.section`
-  background-color: var(--color-brown);
+  background-color: var(--color-sandbeige);
   position: relative;
   z-index: 2;
   overflow: hidden;
-  padding: 7rem 0;
+  padding: 4rem 0;
+`
+
+const BookAnAppointmentInner = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+`
+
+const BookAnAppointmentImage = styled.div`
+  width: 60%;
+  position: relative;
+`
+
+const HideImageSandBeige = styled(motion.div)`
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-sandbeige);
+  top: 0;
+  left: 0;
 `
 
 const InnerText = styled.div`
   position: relative;
   z-index: 2;
-  text-align: center;
-  margin: 0 auto;
   width: 45%;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
 
   h1 {
     padding-bottom: 1rem;
+  }
+  h6 {
+    width: 90%;
+    margin-bottom: 2rem;
   }
 
   @media (max-width: ${breakpoints.m}px) {
@@ -899,41 +1074,21 @@ const InnerText = styled.div`
   }
 `
 
-const SvgWrapper = styled.div`
-  z-index: 1;
-  position: absolute;
-  top: -5%;
-  left: 50px;
-  z-index: 1;
-
-  @media (max-width: ${breakpoints.m}px) {
-    left: -60%;
-    top: -55%;
-  }
-`
-
 const BookNowButton = styled.a`
-  text-decoration: none;
+  display: inline;
   cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 2.5rem;
-  & p {
-    font-family: "Matter-regular";
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--color-darkgreen);
-    border: 1px solid var(--color-darkgreen);
-    border-radius: 10px;
-    width: 130px;
-    height: 40px;
-    transition: var(--hover-transition);
+  border-radius: 10px;
+  line-height: 26px;
+  font-size: 16px;
+  border: 1px solid var(--color-darkgreen);
+  color: var(--color-darkgreen);
+  padding: 0.35rem 1.5rem;
+  text-decoration: none;
+  font-family: "Matter-regular";
 
-    &:hover {
-      background-color: var(--color-white);
-      color: var(--color-darkgreen);
-    }
+  transition: 0.25s all ease-in-out;
+  &:hover {
+    color: var(--color-white);
+    background-color: var(--color-darkgreen);
   }
 `

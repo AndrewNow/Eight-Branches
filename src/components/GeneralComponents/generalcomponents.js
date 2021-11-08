@@ -68,7 +68,7 @@ export const ApplyNow = () => {
   return (
     <ApplyNowSection>
       <ApplyNowInner>
-        <h1>Apply Now Lorem ipsum dolor sit amet</h1>
+        <h1>Start Your Application Today</h1>
         <ReadMore to="/admissions">Apply Now</ReadMore>
       </ApplyNowInner>
     </ApplyNowSection>
@@ -193,7 +193,7 @@ const AcademicAdvisorText = styled.div`
   border-radius: 40px;
   width: 100%;
   height: 100%;
-  margin: 1.5rem;
+  margin: 2rem;
   padding: 5rem 3rem;
 
   & h2 {
@@ -263,8 +263,7 @@ const ApplyNowSection = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2.5rem;
-
+  padding: 2rem;
   @media (max-width: ${breakpoints.m}px) {
     padding: 1rem;
   }
