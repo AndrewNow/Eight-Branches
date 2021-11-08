@@ -67,7 +67,12 @@ export const FacultyLeadership = ({
       {open && <ScrollLock />}
       <FacultyPost key={slug} onClick={() => setOpen(!open)}>
         <PortraitThumbnail>
-          <GatsbyImage image={portraitpic} alt={title} />
+          <GatsbyImage
+            image={portraitpic}
+            alt={title}
+            transformOptions={{ cropFocus: "right" }}
+            imgStyle={{ objectFit: "cover" }}
+          />
         </PortraitThumbnail>
         <TextWrapper>
           <p>{role}</p>
@@ -213,7 +218,12 @@ export const FacultyInstructor = ({
                 exit="hidden"
               >
                 <ModalImage>
-                  <GatsbyImage image={portraitpic} alt={title} />
+                  <GatsbyImage
+                    image={portraitpic}
+                    alt={title}
+                    imgStyle={{ objectFit: "cover" }}
+                    style={{minWidth: "100%"}}
+                  />
                 </ModalImage>
                 <ModalText>
                   <p>{role}</p>
@@ -368,7 +378,7 @@ const ModalImage = styled.div`
   border: 1px solid black;
   max-width: 50%;
   img {
-    min-height: 65vh;
+    min-height: 60vh;
     border-radius: 5px;
     max-width: 50%;
   }
