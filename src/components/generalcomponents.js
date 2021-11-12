@@ -2,8 +2,8 @@ import React from "react"
 import { Link } from "gatsby"
 import { StaticImage} from "gatsby-plugin-image"
 import styled from "styled-components"
-import breakpoints from "../breakpoints"
-import contactInfo from "../../../site/settings/contact_info.json"
+import breakpoints from "./breakpoints"
+import contactInfo from "../../site/settings/contact_info.json"
 
 export const GoogleMaps = () => {
   return (
@@ -196,7 +196,7 @@ const AcademicAdvisorText = styled.div`
   margin: 2rem;
   padding: 5rem 3rem;
 
-  & h2 {
+  h2 {
     margin-bottom: 2.5rem;
     margin-top: 5rem;
     color: white;
@@ -209,9 +209,11 @@ const AcademicAdvisorText = styled.div`
   }
   @media (max-width: ${breakpoints.m}px) {
     padding: 2rem 1.5rem;
+    h2 {
+      margin-top: 0rem;
+    }
   }
   @media (max-width: ${breakpoints.s}px) {
-    /* border: none; */
     margin: 1rem;
     text-align: center;
     align-items: center;
@@ -229,7 +231,7 @@ const AcademicAdvisorImage = styled.div`
     min-height: 300px;
   }
   @media (max-width: ${breakpoints.m}px) {
-    min-height: 200px;
+    min-height: auto;
   }
 `
 

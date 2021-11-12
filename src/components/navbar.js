@@ -162,7 +162,7 @@ const Navbar = () => {
                 <Link to="/teaching-clinic">Teaching Clinic</Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
-                <Link to="/studentlogin">Student Portal</Link>
+                <a href="https://online.erealia.com/ebaem/cwv/">Student Portal</a>
               </motion.h3>
             </motion.div>
           </NavMenu>

@@ -8,7 +8,7 @@ import breakpoints from "../components/breakpoints"
 import { motion, AnimatePresence } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import LeafPattern from "../svg/leafPattern"
-import { GoogleMaps } from "../components/GeneralComponents/generalcomponents"
+import { GoogleMaps } from "../components/generalcomponents"
 
 const TeachingClinic = ({ data }) => {
   const siteTitle = data.site.siteMetadata?.title || `Teaching Clinic`

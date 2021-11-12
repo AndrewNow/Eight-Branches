@@ -10,7 +10,7 @@ import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { useEmblaCarousel } from "embla-carousel/react"
 import { Arrow, LeftLogoPattern } from "../svg/misc"
-import { AcademicAdvisor } from "../components/GeneralComponents/generalcomponents"
+import { AcademicAdvisor } from "../components/generalcomponents"
 
 const HomePage = ({ data }) => {
   const hideImage = {
@@ -95,7 +95,7 @@ const HomePage = ({ data }) => {
   const DiplomaData = [
     {
       title: "Acupuncture & Moxibustion",
-      path: "/",
+      path: "/diploma-programs/acupuncture-and-moxibustion",
       ref: DiplomaRef0,
       inView: DiplomaInView0,
       image: (
@@ -110,8 +110,8 @@ const HomePage = ({ data }) => {
       ),
     },
     {
-      title: "Traditional Chinese Medicine Practitioner",
-      path: "/",
+      title: "Traditional Chinese Medicine Practitioner ",
+      path: "/diploma-programs/TCMP",
       ref: DiplomaRef1,
       inView: DiplomaInView1,
       image: (
@@ -126,8 +126,8 @@ const HomePage = ({ data }) => {
       ),
     },
     {
-      title: "Advanced TCMP",
-      path: "/",
+      title: "Post-Graduate Advanced TCMP",
+      path: "/diploma-programs/advanced-TCMP",
       ref: DiplomaRef2,
       inView: DiplomaInView2,
       image: (
@@ -143,7 +143,7 @@ const HomePage = ({ data }) => {
     },
     {
       title: "Herbology",
-      path: "/",
+      path: "/diploma-programs/herbology",
       ref: DiplomaRef3,
       inView: DiplomaInView3,
       image: (
@@ -238,7 +238,8 @@ const HomePage = ({ data }) => {
       <Seo title="Home" />
       <LandingSection>
         <LeftSection>
-          <HideImageBeige
+          <HideImage
+            style={{ backgroundColor: "var(--color-beige)" }}
             variants={hideImage}
             initial="visible"
             animate="hidden"
@@ -247,9 +248,9 @@ const HomePage = ({ data }) => {
           <StaticImage
             src="../images/HomePage/home.png"
             quality={100}
-            transformOptions={{ cropFocus: "right" }}
+            transformOptions={{ cropFocus: "bottom" }}
             imgStyle={{ objectFit: "cover" }}
-            style={{ minHeight: "100%" }}
+            style={{ height: "100%" }}
             alt="Soft image of a practitioner performing acupuncture on a foot."
           />
         </LeftSection>
@@ -265,9 +266,8 @@ const HomePage = ({ data }) => {
               Modern Practice
             </motion.h1>
             <motion.h6 variants={FadeIn}>
-              Eight Branches offers treatment to the public, hosting classes and
-              workshops promoting restoration of health and prevention of
-              illness.
+              Eight Branches offers students a holistic and industry-leading
+              education, firmly rooted in Traditional Chinese Medicine (TCM).
             </motion.h6>
           </LandingTextWrapper>
         </RightSection>
@@ -287,9 +287,9 @@ const HomePage = ({ data }) => {
           <AboutUsText>
             <h6>About Us</h6>
             <h1>
-              Eight Branches Academy of Eastern Medicine offers students a
-              comprehensive education with a firm foundation in Traditional
-              Chinese Medicine.
+              Our college seeks to help inspired learners impact their
+              communities through the practice of Eastern medicine, promoting
+              restoration of health and prevention of illness.
               <ReadMore to="/aboutus">Read More</ReadMore>
             </h1>
           </AboutUsText>
@@ -299,8 +299,10 @@ const HomePage = ({ data }) => {
         <DiplomaHeader>
           <h1>Diploma Programs</h1>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br />
-            Phasellus scelerisque! Read More
+            Our programs are tailored to suit any kind of learner, at any phase
+            of life. Explore our offerings below and find out how you can take
+            part in sharing and integrating the powerful healing benefits of
+            Eastern medicine.
           </p>
         </DiplomaHeader>
         {DiplomaData.map((diploma, index) => (
@@ -319,7 +321,8 @@ const HomePage = ({ data }) => {
             </EntryText>
             <EntryImage>
               <BorderRadius>
-                <HideImageLightestBeige
+                <HideImage
+                  style={{ backgroundColor: "var(--color-lightestbeige)" }}
                   variants={hideDiplomaImage}
                   initial="visible"
                   animate={diploma.inView ? "hidden" : "visible"}
@@ -338,11 +341,14 @@ const HomePage = ({ data }) => {
           </h1>
           <h6>
             At Eight Branches, we pride ourselves on providing a comprehensive
-            education that is tailored to help students pass the necessary exams
-            and build a successful professional practice. Pass rates on the
-            Pan-Canadian examinations are the most essential evaluation tool for
-            prospective studentsas it is the only objective criteria to compare
-            schools.
+            education that is tailored to help our passionate students pass the
+            necessary exams and help them build a successful professional
+            practice.
+            <br />
+            <br />
+            Our students consistently outperform the Ontario average in terms of
+            pass rates on the Pan-Canadian examinations, the only objective
+            measure which is used used to compare schools.
           </h6>
         </GraphTop>
         <Embla>
@@ -410,7 +416,7 @@ const HomePage = ({ data }) => {
                       <h4 key={slug}>{title}</h4>
                     </EventTitle>
                     <h6>
-                      With {host}&nbsp; &nbsp;|&nbsp; &nbsp;{date}
+                      With {host}&nbsp; &nbsp;| &nbsp; &nbsp;{date}
                     </h6>
                     <SignUpLink to={slug} itemProp="url">
                       <p>RSVP</p>
@@ -467,42 +473,44 @@ export const pageQuery = graphql`
   }
 `
 
-const LandingSection = styled.span`
+const LandingSection = styled.div`
   height: 100vh;
   display: flex;
+  position: relative;
   background-color: var(--color-beige);
   align-items: center;
+
+  @media (max-width: ${breakpoints.l}px) {
+    flex-direction: column-reverse;
+    height: 125vh;
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    height: auto;
+  }
 `
 
 const LeftSection = styled.div`
   position: relative;
   width: 50%;
   height: 100%;
-  /* min-height: 100%; */
-  overflow: hidden;
 
-  @media (max-width: ${breakpoints.xl}px) {
-    min-height: auto;
-    max-width: 100%;
+  @media (max-width: ${breakpoints.l}px) {
     width: 100%;
+    height: 40%;
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    height: 40vh;
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    height: 250px;
   }
 `
 
-const HideImageBeige = styled(motion.div)`
+const HideImage = styled(motion.div)`
   position: absolute;
   z-index: 2;
   width: 100%;
   height: 100%;
-  background-color: var(--color-beige);
-  top: 0;
-  left: 0;
-`
-const HideImageLightestBeige = styled(motion.div)`
-  position: absolute;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  background-color: var(--color-lightestbeige);
   top: 0;
   left: 0;
 `
@@ -510,6 +518,22 @@ const HideImageLightestBeige = styled(motion.div)`
 const RightSection = styled.div`
   height: 100%;
   width: 50vw;
+  background-color: var(--color-beige);
+  position: relative;
+  z-index: 10;
+
+  @media (max-width: ${breakpoints.l}px) {
+    width: 100vw;
+    margin-top: 10vh;
+    height: 60%;
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    height: auto;
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    padding-top: 15vh;
+  }
 `
 
 const LandingTextWrapper = styled(motion.div)`
@@ -520,18 +544,48 @@ const LandingTextWrapper = styled(motion.div)`
   align-items: center;
   flex-direction: column;
 
-  & h1,
+  h1,
   h6 {
     color: var(--color-darkgreen);
   }
-  & h6 {
+  h6 {
     width: 60%;
     margin-bottom: 3rem;
   }
 
-  & h1 {
+  h1 {
     margin-top: 2rem;
     margin-bottom: 2rem;
+  }
+
+  @media (max-width: ${breakpoints.l}px) {
+    h6 {
+      margin-bottom: 6rem;
+    }
+    svg {
+      transform: scale(0.8);
+    }
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    h6 {
+      width: 70%;
+    }
+    svg {
+      transform: scale(0.75);
+    }
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    h1 {
+      margin-top: 0.5rem;
+    }
+    h6 {
+      margin-bottom: 5rem;
+      width: 90%;
+    }
+    svg {
+      transform: scale(0.7);
+    }
   }
 `
 
@@ -545,7 +599,7 @@ const AboutUsSection = styled.div`
 
 const AboutUsWrapper = styled.div`
   width: 90%;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0 auto;
   padding: 2.5rem 0;
 
@@ -554,6 +608,14 @@ const AboutUsWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+
+  @media (max-width: ${breakpoints.xxl}px) {
+    height: auto;
+    min-height: auto;
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    height: auto;
+  }
 `
 
 const AboutUsImage = styled.div`
@@ -565,8 +627,10 @@ const AboutUsImage = styled.div`
 
   @media (max-width: ${breakpoints.xl}px) {
     min-height: auto;
-    max-width: 100%;
-    width: 100%;
+    max-width: 30vw;
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    display: none;
   }
 `
 
@@ -577,7 +641,33 @@ const AboutUsText = styled.div`
     margin-bottom: 2rem;
   }
   h1 {
+    font-size: 3.54vw;
+    line-height: 130%;
     margin-bottom: 3rem;
+  }
+
+  @media (max-width: ${breakpoints.xxl}px) {
+    h1 {
+    }
+  }
+
+  @media (max-width: ${breakpoints.l}px) {
+    width: 100%;
+    margin-left: 0;
+    h1 {
+      font-size: 45px;
+    }
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    text-align: center;
+    h1 {
+      font-size: 32px;
+    }
+  }
+  @media (max-width: 376px) {
+    h1 {
+      font-size: 28px;
+    }
   }
 `
 
@@ -593,11 +683,24 @@ const ReadMore = styled(Link)`
   padding: 0.35rem 1.5rem;
   text-decoration: none;
   font-family: "Matter-regular";
+  text-align: center;
 
   transition: 0.25s all ease-in-out;
-  &:hover {
+  :hover {
     color: var(--color-lightgreen);
     background-color: var(--color-white);
+  }
+  @media (max-width: ${breakpoints.xl}px) {
+    transform: translateY(-0.5rem);
+    margin-left: 0rem;
+    margin-top: 3rem;
+    display: block;
+    max-width: 140px;
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    transform: translateY(0rem);
+    margin: 0 auto;
+    margin-top: 2rem;
   }
 `
 
@@ -622,7 +725,18 @@ const DiplomaHeader = styled.div`
     padding-bottom: 2rem;
   }
   p {
+    width: 50%;
     font-family: "matter-light";
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    p {
+      width: 80%;
+    }
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    p {
+      width: 90%;
+    }
   }
 `
 
@@ -635,6 +749,11 @@ const DiplomaEntry = styled.div`
 
   border-top: 1px solid #82af82;
   padding: 2rem 0;
+
+  @media (max-width: ${breakpoints.m}px) {
+    flex-direction: column-reverse;
+    padding: 4rem 0;
+  }
 `
 
 const EntryText = styled(motion.div)`
@@ -650,17 +769,56 @@ const EntryText = styled(motion.div)`
     max-width: 90%;
     margin-bottom: 2rem;
   }
+  @media (max-width: 1600px) {
+    width: 45vw;
+  }
+  @media (max-width: ${breakpoints.xl}px) {
+    width: 50%;
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    h1 {
+      font-size: 40px;
+      line-height: 130%;
+    }
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    width: auto;
+    margin: 0;
+    h1 {
+      font-size: 45px;
+      margin-top: 1.5rem;
+    }
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    h1 {
+      font-size: 36px;
+    }
+  }
 `
 
 const EntryImage = styled.div`
-  /* border-radius: 30px; */
   overflow: hidden;
   position: relative;
+
+  @media (max-width: 1600px) {
+    max-width: 45vw;
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    max-width: none;
+  }
 `
 
 const BorderRadius = styled.div`
   border-radius: 30px;
   overflow: hidden;
+
+  @media (max-width: ${breakpoints.l}px) {
+    border-radius: 20px;
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    border-radius: 5px;
+  }
 `
 
 const DiplomaReadMore = styled(Link)`
@@ -676,7 +834,7 @@ const DiplomaReadMore = styled(Link)`
   font-family: "Matter-regular";
 
   transition: 0.25s all ease-in-out;
-  &:hover {
+  :hover {
     color: var(--color-white);
     background-color: var(--color-darkgreen);
   }
@@ -692,7 +850,6 @@ const GraphTop = styled.section`
   width: 90%;
   margin: 0 auto;
   border-top: 1px solid #82af82;
-  color: var(--color-darkgreen);
   display: flex;
   justify-content: space-between;
   padding-top: 3rem;
@@ -707,16 +864,21 @@ const GraphTop = styled.section`
     width: 55%;
     align-self: flex-end;
   }
-
-  @media (max-width: ${breakpoints.m}px) {
+  @media (max-width: ${breakpoints.l}px) {
     flex-direction: column;
-    padding-bottom: 2rem;
     h1 {
       padding-right: 0rem;
+      padding-left: 0;
     }
     h6 {
       padding-top: 2rem;
       align-self: flex-start;
+      width: 85%;
+    }
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    padding-bottom: 2rem;
+    h6 {
       width: 100%;
     }
   }
@@ -834,6 +996,9 @@ const UpcomingEvents = styled.section`
   background-color: #e6dacc;
   padding: 6rem 0;
   position: relative;
+  @media (max-width: ${breakpoints.s}px) {
+    padding-bottom: 4rem;
+  }
 `
 
 const EventsHeader = styled.header`
@@ -881,8 +1046,73 @@ const EventWrapper = styled.div`
   padding: 1rem 0;
   flex-direction: row;
 
-  @media (max-width: ${breakpoints.m}px) {
+  @media (max-width: ${breakpoints.l}px) {
     flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+
+    h4 {
+      font-size: 32px;
+    }
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    h4 {
+      font-size: 25px;
+    }
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    width: 90%;
+  }
+`
+const Event = styled.article`
+  width: 27.5%;
+  color: var(--color-black);
+  background-color: var(--color-white);
+  border-radius: 30px;
+  border: 1px solid black;
+  padding: 3rem 2rem;
+  margin: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  h6 {
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    font-size: 18px;
+    line-height: 120%;
+    font-family: "Matter-regular";
+  }
+
+  @media (max-width: ${breakpoints.xxl}px) {
+    min-width: 33%;
+    max-width: 50%;
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    min-width: 80%;
+    max-width: 80%;
+    width: 80%;
+    margin: 1rem auto;
+    padding: 2rem 2rem;
+    h6 {
+      margin-bottom: 2rem;
+    }
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    margin-bottom: 2.5rem;
+    min-width: none;
+    max-width: none;
+    width: 90%;
+    h6 {
+      line-height: 130%;
+    }
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    width: 100%;
+
+    h6 {
+      font-size: 16px;
+    }
   }
 `
 
@@ -891,7 +1121,6 @@ const EventTitle = styled(Link)`
 
   h4 {
     line-height: 125%;
-    max-width: 80%;
     padding-bottom: 0.25rem;
     color: var(--color-black);
   }
@@ -919,47 +1148,29 @@ const SignUpLink = styled(Link)`
     }
   }
 `
-const Event = styled.article`
-  width: 27.5%;
-  color: var(--color-black);
-  background-color: var(--color-white);
-  border-radius: 30px;
-  border: 1px solid black;
-  padding: 3rem 2rem;
-  margin: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  h6 {
-    margin-top: 1rem;
-    margin-bottom: 3rem;
-    font-size: 18px;
-    line-height: 100%;
-    font-family: "Matter-regular";
-  }
-
-  @media (max-width: ${breakpoints.xxl}px) {
-    min-width: 33%;
-    max-width: 50%;
-  }
-  @media (max-width: ${breakpoints.m}px) {
-    margin-bottom: 2.5rem;
-    min-width: 100%;
-    max-width: 100%;
-    width: 100%;
-  }
-`
 
 const LeftPattern = styled.div`
   position: absolute;
   left: 5%;
   top: 50%;
   transform: translateY(-50%);
+  @media (max-width: ${breakpoints.m}px) {
+    left: 2%;
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    display: none;
+  }
 `
+
 const RightPattern = styled.div`
   position: absolute;
   right: 5%;
   top: 50%;
   transform: translateY(-50%) rotate(180deg);
+  @media (max-width: ${breakpoints.m}px) {
+    right: 2%;
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    display: none;
+  }
 `

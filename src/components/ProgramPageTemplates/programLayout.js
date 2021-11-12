@@ -8,7 +8,7 @@ import {
   SixSemesterAcupunctureMoxibustionProgramData,
   EightSemesterAcupunctureMoxibustionProgramData,
 } from "../../components/CertificatePrograms/certificateprograms"
-import { ApplyNow } from "../../components/GeneralComponents/generalcomponents"
+import { ApplyNow } from "../generalcomponents"
 import { motion } from "framer-motion"
 
 const ProgramLayout = ({ programData }) => {
@@ -111,15 +111,6 @@ const ProgramLayout = ({ programData }) => {
   )
 }
 
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`
 
 export default ProgramLayout
 

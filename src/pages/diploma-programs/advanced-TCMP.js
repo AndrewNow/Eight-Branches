@@ -10,7 +10,7 @@ import {
   SixSemesterAcupunctureMoxibustionProgramData,
   EightSemesterAcupunctureMoxibustionProgramData,
 } from "../../components/CertificatePrograms/certificateprograms"
-import { ApplyNow } from "../../components/GeneralComponents/generalcomponents"
+import { ApplyNow } from "../../components/generalcomponents"
 import { motion } from "framer-motion"
 
 const Herbology = ({ data }) => {

@@ -12,7 +12,7 @@ import { motion } from "framer-motion"
 import {
   ApplyNow,
   AcademicAdvisor,
-} from "../components/GeneralComponents/generalcomponents"
+} from "../components/generalcomponents"
 
 const OurPrograms = ({ data }) => {
   const siteTitle = data.site.siteMetadata?.title || `Our Programs`

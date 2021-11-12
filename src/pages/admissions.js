@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useRef } from "react"
-import { graphql, Link } from "gatsby"
+import React, { useState, useEffect } from "react"
+import { graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import breakpoints from "../components/breakpoints"
 import StampLogo from "../svg/stamplogo"
-import { AcademicAdvisor } from "../components/GeneralComponents/generalcomponents"
+import { AcademicAdvisor } from "../components/generalcomponents"
 // import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { FaRegCalendar } from "react-icons/fa"
@@ -14,19 +14,6 @@ import { AiOutlineClockCircle } from "react-icons/ai"
 
 const Admissions = ({ data }) => {
   const siteTitle = data.site.siteMetadata?.title || `Admissions`
-
-  // ---------- Parallax for image banner when in view ----------
-  const [contentRef, inView] = useInView({
-    root: null,
-  })
-  // ---------- PARALLAX SCROLL LOGIC ----------
-  const [offsetY, setOffsetY] = useState(0)
-  const handleScroll = () => setOffsetY(window.pageYOffset)
-
-  useEffect(() => {
-    inView && window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [inView])
 
   const ArrowSVG = () => (
     <svg
@@ -48,10 +35,11 @@ const Admissions = ({ data }) => {
       <Seo title="Admissions" />
       <HeaderWrapper>
         <AdmissionsHeader>
-          <h1>Student Admission</h1>
+          <h1>Student Admissions</h1>
           <h6>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Interested in studying at Eight Branches? Learn about the admissions
+            procedure and ensure that you meet the necessary requirements when
+            sending in your application.
           </h6>
         </AdmissionsHeader>
         <StaticImage
@@ -63,25 +51,25 @@ const Admissions = ({ data }) => {
         />
       </HeaderWrapper>
       <AcademicRequirements>
-        <StampLogo />
+        <StampLogo fillColor="white" />
         <h1>Academic Requirements</h1>
         <RequirementWrapper>
           <Requirement>
             <h6>
-              2 years post-secondary education, or relevant professional
-              experience;
+              Minimum of two years post-secondary education, or equivalent
+              professional experience;
             </h6>
           </Requirement>
           <Requirement>
             <h6>
               Demonstrated understanding of the responsibilities associated with
-              being a health care professional;
+              being a healthcare professional;
             </h6>
           </Requirement>
           <Requirement>
             <h6>
-              Strong desire to learn the principles and ideologies of Eastern
-              medicine.
+              Strong desire to learn and uphold the principles and ideologies of
+              Eastern medicine.
             </h6>
           </Requirement>
         </RequirementWrapper>
@@ -165,22 +153,13 @@ const Admissions = ({ data }) => {
         </Right>
       </AdmissionsSection>
       <BannerWrapper>
-        <BannerInner
-          style={{
-            transform: `translate3D(0, calc(15vh - ${offsetY * 0.1}px), 0)`,
-          }}
-          ref={contentRef}
-        
-        >
-          <StaticImage
-            src="../images/Admissions/groupbanner.jpg"
-            alt="Image of an instructor leading a Tai-Chi class."
-            quality={100}
-            style={{ minHeight: "100%" }}
-            imgStyle={{ objectFit: "cover", margin: "0 auto" }}
-            transformOptions={{ cropFocus: "center" }}
-          />
-        </BannerInner>
+        <StaticImage
+          src="../images/Admissions/banner.png"
+          alt="Image of a hall of practicing tables."
+          quality={100}
+          imgStyle={{ objectFit: "cover", margin: "0 auto" }}
+          transformOptions={{ cropFocus: "bottom" }}
+        />
       </BannerWrapper>
       <AdmissionsSection>
         <Left>
@@ -271,7 +250,7 @@ const HeaderWrapper = styled.section`
   padding-top: 15rem;
   z-index: 2;
   position: relative;
-  background-color: var(--color-beige);
+  background-color: var(--color-lightestbeige);
   margin: 0 auto;
 
   @media (max-width: ${breakpoints.m}px) {
@@ -287,12 +266,12 @@ const AdmissionsHeader = styled.div`
   margin: 0 auto;
   padding-bottom: 7.5rem;
 
-  & h1 {
+  h1 {
     padding-bottom: 2rem;
   }
 
-  & h6 {
-    width: 47.5%;
+  h6 {
+    width: 40%;
   }
 
   @media (max-width: ${breakpoints.m}px) {
@@ -314,7 +293,7 @@ const AcademicRequirements = styled.section`
   padding: 5.5rem 0;
   flex-direction: column;
 
-  & h1 {
+  h1 {
     text-align: center;
     padding: 2rem;
   }
@@ -327,18 +306,22 @@ const AcademicRequirements = styled.section`
       max-width: 40px;
     }
   }
-  `
+`
 
 const RequirementWrapper = styled.div`
   display: flex;
   justify-content: center;
   width: 80%;
-  
+
+  h6 {
+    margin: 0 auto;
+    width: 90%;
+  }
+
   @media (max-width: ${breakpoints.xl}px) {
     width: 90%;
     flex-direction: column;
   }
-
 `
 
 const Requirement = styled.div`
@@ -349,8 +332,8 @@ const Requirement = styled.div`
   border-radius: 30px;
   height: 200px;
   width: 35%;
-  margin: 2.5rem;
-  padding: 1.5rem;
+  margin: 2.5rem 1.5rem;
+  padding: 1rem;
 
   @media (max-width: ${breakpoints.xl}px) {
     height: auto;
@@ -362,7 +345,7 @@ const Requirement = styled.div`
 `
 
 const AdmissionsSection = styled.section`
-  background-color: #fdfaf1;
+  background-color: var(--color-lightestbeige);
   display: flex;
   justify-content: space-evenly;
   padding-top: 10rem;
@@ -433,7 +416,7 @@ const Right = styled.div`
       min-height: 31px;
     }
 
-    &:nth-child(4),
+    :nth-child(4),
     :nth-child(5) {
       padding-left: 7rem;
 
@@ -448,7 +431,7 @@ const Right = styled.div`
     width: 90%;
     margin: 0 auto;
 
-    & li {
+    li {
       padding: 0.25rem 0rem;
 
       h6,
@@ -456,13 +439,13 @@ const Right = styled.div`
         padding-left: 1rem;
       }
 
-      & svg {
+      svg {
         transform: translateY(0.5rem);
         max-width: 18px;
         max-height: 18px;
       }
 
-      &:nth-child(4),
+      :nth-child(4),
       :nth-child(5) {
         padding-left: 2.5rem;
         padding-top: 0rem;
@@ -480,48 +463,9 @@ const Right = styled.div`
 
 const BannerWrapper = styled.div`
   width: 100%;
-  height: 55vh;
-  overflow: hidden;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  height: 100%;
   position: relative;
-
-  @media (max-width: ${breakpoints.xl}px) {
-    height: 45vh;
-  }
-  @media (max-width: ${breakpoints.l}px) {
-    height: 35vh;
-  }
-  @media (max-width: ${breakpoints.m}px) {
-    height: 30vh;
-  }
-  @media (max-width: ${breakpoints.s}px) {
-    height: 23vh;
-  }
-`
-const BannerInner = styled.div`
-  position: absolute;
-  width: 100vmax;
-  top: 0;
-  
-  @media (max-width: ${breakpoints.xl}px) {
-    padding-top: 5rem;
-    width: 100%;
-  }
-  @media (max-width: ${breakpoints.l}px) {
-    padding-top: 7rem;
-  }
-  @media (max-width: ${breakpoints.m}px) {
-    padding-top: 7rem;
-  }
-  @media (max-width: ${breakpoints.s}px) {
-    padding-top: 8rem;
-    width: 110%;
-  }
-  @media (max-width: ${breakpoints.xs}px) {
-    padding-top: 12rem;
-    width: 130%;
-  }
+  overflow: hidden;
 `
 
 const Term = styled.div``
@@ -530,32 +474,32 @@ const TermInner = styled.div`
   padding-top: 1rem;
   display: flex;
   justify-content: space-between;
-  
+
   @media (max-width: ${breakpoints.l}px) {
     flex-direction: column;
   }
-  `
+`
 
 const TermItem = styled.div`
   display: flex;
   justify-content: space-between;
-  
+
   h6 {
     padding-left: 1rem;
   }
   svg {
     transform: translateY(0.5rem);
   }
-  
+
   @media (max-width: ${breakpoints.l}px) {
-    padding-bottom: .5rem;
+    padding-bottom: 0.5rem;
     justify-content: flex-start;
-    
+
     svg {
       align-self: flex-start;
       min-width: 22px;
       min-height: 22px;
-      transform: translateY(.1rem);
-    }  
+      transform: translateY(0.1rem);
+    }
   }
 `

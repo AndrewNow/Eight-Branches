@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useState, useRef } from "react"
+import React, { useEffect, useCallback, useState } from "react"
 import { graphql } from "gatsby"
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
@@ -9,12 +9,13 @@ import { useRecursiveTimeout } from "../components/Embla/useRecursiveTimeout"
 import breakpoints from "../components/breakpoints"
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
-import { GoogleMaps } from "../components/GeneralComponents/generalcomponents"
+import { GoogleMaps } from "../components/generalcomponents"
+
+
 const Campus = ({ data }) => {
   const siteTitle = data.site.siteMetadata?.title || `Campus`
 
   // ---------- INTERSECTION OBSERVER LOGIC ----------
-  const ref = useRef()
   const [SectionRef1, sectionInView1] = useInView({
     root: null,
     threshold: 0.85,
@@ -26,16 +27,6 @@ const Campus = ({ data }) => {
     triggerOnce: true,
   })
 
-  const setRefs = useCallback(
-    node => {
-      // Ref's from useRef needs to have the node assigned to `current`
-      ref.current = node
-      // Callback refs, like the one from `useInView`, is a function that takes the node as an argument
-      SectionRef1(node)
-      SectionRef2(node)
-    },
-    [SectionRef1, SectionRef2]
-  )
 
   // ---------- FRAMER LOGIC ----------
   const fadeIn = {
@@ -56,7 +47,6 @@ const Campus = ({ data }) => {
   // ---------- Initialize Embla Carousel ----------
   const [emblaRef, embla] = useEmblaCarousel({
     loop: true,
-    // containScroll: "trimSnaps",
   })
 
   // ---------- Embla config for autoplay scrolling ----------
@@ -151,7 +141,6 @@ const Campus = ({ data }) => {
               alt="Images of traditional Chinese herbs and granules."
               quality={100}
               width={450}
-              // height={450}
             />
           </Card>
 
@@ -166,7 +155,6 @@ const Campus = ({ data }) => {
               alt="Images of a woman reading in our library, with a traditional Chinese scroll painting behind her."
               quality={100}
               width={450}
-              // height={450}
             />
             <CardText variants={fadeIn}>
               <motion.h4 variants={fadeIn}>Our Library</motion.h4>

@@ -8,7 +8,7 @@ import breakpoints from "../components/breakpoints"
 import { motion } from "framer-motion"
 import EightBranches from "../components/AboutUsComponents/eight-branches"
 import { useEmblaCarousel } from "embla-carousel/react"
-import { AcademicAdvisor } from "../components/GeneralComponents/generalcomponents"
+import { AcademicAdvisor } from "../components/generalcomponents"
 import FAQMap from "../components/AboutUsComponents/FAQMap"
 import { Arrow } from "../svg/misc"
 import { useInView } from "react-intersection-observer"
@@ -57,7 +57,7 @@ const AboutUs = ({ data }) => {
     hidden: {
       y: "-100%",
       transition: {
-        delay: 0.5,
+        delay: 0.15,
         ease: "easeInOut",
         duration: 1,
       },
@@ -323,15 +323,15 @@ const AboutUs = ({ data }) => {
             Educational <br /> Excellence
           </h1>
           <h6>
-            Pass rates on the Pan-Canadian examinations are the most essential
-            evaluation tool for prospective students as it is the only objective
-            criteria to compare schools.
-            <br /> <br />
             At Eight Branches, we pride ourselves on providing a comprehensive
-            and education that is tailored to help students pass the necessary
-            exams and build a successful professional practice. Graduates of
-            Eight Branches consistently outperform their peers on the
-            Pan-Canadian National Examinations.
+            education that is tailored to help our passionate students pass the
+            necessary exams and help them build a successful professional
+            practice.
+            <br />
+            <br />
+            Our students consistently outperform the Ontario average in terms of
+            pass rates on the Pan-Canadian examinations, the only objective
+            measure which is used used to compare schools.
           </h6>
         </GraphTop>
         <Embla>
