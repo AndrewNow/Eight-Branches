@@ -42,8 +42,6 @@ collections:
       - { label: "Host", name: "host", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
 
-
-
   - name: "facultyLeadership"
     identifier_field: facultyLeadership
     label: "Faculty (Leadership)"
@@ -99,3 +97,25 @@ collections:
               - { label: Street, name: street, widget: string }
               - { label: Street2, name: street2, widget: string, required: false}
               - { label: City, name: city, widget: string, required: false } 
+
+  - name: "teachingClinicSettings"
+    label: "Teaching Clinic Information"
+    files:
+      - label: "Teaching Clinic Hours"
+        name: tc_hours
+        file: site/settings/teaching_clinic.json
+        fields:
+          - { label: "Monday", name: "mon", widget: "string" }
+          - { label: "Tuesday", name: "tues", widget: "string" }
+          - { label: "Wednesday", name: "wed", widget: "string" }
+          - { label: "Thursday", name: "thurs", widget: "string" }
+          - { label: "Friday", name: "fri", widget: "string" }
+          - { label: "Saturday", name: "sat", widget: "string" }
+          - { label: "Sunday", name: "sun", widget: "string" }
+          # - label: "Course"
+          #   name: "list"
+          #   widget: "list"
+          #   allow_add: true
+          #   fields:
+          #     - { label: Day, name: "day", widget: string }
+          #     - { label: Hour, name: "hour", widget: string }

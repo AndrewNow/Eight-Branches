@@ -42,17 +42,18 @@ export const FAQ = ({ index, question, answer }) => {
         whileHover={{ filter: "brightness(.95)" }}
       >
         <h5>{question}</h5>
-        <motion.svg
-          animate={{ rotate: expand ? 45 : 0 }}
-          width="35"
-          height="35"
-          viewBox="0 0 32 32"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M0 16H32" stroke="white" />
-          <path d="M16 0L16 32" stroke="white" />
-        </motion.svg>
+        <Svg animate={{ rotate: expand ? 45 : 0 }}>
+          <svg
+            width="35"
+            height="35"
+            viewBox="0 0 35 35"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M0 16H32" stroke="white" />
+            <path d="M16 0L16 32" stroke="white" />
+          </svg>
+        </Svg>
       </Header>
       <AnimatePresence exitBeforeEnter>
         {expand && (
@@ -87,11 +88,6 @@ const Header = styled(motion.div)`
     background-color: var(--color-lightestgreen);
   }
 
-  svg {
-    // make svg black
-    filter: invert(1);
-  }
-
   @media (max-width: ${breakpoints.xl}px) {
     padding: 1rem 1.5rem;
   }
@@ -101,10 +97,41 @@ const Header = styled(motion.div)`
     h5 {
       max-width: 85%;
     }
+  }
+`
 
+const Svg = styled(motion.div)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+
+  svg {
+    width: 35px;
+    height: 35px;
+    align-self: center;
+    justify-self: center;
+    margin: 0 auto;
+
+    // make svg black
+    filter: invert(1);
+  }
+  
+  @media (max-width: ${breakpoints.m}px) {
+    width: 35px;
+    height: 35px;
     svg {
-      min-width: 35px;
-      min-height: 35px;
+      width: 35px;
+      height: 35px;
+    }
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    width: 25px;
+    height: 25px;
+    svg {
+      width: 25px;
+      height: 25px;
     }
   }
 `

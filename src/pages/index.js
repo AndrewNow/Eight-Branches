@@ -71,6 +71,11 @@ const HomePage = ({ data }) => {
   }
 
   // ---------- INTERSECTION OBSERVER LOGIC ----------
+  const [HideImageRef, HideImageInView] = useInView({
+    root: null,
+    threshold: 0.8,
+    triggerOnce: true,
+  })
   const [DiplomaRef0, DiplomaInView0] = useInView({
     root: null,
     threshold: 0.5,
@@ -237,12 +242,12 @@ const HomePage = ({ data }) => {
     <Layout>
       <Seo title="Home" />
       <LandingSection>
-        <LeftSection>
+        <LeftSection ref={HideImageRef}>
           <HideImage
             style={{ backgroundColor: "var(--color-beige)" }}
             variants={hideImage}
             initial="visible"
-            animate="hidden"
+            animate={HideImageInView ? "hidden" : "visible"}
             exit="hidden"
           />
           <StaticImage
@@ -419,7 +424,7 @@ const HomePage = ({ data }) => {
                       With {host}&nbsp; &nbsp;| &nbsp; &nbsp;{date}
                     </h6>
                     <SignUpLink to={slug} itemProp="url">
-                      <p>RSVP</p>
+                      <p>Details</p>
                     </SignUpLink>
                   </Event>
                 )
@@ -532,7 +537,7 @@ const RightSection = styled.div`
     height: auto;
   }
   @media (max-width: ${breakpoints.s}px) {
-    padding-top: 15vh;
+    padding-top: 10vh;
   }
 `
 

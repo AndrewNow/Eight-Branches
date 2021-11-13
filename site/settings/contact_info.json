@@ -1,17 +1,9 @@
 {
-  "thurs": "Closed ",
   "phone2": "+1 855-888-8565",
-  "sat": "Closed ",
-  "sun": "Closed ",
-  "mon": "6:00pm-10:00pm ",
   "phone": " +1 416-925-5722",
-  "tues": "6:00pm-10:00pm ",
   "address": {
     "street": "112 Merton, 3rd Floor,  Toronto, ON M4S 2Z8",
     "city": "Toronto"
   },
-  "wed": "2:00pm-8:00pm",
-  "email": "info@eightbranches.ca",
-  "fri": "Closed ",
-  "list": []
+  "email": "info@eightbranches.ca"
 }

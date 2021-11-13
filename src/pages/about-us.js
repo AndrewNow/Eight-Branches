@@ -12,6 +12,7 @@ import { AcademicAdvisor } from "../components/generalcomponents"
 import FAQMap from "../components/AboutUsComponents/FAQMap"
 import { Arrow } from "../svg/misc"
 import { useInView } from "react-intersection-observer"
+import teachingClinic from "../../site/settings/teaching_clinic.json"
 
 const AboutUs = ({ data }) => {
   const siteTitle = data.site.siteMetadata?.title || `About Us`
@@ -150,34 +151,6 @@ const AboutUs = ({ data }) => {
   return (
     <Layout title={siteTitle}>
       <Seo title="About Us" />
-      {/* <SectionWrapper>
-        <ImageBanner>
-          <BannerText>
-            <h1>
-              Ancient Wisdom, <br /> Modern Practice
-            </h1>
-          </BannerText>
-          <StaticImage
-            src="../images/AboutUs/banner.png"
-            alt="Beige background image with an orchid in the foreground."
-            quality={100}
-            layout="fullWidth"
-          />
-        </ImageBanner>
-        <ImageBannerMobile>
-          <BannerText>
-            <h1>
-              Ancient Wisdom, <br /> Modern Practice
-            </h1>
-          </BannerText>
-          <StaticImage
-            src="../images/AboutUs/aboutusbannermobile.png"
-            alt="Beige background image with an orchid in the foreground."
-            quality={100}
-            layout="fullWidth"
-          />
-        </ImageBannerMobile>
-      </SectionWrapper> */}
       <AboutUsSection ref={OurStoryRef}>
         <Left>
           <HideImageBeige
@@ -190,7 +163,9 @@ const AboutUs = ({ data }) => {
             src="../images/AboutUs/school.png"
             alt="Image of an office within our school. A wooden table is pictured against a green wall backdrop, surrounded by decorative plants."
             quality={100}
-            layout="constrained"
+            transformOptions={{ cropFocus: "center" }}
+            imgStyle={{ objectFit: "cover" }}
+            style={{ height: "100%" }}
           />
         </Left>
         <Right>
@@ -283,33 +258,48 @@ const AboutUs = ({ data }) => {
         <h2>Our Core Principles</h2>
         <PrinciplesWrapper>
           <PrinciplesItem>
-            <StaticImage
-              src="../images/AboutUs/OurCorePrinciples/herbs.png"
-              alt="Beige background image with an in the foreground."
-              quality={100}
-            />
+            <PrinciplesImage
+              whileHover={{ y: -5, scale: 1.05 }}
+              transition={{ ease: "easeOut" }}
+            >
+              <StaticImage
+                src="../images/AboutUs/OurCorePrinciples/herbs.png"
+                alt="Beige background image with an in the foreground."
+                quality={100}
+              />
+            </PrinciplesImage>
             <p>
               Education based upon the 8 foundational branches of Eastern
               Medicine.
             </p>
           </PrinciplesItem>
           <PrinciplesItem>
-            <StaticImage
-              src="../images/AboutUs/OurCorePrinciples/acu.png"
-              alt="Beige background image with an in the foreground."
-              quality={100}
-            />
+            <PrinciplesImage
+              whileHover={{ y: -5, scale: 1.05 }}
+              transition={{ ease: "easeOut" }}
+            >
+              <StaticImage
+                src="../images/AboutUs/OurCorePrinciples/acu.png"
+                alt="Beige background image with an in the foreground."
+                quality={100}
+              />
+            </PrinciplesImage>
             <p>
               Focus on personal development and care based on the Daoist Arts,
               which enrich the understanding of this system of medicine.
             </p>
           </PrinciplesItem>
           <PrinciplesItem>
-            <StaticImage
-              src="../images/AboutUs/OurCorePrinciples/massage.png"
-              alt="Beige background image with an in the foreground."
-              quality={100}
-            />
+            <PrinciplesImage
+              whileHover={{ y: -5, scale: 1.05 }}
+              transition={{ ease: "easeOut" }}
+            >
+              <StaticImage
+                src="../images/AboutUs/OurCorePrinciples/massage.png"
+                alt="Beige background image with an in the foreground."
+                quality={100}
+              />
+            </PrinciplesImage>
             <p>
               Balanced courses, offering both in-depth theory and extensive
               hands-on practice.
@@ -381,9 +371,11 @@ const AboutUs = ({ data }) => {
           <TCLeft>
             <StaticImage
               src="../images/AboutUs/tcimage.png"
-              alt="Image of a woman with a prosthetic foot in hand, which has a number of acupuncture points inked upon it"
+              alt="Image of a woman receiving care. She is lying down with her eyes closed as two metal rods point to her temple."
               placeholder="blurred"
-              // style={{ minHeight: "640px" }}
+              transformOptions={{ cropFocus: "top" }}
+              imgStyle={{ objectFit: "cover" }}
+              style={{ height: "100%" }}
               quality={100}
             />
           </TCLeft>
@@ -396,15 +388,15 @@ const AboutUs = ({ data }) => {
                 </h2>
               </Link>
               <h6>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-                in arcu orci. Ut sit amet nisl at velit imperdiet vestibulum in
-                non nunc. Vivamus venenatis massa ut eros sodales, id fermentum
-                mauris.
+                Explore affordable, community-based treatments from our
+                student-run clinic. Supervised by our most talented instructors,
+                the clinc is one of the many ways we help our students gain
+                real-world expertise and knowledge in patient care.
               </h6>
             </Header>
             <Bottom>
               <Treatments>
-                <p>List of Treatments:</p>
+                <p>Available Treatments:</p>
                 <p>
                   Acupuncture, Moxibustion, Herbal Medicine, Tui Na, Nutritional
                   & Lifestyle Counselling, Cupping, Gua Sha, Auricular (Ear)
@@ -431,13 +423,13 @@ const AboutUs = ({ data }) => {
                     <br />
                   </p>
                   <p>
-                    6:00pm-10:00pm <br />
-                    6:00pm-10:00pm <br />
-                    2:00pm-8:00pm <br />
-                    Closed <br />
-                    Closed <br />
-                    Closed <br />
-                    Closed <br />
+                    {teachingClinic.mon} <br />
+                    {teachingClinic.tues} <br />
+                    {teachingClinic.wed} <br />
+                    {teachingClinic.thurs} <br />
+                    {teachingClinic.fri} <br />
+                    {teachingClinic.sat} <br />
+                    {teachingClinic.sun} <br />
                   </p>
                 </Details>
               </Hours>
@@ -594,14 +586,18 @@ const AboutUsSection = styled.section`
 `
 
 const Left = styled.div`
-  width: 50vw;
-  position: sticky;
-  height: 100vh;
-  top: 0;
   overflow: hidden;
+  position: sticky;
+  top: 0;
+  width: 50vw;
+  height: 100vh;
 
   @media (max-width: ${breakpoints.l}px) {
     display: none;
+    /* width: 100%;
+    height: 40%;
+    position: relative;
+    overflow: visible; */
   }
 `
 
@@ -614,8 +610,12 @@ const HideImageBeige = styled(motion.div)`
   top: 0;
   left: 0;
 `
+
 const Right = styled.div`
   width: 50vw;
+  background-color: var(--color-sandbeige);
+  position: relative;
+  z-index: 10;
 
   h3 {
     padding-top: 15rem;
@@ -624,24 +624,25 @@ const Right = styled.div`
     width: 85%;
   }
 
-  @media (max-width: ${breakpoints.xxl}px) {
-    width: 90%;
-    margin: 0 auto;
-  }
   @media (max-width: ${breakpoints.xl}px) {
     h3 {
       margin: 0 2rem;
     }
   }
   @media (max-width: ${breakpoints.l}px) {
+    width: 80%;
+    margin: 0 auto;
     h3 {
-      padding-top: 0rem;
+      margin: 0 auto;
+      padding-top: 10rem;
+      padding-bottom: 3rem;
     }
   }
   @media (max-width: ${breakpoints.s}px) {
-    width: 95%;
+    width: 90%;
     h3 {
-      margin: 0 1rem;
+      margin: 0;
+      width: 100%;
     }
   }
 `
@@ -658,6 +659,9 @@ const HiddenText = styled(motion.div)`
   @media (max-width: ${breakpoints.xl}px) {
     width: 80%;
   }
+  @media (max-width: ${breakpoints.s}px) {
+    width: 100%;
+  }
 `
 
 const Gradient = styled(motion.div)`
@@ -673,6 +677,16 @@ const Gradient = styled(motion.div)`
       rgba(253, 250, 241, 0) 30%,
       #efe9dd 90%
     );
+  }
+
+  @media (max-width: ${breakpoints.s}px) {
+    :before {
+      background: linear-gradient(
+        180deg,
+        rgba(253, 250, 241, 0) 10%,
+        #efe9dd 70%
+      );
+    }
   }
 `
 
@@ -694,6 +708,19 @@ const ExpandButton = styled.button`
     padding-right: 0.5rem;
     font-size: 20px;
   }
+  @media (max-width: ${breakpoints.xl}px) {
+    width: 80%;
+  }
+
+  @media (max-width: ${breakpoints.s}px) {
+    justify-content: center;
+    /* border-bottom: 1px solid; */
+    width: auto;
+    padding-left: 0;
+    p {
+      font-size: 17px;
+    }
+  }
 `
 
 const OurCorePrinciples = styled.section`
@@ -704,8 +731,22 @@ const OurCorePrinciples = styled.section`
     text-align: center;
     color: var(--color-darkgreen);
   }
+  @media (max-width: ${breakpoints.l}px) {
+    h2 {
+      font-size: 40px;
+    }
+  }
   @media (max-width: ${breakpoints.m}px) {
+    padding: 5rem 0;
+    h2 {
+      margin-top: 3rem;
+    }
+  }
+  @media (max-width: ${breakpoints.s}px) {
     padding: 2.5rem 0;
+    h2 {
+      margin-top: 3rem;
+    }
   }
 `
 
@@ -715,6 +756,10 @@ const PrinciplesWrapper = styled.div`
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: ${breakpoints.xxl}px) {
+    width: 90%;
+  }
 
   @media (max-width: ${breakpoints.m}px) {
     flex-direction: column;
@@ -729,20 +774,46 @@ const PrinciplesItem = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   width: 31%;
   p {
     padding-top: 1rem;
     text-align: center;
   }
-
-  @media (max-width: ${breakpoints.m}px) {
-    width: 90%;
+  @media (max-width: ${breakpoints.xl}px) {
     p {
-      padding-bottom: 3rem;
       width: 90%;
     }
   }
+
+  @media (max-width: ${breakpoints.l}px) {
+    width: 27%;
+    p {
+      width: 100%;
+      font-size: 16px;
+      line-height: 130%;
+    }
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    width: 40%;
+    margin: 2rem 0;
+    p {
+      width: 100%;
+      font-size: 19px;
+    }
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    width: 90%;
+    margin: 2rem 0;
+    p {
+      font-size: 17px;
+      width: 70vw;
+    }
+  }
+`
+
+const PrinciplesImage = styled(motion.div)`
+  overflow: hidden;
+  border-radius: 100%;
 `
 
 const GraphSection = styled.section`
@@ -899,11 +970,16 @@ const OurTeachingClinic = styled.section`
 
 const TeachingClinicFlex = styled.div`
   display: flex;
+  position: relative;
   justify-content: space-between;
   width: 85%;
+  height: 100%;
   margin: 0 auto;
   padding: 10rem 0;
 
+  @media (max-width: ${breakpoints.xxl}px) {
+    width: 90%;
+  }
   @media (max-width: ${breakpoints.l}px) {
     flex-direction: column;
   }
@@ -916,19 +992,32 @@ const TeachingClinicFlex = styled.div`
 `
 
 const TCLeft = styled.div`
+  position: relative;
   align-self: center;
   margin-right: 2rem;
   border-radius: 20px;
   overflow: hidden;
-  max-width: 36vw;
-
+  /* max-width: 36vw; */
+  width: 40%;
+  height: 100%;
+  
+  
+  
   @media (max-width: ${breakpoints.xxl}px) {
-    max-width: 40vw;
+    /* max-width: 40vw; */
+    align-self: flex-start;
+  }
+  @media (max-width: ${breakpoints.xl}px) {
+    position: sticky;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: 15rem;
   }
   @media (max-width: ${breakpoints.l}px) {
     display: none;
   }
 `
+
 
 const TCRight = styled.div`
   flex-basis: 50%;
@@ -1000,7 +1089,7 @@ const Details = styled.div`
     font-family: "matter-light";
   }
 
-  @media (max-width: ${breakpoints.l}px) {
+  @media (max-width: ${breakpoints.xl}px) {
     justify-content: flex-start;
     p :nth-of-type(1) {
       margin-right: 2rem;
@@ -1014,11 +1103,11 @@ const Hours = styled.div`
   @media (max-width: ${breakpoints.xl}px) {
     padding-top: 2rem;
   }
-
+  
   @media (max-width: ${breakpoints.l}px) {
-    padding-top: 2rem;
+    padding-top: 0rem;
   }
-
+  
   @media (max-width: ${breakpoints.m}px) {
     padding-top: 2rem;
   }

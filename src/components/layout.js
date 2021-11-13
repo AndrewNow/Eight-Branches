@@ -48,7 +48,7 @@ const GlobalWrapper = styled(motion.div)`
       line-height: 58px;
     }
     h2 {
-      font-size: 30px;
+      font-size: 40px;
       line-height: 45px;
     }
     h3 {
@@ -76,6 +76,24 @@ const GlobalWrapper = styled(motion.div)`
     p {
       font-size: 18px;
       line-height: 31px;
+    }
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    h1 {
+      font-size: 45px;
+      line-height: 50px;
+    }
+    h2 {
+      font-size: 30px;
+      line-height: 45px;
+    }
+    h5 {
+      font-size: 20px;
+      line-height: 27px;
+    }
+    h6 {
+      font-size: 18px;
+      line-height: 28px;
     }
   }
   @media (max-width: ${breakpoints.m}px) {
@@ -119,7 +137,7 @@ const GlobalWrapper = styled(motion.div)`
     }
     h3 {
       font-size: 28px;
-      line-height: 36px;
+      line-height: 34px;
     }
     h4 {
       font-size: 22px;

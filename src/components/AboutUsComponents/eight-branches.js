@@ -3,8 +3,45 @@ import styled from "styled-components"
 import { motion, AnimatePresence } from "framer-motion"
 import AboutUsClose from "../../svg/aboutUsClose"
 import breakpoints from "../breakpoints"
+import { useInView } from "react-intersection-observer"
 
 const EightBranches = () => {
+  const FadeIn = {
+    visible: {
+      transition: {
+        staggerChildren: 0.1,
+        ease: "easeInOut",
+      },
+    },
+  }
+  // since there are 2 iterations of <Grid>, to get a proper animation
+  // we have to delay the second grid by the total length of the first grid's children animations
+  // FadeIn2 -> ( staggerChildren * 4 , because there are 4 blocks per <Grid> )
+  const FadeIn2 = {
+    visible: {
+      transition: {
+        delayChildren: 0.4,
+        staggerChildren: 0.1,
+        ease: "easeInOut",
+      },
+    },
+  }
+
+  const child = {
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        ease: "easeInOut",
+        duration: 0.35,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      x: -15,
+    },
+  }
+
   const dropdown = {
     visible: {
       opacity: 1,
@@ -35,7 +72,6 @@ const EightBranches = () => {
         duration: 0.5,
       },
     },
-
     hidden: {
       opacity: 0,
     },
@@ -52,6 +88,14 @@ const EightBranches = () => {
     bodywork: null,
   })
 
+  const [BlocksRef, BlocksInView] = useInView({
+    root: null,
+    threshold: 0.5,
+    triggerOnce: true,
+  })
+
+  // **** NOTE:
+
   // this component is a little convoluted - I wrote this under time constraints and
   // did not have time to come up with an ideal way to manage state w/ .map() considering
   // the design requirement of having two separate areas in which the dropdown could expand
@@ -61,9 +105,14 @@ const EightBranches = () => {
 
   return (
     <>
-      <Wrapper>
-        <Grid>
+      <Wrapper ref={BlocksRef}>
+        <Grid
+          initial="hidden"
+          animate={BlocksInView ? "visible" : "hidden"}
+          variants={FadeIn}
+        >
           <Block
+            variants={child}
             onClick={() =>
               setExpand({
                 acupuncture: !false,
@@ -77,11 +126,21 @@ const EightBranches = () => {
               })
             }
           >
-            <BlockInner>
+            <BlockInner
+              style={{
+                background: expand.acupuncture
+                  ? "var(--color-lightorange)"
+                  : "white",
+                color: expand.acupuncture
+                  ? "var(--color-beige)"
+                  : "var(--color-lightestorange)",
+              }}
+            >
               <h3>Acupuncture</h3>
             </BlockInner>
           </Block>
           <Block
+            variants={child}
             onClick={() =>
               setExpand({
                 acupuncture: false,
@@ -95,11 +154,21 @@ const EightBranches = () => {
               })
             }
           >
-            <BlockInner>
+            <BlockInner
+              style={{
+                background: expand.moxibustion
+                  ? "var(--color-lightorange)"
+                  : "white",
+                color: expand.moxibustion
+                  ? "var(--color-beige)"
+                  : "var(--color-lightestorange)",
+              }}
+            >
               <h3>Moxibustion</h3>
             </BlockInner>
           </Block>
           <Block
+            variants={child}
             onClick={() =>
               setExpand({
                 acupuncture: false,
@@ -113,11 +182,21 @@ const EightBranches = () => {
               })
             }
           >
-            <BlockInner>
+            <BlockInner
+              style={{
+                background: expand.cupping
+                  ? "var(--color-lightorange)"
+                  : "white",
+                color: expand.cupping
+                  ? "var(--color-beige)"
+                  : "var(--color-lightestorange)",
+              }}
+            >
               <h3>Cupping</h3>
             </BlockInner>
           </Block>
           <Block
+            variants={child}
             onClick={() =>
               setExpand({
                 acupuncture: false,
@@ -131,7 +210,16 @@ const EightBranches = () => {
               })
             }
           >
-            <BlockInner>
+            <BlockInner
+              style={{
+                background: expand.herbology
+                  ? "var(--color-lightorange)"
+                  : "white",
+                color: expand.herbology
+                  ? "var(--color-beige)"
+                  : "var(--color-lightestorange)",
+              }}
+            >
               <h3>Herbology</h3>
             </BlockInner>
           </Block>
@@ -259,9 +347,21 @@ const EightBranches = () => {
         </AnimatePresence>
       </Wrapper>
       {/* beginning of wrapper 2 */}
+      {/* beginning of wrapper 2 */}
+      {/* beginning of wrapper 2 */}
+      {/* beginning of wrapper 2 */}
+      {/* beginning of wrapper 2 */}
+      {/* beginning of wrapper 2 */}
+      {/* beginning of wrapper 2 */}
+      {/* beginning of wrapper 2 */}
       <Wrapper style={{ paddingBottom: "5rem" }}>
-        <Grid>
+        <Grid
+          initial="hidden"
+          animate={BlocksInView ? "visible" : "hidden"}
+          variants={FadeIn2}
+        >
           <Block
+            variants={child}
             onClick={() =>
               setExpand({
                 acupuncture: false,
@@ -275,11 +375,21 @@ const EightBranches = () => {
               })
             }
           >
-            <BlockInner>
+            <BlockInner
+              style={{
+                background: expand.guasha
+                  ? "var(--color-lightorange)"
+                  : "white",
+                color: expand.guasha
+                  ? "var(--color-beige)"
+                  : "var(--color-lightestorange)",
+              }}
+            >
               <h3>Gua Sha</h3>
             </BlockInner>
           </Block>
           <Block
+            variants={child}
             onClick={() =>
               setExpand({
                 acupuncture: false,
@@ -293,11 +403,21 @@ const EightBranches = () => {
               })
             }
           >
-            <BlockInner>
+            <BlockInner
+              style={{
+                background: expand.nutrition
+                  ? "var(--color-lightorange)"
+                  : "white",
+                color: expand.nutrition
+                  ? "var(--color-beige)"
+                  : "var(--color-lightestorange)",
+              }}
+            >
               <h3>Nutrition</h3>
             </BlockInner>
           </Block>
           <Block
+            variants={child}
             onClick={() =>
               setExpand({
                 acupuncture: false,
@@ -311,7 +431,16 @@ const EightBranches = () => {
               })
             }
           >
-            <BlockInner>
+            <BlockInner
+              style={{
+                background: expand.taoist
+                  ? "var(--color-lightorange)"
+                  : "white",
+                color: expand.taoist
+                  ? "var(--color-beige)"
+                  : "var(--color-lightestorange)",
+              }}
+            >
               <h3>
                 Taoist Arts <br /> (Yang Shen)
               </h3>
@@ -319,6 +448,7 @@ const EightBranches = () => {
           </Block>
 
           <Block
+            variants={child}
             onClick={() =>
               setExpand({
                 acupuncture: false,
@@ -332,11 +462,26 @@ const EightBranches = () => {
               })
             }
           >
-            <BlockInner>
+            <BlockInner
+              style={{
+                background: expand.bodywork
+                  ? "var(--color-lightorange)"
+                  : "white",
+                color: expand.bodywork
+                  ? "var(--color-beige)"
+                  : "var(--color-lightestorange)",
+              }}
+            >
               <h3>Asian Bodywork</h3>
             </BlockInner>
           </Block>
         </Grid>
+        {/* start of dropdown area 2 */}
+        {/* start of dropdown area 2 */}
+        {/* start of dropdown area 2 */}
+        {/* start of dropdown area 2 */}
+        {/* start of dropdown area 2 */}
+        {/* start of dropdown area 2 */}
         {/* start of dropdown area 2 */}
         <AnimatePresence>
           {expand.guasha && (
@@ -475,7 +620,7 @@ const Wrapper = styled(motion.div)`
   width: 90%;
 `
 
-const Grid = styled.div`
+const Grid = styled(motion.div)`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   position: relative;
@@ -486,18 +631,18 @@ const Grid = styled.div`
   }
 `
 
-const Block = styled.div`
+const Block = styled(motion.div)`
   height: auto;
   position: relative;
   margin: 2rem;
-  
+
   @media (max-width: ${breakpoints.xl}px) {
     margin: 1rem;
   }
   @media (max-width: ${breakpoints.s}px) {
     margin: 0.5rem;
   }
-  `
+`
 
 const BlockInner = styled.div`
   display: flex;
@@ -523,7 +668,7 @@ const BlockInner = styled.div`
   @media (max-width: ${breakpoints.l}px) {
     height: 100px;
     border-radius: 10px;
-    
+
     h3 {
       font-size: 3vw;
     }
@@ -552,7 +697,7 @@ const InfoDropDown = styled(motion.div)`
   flex-basis: 0;
 
   h4 {
-    width: 95%;
+    width: 90%;
     padding: 5rem;
   }
 
@@ -578,5 +723,17 @@ const InfoDropDown = styled(motion.div)`
   @media (max-width: ${breakpoints.s}px) {
     margin: 0.5rem;
     border-radius: 10px;
+    svg {
+      top: 1rem;
+      right: 1rem;
+    }
+    h4 {
+      width: 90%;
+      padding: 0;
+      padding-top: 1rem;
+      margin: 2.5rem auto;
+      font-size: 18px;
+      line-height: 175%;
+    }
   }
 `

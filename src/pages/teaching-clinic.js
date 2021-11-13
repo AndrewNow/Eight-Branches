@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import LeafPattern from "../svg/leafPattern"
 import { GoogleMaps } from "../components/generalcomponents"
+import teachingClinic from '../../site/settings/teaching_clinic.json'
 
 const TeachingClinic = ({ data }) => {
   const siteTitle = data.site.siteMetadata?.title || `Teaching Clinic`
@@ -340,19 +341,13 @@ const TeachingClinic = ({ data }) => {
               <br />
             </h6>
             <h6>
-              6 pm - 10 pm
-              <br />
-              Closed
-              <br />
-              6 pm - 10 pm
-              <br />
-              6 pm - 10 pm
-              <br />
-              1:30 pm - 5:30 pm
-              <br />
-              4 pm - 8 pm
-              <br />
-              Closed
+              {teachingClinic.mon} <br />
+              {teachingClinic.tues} <br />
+              {teachingClinic.wed} <br />
+              {teachingClinic.thurs} <br />
+              {teachingClinic.fri} <br />
+              {teachingClinic.sat} <br />
+              {teachingClinic.sun} <br />
             </h6>
           </Hours>
         </TextWrapper>
@@ -634,12 +629,12 @@ const SectionWrapper = styled.div`
   width: 100%;
   margin: 0 auto;
   background-color: var(--color-beige);
-  & h2 {
+  h2 {
     padding-bottom: 5rem;
   }
 
   @media (max-width: ${breakpoints.m}px) {
-    & h2 {
+    h2 {
       padding-top: 5rem;
       padding-bottom: 2.5rem;
     }

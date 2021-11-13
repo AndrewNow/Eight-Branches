@@ -102,9 +102,7 @@ const Footer = () => {
                   <Link to="/admissions">
                     <p>Admissions</p>
                   </Link>
-                  {/* <Link to="/applynow">
-                    <p>Apply Now</p>
-                  </Link>
+                  {/*
                   <Link to="/careers">
                     <p>Careers</p>
                   </Link> */}

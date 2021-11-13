@@ -9,10 +9,7 @@ import breakpoints from "../components/breakpoints"
 import LeafPattern from "../svg/leafPattern"
 import StampLogo from "../svg/stamplogo"
 import { motion } from "framer-motion"
-import {
-  ApplyNow,
-  AcademicAdvisor,
-} from "../components/generalcomponents"
+import { ApplyNow, AcademicAdvisor } from "../components/generalcomponents"
 
 const OurPrograms = ({ data }) => {
   const siteTitle = data.site.siteMetadata?.title || `Our Programs`
@@ -47,7 +44,7 @@ const OurPrograms = ({ data }) => {
   const [CertificatesRef, CertificatesInView] = useInView({
     root: null,
     triggerOnce: true,
-    threshold: 0.5
+    threshold: 0.5,
   })
 
   // ---------- PARALLAX SCROLL LOGIC ----------
@@ -72,7 +69,7 @@ const OurPrograms = ({ data }) => {
       y: 0,
       transition: {
         duration: 1,
-        delayChildren: .3,
+        delayChildren: 0.3,
         staggerChildren: 0.15,
         ease: "easeInOut",
       },
@@ -87,7 +84,7 @@ const OurPrograms = ({ data }) => {
       transition: {
         staggerChildren: 0.15,
       },
-    }
+    },
   }
   const fadeCards = {
     visible: {
@@ -144,8 +141,9 @@ const OurPrograms = ({ data }) => {
           <BannerText>
             <h1>Our Programs</h1>
             <h6>
-              Explore affordable, community-based treatments from our
-              student-run clinic.
+              Interested in Eastern Medicine? Our academy offers a rich
+              experience across a wide gamut of academic environments. Explore
+              our programs to find one that suits you best.
             </h6>
           </BannerText>
 
@@ -178,7 +176,9 @@ const OurPrograms = ({ data }) => {
                   src="../images/Programs/programs-acupuncture.png"
                   alt="A practitioner carefully performs acupuncture on a patient's foot."
                   quality={100}
-                  width={590}
+                  transformOptions={{ cropFocus: "center" }}
+                  imgStyle={{ objectFit: "cover" }}
+                  style={{ height: "100%" }}
                 />
               </BorderRadius>
             </ProgramImage>
@@ -250,7 +250,9 @@ const OurPrograms = ({ data }) => {
                   src="../images/Programs/programs-cupping.png"
                   alt="A practitioner performs cupping on a patient with 6 cups on their back."
                   quality={100}
-                  width={590}
+                  transformOptions={{ cropFocus: "center" }}
+                  imgStyle={{ objectFit: "cover" }}
+                  style={{ height: "100%" }}
                 />
               </BorderRadius>
             </ProgramImage>
@@ -308,7 +310,9 @@ const OurPrograms = ({ data }) => {
                   src="../images/Programs/programs-tcmp.png"
                   alt="A professor leads a group in Tai Chi in one of our salons."
                   quality={100}
-                  width={590}
+                  transformOptions={{ cropFocus: "center" }}
+                  imgStyle={{ objectFit: "cover" }}
+                  style={{ height: "100%" }}
                 />
               </BorderRadius>
             </ProgramImage>
@@ -368,10 +372,7 @@ const OurPrograms = ({ data }) => {
                 examinations. Herbology graduates can become a Registered TCM
                 Herbalist. (R.TCM.H)
               </motion.h6>
-              <ProgramLink
-                variants={fadeIn}
-                to="/diploma-programs/herbology"
-              >
+              <ProgramLink variants={fadeIn} to="/diploma-programs/herbology">
                 <LinkWrapper variants={fadeIn}>
                   <p>Learn more</p>{" "}
                   <svg
@@ -406,7 +407,9 @@ const OurPrograms = ({ data }) => {
                   src="../images/Programs/programs-herbology.png"
                   alt="A picture of a collection of herbs and jars from our Apothecary."
                   quality={100}
-                  width={590}
+                  transformOptions={{ cropFocus: "center" }}
+                  imgStyle={{ objectFit: "cover" }}
+                  style={{ height: "100%" }}
                 />
               </BorderRadius>
             </ProgramImage>
@@ -609,8 +612,8 @@ const ImageBannerMobile = styled.div`
 const BannerText = styled.div`
   position: absolute;
   z-index: 20;
-  top: 37.5%;
-  left: 12.5%;
+  top: 25%;
+  left: 10%;
   width: 37.5%;
   h1 {
     white-space: nowrap;
@@ -619,14 +622,16 @@ const BannerText = styled.div`
 
   h5 {
     margin-top: 1rem;
-    width: 95%;
+    width: 100%;
+  }
+  @media (max-width: ${breakpoints.xl}px) {
+    width: 50%;
   }
 
   @media (max-width: ${breakpoints.m}px) {
     width: 90%;
     left: 5vw;
     top: 30vw;
-    /* bottom: 2.5rem; */
 
     h1 {
       padding-bottom: 0.5rem;
@@ -646,24 +651,29 @@ const ProgramSection = styled.div`
   position: relative;
   overflow: hidden !important;
 
-  &:nth-child(1) {
+  :nth-child(1) {
     background-color: var(--color-beige);
   }
-  &:nth-child(2) {
+  :nth-child(2) {
     background-color: var(--color-brown);
   }
-  &:nth-child(3) {
+  :nth-child(3) {
     background-color: var(--color-sandbeige);
   }
-  &:nth-child(4) {
+  :nth-child(4) {
     background-color: var(--color-salmon);
   }
   @media (max-width: ${breakpoints.xl}px) {
-    max-height: 80vh;
+    max-height: 85vh;
+  }
+
+  @media (max-width: ${breakpoints.l}px) {
+    min-height: 50vh;
   }
 
   @media (max-width: ${breakpoints.m}px) {
     max-height: none;
+    height: auto;
     padding: 2rem 0;
   }
 `
@@ -680,37 +690,59 @@ const HideImage = styled(motion.div)`
 const ProgramInner = styled.div`
   width: 90%;
   padding: 6rem 0;
+  align-self: center;
   display: flex;
   justify-content: space-around;
   flex-direction: row;
+  height: 100%;
   margin: 0 auto;
+  position: relative;
 
-  &:nth-child(odd) {
+  :nth-child(odd) {
     flex-direction: row-reverse;
   }
-  &:nth-child(even) {
+  :nth-child(even) {
     flex-direction: row;
   }
 
   @media (max-width: ${breakpoints.xl}px) {
-    width: 100%;
-    padding: 3rem;
+    /* padding: 5rem 1rem; */
     justify-content: space-between;
   }
   @media (max-width: ${breakpoints.l}px) {
-    padding: 2.5rem 0;
+    /* padding: 2.5rem 0; */
     width: 90%;
     margin: 0 auto;
   }
   @media (max-width: ${breakpoints.m}px) {
     flex-direction: column;
     padding: 2rem 0;
-    &:nth-child(odd) {
+    :nth-child(odd) {
       flex-direction: column;
     }
-    &:last-child {
+    :last-child {
       flex-direction: column-reverse;
     }
+  }
+`
+
+const ProgramImage = styled(motion.div)`
+  z-index: 2;
+  position: relative;
+  overflow: hidden;
+  margin: 0.5rem;
+  height: 100%;
+  @media (max-width: ${breakpoints.xxl}px) {
+    margin: 1rem;
+    max-width: 35vw;
+    align-self: center;
+  }
+  @media (max-width: ${breakpoints.xl}px) {
+    max-width: 40vw;
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    margin: 2rem 0;
+    max-width: 100%;
   }
 `
 
@@ -719,6 +751,7 @@ const ProgramText = styled(motion.div)`
   padding-top: 1rem;
   position: relative;
   z-index: 2;
+  align-self: center;
 
   h1 {
     padding-bottom: 1rem;
@@ -738,8 +771,13 @@ const ProgramText = styled(motion.div)`
   @media (max-width: ${breakpoints.xl}px) {
     max-width: 50%;
     padding-top: 0rem;
-    margin: 0 2.5rem;
+    /* margin: 0 2rem; */
+    margin-left: 2rem;
 
+    h1 {
+      font-size: 40px;
+      line-height: 130%;
+    }
     h6 {
       max-width: 90%;
     }
@@ -755,14 +793,17 @@ const ProgramText = styled(motion.div)`
     padding-top: 0rem;
     margin: 0;
 
-    & h6 {
-      max-width: 100%;
+    h1 {
+      font-size: 45px;
+    }
+
+    h6 {
+      max-width: 90%;
     }
   }
   @media (max-width: ${breakpoints.s}px) {
     h1 {
-      font-size: 32px;
-      line-height: 40px;
+      font-size: 37px;
     }
   }
 `
@@ -812,30 +853,24 @@ const SvgWrapper = styled.div`
   left: 50px;
   z-index: 1;
 
-  &:nth-child(2) {
+  :nth-child(2) {
     right: 50px;
     left: auto;
     transform: rotate(360deg);
   }
 `
-const ProgramImage = styled(motion.div)`
-  z-index: 2;
-  position: relative;
-  border-radius: 20px !important;
-  overflow: hidden;
-  margin: 0.5rem;
-
-  @media (max-width: ${breakpoints.xl}px) {
-    margin: 1rem 0;
-  }
-  @media (max-width: ${breakpoints.m}px) {
-    margin: 2rem 0;
-  }
-`
 
 const BorderRadius = styled.div`
-  border-radius: 20px;
+  position: relative;
   overflow: hidden;
+  border-radius: 20px;
+
+  @media (max-width: ${breakpoints.m}px) {
+    border-radius: 10px;
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    border-radius: 5px;
+  }
 `
 
 const CertificateLink = styled(Link)`
@@ -883,7 +918,6 @@ const CertificateLinkWrapper = styled.div`
     }
   }
 `
-
 
 const CertificatePrograms = styled.section`
   background-color: var(--color-lightestbeige);

@@ -1,9 +1,8 @@
 import React from "react"
-import { motion } from "framer-motion"
 
 const AboutUsClose = () => {
   return (
-    <motion.svg
+    <svg
       width="50"
       height="50"
       viewBox="0 0 50 50"
@@ -25,8 +24,10 @@ const AboutUsClose = () => {
         stroke="#D27241"
       />
       <circle r="24.5" transform="matrix(-1 0 0 1 25 25)" stroke="#D27241" />
-    </motion.svg>
+    </svg>
   )
 }
+
+
 
 export default AboutUsClose

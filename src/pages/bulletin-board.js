@@ -208,7 +208,7 @@ const UpcomingEventsWrapper = styled.div`
   top: 0;
   padding-top: 15rem;
 
-  & h2 {
+  h2 {
     color: var(--color-white);
     padding-bottom: 5rem;
   }
@@ -217,7 +217,7 @@ const UpcomingEventsWrapper = styled.div`
     position: relative;
     padding-top: 10rem;
 
-    & h2 {
+    h2 {
       padding-bottom: 2.5rem;
     }
   }
@@ -235,8 +235,10 @@ const EventWrapper = styled.section`
   width: 100%;
   display: flex;
   flex-direction: row;
-
-  & article:not(:first-child) {
+  article:first-child {
+    padding-right: 2.5rem;
+  }
+  article:not(:first-child) {
     border-left: 1px solid var(--color-white);
     padding-left: 5rem;
     padding-right: 5rem;
@@ -252,7 +254,7 @@ const EventWrapper = styled.section`
   @media (max-width: ${breakpoints.m}px) {
     flex-direction: column;
 
-    & article:not(:first-child) {
+    article:not(:first-child) {
       border-top: 1px solid white;
       padding-left: 0rem;
       padding-top: 2.5rem;
@@ -262,14 +264,15 @@ const EventWrapper = styled.section`
 `
 
 const Event = styled.article`
-  width: 33%;
+  min-width: 33%;
+  max-width: 40%;
   color: var(--color-white);
   margin-bottom: 5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  & p {
+  p {
     padding-bottom: 1rem;
     font-family: "Matter-light";
   }
@@ -288,16 +291,16 @@ const Event = styled.article`
 const EventLink = styled(Link)`
   text-decoration: none;
 
-  & h4 {
+  h4 {
     color: var(--color-white);
     padding-bottom: 0.5rem;
-    padding-right: 0.5rem;
+    /* padding-right: 0.5rem; */
   }
 `
 
 const SignUpLink = styled(Link)`
   text-decoration: none;
-  & p {
+  p {
     font-size: 18px;
     font-family: "Matter-light";
     padding-bottom: 4px;
