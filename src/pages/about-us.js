@@ -623,7 +623,13 @@ const Right = styled.div`
     margin: 0 auto;
     width: 85%;
   }
-
+  
+  @media (max-width: ${breakpoints.xxl}px) {
+    h3 {
+      width: 80%;
+      padding-bottom: 4rem;
+    }
+  }
   @media (max-width: ${breakpoints.xl}px) {
     h3 {
       margin: 0 2rem;
@@ -1008,10 +1014,10 @@ const TCLeft = styled.div`
     align-self: flex-start;
   }
   @media (max-width: ${breakpoints.xl}px) {
-    position: sticky;
+    /* position: sticky;
     top: 50%;
     transform: translateY(-50%);
-    margin-top: 15rem;
+    margin-top: 15rem; */
   }
   @media (max-width: ${breakpoints.l}px) {
     display: none;
@@ -1138,6 +1144,11 @@ const FAQBg = styled.section`
     text-align: center;
     padding: 5rem 0;
     color: var(--color-darkgreen);
+  }
+
+  @media (max-width: ${breakpoints.l}px) {
+    padding-top: 5rem;
+    padding-bottom: 10rem;
   }
 
   @media (max-width: ${breakpoints.m}px) {

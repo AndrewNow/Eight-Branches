@@ -47,9 +47,11 @@ export const AcademicAdvisor = () => {
       <AcademicAdvisorText>
         <h2>
           Have any questions? <br />
-          Speak with an Academic Advisor
+          Speak with an Academic Advisor!
         </h2>
-        <BookAnAppointment>Book an appointment</BookAnAppointment>
+        <BookAnAppointment href="https://eightbranches.youcanbook.me/" target="_blank" rel="noreferrer">
+          Book an appointment
+        </BookAnAppointment>
       </AcademicAdvisorText>
       <AcademicAdvisorImage>
         <StaticImage
@@ -57,7 +59,7 @@ export const AcademicAdvisor = () => {
           alt="An image of a bookshelf within our school."
           quality={100}
           imgStyle={{ objectFit: "cover" }}
-          style={{minHeight: "100%"}}
+          style={{ height: "100%" }}
         />
       </AcademicAdvisorImage>
     </AcademicAdvisorWrapper>
@@ -198,7 +200,6 @@ const AcademicAdvisorText = styled.div`
 
   h2 {
     margin-bottom: 2.5rem;
-    margin-top: 5rem;
     color: white;
   }
   
@@ -222,12 +223,12 @@ const AcademicAdvisorText = styled.div`
 
 const AcademicAdvisorImage = styled.div`
   min-height: 400px;
-  max-width: 50%;
+  width: 50%;
   overflow-x: hidden;
   position: relative;
 
   @media (max-width: ${breakpoints.l}px) {
-    max-width: 100%;
+    width: 100%;
     min-height: 300px;
   }
   @media (max-width: ${breakpoints.m}px) {

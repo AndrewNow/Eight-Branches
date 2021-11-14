@@ -221,6 +221,10 @@ const LogoWrapper = styled.div`
 const IconWrapper = styled.div`
   display: relative;
   z-index: 1000;
+
+  @media (max-width: ${breakpoints.s}px) {
+    transform: scale(.9);
+  }
 `
 
 const NavMenu = styled(motion.nav)`

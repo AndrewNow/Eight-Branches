@@ -24,7 +24,6 @@ const Footer = () => {
   useEffect(() => {
     const onScroll = () => {
       const footerDivCoords = footerRef.current.getBoundingClientRect()
-      console.log(footerDivCoords.y)
       // only show the footer if it is within 1800px from the top of the viewport
       if (footerDivCoords.y <= 1800) {
         showFooter()

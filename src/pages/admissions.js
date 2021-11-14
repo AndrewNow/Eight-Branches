@@ -76,15 +76,15 @@ const Admissions = ({ data }) => {
       </AcademicRequirements>
       <AdmissionsSection>
         <Left>
-          <h2>Admission Procedure</h2>
+          <h2>Admission Guideline</h2>
         </Left>
         <Right>
-          <h5>
+          <Procedure>
             Prospective students are invited to download the application form
             below and submit it by mail. The form can also be obtained by
             calling the registration office, or in person if a tour of the
             facility is desired.
-          </h5>
+          </Procedure>
           <DividingLine />
           <h3>Application Requirements</h3>
           <ul>
@@ -101,7 +101,7 @@ const Admissions = ({ data }) => {
             </li>
             <li>
               <ArrowSVG />
-              <h6>Non-refundable application fee;</h6>
+              <h6>Non-refundable application fee -</h6>
             </li>
             <li>
               <ArrowSVG />
@@ -181,14 +181,14 @@ const Admissions = ({ data }) => {
             <TermInner>
               <TermItem>
                 <FaRegCalendar size={21} />
-                <h6>
+                <DeadlineText>
                   Start Date: September 8, 2020 <br /> End Date: December 19,
                   2020
-                </h6>
+                </DeadlineText>
               </TermItem>
               <TermItem>
                 <AiOutlineClockCircle size={24} />
-                <h6>Applications due: August 8, 2020</h6>
+                <DeadlineText>Applications due: August 8, 2020</DeadlineText>
               </TermItem>
             </TermInner>
           </Term>
@@ -198,14 +198,14 @@ const Admissions = ({ data }) => {
             <TermInner>
               <TermItem>
                 <FaRegCalendar size={21} />
-                <h6>
+                <DeadlineText>
                   Start Date: September 8, 2020 <br /> End Date: December 19,
                   2020
-                </h6>
+                </DeadlineText>
               </TermItem>
               <TermItem>
                 <AiOutlineClockCircle size={24} />
-                <h6>Applications due: August 8, 2020</h6>
+                <DeadlineText>Applications due: August 8, 2020</DeadlineText>
               </TermItem>
             </TermInner>
           </Term>
@@ -215,14 +215,14 @@ const Admissions = ({ data }) => {
             <TermInner>
               <TermItem>
                 <FaRegCalendar size={21} />
-                <h6>
+                <DeadlineText>
                   Start Date: September 8, 2020 <br /> End Date: December 19,
                   2020
-                </h6>
+                </DeadlineText>
               </TermItem>
               <TermItem>
                 <AiOutlineClockCircle size={24} />
-                <h6>Applications due: August 8, 2020</h6>
+                <DeadlineText>Applications due: August 8, 2020</DeadlineText>
               </TermItem>
             </TermInner>
           </Term>
@@ -274,6 +274,18 @@ const AdmissionsHeader = styled.div`
     width: 40%;
   }
 
+
+  @media (max-width: ${breakpoints.xl}px) {
+    h6 {
+      width: 60%;
+    }
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    h6 {
+      width: 60%;
+    }
+  }
+
   @media (max-width: ${breakpoints.m}px) {
     padding-bottom: 2.5rem;
 
@@ -317,10 +329,17 @@ const RequirementWrapper = styled.div`
     margin: 0 auto;
     width: 90%;
   }
-
   @media (max-width: ${breakpoints.xl}px) {
-    width: 90%;
+    width: 95%;
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    /* width: 55%; */
+    width: 75%;
     flex-direction: column;
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    width: 95%;
   }
 `
 
@@ -341,6 +360,16 @@ const Requirement = styled.div`
     border-radius: 20px;
     margin: 0.75rem 1rem;
     padding: 0.75rem 1rem;
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    margin: 0.5rem .75rem;
+    padding: 0.5rem;
+    border-radius: 15px;
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    border-radius: 10px;
+    margin: 0.75rem 1rem;
+    padding: 0.75rem .5rem;
   }
 `
 
@@ -372,6 +401,34 @@ const Left = styled.div`
     left: auto;
     width: 90%;
     margin: 0 auto;
+  }
+
+  @media (max-width: ${breakpoints.s}px) {
+    /* text-align: center; */
+  }
+`
+
+const Procedure = styled.h5`
+  @media (max-width: ${breakpoints.s}px) {
+    /* text-align: center; */
+    /* width: 90%; */
+    /* margin: 0 auto; */
+    font-size: 16px;
+  }
+`
+
+const DeadlineText = styled.h6`
+  /* white-space: nowrap; */
+
+  @media (max-width: ${breakpoints.xl}px) {
+    font-size: 18px!important;
+    padding-left: .5rem!important;
+    padding-top: .2rem;
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    padding-top: 0;
+
   }
 `
 
@@ -425,6 +482,9 @@ const Right = styled.div`
         font-family: "Matter-regular";
       }
     }
+  }
+  @media (max-width: ${breakpoints.xl}px) {
+    width: 60%;
   }
   @media (max-width: ${breakpoints.l}px) {
     position: relative;
@@ -500,6 +560,13 @@ const TermItem = styled.div`
       min-width: 22px;
       min-height: 22px;
       transform: translateY(0.1rem);
+    }
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    svg {
+      margin-top: .15rem;
+      width: 22px;
+      height: 22px;
     }
   }
 `

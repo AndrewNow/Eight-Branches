@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import LeafPattern from "../svg/leafPattern"
 import { GoogleMaps } from "../components/generalcomponents"
-import teachingClinic from '../../site/settings/teaching_clinic.json'
+import teachingClinic from "../../site/settings/teaching_clinic.json"
 
 const TeachingClinic = ({ data }) => {
   const siteTitle = data.site.siteMetadata?.title || `Teaching Clinic`
@@ -567,7 +567,13 @@ const TeachingClinic = ({ data }) => {
               Explore low-cost treatments performed by our students with careful
               supervision from certified professionals.
             </h6>
-            <BookNowButton>Book A Slot</BookNowButton>
+            <BookNowButton
+              href="https://eightbranches.janeapp.com/#"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Book A Slot
+            </BookNowButton>
           </InnerText>
         </BookAnAppointmentInner>
       </BookAnAppointment>
@@ -622,8 +628,6 @@ export const pageQuery = graphql`
     }
   }
 `
-
-
 
 const SectionWrapper = styled.div`
   width: 100%;

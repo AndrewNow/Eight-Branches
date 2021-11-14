@@ -321,7 +321,7 @@ const HomePage = ({ data }) => {
                 {diploma.title}
               </motion.h1>
               <DiplomaReadMore to="/diploma-programs/">
-                Read More
+                View Program
               </DiplomaReadMore>
             </EntryText>
             <EntryImage>
@@ -424,7 +424,7 @@ const HomePage = ({ data }) => {
                       With {host}&nbsp; &nbsp;| &nbsp; &nbsp;{date}
                     </h6>
                     <SignUpLink to={slug} itemProp="url">
-                      <p>Details</p>
+                      <p>Event Details</p>
                     </SignUpLink>
                   </Event>
                 )

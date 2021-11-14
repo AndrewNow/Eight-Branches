@@ -52,28 +52,32 @@ const GlobalWrapper = styled(motion.div)`
       line-height: 45px;
     }
     h3 {
-      font-size: 25px;
-      line-height: 37px;
+      font-size: 30px;
+      line-height: 40px;
     }
     h4 {
       font-size: 22px;
       line-height: 32px;
     }
     h5 {
-      font-size: 23px;
+      font-size: 20px;
       line-height: 30px;
     }
     h6 {
       font-size: 20px;
-      line-height: 29px;
+      line-height: 30px;
     }
-    p {
-      font-size: 20px;
-      line-height: 31px;
+    p,
+    ul,
+    li {
+      font-size: 18px;
+      line-height: 28px;
     }
   }
   @media (max-width: ${breakpoints.xl}px) {
-    p {
+    p,
+    ul,
+    li {
       font-size: 18px;
       line-height: 31px;
     }
@@ -91,7 +95,10 @@ const GlobalWrapper = styled(motion.div)`
       font-size: 20px;
       line-height: 27px;
     }
-    h6 {
+    h6,
+    p,
+    ul,
+    li {
       font-size: 18px;
       line-height: 28px;
     }
@@ -114,14 +121,16 @@ const GlobalWrapper = styled(motion.div)`
       line-height: 32px;
     }
     h5 {
-      font-size: 20px;
-      line-height: 27px;
+      font-size: 18px;
+      line-height: 28px;
     }
     h6 {
       font-size: 18px;
       line-height: 28px;
     }
-    p {
+    p,
+    ul,
+    li {
       font-size: 16px;
       line-height: 27px;
     }
@@ -151,7 +160,9 @@ const GlobalWrapper = styled(motion.div)`
       font-size: 18px;
       line-height: 28px;
     }
-    p {
+    p,
+    ul,
+    li {
       font-size: 16px;
       line-height: 27px;
     }
