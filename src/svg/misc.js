@@ -16,6 +16,21 @@ export const Arrow = () => (
 )
 
 
+export const CheckmarkSVG = () => (
+   <svg
+      width="31"
+      height="31"
+      viewBox="0 0 31 31"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M11.6247 20.8862L6.23846 15.4999L4.4043 17.3212L11.6247 24.5416L27.1247 9.04159L25.3035 7.22034L11.6247 20.8862Z"
+        fill="black"
+      />
+    </svg>
+)
+
 export const LeftLogoPattern = () => {
   return (
     <svg

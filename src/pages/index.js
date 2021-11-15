@@ -20,7 +20,7 @@ const HomePage = ({ data }) => {
     hidden: {
       y: "-100%",
       transition: {
-        delay: 0.5,
+        delay: 0.15,
         ease: "easeInOut",
         duration: 1,
       },

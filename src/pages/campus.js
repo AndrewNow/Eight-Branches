@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback, useState } from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import Layout from "../components/layout"
@@ -10,7 +10,6 @@ import breakpoints from "../components/breakpoints"
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { GoogleMaps } from "../components/generalcomponents"
-
 
 const Campus = ({ data }) => {
   const siteTitle = data.site.siteMetadata?.title || `Campus`
@@ -26,7 +25,6 @@ const Campus = ({ data }) => {
     threshold: 0.85,
     triggerOnce: true,
   })
-
 
   // ---------- FRAMER LOGIC ----------
   const fadeIn = {
@@ -50,7 +48,7 @@ const Campus = ({ data }) => {
   })
 
   // ---------- Embla config for autoplay scrolling ----------
-  const AUTOPLAY_INTERVAL = 3000
+  const AUTOPLAY_INTERVAL = 2250
   const autoplay = useCallback(() => {
     if (!embla) return
     if (embla.canScrollNext()) {
@@ -104,6 +102,9 @@ const Campus = ({ data }) => {
                         alt={
                           "Images of the campus, including lecture halls, teaching "
                         }
+                        transformOptions={{ cropFocus: "center" }}
+                        imgStyle={{ objectFit: "cover" }}
+                        style={{ height: "100%" }}
                       />
                     </EmblaSlideInner>
                   </EmblaSlide>
@@ -136,12 +137,17 @@ const Campus = ({ data }) => {
                 extensive collection of raw Chinese herbs & granules.
               </motion.h6>
             </CardText>
-            <StaticImage
-              src="../images/Facilities/apothecary.png"
-              alt="Images of traditional Chinese herbs and granules."
-              quality={100}
-              width={450}
-            />
+
+            <CardImage>
+              <StaticImage
+                src="../images/Facilities/apothecary.png"
+                alt="Images of traditional Chinese herbs and granules."
+                quality={100}
+                transformOptions={{ cropFocus: "center" }}
+                imgStyle={{ objectFit: "cover" }}
+                style={{ width: "100%" }}
+              />
+            </CardImage>
           </Card>
 
           <Card
@@ -150,19 +156,86 @@ const Campus = ({ data }) => {
             initial="hidden"
             animate={sectionInView2 ? "visible" : "hidden"}
           >
-            <StaticImage
-              src="../images/Facilities/library.png"
-              alt="Images of a woman reading in our library, with a traditional Chinese scroll painting behind her."
-              quality={100}
-              width={450}
-            />
+            <CardImage>
+              <StaticImage
+                src="../images/Facilities/library.png"
+                alt="Images of a woman reading in our library, with a traditional Chinese scroll painting behind her."
+                quality={100}
+                transformOptions={{ cropFocus: "center" }}
+                imgStyle={{ objectFit: "cover" }}
+                style={{ width: "100%" }}
+              />
+            </CardImage>
             <CardText variants={fadeIn}>
               <motion.h4 variants={fadeIn}>Our Library</motion.h4>
               <motion.h6 variants={fadeIn}>
                 Eight Branches has an ever expanding library. Students can
                 browse our collection in person or through our online catalogue.
               </motion.h6>
+              <CardLinkOutbound
+                variants={fadeIn}
+                href="https://eightbranches.librarika.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <LinkWrapper variants={fadeIn}>
+                  <p>View Our Catalog</p>{" "}
+                  <svg
+                    width="8"
+                    height="12"
+                    viewBox="0 0 8 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0.590088 10.59L5.17009 6L0.590088 1.41L2.00009 0L8.00009 6L2.00009 12L0.590088 10.59Z"
+                      fill="black"
+                    />
+                  </svg>
+                </LinkWrapper>
+              </CardLinkOutbound>
             </CardText>
+          </Card>
+          <Card
+            ref={SectionRef1}
+            variants={fadeIn}
+            initial="hidden"
+            animate={sectionInView1 ? "visible" : "hidden"}
+          >
+            <CardText variants={fadeIn}>
+              <motion.h4 variants={fadeIn}>The Teaching Clinic</motion.h4>
+              <motion.h6 variants={fadeIn}>
+                Explore affordable, community-based TCM treatments from our
+                student-run clinic.
+              </motion.h6>
+              <CardLink variants={fadeIn} to="/teaching-clinic">
+                <LinkWrapper variants={fadeIn}>
+                  <p>Learn more</p>{" "}
+                  <svg
+                    width="8"
+                    height="12"
+                    viewBox="0 0 8 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0.590088 10.59L5.17009 6L0.590088 1.41L2.00009 0L8.00009 6L2.00009 12L0.590088 10.59Z"
+                      fill="black"
+                    />
+                  </svg>
+                </LinkWrapper>
+              </CardLink>
+            </CardText>
+            <CardImage>
+              <StaticImage
+                src="../images/Facilities/teachingclinic.png"
+                alt="Images of traditional Chinese herbs and granules."
+                quality={100}
+                transformOptions={{ cropFocus: "center" }}
+                imgStyle={{ objectFit: "cover" }}
+                style={{ width: "100%" }}
+              />
+            </CardImage>
           </Card>
         </CardWrapper>
       </Facilities>
@@ -285,7 +358,7 @@ const CampusHeader = styled.div`
 `
 
 const Embla = styled.div`
-  width: 100%;
+  width: 70%;
   margin: 0 auto;
   padding-bottom: 15rem;
 
@@ -298,6 +371,8 @@ const Embla = styled.div`
 const EmblaViewport = styled.div`
   overflow: hidden;
   width: 100%;
+
+  border-radius: 20px;
 
   @media (max-width: ${breakpoints.m}px) {
   }
@@ -314,9 +389,9 @@ const EmblaContainer = styled.div`
 const EmblaSlide = styled.div`
   position: relative;
   min-width: 100%;
-  padding-left: 10px;
+  /* padding-left: 10px; */
   height: 750px;
-  cursor: grab;
+  cursor: ew-resize;
   @media (max-width: ${breakpoints.xl}px) {
     height: 530px;
   }
@@ -331,15 +406,16 @@ const EmblaSlide = styled.div`
   }
 `
 const EmblaSlideInner = styled.div`
-  position: absolute;
   display: block;
-  top: 50%;
+  height: 100%;
+  /* position: absolute; */
+  /* top: 50%;
   left: 50%;
   width: auto;
   min-height: 100%;
   min-width: 100%;
   max-width: none;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
 `
 
 const EmblaProgress = styled.div`
@@ -349,10 +425,11 @@ const EmblaProgress = styled.div`
   width: calc(100% - 40px);
   height: 10px;
   overflow: hidden;
+  border: 1px solid white;
   border-radius: 20px;
   margin-left: auto;
   margin-right: auto;
-  top: -75px;
+  top: -60px;
 
   @media (max-width: ${breakpoints.m}px) {
     margin-top: 50px;
@@ -362,11 +439,12 @@ const EmblaProgress = styled.div`
 `
 const EmblaProgressBar = styled.div`
   position: absolute;
-  background-color: var(--color-lightestgreen);
-  border-radius: 20px;
+  background-color: var(--color-lightgreen);
+  border-radius: 100%;
+  overflow: hidden;
   width: 100%;
-  top: -75px;
-  bottom: -75px;
+  top: -60px;
+  bottom: -60px;
   left: -100%;
 
   @media (max-width: ${breakpoints.m}px) {
@@ -396,30 +474,25 @@ const CardWrapper = styled.div`
   flex-direction: column;
   margin: 0 auto;
   padding-bottom: 15rem;
-  width: 80%;
 
   @media (max-width: ${breakpoints.m}px) {
-    width: 90%;
     padding-bottom: 5rem;
   }
 `
 
 const Card = styled(motion.div)`
+  position: relative;
   display: flex;
   overflow: hidden;
   width: 72.5%;
+  height: 100%;
   border: 1px solid black;
   border-radius: 20px;
   background-color: white;
-
+  margin: 0 auto;
   margin-bottom: 5rem;
+  align-items: center;
 
-  &:nth-child(odd) {
-    align-self: flex-start;
-  }
-  &:nth-child(even) {
-    align-self: flex-end;
-  }
   @media (max-width: ${breakpoints.xl}px) {
     width: 90%;
   }
@@ -429,30 +502,27 @@ const Card = styled(motion.div)`
 
   @media (max-width: ${breakpoints.s}px) {
     flex-direction: column;
-
-    &:nth-child(odd) {
-      align-self: center;
-    }
-    &:nth-child(even) {
-      align-self: center;
-    }
   }
 `
 
+const CardImage = styled.div`
+  width: 55%;
+  overflow: hidden;
+`
+
 const CardText = styled(motion.div)`
-  width: 65%;
-  padding: 4rem 6rem;
+  width: 35%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 
-  & h4 {
-    padding-bottom: 2rem;
+  h4 {
+    padding-bottom: 1.5rem;
   }
 
-  &:nth-child(odd) {
-    border-right: 1px solid black;
-  }
-  &:nth-child(even) {
-    border-left: 1px solid black;
-  }
 
   @media (max-width: ${breakpoints.xxl}px) {
     padding: 3rem;
@@ -462,20 +532,64 @@ const CardText = styled(motion.div)`
     padding: 2rem;
     border: none;
 
-    & h4 {
+    h4 {
       padding-bottom: 1rem;
     }
 
-    &:nth-child(odd) {
+    :nth-child(odd) {
       border-right: none;
       border-bottom: 1px solid black;
     }
-    &:nth-child(even) {
+    :nth-child(even) {
       border-left: none;
       border-top: 1px solid black;
     }
   }
 `
+
+const CardLink = styled(Link)`
+  color: black;
+  text-decoration: none;
+`
+const CardLinkOutbound = styled.a`
+   color: black;
+  text-decoration: none;
+`
+
+const LinkWrapper = styled(motion.div)`
+  display: flex;
+  align-items: baseline;
+  font-family: "matter-regular";
+
+  svg {
+    transition: 0.2s all cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  p {
+    padding-right: 0.75rem;
+    padding-top: 1rem;
+    font-family: "Matter-regular";
+    font-size: 19px;
+    transition: var(--hover-transition);
+  }
+
+  :hover {
+    p {
+      color: #00000095;
+    }
+    svg {
+      opacity: 0.65;
+      transform: translate3d(8px, 0, 0);
+    }
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    p {
+      font-size: 17px;
+    }
+  }
+`
+
 
 const TorontoBanner = styled.div`
   height: 100%;

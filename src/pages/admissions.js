@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
@@ -7,66 +7,108 @@ import Seo from "../components/seo"
 import breakpoints from "../components/breakpoints"
 import StampLogo from "../svg/stamplogo"
 import { AcademicAdvisor } from "../components/generalcomponents"
-// import { motion } from "framer-motion"
-import { useInView } from "react-intersection-observer"
 import { FaRegCalendar } from "react-icons/fa"
 import { AiOutlineClockCircle } from "react-icons/ai"
+import { CheckmarkSVG } from "../svg/misc"
+import { useInView } from "react-intersection-observer"
+import { motion } from "framer-motion"
 
 const Admissions = ({ data }) => {
   const siteTitle = data.site.siteMetadata?.title || `Admissions`
 
-  const ArrowSVG = () => (
-    <svg
-      width="31"
-      height="31"
-      viewBox="0 0 31 31"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M11.6247 20.8862L6.23846 15.4999L4.4043 17.3212L11.6247 24.5416L27.1247 9.04159L25.3035 7.22034L11.6247 20.8862Z"
-        fill="black"
-      />
-    </svg>
-  )
+  const hideImage = {
+    visible: {
+      y: 0,
+    },
+    hidden: {
+      y: "-100%",
+      transition: {
+        delay: 0.15,
+        ease: "easeInOut",
+        duration: 1,
+      },
+    },
+  }
+  const FadeIn = {
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        delayChildren: .75,
+        staggerChildren: 0.1,
+        duration: 1,
+        // ease: "easeInOut",
+      },
+    },
+    hidden: {
+      y: 40,
+      opacity: 0,
+    },
+  }
+
+
+  // ---------- INTERSECTION OBSERVER LOGIC ----------
+  const [HideImageRef, HideImageInView] = useInView({
+    root: null,
+    threshold: 0.4,
+    triggerOnce: true,
+  })
 
   return (
     <Layout title={siteTitle}>
       <Seo title="Admissions" />
       <HeaderWrapper>
-        <AdmissionsHeader>
-          <h1>Student Admissions</h1>
-          <h6>
+        <AdmissionsHeader variants={FadeIn} initial="hidden" animate="visible">
+          <motion.h1 variants={FadeIn}>Student Admissions</motion.h1>
+          <motion.h6 variants={FadeIn}>
             Interested in studying at Eight Branches? Learn about the admissions
             procedure and ensure that you meet the necessary requirements when
             sending in your application.
-          </h6>
+          </motion.h6>
         </AdmissionsHeader>
-        <StaticImage
-          src="../images/Admissions/admissionsbanner.png"
-          alt="Image of practitioners checking the tongue health of a student."
-          quality={100}
-          imgStyle={{ objectFit: "cover" }}
-          style={{ minWidth: "100%", maxHeight: "525px" }}
-        />
+        <AdmissionsImage ref={HideImageRef}>
+          <HideImage
+            style={{ backgroundColor: "var(--color-lightestbeige)" }}
+            variants={hideImage}
+            initial="visible"
+            animate={HideImageInView ? "hidden" : "visible"}
+            exit="hidden"
+          />
+          <StaticImage
+            src="../images/Admissions/admissionsbanner.png"
+            alt="Image of practitioners checking the tongue health of a student."
+            quality={100}
+            imgStyle={{ objectFit: "cover" }}
+            style={{ minWidth: "100%", maxHeight: "525px" }}
+          />
+        </AdmissionsImage>
       </HeaderWrapper>
       <AcademicRequirements>
         <StampLogo fillColor="white" />
         <h1>Academic Requirements</h1>
         <RequirementWrapper>
-          <Requirement>
+          <Requirement
+            whileHover={{ y: -5 }}
+            transition={{ ease: "easeInOut" }}
+          >
             <h6>
               Minimum of two years post-secondary education, or equivalent
               professional experience;
             </h6>
           </Requirement>
-          <Requirement>
+          <Requirement
+            whileHover={{ y: -5 }}
+            transition={{ ease: "easeInOut" }}
+          >
             <h6>
               Demonstrated understanding of the responsibilities associated with
               being a healthcare professional;
             </h6>
           </Requirement>
-          <Requirement>
+          <Requirement
+            whileHover={{ y: -5 }}
+            transition={{ ease: "easeInOut" }}
+          >
             <h6>
               Strong desire to learn and uphold the principles and ideologies of
               Eastern medicine.
@@ -89,37 +131,37 @@ const Admissions = ({ data }) => {
           <h3>Application Requirements</h3>
           <ul>
             <li>
-              <ArrowSVG />
-              <h6>Submission of properly-completed application form</h6>
+              <CheckmarkSVG />
+              <h6>Submission of properly-completed application form;</h6>
             </li>
             <li>
-              <ArrowSVG />
+              <CheckmarkSVG />
               <h6>
                 Official transcripts from all post-secondary institutions
-                attended (sent directly from the institution)
+                attended (sent directly from the institution);
               </h6>
             </li>
             <li>
-              <ArrowSVG />
-              <h6>Non-refundable application fee -</h6>
+              <CheckmarkSVG />
+              <h6>Non-refundable application fee;</h6>
             </li>
             <li>
-              <ArrowSVG />
+              <CheckmarkSVG />
               <p>$50 for domestic students</p>
             </li>
             <li>
-              <ArrowSVG />
+              <CheckmarkSVG />
               <p>$100 for international students</p>
             </li>
             <li>
-              <ArrowSVG />
+              <CheckmarkSVG />
               <h6>
                 Two letters of recommendation attesting to your individual
-                learning capacities, skills and attitude
+                learning capacities, skills and attitude;
               </h6>
             </li>
             <li>
-              <ArrowSVG />
+              <CheckmarkSVG />
               <h6>
                 Personal letter (200-300 words) detailing your abilities,
                 purpose and motivation for studying at Eight Branches Academy.
@@ -153,13 +195,16 @@ const Admissions = ({ data }) => {
         </Right>
       </AdmissionsSection>
       <BannerWrapper>
-        <StaticImage
-          src="../images/Admissions/banner.png"
-          alt="Image of a hall of practicing tables."
-          quality={100}
-          imgStyle={{ objectFit: "cover", margin: "0 auto" }}
-          transformOptions={{ cropFocus: "bottom" }}
-        />
+        <BannerImage>
+          <StaticImage
+            src="../images/Admissions/bannerimage.png"
+            alt="Image of a hall of practicing tables."
+            quality={100}
+            transformOptions={{ cropFocus: "center" }}
+            imgStyle={{ objectFit: "cover" }}
+            style={{ width: "100%" }}
+          />
+        </BannerImage>
       </BannerWrapper>
       <AdmissionsSection>
         <Left>
@@ -257,7 +302,7 @@ const HeaderWrapper = styled.section`
     padding-top: 10rem;
   }
 `
-const AdmissionsHeader = styled.div`
+const AdmissionsHeader = styled(motion.div)`
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -265,6 +310,8 @@ const AdmissionsHeader = styled.div`
   text-align: center;
   margin: 0 auto;
   padding-bottom: 7.5rem;
+  position: relative;
+  z-index: 10;
 
   h1 {
     padding-bottom: 2rem;
@@ -273,7 +320,6 @@ const AdmissionsHeader = styled.div`
   h6 {
     width: 40%;
   }
-
 
   @media (max-width: ${breakpoints.xl}px) {
     h6 {
@@ -293,6 +339,30 @@ const AdmissionsHeader = styled.div`
       width: 90%;
     }
   }
+
+  @media (max-width: ${breakpoints.s}px) {
+    padding-bottom: 4rem;
+    h1 {
+      padding-bottom: 1rem;
+    }
+    h6 {
+      width: 94%;
+    }
+  }
+`
+
+const AdmissionsImage = styled.div`
+  position: relative;
+  height: 100%;
+`
+
+const HideImage = styled(motion.div)`
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 `
 
 const AcademicRequirements = styled.section`
@@ -310,13 +380,16 @@ const AcademicRequirements = styled.section`
     padding: 2rem;
   }
   @media (max-width: ${breakpoints.l}px) {
-    padding: 1.5rem 0;
+    padding: 3.5rem 0;
     h1 {
       padding-top: 0rem;
     }
     svg {
       max-width: 40px;
     }
+  }
+  @media (max-width: ${breakpoints.s}px) {
+
   }
 `
 
@@ -343,12 +416,13 @@ const RequirementWrapper = styled.div`
   }
 `
 
-const Requirement = styled.div`
+const Requirement = styled(motion.div)`
+  cursor: default;
   display: flex;
   align-items: center;
   text-align: center;
   border: 1px solid white;
-  border-radius: 30px;
+  border-radius: 20px;
   height: 200px;
   width: 35%;
   margin: 2.5rem 1.5rem;
@@ -362,14 +436,14 @@ const Requirement = styled.div`
     padding: 0.75rem 1rem;
   }
   @media (max-width: ${breakpoints.l}px) {
-    margin: 0.5rem .75rem;
+    margin: 0.5rem 0.75rem;
     padding: 0.5rem;
     border-radius: 15px;
   }
   @media (max-width: ${breakpoints.m}px) {
     border-radius: 10px;
     margin: 0.75rem 1rem;
-    padding: 0.75rem .5rem;
+    padding: 0.75rem 0.5rem;
   }
 `
 
@@ -404,31 +478,41 @@ const Left = styled.div`
   }
 
   @media (max-width: ${breakpoints.s}px) {
-    /* text-align: center; */
   }
 `
 
 const Procedure = styled.h5`
   @media (max-width: ${breakpoints.s}px) {
-    /* text-align: center; */
-    /* width: 90%; */
-    /* margin: 0 auto; */
     font-size: 16px;
   }
 `
 
 const DeadlineText = styled.h6`
-  /* white-space: nowrap; */
+  @media (max-width: 1560px) {
+    font-size: 20px !important;
+    padding-left: 0.6rem !important;
+  }
+  @media (max-width: ${breakpoints.xxl}px) {
+    font-size: 18px !important;
+    padding-top: 0.2rem;
+    padding-left: 0.5rem !important;
+    margin-right: 0.5rem;
+  }
+
+  @media (max-width: 1310px) {
+    font-size: 17px !important;
+  }
 
   @media (max-width: ${breakpoints.xl}px) {
-    font-size: 18px!important;
-    padding-left: .5rem!important;
-    padding-top: .2rem;
+    font-size: 18px !important;
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    padding-top: 0;
+    padding-left: 0.75rem !important;
   }
 
   @media (max-width: ${breakpoints.m}px) {
     padding-top: 0;
-
   }
 `
 
@@ -519,13 +603,37 @@ const Right = styled.div`
       }
     }
   }
+  @media (max-width: ${breakpoints.s}px) {
+    h5, h6 {
+      font-size: 18px;
+    }
+  }
 `
 
 const BannerWrapper = styled.div`
-  width: 100%;
   height: 100%;
   position: relative;
+  background-color: var(--color-lightestbeige);
+`
+
+const BannerImage = styled.div`
+  width: 69%;
+  margin: 0 auto;
   overflow: hidden;
+  border-radius: 20px;
+
+  @media (max-width: ${breakpoints.xxl}px) {
+    width: 80%;
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    width: 90%;
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    border-radius: 10px;
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    width: 95%;
+  }
 `
 
 const Term = styled.div``
@@ -552,19 +660,21 @@ const TermItem = styled.div`
   }
 
   @media (max-width: ${breakpoints.l}px) {
-    padding-bottom: 0.5rem;
+    padding-bottom: 1rem;
     justify-content: flex-start;
 
     svg {
       align-self: flex-start;
       min-width: 22px;
       min-height: 22px;
+      width: 22px;
+      height: 22px;
       transform: translateY(0.1rem);
     }
   }
   @media (max-width: ${breakpoints.m}px) {
     svg {
-      margin-top: .15rem;
+      margin-top: 0.15rem;
       width: 22px;
       height: 22px;
     }

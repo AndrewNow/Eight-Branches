@@ -859,11 +859,6 @@ const SvgWrapper = styled.div`
     transform: rotate(360deg);
   }
 
-  /* @media (max-width: ${breakpoints.s}px) {
-    svg {
-      transform: scale(.5);
-    }
-  } */
 `
 
 const BorderRadius = styled.div`
