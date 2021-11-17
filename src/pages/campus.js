@@ -150,7 +150,7 @@ const Campus = ({ data }) => {
                 quality={100}
                 transformOptions={{ cropFocus: "center" }}
                 imgStyle={{ objectFit: "cover" }}
-                style={{ width: "100%" }}
+                style={{ width: "100%", height: "100%" }}
               />
             </CardImage>
           </Card>
@@ -168,7 +168,7 @@ const Campus = ({ data }) => {
                 quality={100}
                 transformOptions={{ cropFocus: "center" }}
                 imgStyle={{ objectFit: "cover" }}
-                style={{ width: "100%" }}
+                style={{ width: "100%", height: "100%" }}
               />
             </CardImage>
             <CardText variants={fadeIn}>
@@ -238,7 +238,7 @@ const Campus = ({ data }) => {
                 quality={100}
                 transformOptions={{ cropFocus: "center" }}
                 imgStyle={{ objectFit: "cover" }}
-                style={{ width: "100%" }}
+                style={{ width: "100%", height: "100%" }}
               />
             </CardImage>
           </Card>
@@ -380,6 +380,10 @@ const EmblaViewport = styled.div`
   border-radius: 20px;
 
   @media (max-width: ${breakpoints.m}px) {
+    border-radius: 10px;
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    border-radius: 5px;
   }
 `
 
@@ -445,7 +449,7 @@ const EmblaProgress = styled.div`
 const EmblaProgressBar = styled.div`
   position: absolute;
   background-color: var(--color-lightgreen);
-  border-radius: 100%;
+  border-radius: 10px;
   overflow: hidden;
   width: 100%;
   top: -60px;
@@ -478,6 +482,7 @@ const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+  position: relative;
   padding-bottom: 15rem;
 
   @media (max-width: ${breakpoints.m}px) {
@@ -501,17 +506,22 @@ const Card = styled(motion.div)`
   @media (max-width: ${breakpoints.xl}px) {
     width: 90%;
   }
-  @media (max-width: ${breakpoints.l}px) {
-    width: 100%;
+
+  @media (max-width: ${breakpoints.m}px) {
+    border-radius: 10px;
   }
 
   @media (max-width: ${breakpoints.s}px) {
     flex-direction: column;
+    width: 90%;
+    margin-bottom: 2rem;
   }
 `
 
 const CardImage = styled.div`
   width: 55%;
+  height: 100%;
+  position: relative;
   overflow: hidden;
 `
 
@@ -530,11 +540,11 @@ const CardText = styled(motion.div)`
 
 
   @media (max-width: ${breakpoints.xxl}px) {
-    padding: 3rem;
+    /* padding: 3rem; */
   }
   @media (max-width: ${breakpoints.s}px) {
     width: 100%;
-    padding: 2rem;
+    padding: 0rem;
     border: none;
 
     h4 {
@@ -557,7 +567,7 @@ const CardLink = styled(Link)`
   text-decoration: none;
 `
 const CardLinkOutbound = styled.a`
-   color: black;
+  color: black;
   text-decoration: none;
 `
 

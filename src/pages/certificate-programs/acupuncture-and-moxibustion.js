@@ -37,7 +37,7 @@ const AcupunctureMoxibustion = ({ data }) => {
       <LandingSection>
         <ImageWrapper>
           <HideImage
-            style={{backgroundColor: "var(--color-sandbeige)"}}
+            style={{ backgroundColor: "var(--color-sandbeige)" }}
             variants={hideImage}
             initial="visible"
             animate="hidden"

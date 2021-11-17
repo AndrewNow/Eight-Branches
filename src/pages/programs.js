@@ -41,10 +41,20 @@ const OurPrograms = ({ data }) => {
   const [contentRef2, inView2] = useInView({
     root: null,
   })
-  const [CertificatesRef, CertificatesInView] = useInView({
+  const [Card1Ref, Card1InView] = useInView({
     root: null,
     triggerOnce: true,
-    threshold: 0.5,
+    threshold: 0.75,
+  })
+  const [Card2Ref, Card2InView] = useInView({
+    root: null,
+    triggerOnce: true,
+    threshold: 0.75,
+  })
+  const [Card3Ref, Card3InView] = useInView({
+    root: null,
+    triggerOnce: true,
+    threshold: 0.75,
   })
 
   // ---------- PARALLAX SCROLL LOGIC ----------
@@ -77,13 +87,6 @@ const OurPrograms = ({ data }) => {
     hidden: {
       y: 25,
       opacity: 0,
-    },
-  }
-  const cardsParent = {
-    visible: {
-      transition: {
-        staggerChildren: 0.15,
-      },
     },
   }
   const fadeCards = {
@@ -202,7 +205,7 @@ const OurPrograms = ({ data }) => {
                 to="/diploma-programs/acupuncture-and-moxibustion"
               >
                 <LinkWrapper variants={fadeIn}>
-                  <p>Learn more</p>{" "}
+                  <p>View Program</p>{" "}
                   <svg
                     width="8"
                     height="12"
@@ -220,7 +223,6 @@ const OurPrograms = ({ data }) => {
             </ProgramText>
           </ProgramInner>
         </ProgramSection>
-
         <ProgramSection>
           <SvgWrapper
             ref={contentRef}
@@ -272,7 +274,7 @@ const OurPrograms = ({ data }) => {
               </motion.h6>
               <ProgramLink variants={fadeIn} to="/diploma-programs/TCMP">
                 <LinkWrapper variants={fadeIn}>
-                  <p>Learn more</p>{" "}
+                  <p>View Program</p>{" "}
                   <svg
                     width="8"
                     height="12"
@@ -337,7 +339,7 @@ const OurPrograms = ({ data }) => {
                 to="/diploma-programs/advanced-TCMP"
               >
                 <LinkWrapper variants={fadeIn}>
-                  <p>Learn more</p>{" "}
+                  <p>View Program</p>{" "}
                   <svg
                     width="8"
                     height="12"
@@ -374,7 +376,7 @@ const OurPrograms = ({ data }) => {
               </motion.h6>
               <ProgramLink variants={fadeIn} to="/diploma-programs/herbology">
                 <LinkWrapper variants={fadeIn}>
-                  <p>Learn more</p>{" "}
+                  <p>View Program</p>{" "}
                   <svg
                     width="8"
                     height="12"
@@ -432,18 +434,18 @@ const OurPrograms = ({ data }) => {
           <StampLogo />
           <h1>Certificate Programs</h1>
         </Title>
-        <Cards
-          ref={CertificatesRef}
-          variants={cardsParent}
-          initial="hidden"
-          animate={CertificatesInView ? "visible" : "hidden"}
-        >
-          <Card variants={fadeCards}>
+        <Cards>
+          <Card
+            variants={fadeCards}
+            ref={Card1Ref}
+            animate={Card1InView ? "visible" : "hidden"}
+            intial="hidden"
+          >
             <CardText>
               <h4>Acupuncture & Moxibustion Certificate</h4>
               <CertificateLink to="/certificate-programs/acupuncture-and-moxibustion">
                 <CertificateLinkWrapper>
-                  <p>Learn more</p>
+                  <p>View Program</p>
                   <svg
                     width="8"
                     height="12"
@@ -459,22 +461,28 @@ const OurPrograms = ({ data }) => {
                 </CertificateLinkWrapper>
               </CertificateLink>
             </CardText>
-
             <CardImage>
               <StaticImage
                 src="../images/ProgramsImages/acupuncture.png"
                 alt="A picture of a prosthetic foot with illustrated acupuncture points."
                 quality={100}
-                height={590}
+                transformOptions={{ cropFocus: "center" }}
+                imgStyle={{ objectFit: "cover" }}
+                style={{ width: "100%", height: "100%" }}
               />
             </CardImage>
           </Card>
-          <Card variants={fadeCards}>
+          <Card
+            variants={fadeCards}
+            ref={Card2Ref}
+            animate={Card2InView ? "visible" : "hidden"}
+            intial="hidden"
+          >
             <CardText>
               <h4>Certificate in Asian Bodywork Therapy</h4>
               <CertificateLink to="/certificate-programs/asian-bodywork-therapy">
                 <CertificateLinkWrapper>
-                  <p>Learn more</p>
+                  <p>View Program</p>
                   <svg
                     width="8"
                     height="12"
@@ -495,16 +503,23 @@ const OurPrograms = ({ data }) => {
                 src="../images/ProgramsImages/bodywork.png"
                 alt="A practitioner performs moxibustion, igniting a bundle of herbs."
                 quality={100}
-                height={590}
+                transformOptions={{ cropFocus: "center" }}
+                imgStyle={{ objectFit: "cover" }}
+                style={{ width: "100%", height: "100%" }}
               />
             </CardImage>
           </Card>
-          <Card variants={fadeCards}>
+          <Card
+            variants={fadeCards}
+            ref={Card3Ref}
+            animate={Card3InView ? "visible" : "hidden"}
+            intial="hidden"
+          >
             <CardText>
               <h4>TCM Preparatory Certificate</h4>
               <CertificateLink to="/certificate-programs/tcm-preparatory-certificate">
                 <CertificateLinkWrapper>
-                  <p>Learn more</p>
+                  <p>View Program</p>
                   <svg
                     width="8"
                     height="12"
@@ -525,7 +540,9 @@ const OurPrograms = ({ data }) => {
                 src="../images/ProgramsImages/massage.png"
                 alt="A practitioner performs moxibustion, igniting a bundle of herbs."
                 quality={100}
-                height={590}
+                transformOptions={{ cropFocus: "center" }}
+                imgStyle={{ objectFit: "cover" }}
+                style={{ width: "100%", height: "100%" }}
               />
             </CardImage>
           </Card>
@@ -803,7 +820,10 @@ const ProgramText = styled(motion.div)`
   }
   @media (max-width: ${breakpoints.s}px) {
     h1 {
-      font-size: 37px;
+      font-size: 36px;
+    }
+    h6 {
+      max-width: 100%;
     }
   }
 `
@@ -852,13 +872,35 @@ const SvgWrapper = styled.div`
   top: -85%;
   left: 50px;
   z-index: 1;
-
+  filter: opacity(0.5);
   :nth-child(2) {
     right: 50px;
     left: auto;
     transform: rotate(360deg);
   }
+  @media (max-width: ${breakpoints.m}px) {
+    scale: 0.85;
+    left: -15%;
+    top: -20%;
+    :nth-child(2) {
+      right: -5%;
+      left: auto;
+      top: -10%;
+      transform: rotate(360deg);
+    }
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    left: -50%;
+    top: -50%;
+    scale: 0.75;
 
+    :nth-child(2) {
+      right: -50%;
+      top: -10%;
+      left: auto;
+      transform: rotate(360deg);
+    }
+  }
 `
 
 const BorderRadius = styled.div`
@@ -883,6 +925,9 @@ const CertificateLink = styled(Link)`
 
   p {
     color: black;
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    margin-top: 0;
   }
 `
 
@@ -912,7 +957,12 @@ const CertificateLinkWrapper = styled.div`
       transform: translate3d(8px, 0, 0);
     }
   }
-
+  @media (max-width: ${breakpoints.xl}px) {
+    p {
+      padding-top: 0;
+      margin-bottom: 1rem;
+    }
+  }
   @media (max-width: ${breakpoints.m}px) {
     p {
       font-size: 17px;
@@ -930,7 +980,7 @@ const CertificatePrograms = styled.section`
     margin: 0 auto;
     padding-top: 1rem;
     padding-bottom: 10rem;
-    width: 75%;
+    width: 80%;
     color: #00000060;
 
     strong {
@@ -938,12 +988,28 @@ const CertificatePrograms = styled.section`
     }
   }
 
+  @media (max-width: 1600px) {
+    p:last-child {
+      width: 85%;
+    }
+  }
+
   @media (max-width: ${breakpoints.xl}px) {
     padding-top: 7rem 0;
     p:last-child {
+      font-size: 18px;
+      line-height: 150%;
+      width: 90%;
       padding-bottom: 7rem;
     }
   }
+  @media (max-width: ${breakpoints.l}px) {
+    p:last-child {
+      width: 95%;
+      font-size: 16px;
+    }
+  }
+
   @media (max-width: ${breakpoints.m}px) {
     padding-top: 5rem;
 
@@ -978,50 +1044,97 @@ const Title = styled.div`
   }
 
   @media (max-width: ${breakpoints.m}px) {
-    & h1 {
+    h1 {
       padding-top: 0rem;
     }
   }
 `
 
 const Cards = styled(motion.div)`
-  width: 75%;
+  width: 80%;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
   padding-bottom: 5rem;
 
-  @media (max-width: ${breakpoints.m}px) {
+  @media (max-width: 1600px) {
+    width: 85%;
+  }
+  @media (max-width: ${breakpoints.xl}px) {
     width: 90%;
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    /* width: 95%; */
+  }
+
+  @media (max-width: ${breakpoints.l}px) {
     flex-direction: column;
     padding-bottom: 0rem;
+    width: 70%;
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    width: 90%;
   }
 `
 
 const Card = styled(motion.div)`
   overflow: hidden;
   width: 32%;
-  border-radius: 20px;
-  border: 1px solid black;
-  background-color: white;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   position: relative;
   z-index: 3;
+  border-radius: 20px;
+  border: 1px solid black;
+  background-color: white;
 
-  @media (max-width: ${breakpoints.m}px) {
+  @media (max-width: ${breakpoints.l}px) {
     width: 100%;
     margin-bottom: 2.5rem;
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    border-radius: 10px;
   }
 `
 
 const CardText = styled.div`
   padding: 2.5rem 2rem;
-
+  height: 50%;
   h4 {
     margin-top: 1rem;
     margin-bottom: 3rem;
+  }
+
+  @media (max-width: ${breakpoints.xxl}px) {
+    h4 {
+      font-size: 26px;
+      line-height: 130%;
+    }
+  }
+
+  @media (max-width: ${breakpoints.xl}px) {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    h4 {
+      font-size: 23px;
+      margin-bottom: 1rem;
+    }
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    padding: 3.5rem 1.5rem;
+    h4 {
+      font-size: 30px;
+    }
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    padding: 1.5rem;
+    h4 {
+      font-size: 25px;
+    }
   }
 `
 
@@ -1030,4 +1143,8 @@ const CardImage = styled.div`
   overflow: hidden;
   position: relative;
   z-index: 2;
+  height: 50%;
+  @media (max-width: ${breakpoints.m}px) {
+    height: 250px;
+  }
 `
