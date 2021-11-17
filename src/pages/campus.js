@@ -4,7 +4,7 @@ import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import { useEmblaCarousel } from "embla-carousel/react"
+import useEmblaCarousel from "embla-carousel-react"
 import { useRecursiveTimeout } from "../components/Embla/useRecursiveTimeout"
 import breakpoints from "../components/breakpoints"
 import { motion } from "framer-motion"
@@ -21,6 +21,11 @@ const Campus = ({ data }) => {
     triggerOnce: true,
   })
   const [SectionRef2, sectionInView2] = useInView({
+    root: null,
+    threshold: 0.85,
+    triggerOnce: true,
+  })
+  const [SectionRef3, sectionInView3] = useInView({
     root: null,
     threshold: 0.85,
     triggerOnce: true,
@@ -197,10 +202,10 @@ const Campus = ({ data }) => {
             </CardText>
           </Card>
           <Card
-            ref={SectionRef1}
+            ref={SectionRef3}
             variants={fadeIn}
             initial="hidden"
-            animate={sectionInView1 ? "visible" : "hidden"}
+            animate={sectionInView3 ? "visible" : "hidden"}
           >
             <CardText variants={fadeIn}>
               <motion.h4 variants={fadeIn}>The Teaching Clinic</motion.h4>

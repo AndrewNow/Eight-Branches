@@ -8,7 +8,7 @@ import StampLogo from "../svg/stamplogo"
 import breakpoints from "../components/breakpoints"
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
-import { useEmblaCarousel } from "embla-carousel/react"
+import useEmblaCarousel from "embla-carousel-react"
 import { Arrow, LeftLogoPattern } from "../svg/misc"
 import { AcademicAdvisor } from "../components/generalcomponents"
 

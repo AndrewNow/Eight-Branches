@@ -56,7 +56,7 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    
+
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -161,6 +161,7 @@ module.exports = {
               }
             `,
             output: "/rss.xml",
+            title: "Eight Branches' RSS Feed"
           },
         ],
       },
@@ -168,13 +169,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Eight Branches Official Website`,
-        short_name: `Eight branches`,
+        name: `Eight Branches Academy of Eastern Medicine`,
+        short_name: `Eight Branches`,
         start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#663399`,
+        background_color: `#FAF8F2`,
+        theme_color: `#316C5F`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-react-helmet`,

@@ -55,7 +55,7 @@ export const AcademicAdvisor = () => {
       </AcademicAdvisorText>
       <AcademicAdvisorImage>
         <StaticImage
-          src="../../images/Misc/bg.png"
+          src="../images/Misc/background.png"
           alt="An image of a bookshelf within our school."
           quality={100}
           imgStyle={{ objectFit: "cover" }}

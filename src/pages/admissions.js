@@ -34,10 +34,10 @@ const Admissions = ({ data }) => {
       y: 0,
       opacity: 1,
       transition: {
-        delayChildren: .75,
-        staggerChildren: 0.1,
+        delayChildren: .15,
+        staggerChildren: 0.15,
+        ease: "easeInOut",
         duration: 1,
-        // ease: "easeInOut",
       },
     },
     hidden: {

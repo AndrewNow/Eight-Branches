@@ -22,7 +22,7 @@ const AcupunctureMoxibustion = ({ data }) => {
       <LandingSection>
         <ImageWrapper>
           <StaticImage
-            src="../../images/Programs/acupuncture.png"
+            src="../../images/Programs/diploma-acupuncture.png"
             alt="Image of two practitioners observing apothecary herbs."
             quality={100}
             transformOptions={{ cropFocus: "center" }}

@@ -144,9 +144,6 @@ const Navbar = () => {
                 <Link to="/about-us">About Us</Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
-                <Link to="/bulletin-board">Bulletin Board</Link>
-              </motion.h3>
-              <motion.h3 variants={navItem}>
                 <Link to="/programs">Programs</Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
@@ -160,6 +157,9 @@ const Navbar = () => {
               </motion.h3>
               <motion.h3 variants={navItem}>
                 <Link to="/teaching-clinic">Teaching Clinic</Link>
+              </motion.h3>
+              <motion.h3 variants={navItem}>
+                <Link to="/bulletin-board">Bulletin Board</Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
                 <a href="https://online.erealia.com/ebaem/cwv/">Student Portal</a>
