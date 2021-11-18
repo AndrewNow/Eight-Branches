@@ -101,6 +101,10 @@ const MapFrame = styled.div`
   height: 90%;
   border-radius: 40px;
 
+  @media (max-width: ${breakpoints.l}px) {
+    padding: 4rem 2rem;
+  }
+
   @media (max-width: ${breakpoints.m}px) {
     padding: 0rem;
     flex-direction: column-reverse;
@@ -116,16 +120,16 @@ const MapText = styled.div`
   flex-direction: column;
   color: var(--color-white);
 
-  & > :nth-child(2) {
+  > :nth-child(2) {
     margin-bottom: 5rem;
   }
 
-  & a {
+  a {
     font-size: 24px;
     line-height: 35px;
     text-decoration: none;
     color: white;
-    &:hover {
+    :hover {
       text-decoration: underline;
     }
   }
@@ -134,13 +138,14 @@ const MapText = styled.div`
     border: 1px solid white;
     padding: 4rem;
     margin: 1rem auto;
-    text-align: left;
+    text-align: center;
     align-self: flex-start;
     flex-basis: 100%;
     border-radius: 20px;
     width: 90%;
+    
 
-    & > :nth-child(2) {
+    > :nth-child(2) {
       margin-bottom: 2.5rem;
     }
     a {
@@ -153,12 +158,21 @@ const Map = styled.div`
   flex-basis: 60%;
   height: 600px;
 
-  & iframe {
+  iframe {
     height: 100%;
     width: 100%;
     border: none;
     border-radius: 10px;
     overflow: hidden;
+  }
+
+  @media (max-width: ${breakpoints.xxl}px) {
+    height: 400px;
+  }
+
+  @media (max-width: ${breakpoints.xl}px) {
+    flex-basis: 67%;
+    height: 300px;
   }
 
   @media (max-width: ${breakpoints.m}px) {

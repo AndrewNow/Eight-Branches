@@ -157,7 +157,7 @@ const GlobalWrapper = styled(motion.div)`
       line-height: 27px;
     }
     h6 {
-      font-size: 18px;
+      font-size: 17px;
       line-height: 28px;
     }
     p,

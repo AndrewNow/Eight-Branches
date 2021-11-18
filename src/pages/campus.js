@@ -10,6 +10,7 @@ import breakpoints from "../components/breakpoints"
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { GoogleMaps } from "../components/generalcomponents"
+import { AiOutlineClockCircle } from "react-icons/ai"
 
 const Campus = ({ data }) => {
   const siteTitle = data.site.siteMetadata?.title || `Campus`
@@ -107,7 +108,6 @@ const Campus = ({ data }) => {
                         alt={
                           "Images of the campus, including lecture halls, teaching "
                         }
-                        transformOptions={{ cropFocus: "center" }}
                         imgStyle={{ objectFit: "cover" }}
                         style={{ height: "100%" }}
                       />
@@ -141,6 +141,17 @@ const Campus = ({ data }) => {
                 Discover the Eight Branches apothecary, which houses a unique &
                 extensive collection of raw Chinese herbs & granules.
               </motion.h6>
+              <ComingSoon
+                variants={fadeIn}
+                href="https://eightbranches.librarika.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <ComingSoonWrapper variants={fadeIn}>
+                  <AiOutlineClockCircle />
+                  <p>Coming soon!</p>
+                </ComingSoonWrapper>
+              </ComingSoon>
             </CardText>
 
             <CardImage>
@@ -168,7 +179,7 @@ const Campus = ({ data }) => {
                 quality={100}
                 transformOptions={{ cropFocus: "center" }}
                 imgStyle={{ objectFit: "cover" }}
-                style={{ width: "100%", height: "100%" }}
+                style={{ height: "100%" }}
               />
             </CardImage>
             <CardText variants={fadeIn}>
@@ -184,7 +195,7 @@ const Campus = ({ data }) => {
                 rel="noreferrer"
               >
                 <LinkWrapper variants={fadeIn}>
-                  <p>View Our Catalog</p>{" "}
+                  <p>View Our Catalog</p>
                   <svg
                     width="8"
                     height="12"
@@ -353,9 +364,8 @@ const CampusHeader = styled.div`
       width: 70%;
     }
   }
-  @media (max-width: ${breakpoints.m}px) {
+  @media (max-width: ${breakpoints.s}px) {
     padding-bottom: 2.5rem;
-
     h6 {
       width: 90%;
     }
@@ -367,9 +377,16 @@ const Embla = styled.div`
   margin: 0 auto;
   padding-bottom: 15rem;
 
-  @media (max-width: ${breakpoints.m}px) {
+  @media (max-width: ${breakpoints.xl}px) {
     width: 90%;
-    padding-bottom: 1rem;
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    padding-bottom: 10rem;
+  }
+
+  @media (max-width: ${breakpoints.s}px) {
+    padding-bottom: 5rem;
   }
 `
 
@@ -417,14 +434,6 @@ const EmblaSlide = styled.div`
 const EmblaSlideInner = styled.div`
   display: block;
   height: 100%;
-  /* position: absolute; */
-  /* top: 50%;
-  left: 50%;
-  width: auto;
-  min-height: 100%;
-  min-width: 100%;
-  max-width: none;
-  transform: translate(-50%, -50%); */
 `
 
 const EmblaProgress = styled.div`
@@ -470,8 +479,18 @@ const Facilities = styled.section`
     margin: 0 auto;
     padding-bottom: 10rem;
   }
+  @media (max-width: ${breakpoints.l}px) {
+    h1 {
+      padding-bottom: 5rem;
+    }
+  }
 
   @media (max-width: ${breakpoints.m}px) {
+    h1 {
+      padding-bottom: 4.5rem;
+    }
+  }
+  @media (max-width: ${breakpoints.s}px) {
     h1 {
       padding-bottom: 2.5rem;
     }
@@ -506,23 +525,36 @@ const Card = styled(motion.div)`
   @media (max-width: ${breakpoints.xl}px) {
     width: 90%;
   }
-
+  @media (max-width: ${breakpoints.l}px) {
+    height: 330px;
+  }
   @media (max-width: ${breakpoints.m}px) {
     border-radius: 10px;
   }
 
   @media (max-width: ${breakpoints.s}px) {
+    height: 425px;
     flex-direction: column;
     width: 90%;
     margin-bottom: 2rem;
+
+    :nth-child(odd) {
+      flex-direction: column-reverse;
+    }
   }
 `
 
 const CardImage = styled.div`
   width: 55%;
   height: 100%;
-  position: relative;
+  /* position: absolute;
+  top: 0;
+  left: 0; */
   overflow: hidden;
+
+  @media (max-width: ${breakpoints.s}px) {
+    width: 100%;
+  }
 `
 
 const CardText = styled(motion.div)`
@@ -538,26 +570,23 @@ const CardText = styled(motion.div)`
     padding-bottom: 1.5rem;
   }
 
-
   @media (max-width: ${breakpoints.xxl}px) {
     /* padding: 3rem; */
   }
+
+  @media (max-width: ${breakpoints.l}px) {
+    h6 {
+      font-size: 17px;
+    }
+  }
+
   @media (max-width: ${breakpoints.s}px) {
     width: 100%;
-    padding: 0rem;
+    padding: 1.5rem 1rem;
     border: none;
 
     h4 {
       padding-bottom: 1rem;
-    }
-
-    :nth-child(odd) {
-      border-right: none;
-      border-bottom: 1px solid black;
-    }
-    :nth-child(even) {
-      border-left: none;
-      border-top: 1px solid black;
     }
   }
 `
@@ -569,6 +598,37 @@ const CardLink = styled(Link)`
 const CardLinkOutbound = styled.a`
   color: black;
   text-decoration: none;
+`
+const ComingSoon = styled.div`
+  color: black;
+  text-decoration: none;
+`
+
+const ComingSoonWrapper = styled(motion.div)`
+  display: flex;
+  align-items: baseline;
+  font-family: "matter-regular";
+
+  filter: opacity(0.5);
+
+  svg {
+    margin-right: 0.5rem;
+    transform: translateY(0.1rem);
+  }
+
+  p {
+    padding-right: 0.75rem;
+    padding-top: 1rem;
+    font-family: "Matter-regular";
+    font-size: 19px;
+    transition: var(--hover-transition);
+  }
+
+  @media (max-width: ${breakpoints.xl}px) {
+    p {
+      font-size: 17px;
+    }
+  }
 `
 
 const LinkWrapper = styled(motion.div)`
@@ -598,13 +658,12 @@ const LinkWrapper = styled(motion.div)`
     }
   }
 
-  @media (max-width: ${breakpoints.m}px) {
+  @media (max-width: ${breakpoints.xl}px) {
     p {
       font-size: 17px;
     }
   }
 `
-
 
 const TorontoBanner = styled.div`
   height: 100%;

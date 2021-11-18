@@ -167,7 +167,7 @@ const FacultyGrid = styled.div`
   @media (max-width: ${breakpoints.xl}px) {
     grid-template-columns: 1fr 1fr;
   }
-  @media (max-width: ${breakpoints.m}px) {
+  @media (max-width: ${breakpoints.s}px) {
     display: inline;
   }
 `

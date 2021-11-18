@@ -222,7 +222,7 @@ export const FacultyInstructor = ({
                     image={portraitpic}
                     alt={title}
                     imgStyle={{ objectFit: "cover" }}
-                    style={{minWidth: "100%"}}
+                    style={{ minWidth: "100%" }}
                   />
                 </ModalImage>
                 <ModalText>
@@ -270,6 +270,7 @@ const FacultyPost = styled.article`
     background-color: var(--color-lightestgreen);
     cursor: pointer;
     button {
+      color: black;
       text-decoration: underline;
     }
   }
@@ -280,6 +281,9 @@ const FacultyPost = styled.article`
     width: auto;
     margin-bottom: 2.5rem;
   }
+  /* @media (max-width: ${breakpoints.s}px) {
+    width: auto;
+  } */
 `
 
 const TextWrapper = styled.div`
@@ -306,6 +310,13 @@ const FacultyDescription = styled.small`
     -webkit-line-clamp: 3;
     overflow: hidden;
   }
+
+  @media (max-width: ${breakpoints.s}px) {
+    p {
+      font-size: 15px;
+      line-height: 24px;
+    }
+  }
 `
 
 const ReadMore = styled.button`
@@ -314,9 +325,16 @@ const ReadMore = styled.button`
   font-family: "Matter-light";
   font-size: 18px;
   border: none;
+  color: black;
   background: none;
   cursor: pointer;
   padding-left: 0;
+
+  @media (max-width: ${breakpoints.s}px) {
+    text-decoration: underline;
+
+    font-size: 16px;
+  }
 `
 
 const GreyBg = styled(motion.div)`
@@ -388,8 +406,6 @@ const ModalImage = styled.div`
     min-height: 90%;
   }
   @media (max-width: ${breakpoints.m}px) {
-    /* min-height: 100px; */
-    /* overflow: hidden; */
     max-width: 100%;
     img {
       min-height: 100%;
@@ -405,11 +421,11 @@ const ModalText = styled.div`
   padding-left: 2rem;
   padding-right: 5rem;
   pointer-events: auto;
-  & p {
+  p {
     font-family: "Matter-light";
     padding-top: 1rem;
   }
-  & a {
+  a {
     font-size: 22px;
     line-height: 34px;
     text-decoration: underline;
@@ -461,15 +477,15 @@ const MobileCloseButton = styled.div`
   flex-direction: row;
   filter: invert(1);
   cursor: pointer;
-  & svg {
+  svg {
     margin-bottom: 1rem;
     color: white !important;
   }
-  & p {
+  p {
     margin-bottom: 1rem;
     padding-top: 0;
     padding-right: 0.25rem;
-    &:hover {
+    :hover {
       text-decoration: underline;
     }
   }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+ import React, { useState, useEffect } from "react"
 import { graphql } from "gatsby"
 import { StaticImage, GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
@@ -181,41 +181,6 @@ const TeachingClinic = ({ data }) => {
   return (
     <Layout title={siteTitle}>
       <Seo title="Teaching Clinic" />
-      {/* <SectionWrapper>
-        <ImageBanner>
-          <BannerText>
-            <h1>The Teaching Clinic</h1>
-            <h5>
-              Explore affordable, community-based treatments from our
-              student-run clinic.
-            </h5>
-          </BannerText>
-          <StaticImage
-            src="../images/TeachingClinic/banner.png"
-            alt="Beige background image with a tea set in the foreground."
-            quality={100}
-            layout="constrained"
-          />
-        </ImageBanner>
-
-        <ImageBannerMobile>
-          <BannerText>
-            <h1>The Teaching Clinic</h1>
-            <h6>
-              Explore affordable, community-based treatments from our
-              student-run clinic.
-            </h6>
-          </BannerText>
-
-          <StaticImage
-            src="../images/TeachingClinic/mobilebanner.png"
-            alt="Beige background image with a bonsai in the foreground."
-            quality={100}
-            layout="constrained"
-          />
-        </ImageBannerMobile>
-      </SectionWrapper> */}
-
       <SectionWrapper>
         <ImageBanner>
           <BannerText>
@@ -229,7 +194,10 @@ const TeachingClinic = ({ data }) => {
             src="../images/ProgramsImages/image61.png"
             alt="Beige background image with a bonsai in the foreground."
             quality={100}
-            layout="fullWidth"
+            // layout="fullWidth"
+            transformOptions={{ cropFocus: "top" }}
+            imgStyle={{ objectFit: "cover" }}
+            style={{ height: "100%" }}
           />
         </ImageBanner>
 
@@ -246,8 +214,9 @@ const TeachingClinic = ({ data }) => {
             src="../images/ProgramsImages/mobilebanner.png"
             alt="Beige background image with a bonsai in the foreground."
             quality={100}
-            height={400}
-            layout="fullWidth"
+            transformOptions={{ cropFocus: "center" }}
+            imgStyle={{ objectFit: "cover" }}
+            style={{ width: "100%" }}
           />
         </ImageBannerMobile>
       </SectionWrapper>
@@ -478,9 +447,10 @@ const TeachingClinic = ({ data }) => {
                 alt={treatmentsImage.imagealt}
                 imgStyle={{
                   borderRadius: "30px",
-                  width: "100%",
                   height: "100%",
                 }}
+                imgStyle={{ objectFit: "cover" }}
+                style={{ height: "100%" }}
               />
             </TreatmentsImageWrapper>
           </TreatmentsImage>
@@ -650,10 +620,26 @@ const ImageBanner = styled.div`
   overflow: hidden;
   margin: 0 auto;
   position: relative;
-  aspect-ratio: 24/9;
+  /* aspect-ratio: 24/9; */
+  height: 75vh;
+
+  @media (max-width: ${breakpoints.xl}px) {
+    height: 60vh;
+  }
+
+  @media (max-width: ${breakpoints.l}px) {
+    height: 50vh;
+  }
 
   @media (max-width: ${breakpoints.m}px) {
-    aspect-ratio: 16/9;
+    /* aspect-ratio: 16/9; */
+    /* display: block; */
+    height: auto;
+    position: relative;
+
+    div:nth-child(2) {
+      display: none;
+    }
   }
 
   @media (max-width: ${breakpoints.s}px) {
@@ -677,33 +663,68 @@ const ImageBannerMobile = styled.div`
 const BannerText = styled.div`
   position: absolute;
   z-index: 20;
-  bottom: 5rem;
+  top: 50%;
   left: 5vw;
-  width: 37.5%;
 
-  & h1 {
+  h1 {
     padding-bottom: 1rem;
   }
 
+  h6 {
+    width: 70%;
+  }
+  @media (max-width: ${breakpoints.xxl}px) {
+    top: 40%;
+  }
+
   @media (max-width: ${breakpoints.xl}px) {
-    bottom: 2rem;
-    width: 40%;
+    top: 35%;
   }
 
   @media (max-width: ${breakpoints.l}px) {
-    width: 70%;
     bottom: 1.5rem;
-
-    & h1 {
+    h1 {
       padding-bottom: 0.5rem;
     }
   }
+  @media (max-width: ${breakpoints.m}px) {
+    background-color: var(--color-beige);
+    left: 0;
+    top: 0;
+    position: relative;
+    display: block;
+    margin: 7rem auto;
+    margin-bottom: 5rem;
+    text-align: center;
+    
+    h6 {
+      margin: 0 auto;
+    }
+  }
+  
   @media (max-width: ${breakpoints.s}px) {
-    bottom: 4rem;
-    width: 80%;
+    height: auto;
+    text-align: left;
+    margin-top: 0;
+    position: absolute;
+    background-color: transparent;
+    top: auto;
+    bottom: 10%;
+    left: 5vw;
+    h6 {
+      margin: 0;
+      width: 85%;
+    }
   }
   @media (max-width: ${breakpoints.xs}px) {
-    bottom: 2.5rem;
+    bottom: 15%;
+    
+    h1 {
+      font-size: 32px;
+    }
+    h6 {
+      width: 90%;
+    }
   }
 `
 
@@ -723,7 +744,12 @@ const COVIDBanner = styled(motion.div)`
       text-decoration: underline;
     }
   }
-
+  @media (max-width: ${breakpoints.xl}px) {
+    padding: 1.5rem;
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    padding: 1rem;
+  }
   @media (max-width: ${breakpoints.m}px) {
     padding: 1rem;
   }
@@ -732,7 +758,7 @@ const COVIDBanner = styled(motion.div)`
 const COVIDNews = styled(motion.div)`
   width: 60%;
 
-  & p {
+  p {
     letter-spacing: 0.01rem;
     line-height: 140%;
     padding: 2.5rem 0;
@@ -752,6 +778,10 @@ const HoursSection = styled.section`
 
   @media (max-width: ${breakpoints.l}px) {
     flex-direction: column;
+    height: 100vh;
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    height: 120vh;
   }
 `
 
@@ -794,7 +824,31 @@ const TextWrapper = styled.div`
   }
 
   h2 {
+    font-size:  2.34vw;
+    line-height: 130%;
     padding-bottom: 5rem;
+  }
+
+  @media (max-width: 1700px) {
+    padding: 0 7rem;
+  }
+  @media (max-width: ${breakpoints.xxl}px) {
+    padding: 0 4rem;
+    h2 {
+      font-size: 2.75vw;
+    }
+  }
+  @media (max-width: ${breakpoints.xl}px) {
+    h2 {
+      font-size: 3vw;
+      padding-bottom: 2.5rem;
+    }
+  }
+  
+  @media (max-width: ${breakpoints.l}px) {
+    h2 {
+      font-size: 3.75vw;
+    }
   }
 
   @media (max-width: ${breakpoints.m}px) {
@@ -808,13 +862,20 @@ const TextWrapper = styled.div`
     }
 
     h2 {
+      font-size: 4.5vw;
       padding-bottom: 2.5rem;
+    }
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    h2 {
+      font-size: 23px;
+      line-height: 140%;
     }
   }
 `
 
 const Hours = styled.div`
-  width: 60%;
+  width: 75%;
   display: flex;
   justify-content: space-between;
 
@@ -824,12 +885,19 @@ const Hours = styled.div`
     color: black;
   }
 
+  @media (max-width: ${breakpoints.xl}px) {
+    /* width: 50%; */
+    width: 80%;
+  }
   @media (max-width: ${breakpoints.l}px) {
     width: 50%;
   }
 
   @media (max-width: ${breakpoints.m}px) {
     width: 70%;
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    width: 95%;
   }
 `
 
@@ -846,7 +914,9 @@ const TreatmentsHeader = styled.h1`
   text-align: left;
   width: 100%;
   margin: 0 auto;
-
+  @media (max-width: ${breakpoints.l}px) {
+    text-align: center;
+  }
   @media (max-width: ${breakpoints.m}px) {
     display: none;
   }
@@ -871,7 +941,14 @@ const TreatmentsMain = styled.div`
   width: 80%;
   min-height: 100vh;
   margin: 0 auto;
-  /* padding: 15rem 0; */
+
+  @media (max-width: 1560px) {
+    width: 85%;
+  }
+
+  @media (max-width: ${breakpoints.xxl}px) {
+    width: 90%;
+  }
 
   @media (max-width: ${breakpoints.xl}px) {
     width: 95%;
@@ -894,9 +971,15 @@ const TreatmentsSelection = styled(motion.div)`
   padding-left: 2rem;
   cursor: pointer;
 
+  @media (max-width: ${breakpoints.xl}px) {
+    padding-right: 2rem;
+  }
+
   @media (max-width: ${breakpoints.l}px) {
     padding-top: 2.5rem;
-    padding-left: 0rem;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 5rem;
     margin: 0 auto;
     width: 90%;
   }
@@ -913,11 +996,11 @@ const TreatmentsText = styled(motion.div)`
   padding-right: 1rem;
   align-items: center;
 
-  & h2 {
+  h2 {
     padding: 1.5rem;
   }
 
-  &:first-child {
+  :first-child {
     border-top: 1px solid white;
   }
 
@@ -950,17 +1033,40 @@ const TreatmentsImage = styled.div`
   top: 6rem;
   margin: 6rem 0;
 
+  @media (max-width: ${breakpoints.l}px) {
+    position: relative;
+    margin: 0 auto;
+    top: 0;
+    margin-top: 3rem;
+  }
+  
   @media (max-width: ${breakpoints.m}px) {
     border-radius: 0px;
     order: 2;
   }
-`
+
+  @media (max-width: ${breakpoints.s}px) {
+    margin-top: 0;
+  }
+  `
 
 const TreatmentsImageWrapper = styled.div`
   overflow: hidden;
   border-radius: 30px;
   width: auto;
   height: auto;
+  max-height: 80vh;
+  
+  @media (max-width: ${breakpoints.xl}px) {
+    max-height: 70vh;
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    max-height: 50vh;
+    border-radius: 10px;
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    border-radius: 0;
+  }
 `
 
 const CommonConditions = styled.section`
