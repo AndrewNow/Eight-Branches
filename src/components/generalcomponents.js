@@ -47,7 +47,7 @@ export const AcademicAdvisor = () => {
       <AcademicAdvisorText>
         <h2>
           Have any questions? <br />
-          Speak with an Academic Advisor!
+          Speak with an academic advisor!
         </h2>
         <BookAnAppointment href="https://eightbranches.youcanbook.me/" target="_blank" rel="noreferrer">
           Book an appointment
@@ -70,7 +70,7 @@ export const ApplyNow = () => {
   return (
     <ApplyNowSection>
       <ApplyNowInner>
-        <h1>Start Your Application Today</h1>
+        <h1>Start Your <br/> Application Today</h1>
         <ReadMore to="/admissions">Apply Now</ReadMore>
       </ApplyNowInner>
     </ApplyNowSection>
@@ -152,6 +152,9 @@ const MapText = styled.div`
       font-size: 18px;
     }
   }
+  @media (max-width: ${breakpoints.s}px) {
+    padding: 2rem;
+  }
 `
 
 const Map = styled.div`
@@ -214,6 +217,7 @@ const AcademicAdvisorText = styled.div`
 
   h2 {
     margin-bottom: 2.5rem;
+    line-height: 130%;
     color: white;
   }
   
@@ -269,6 +273,9 @@ const BookAnAppointment = styled.a`
     color: var(--color-lightgreen);
     background-color: var(--color-white);
   }
+  @media (max-width: ${breakpoints.s}px) {
+    font-size: 17px;
+  }
 `
 
 
@@ -284,6 +291,9 @@ const ApplyNowSection = styled.section`
   @media (max-width: ${breakpoints.m}px) {
     padding: 1rem;
   }
+  @media (max-width: ${breakpoints.s}px) {
+    height: auto;
+  }
 `
 
 const ApplyNowInner = styled.div`
@@ -296,17 +306,19 @@ const ApplyNowInner = styled.div`
   flex-direction: column;
   align-items: center;
 
-  & h1 {
+  h1 {
     color: white;
-    max-width: 35%;
+    /* max-width: 35%; */
     text-align: center;
+    white-space: nowrap;
+    line-height: 130%;
   }
 
   @media (max-width: ${breakpoints.l}px) {
     border-radius: 20px;
-    & h1 {
-      max-width: 90%;
-    }
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    padding: 2rem 0;
   }
 `
 
@@ -325,8 +337,14 @@ const ReadMore = styled(Link)`
   font-family: "Matter-regular";
 
   transition: 0.25s all ease-in-out;
-  &:hover {
+  :hover {
     color: var(--color-darkgreen);
     background-color: var(--color-white);
+  }
+
+  @media (max-width: ${breakpoints.s}px) {
+    margin-top: 2rem;
+    width: auto;
+    font-size: 17px;
   }
 `

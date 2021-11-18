@@ -1,4 +1,4 @@
- import React, { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { graphql } from "gatsby"
 import { StaticImage, GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
@@ -7,7 +7,6 @@ import Seo from "../components/seo"
 import breakpoints from "../components/breakpoints"
 import { motion, AnimatePresence } from "framer-motion"
 import { useInView } from "react-intersection-observer"
-import LeafPattern from "../svg/leafPattern"
 import { GoogleMaps } from "../components/generalcomponents"
 import teachingClinic from "../../site/settings/teaching_clinic.json"
 
@@ -15,6 +14,38 @@ const TeachingClinic = ({ data }) => {
   const siteTitle = data.site.siteMetadata?.title || `Teaching Clinic`
   const [open, setOpen] = useState(false)
 
+  const FadeIn = {
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        delayChildren: 0.15,
+        staggerChildren: 0.15,
+        ease: "easeInOut",
+        duration: 1,
+      },
+    },
+    hidden: {
+      y: 40,
+      opacity: 0,
+    },
+  }
+  const FadeInDelay = {
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        ease: "easeInOut",
+        duration: 1,
+        delay: 0.5,
+      },
+    },
+    hidden: {
+      y: 40,
+      opacity: 0,
+    },
+  }
   const Covid = {
     open: {
       height: "auto",
@@ -76,19 +107,29 @@ const TeachingClinic = ({ data }) => {
     },
   }
 
-  // ---------- Parallax for leaf when in view ----------
-  const [contentRef, inView] = useInView({
-    root: null,
-  })
-
-  // ---------- PARALLAX SCROLL LOGIC ----------
-  const [offsetY, setOffsetY] = useState(0)
-  const handleScroll = () => setOffsetY(window.pageYOffset)
-
-  useEffect(() => {
-    inView && window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [inView])
+  const ParentAnim = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  }
+  const Child = {
+    hidden: {
+      opacity: 0,
+      // y: 15
+    },
+    visible: {
+      transition: {
+        duration: 0.5,
+        ease: "easeIn",
+      },
+      opacity: 1,
+      // y: 0
+    },
+  }
 
   // ---------- Info & data for the "Treatments Offered" section ----------
   // see graphql query for image details
@@ -100,24 +141,21 @@ const TeachingClinic = ({ data }) => {
     acupunctureData: {
       id: 0,
       title: "Acupuncture",
-      text:
-        "Acupuncture involves the insertion of very thin needles through the skin at strategic points on the body. Please note that during your acupuncture treatment you may receive 15 minutes of other allied therapies such as moxibustion, cupping, guasha, or tuina depending on your treatment plan.",
+      text: "Acupuncture involves the insertion of very thin needles through the skin at strategic points on the body. Please note that during your acupuncture treatment you may receive 15 minutes of other allied therapies such as moxibustion, cupping, guasha, or tuina depending on your treatment plan.",
       imagesrc: acupuncture,
       imagealt: "Acupuncture image",
     },
     herbsData: {
       id: 1,
       title: "TCM/Herbs",
-      text:
-        "This treatment in focused on Chinese Herb prescriptions. Please note that during the treatment you may receive 15 minutes of allied therapies such as acupuncture, moxibustion, cupping, guasha, and tuina depending on your treatment plan.",
+      text: "This treatment in focused on Chinese Herb prescriptions. Please note that during the treatment you may receive 15 minutes of allied therapies such as acupuncture, moxibustion, cupping, guasha, and tuina depending on your treatment plan.",
       imagesrc: herbs,
       imagealt: "TCM/Herbs image",
     },
     bodyworkData: {
       id: 2,
       title: "Eastern Bodywork",
-      text:
-        "We provide Eastern bodywork based on concepts in Traditional Chinese Medicine (TCM) for balancing Qi and blood in the meridians.",
+      text: "We provide Eastern bodywork based on concepts in Traditional Chinese Medicine (TCM) for balancing Qi and blood in the meridians.",
       imagesrc: bodywork,
       imagealt: "Bodywork/Shiatsu image",
     },
@@ -167,6 +205,7 @@ const TeachingClinic = ({ data }) => {
   )
 
   // ---------- INTERSECTION OBSERVER LOGIC ----------
+
   const [TeachingClinicRef, TeachingClinicInView] = useInView({
     root: null,
     threshold: 0.5,
@@ -177,49 +216,28 @@ const TeachingClinic = ({ data }) => {
     threshold: 0.5,
     triggerOnce: true,
   })
+  const [ListRef, ListInView] = useInView({
+    root: null,
+    threshold: 0.75,
+    triggerOnce: true,
+  })
 
   return (
     <Layout title={siteTitle}>
       <Seo title="Teaching Clinic" />
-      <SectionWrapper>
-        <ImageBanner>
-          <BannerText>
-            <h1>The Teaching Clinic</h1>
-            <h6>
-              Explore affordable, community-based treatments from our
-              student-run clinic.
-            </h6>
-          </BannerText>
-          <StaticImage
-            src="../images/ProgramsImages/image61.png"
-            alt="Beige background image with a bonsai in the foreground."
-            quality={100}
-            // layout="fullWidth"
-            transformOptions={{ cropFocus: "top" }}
-            imgStyle={{ objectFit: "cover" }}
-            style={{ height: "100%" }}
-          />
-        </ImageBanner>
-
-        <ImageBannerMobile>
-          <BannerText>
-            <h1>The Teaching Clinic</h1>
-            <h6>
-              Explore affordable, community-based treatments from our
-              student-run clinic.
-            </h6>
-          </BannerText>
-
-          <StaticImage
-            src="../images/ProgramsImages/mobilebanner.png"
-            alt="Beige background image with a bonsai in the foreground."
-            quality={100}
-            transformOptions={{ cropFocus: "center" }}
-            imgStyle={{ objectFit: "cover" }}
-            style={{ width: "100%" }}
-          />
-        </ImageBannerMobile>
-      </SectionWrapper>
+      <HeaderWrapper>
+        <TeachingClinicHeader
+          variants={FadeIn}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.h1 variants={FadeIn}>The Teaching Clinic</motion.h1>
+          <motion.h6 variants={FadeIn}>
+            Explore affordable TCM treatments we offer to the public from our
+            student-run clinic.
+          </motion.h6>
+        </TeachingClinicHeader>
+      </HeaderWrapper>
 
       <COVIDBanner onClick={() => setOpen(!open)}>
         <h6>Read COVID-19 Update</h6>
@@ -267,7 +285,8 @@ const TeachingClinic = ({ data }) => {
       </COVIDBanner>
       <HoursSection ref={TeachingClinicRef}>
         <ImageWrapper>
-          <HideImageBeige
+          <HideImage
+            style={{ backgroundColor: "var(--color-beige)" }}
             variants={hideTCImage}
             initial="visible"
             animate={TeachingClinicInView ? "hidden" : "visible"}
@@ -283,17 +302,31 @@ const TeachingClinic = ({ data }) => {
           />
         </ImageWrapper>
         <TextWrapper>
-          <div>
-            <h6>About the clinic</h6>
-            <h2>
+          <motion.div
+            variants={ParentAnim}
+            initial="hidden"
+            animate={TeachingClinicInView ? "visible" : "hidden"}
+          >
+            <motion.h6 variants={FadeIn}>About The Clinic</motion.h6>
+            <motion.h2 variants={FadeIn}>
               Supervised by our most talented instructors, the clinc is a great
               way for our students to gain real-world expertise and knowledge in
               patient care.
-            </h2>
-          </div>
-          <h6>Clinic Hours</h6>
-          <Hours>
-            <h6>
+            </motion.h2>
+          </motion.div>
+          <motion.h6
+            variants={FadeInDelay}
+            initial="hidden"
+            animate={TeachingClinicInView ? "visible" : "hidden"}
+          >
+            Clinic Hours
+          </motion.h6>
+          <Hours
+            variants={ParentAnim}
+            initial="hidden"
+            animate={TeachingClinicInView ? "visible" : "hidden"}
+          >
+            <motion.h6 variants={FadeInDelay}>
               Monday
               <br />
               Tuesday
@@ -308,8 +341,8 @@ const TeachingClinic = ({ data }) => {
               <br />
               Sunday
               <br />
-            </h6>
-            <h6>
+            </motion.h6>
+            <motion.h6 variants={FadeInDelay}>
               {teachingClinic.mon} <br />
               {teachingClinic.tues} <br />
               {teachingClinic.wed} <br />
@@ -317,7 +350,7 @@ const TeachingClinic = ({ data }) => {
               {teachingClinic.fri} <br />
               {teachingClinic.sat} <br />
               {teachingClinic.sun} <br />
-            </h6>
+            </motion.h6>
           </Hours>
         </TextWrapper>
       </HoursSection>
@@ -340,17 +373,18 @@ const TeachingClinic = ({ data }) => {
                 onClick={handleAcupunctureClick}
               >
                 <h2>{TreatmentsData.acupunctureData.title}</h2>
-                <motion.svg
-                  animate={{ rotate: acupunctureExpanded ? 45 : 0 }}
-                  width="35"
-                  height="35"
-                  viewBox="0 0 32 32"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M0 16H32" stroke="white" />
-                  <path d="M16 0L16 32" stroke="white" />
-                </motion.svg>
+                <Svg animate={{ rotate: acupunctureExpanded ? 45 : 0 }}>
+                  <svg
+                    width="35"
+                    height="35"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M0 16H32" stroke="white" />
+                    <path d="M16 0L16 32" stroke="white" />
+                  </svg>
+                </Svg>
               </TreatmentsText>
               <AnimatePresence>
                 {acupunctureExpanded && (
@@ -377,17 +411,18 @@ const TeachingClinic = ({ data }) => {
                 onClick={handleHerbsClick}
               >
                 <h2>{TreatmentsData.herbsData.title}</h2>
-                <motion.svg
-                  animate={{ rotate: herbsExpanded ? 45 : 0 }}
-                  width="35"
-                  height="35"
-                  viewBox="0 0 32 32"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M0 16H32" stroke="white" />
-                  <path d="M16 0L16 32" stroke="white" />
-                </motion.svg>
+                <Svg animate={{ rotate: herbsExpanded ? 45 : 0 }}>
+                  <svg
+                    width="35"
+                    height="35"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M0 16H32" stroke="white" />
+                    <path d="M16 0L16 32" stroke="white" />
+                  </svg>
+                </Svg>
               </TreatmentsText>
               <AnimatePresence>
                 {herbsExpanded && (
@@ -414,17 +449,18 @@ const TeachingClinic = ({ data }) => {
                 onClick={handleBodyworkClick}
               >
                 <h2>{TreatmentsData.bodyworkData.title}</h2>
-                <motion.svg
-                  animate={{ rotate: bodyworkExpanded ? 45 : 0 }}
-                  width="35"
-                  height="35"
-                  viewBox="0 0 32 32"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M0 16H32" stroke="white" />
-                  <path d="M16 0L16 32" stroke="white" />
-                </motion.svg>
+                <Svg animate={{ rotate: bodyworkExpanded ? 45 : 0 }}>
+                  <svg
+                    width="35"
+                    height="35"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M0 16H32" stroke="white" />
+                    <path d="M16 0L16 32" stroke="white" />
+                  </svg>
+                </Svg>
               </TreatmentsText>
               <AnimatePresence>
                 {bodyworkExpanded && (
@@ -458,67 +494,75 @@ const TeachingClinic = ({ data }) => {
       </TreatmentsOffered>
       <CommonConditions>
         <Inner>
-          <h2>
+          <motion.h2
+            variants={Child}
+            initial="hidden"
+            animate={ListInView ? "visible" : "hidden"}
+          >
             Common Conditions/
             <br />
             Illnesses We Treat:
-          </h2>
-          <List>
-            <h6>
-              Addiction
-              <br /> Allergies
-              <br /> Anxiety
-              <br /> Arthritis
-              <br /> Cold & Flu
-              <br /> Cough
-              <br /> Constipation
-              <br />
-            </h6>
-            <h6>
-              Depression
-              <br />
-              Diarrhea
-              <br />
-              Facial paralysis
-              <br />
-              Fatigue
-              <br />
-              Fibromyalgia
-              <br />
-              Gastritis
-              <br />
-              Headaches
-              <br />
-            </h6>
-            <h6>
-              Indigestion <br />
-              Infertility <br />
-              Immune disorders
-              <br /> ​Insomnia
-              <br /> Menstrual problems
-              <br /> Menopause
-              <br /> Nausea
-            </h6>
-            <h6>
-              PMS
-              <br />
-              Sports injuries
-              <br />
-              Stress
-              <br />
-              Skin conditions
-              <br />
-              Sciatica
-              <br />
-              Urination disorders
-            </h6>
+          </motion.h2>
+          <List ref={ListRef}>
+            <motion.div
+              variants={ParentAnim}
+              initial="hidden"
+              animate={ListInView ? "visible" : "hidden"}
+            >
+              <motion.h6 variants={Child}>Addiction</motion.h6>
+              <motion.h6 variants={Child}>Allergies</motion.h6>
+              <motion.h6 variants={Child}>Anxiety</motion.h6>
+              <motion.h6 variants={Child}>Arthritis</motion.h6>
+              <motion.h6 variants={Child}>Cold & Flu</motion.h6>
+              <motion.h6 variants={Child}>Cough</motion.h6>
+              <motion.h6 variants={Child}>Constipation</motion.h6>
+            </motion.div>
+            <motion.div
+              variants={ParentAnim}
+              initial="hidden"
+              animate={ListInView ? "visible" : "hidden"}
+            >
+              <motion.h6 variants={Child}>Depression</motion.h6>
+              <motion.h6 variants={Child}>Diarrhea</motion.h6>
+              <motion.h6 variants={Child}>Facial paralysis</motion.h6>
+              <motion.h6 variants={Child}>Fatigue</motion.h6>
+              <motion.h6 variants={Child}>Fibromyalgia</motion.h6>
+              <motion.h6 variants={Child}>Gastritis</motion.h6>
+              <motion.h6 variants={Child}>Headaches</motion.h6>
+            </motion.div>
+            <motion.div
+              variants={ParentAnim}
+              initial="hidden"
+              animate={ListInView ? "visible" : "hidden"}
+            >
+              <motion.h6 variants={Child}>Indigestion</motion.h6>
+              <motion.h6 variants={Child}>Infertility</motion.h6>
+              <motion.h6 variants={Child}>Immune disorders</motion.h6>
+              <motion.h6 variants={Child}>​Insomnia</motion.h6>
+              <motion.h6 variants={Child}>Menstrual problems</motion.h6>
+              <motion.h6 variants={Child}>Menopause</motion.h6>
+              <motion.h6 variants={Child}>Nausea</motion.h6>
+            </motion.div>
+            <motion.div
+              variants={ParentAnim}
+              initial="hidden"
+              animate={ListInView ? "visible" : "hidden"}
+            >
+              <motion.h6 variants={Child}>PMS</motion.h6>
+              <motion.h6 variants={Child}>Sports Injuries</motion.h6>
+              <motion.h6 variants={Child}>Stress</motion.h6>
+              <motion.h6 variants={Child}>Skin Conditions</motion.h6>
+              <motion.h6 variants={Child}>Sciatica</motion.h6>
+              <motion.h6 variants={Child}>Urination disorders</motion.h6>
+            </motion.div>
           </List>
         </Inner>
       </CommonConditions>
       <BookAnAppointment ref={AppointmentRef}>
         <BookAnAppointmentInner>
           <BookAnAppointmentImage>
-            <HideImageSandBeige
+            <HideImage
+              style={{ backgroundColor: "var(--color-sandbeige)" }}
               variants={hideApptImage}
               initial="visible"
               animate={AppointmentInView ? "hidden" : "visible"}
@@ -528,21 +572,26 @@ const TeachingClinic = ({ data }) => {
               src="../images/TeachingClinic/bookanappointment.png"
               alt="Image of an empty massage table with windows in the background, lush green trees casting a calming atmosphere."
               quality={100}
-              layout="constrained"
+              transformOptions={{ cropFocus: "center" }}
+              imgStyle={{ objectFit: "cover" }}
+              style={{ width: "100%" }}
             />
           </BookAnAppointmentImage>
           <InnerText>
             <h1>Book an Appointment</h1>
             <h6>
-              Explore low-cost treatments performed by our students with careful
-              supervision from certified professionals.
+              Interested in scheduling a treatment session? {" "}
+              <br />
+              Click the link below to book an appointment.
+              {/* Explore low-cost treatments performed by our students with careful
+              supervision from certified professionals. */}
             </h6>
             <BookNowButton
               href="https://eightbranches.janeapp.com/#"
               target="_blank"
               rel="noreferrer"
             >
-              Book A Slot
+              Book Treatment
             </BookNowButton>
           </InnerText>
         </BookAnAppointmentInner>
@@ -599,138 +648,79 @@ export const pageQuery = graphql`
   }
 `
 
-const SectionWrapper = styled.div`
+const HeaderWrapper = styled.section`
   width: 100%;
-  margin: 0 auto;
-  background-color: var(--color-beige);
-  h2 {
-    padding-bottom: 5rem;
-  }
-
-  @media (max-width: ${breakpoints.m}px) {
-    h2 {
-      padding-top: 5rem;
-      padding-bottom: 2.5rem;
-    }
-  }
-`
-
-const ImageBanner = styled.div`
-  width: 100%;
-  overflow: hidden;
-  margin: 0 auto;
+  padding-top: 15rem;
+  z-index: 2;
   position: relative;
-  /* aspect-ratio: 24/9; */
-  height: 75vh;
-
-  @media (max-width: ${breakpoints.xl}px) {
-    height: 60vh;
-  }
-
-  @media (max-width: ${breakpoints.l}px) {
-    height: 50vh;
-  }
+  background-color: var(--color-beige);
+  margin: 0 auto;
 
   @media (max-width: ${breakpoints.m}px) {
-    /* aspect-ratio: 16/9; */
-    /* display: block; */
-    height: auto;
-    position: relative;
-
-    div:nth-child(2) {
-      display: none;
-    }
-  }
-
-  @media (max-width: ${breakpoints.s}px) {
-    display: none;
+    padding-top: 10rem;
   }
 `
-
-const ImageBannerMobile = styled.div`
-  display: none;
-
-  @media (max-width: ${breakpoints.s}px) {
-    display: block;
-    width: 100%;
-    overflow: hidden;
-    margin: 0 auto;
-    position: relative;
-    max-height: 600px;
-  }
-`
-
-const BannerText = styled.div`
-  position: absolute;
-  z-index: 20;
-  top: 50%;
-  left: 5vw;
+const TeachingClinicHeader = styled(motion.div)`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  padding-bottom: 7.5rem;
+  position: relative;
+  z-index: 10;
 
   h1 {
-    padding-bottom: 1rem;
+    padding-bottom: 2rem;
   }
 
   h6 {
-    width: 70%;
-  }
-  @media (max-width: ${breakpoints.xxl}px) {
-    top: 40%;
+    width: 30%;
   }
 
   @media (max-width: ${breakpoints.xl}px) {
-    top: 35%;
+    h6 {
+      width: 60%;
+    }
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    h6 {
+      width: 60%;
+    }
   }
 
-  @media (max-width: ${breakpoints.l}px) {
-    bottom: 1.5rem;
-    h1 {
-      padding-bottom: 0.5rem;
-    }
-  }
   @media (max-width: ${breakpoints.m}px) {
-    background-color: var(--color-beige);
-    left: 0;
-    top: 0;
-    position: relative;
-    display: block;
-    margin: 7rem auto;
-    margin-bottom: 5rem;
-    text-align: center;
-    
-    h6 {
-      margin: 0 auto;
-    }
-  }
-  
-  @media (max-width: ${breakpoints.s}px) {
-    height: auto;
-    text-align: left;
-    margin-top: 0;
-    position: absolute;
-    background-color: transparent;
-    top: auto;
-    bottom: 10%;
-    left: 5vw;
-    h6 {
-      margin: 0;
-      width: 85%;
-    }
-  }
-  @media (max-width: ${breakpoints.xs}px) {
-    bottom: 15%;
-    
-    h1 {
-      font-size: 32px;
-    }
+    padding-bottom: 2.5rem;
+
     h6 {
       width: 90%;
     }
   }
+
+  @media (max-width: ${breakpoints.s}px) {
+    padding-bottom: 4rem;
+    h1 {
+      padding-bottom: 1rem;
+    }
+    h6 {
+      width: 94%;
+    }
+  }
+`
+
+const HideImage = styled(motion.div)`
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 `
 
 const COVIDBanner = styled(motion.div)`
   cursor: pointer;
-  padding: 2rem;
+  padding: 1.5rem;
   width: 100%;
   background-color: var(--color-charcoal);
   color: var(--color-beige);
@@ -743,9 +733,6 @@ const COVIDBanner = styled(motion.div)`
     h6 {
       text-decoration: underline;
     }
-  }
-  @media (max-width: ${breakpoints.xl}px) {
-    padding: 1.5rem;
   }
   @media (max-width: ${breakpoints.l}px) {
     padding: 1rem;
@@ -785,15 +772,6 @@ const HoursSection = styled.section`
   }
 `
 
-const HideImageBeige = styled(motion.div)`
-  position: absolute;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  background-color: var(--color-beige);
-  top: 0;
-  left: 0;
-`
 const ImageWrapper = styled(motion.div)`
   flex-basis: 50%;
   max-width: 50%;
@@ -824,7 +802,7 @@ const TextWrapper = styled.div`
   }
 
   h2 {
-    font-size:  2.34vw;
+    font-size: 2.34vw;
     line-height: 130%;
     padding-bottom: 5rem;
   }
@@ -844,7 +822,7 @@ const TextWrapper = styled.div`
       padding-bottom: 2.5rem;
     }
   }
-  
+
   @media (max-width: ${breakpoints.l}px) {
     h2 {
       font-size: 3.75vw;
@@ -874,7 +852,7 @@ const TextWrapper = styled.div`
   }
 `
 
-const Hours = styled.div`
+const Hours = styled(motion.div)`
   width: 75%;
   display: flex;
   justify-content: space-between;
@@ -1010,6 +988,46 @@ const TreatmentsText = styled(motion.div)`
       padding: 1.5rem 0rem;
     }
   }
+
+  @media (max-width: ${breakpoints.s}px) {
+    h2 {
+      padding: 1rem 0;
+      font-size: 25px;
+    }
+  }
+`
+
+const Svg = styled(motion.div)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  
+  svg {
+    width: 35px;
+    height: 35px;
+    align-self: center;
+    justify-self: center;
+    margin: 0 auto;
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    width: 35px;
+    height: 35px;
+    svg {
+      width: 35px;
+      height: 35px;
+    }
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    width: 25px;
+    height: 25px;
+    svg {
+      width: 25px;
+      height: 25px;
+    }
+  }
 `
 
 const Dropdown = styled(motion.div)`
@@ -1039,7 +1057,7 @@ const TreatmentsImage = styled.div`
     top: 0;
     margin-top: 3rem;
   }
-  
+
   @media (max-width: ${breakpoints.m}px) {
     border-radius: 0px;
     order: 2;
@@ -1048,7 +1066,7 @@ const TreatmentsImage = styled.div`
   @media (max-width: ${breakpoints.s}px) {
     margin-top: 0;
   }
-  `
+`
 
 const TreatmentsImageWrapper = styled.div`
   overflow: hidden;
@@ -1056,7 +1074,7 @@ const TreatmentsImageWrapper = styled.div`
   width: auto;
   height: auto;
   max-height: 80vh;
-  
+
   @media (max-width: ${breakpoints.xl}px) {
     max-height: 70vh;
   }
@@ -1066,6 +1084,7 @@ const TreatmentsImageWrapper = styled.div`
   }
   @media (max-width: ${breakpoints.s}px) {
     border-radius: 0;
+    max-height: 55vh;
   }
 `
 
@@ -1075,6 +1094,9 @@ const CommonConditions = styled.section`
   padding: 3rem 0;
   @media (max-width: ${breakpoints.m}px) {
     text-align: left;
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    padding: 2rem 0;
   }
 `
 
@@ -1109,18 +1131,21 @@ const Inner = styled.div`
   }
 `
 
-const List = styled.div`
+const List = styled(motion.div)`
   display: flex;
   width: 70%;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding-bottom: 5rem;
+
+  @media (max-width: ${breakpoints.xl}px) {
+    width: 85%;
+  }
 
   @media (max-width: ${breakpoints.m}px) {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /* justify-self: end; */
     align-items: start;
     padding-bottom: 2.5rem;
   }
@@ -1132,35 +1157,40 @@ const BookAnAppointment = styled.section`
   z-index: 2;
   overflow: hidden;
   padding: 4rem 0;
+
+  @media (max-width: ${breakpoints.l}px) {
+    padding: 0;
+  }
 `
 
 const BookAnAppointmentInner = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 90%;
   margin: 0 auto;
+  width: 90%;
+  height: auto;
+  position: relative;
+
+  @media (max-width: ${breakpoints.l}px) {
+    flex-direction: column;
+    width: 100%;
+  }
 `
 
 const BookAnAppointmentImage = styled.div`
   width: 60%;
   position: relative;
-`
 
-const HideImageSandBeige = styled(motion.div)`
-  position: absolute;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  background-color: var(--color-sandbeige);
-  top: 0;
-  left: 0;
+  @media (max-width: ${breakpoints.l}px) {
+    width: 100%;
+  }
 `
 
 const InnerText = styled.div`
   position: relative;
   z-index: 2;
   width: 45%;
-
+  margin-left: 4rem;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -1168,14 +1198,42 @@ const InnerText = styled.div`
 
   h1 {
     padding-bottom: 1rem;
+    line-height: 130%;
   }
   h6 {
     width: 90%;
     margin-bottom: 2rem;
   }
 
+  @media (max-width: ${breakpoints.xxl}px) {
+    br {
+      display: none;
+    }
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    margin: 4rem auto;
+    width: 70%;
+    text-align: center;
+    align-items: center;
+  }
+
   @media (max-width: ${breakpoints.m}px) {
-    width: 80%;
+    width: 90%;
+    margin: 1rem auto;
+    padding: 2rem 0;
+    border-top: 1px solid var(--color-white);
+    border-bottom: 1px solid var(--color-white);
+    /* text-align: center; */
+    /* align-items: center; */
+
+    h6 {
+      width: 100%;
+    }
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    br {
+      display: block;
+    }
   }
 `
 
