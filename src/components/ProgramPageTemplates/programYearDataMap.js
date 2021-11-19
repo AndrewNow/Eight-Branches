@@ -1,9 +1,13 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import breakpoints from "../breakpoints"
 import styled from "styled-components"
-import { AnimatePresence, motion } from "framer-motion"
-import breakpoints from "../../../breakpoints"
 
-export const YearOneTermOne = ({ programData }) => {
+// this needs to be its own component because we need the dropdown state to operate independently for each dropdown
+// if this were in ProgramTableDataMap.js, one clicked dropdown would expand all of them because the state of each dropdown is not locally scoped.
+const ProgramYearDataMap = ({ term, index }) => {
+  // {term} is shorthand for {programOption.year} in ProgramTableDataMap.js
+
   const expandAnimation = {
     visible: {
       height: "auto",
@@ -27,12 +31,15 @@ export const YearOneTermOne = ({ programData }) => {
       opacity: 0,
     },
   }
-
   const [expand, setExpand] = useState(false)
-  const termOne =
-    programData.acupunctureMoxibustion.sixSemester[0].yearOne[0].termOne
 
-  return termOne.map(term => (
+  // Add up total number of credits per course within each dropdown
+  const courseCreditsSum = term.courses.reduce(
+    (sum, course) => sum + course.credits,
+    0
+  )
+
+  return (
     <>
       <Header
         onClick={() => setExpand(!expand)}
@@ -42,8 +49,9 @@ export const YearOneTermOne = ({ programData }) => {
             : "var(--color-beige)",
         }}
         whileHover={{ filter: "brightness(.95)" }}
+        key={index}
       >
-        <h5>Term 1 - Spring</h5>
+        <h5>{term.label}</h5>
         <motion.svg
           animate={{ rotate: expand ? 45 : 0 }}
           width="35"
@@ -56,10 +64,11 @@ export const YearOneTermOne = ({ programData }) => {
           <path d="M16 0L16 32" stroke="white" />
         </motion.svg>
       </Header>
+
       <AnimatePresence exitBeforeEnter>
         {expand && (
           <Term
-            key="term1index"
+            key={index}
             variants={expandAnimation}
             initial="hidden"
             animate={expand ? "visible" : "hidden"}
@@ -71,108 +80,31 @@ export const YearOneTermOne = ({ programData }) => {
               <h6>COURSE TYPE</h6>
               <h6>CREDITS</h6>
             </TermHeader>
-            {term.courses.map((course, i) => (
-              <TermInfo key={i} variants={children}>
-                <p>{course.code}</p>
-                <p>{course.title}</p>
-                <p>{course.type}</p>
-                <p>{course.credits}</p>
-              </TermInfo>
-            ))}
+            {term.courses.map((course, i) => {
+              // array.push(course.credits)
+              return (
+                <TermInfo key={i} variants={children}>
+                  <p>{course.code}</p>
+                  <p>{course.title}</p>
+                  <p>{course.type}</p>
+                  <p>
+                    {course.credits}
+                    {course.credits > 1 ? " credits" : " credit"}
+                  </p>
+                </TermInfo>
+              )
+            })}
             <motion.h6 variants={expandAnimation}>
-              Total Term Credits: 27 credits
+              Total Term Credits: {courseCreditsSum}
             </motion.h6>
           </Term>
         )}
       </AnimatePresence>
     </>
-  ))
+  )
 }
 
-export const YearOneTermTwo = ({ programData }) => {
-  const expandAnimation = {
-    visible: {
-      height: "auto",
-      transition: {
-        ease: "easeIn",
-      },
-    },
-    hidden: {
-      height: 0,
-      transition: {
-        ease: "easeInOut",
-      },
-    },
-  }
-  const children = {
-    visible: {
-      opacity: 1,
-    },
-    hidden: {
-      opacity: 0,
-    },
-  }
-
-  const [expand, setExpand] = useState(false)
-  const termTwo =
-    programData.acupunctureMoxibustion.sixSemester[0].yearOne[1].termTwo
-
-  return termTwo.map(term => (
-    <>
-      <Header
-        onClick={() => setExpand(!expand)}
-        animate={{
-          backgroundColor: expand
-            ? "var(--color-lightestgreen)"
-            : "var(--color-beige)",
-        }}
-        whileHover={{ filter: "brightness(.95)" }}
-      >
-        <h5>Term 2 - Spring</h5>
-        <motion.svg
-          animate={{ rotate: expand ? 45 : 0 }}
-          width="35"
-          height="35"
-          viewBox="0 0 32 32"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M0 16H32" stroke="white" />
-          <path d="M16 0L16 32" stroke="white" />
-        </motion.svg>
-      </Header>
-      <AnimatePresence exitBeforeEnter={true}>
-        {expand && (
-          <Term
-            key="term2index"
-            variants={expandAnimation}
-            initial="hidden"
-            animate={expand ? "visible" : "hidden"}
-            exit="hidden"
-          >
-            <TermHeader variants={children}>
-              <h6>CODE</h6>
-              <h6>COURSE TITLE</h6>
-              <h6>COURSE TYPE</h6>
-              <h6>CREDITS</h6>
-            </TermHeader>
-            {term.courses.map((course, i) => (
-              <TermInfo key={i}>
-                <p>{course.code}</p>
-                <p>{course.title}</p>
-                <p>{course.type}</p>
-                <p>{course.credits}</p>
-              </TermInfo>
-            ))}
-            <motion.h6 variants={children}>
-              Total Term Credits: 27 credits
-            </motion.h6>
-          </Term>
-        )}
-      </AnimatePresence>
-    </>
-  ))
-}
+export default ProgramYearDataMap
 
 const Header = styled(motion.div)`
   border-bottom: 1px solid black;
@@ -210,7 +142,7 @@ const Term = styled(motion.div)`
 
     h6 {
       padding: 1.5rem 2rem;
-      &:last-child {
+      :last-child {
         text-align: center;
       }
     }
@@ -231,12 +163,12 @@ const TermInfo = styled(motion.div)`
     border-bottom: 1px dotted var(--color-salmon);
 
     p {
-      padding: .5rem .25rem;
+      padding: 0.5rem 0.25rem;
       font-size: 11px;
       line-height: 16px;
       padding-bottom: 1rem;
       align-self: center;
-  
+
       :nth-child(3) {
         width: 90%;
       }

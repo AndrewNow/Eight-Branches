@@ -10,6 +10,8 @@ import {
 } from "../../components/CertificatePrograms/certificateprograms"
 import { ApplyNow } from "../generalcomponents"
 import { motion } from "framer-motion"
+import { ProgramTableDataMap } from "./programTableDataMap"
+
 
 const ProgramLayout = ({ programData }) => {
   const hideImage = {
@@ -25,7 +27,6 @@ const ProgramLayout = ({ programData }) => {
       },
     },
   }
-
 
   return (
     <>
@@ -43,9 +44,7 @@ const ProgramLayout = ({ programData }) => {
         <RightSection>
           <LandingTextWrapper>
             <StampLogo fillColor="black" />
-            <h1>
-              {programData.programName}
-            </h1>
+            <h1>{programData.programName}</h1>
             <h4>{programData.programType}</h4>
           </LandingTextWrapper>
         </RightSection>
@@ -53,64 +52,83 @@ const ProgramLayout = ({ programData }) => {
       <AboutTheProgram>
         <AboutLeft>
           <h6>About the Program</h6>
-          <h3>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-            sollicitudin tortor est, sit amet maximus turpis congue at.
-            Pellentesque malesuada faucibus condimentum. Duis placerat felis
-            tellus, in tempus velit convallis eu. Fusce sollicitudin tortor est,
-            sit amet maximus turpis congue at. Pellentesque malesuada faucibus
-            condimentum.
-          </h3>
+          <h3>{programData.about}</h3>
         </AboutLeft>
         <AboutRight>
           <div>
-            <h6>6 Semester (September Start Date)</h6>
+            <h6>{programData.programDescription.optionOne.title}</h6>
             <p>
-              Program Hours: 2400
+              {programData.programDescription.optionOne.hours}
               <br />
-              This program can be completed in 2 years studying full-time{" "}
+              {programData.programDescription.optionOne.description}
             </p>
             <DividingLine />
           </div>
-          <div>
-            <h6>8 Semester (September Start Date)</h6>
-            <p>
-              Program Hours: 2400
-              <br />
-              This program can be completed in 3 years studying full-time{" "}
-            </p>
-            <DividingLine />
-          </div>
-          <div>
-            <p>
-              Both programs qualify graduates to write the Pan-Canadian
-              regulatory examinations and to become a Registered Acupuncturist
-              (R.Ac).
-            </p>
-          </div>
+          {programData.programDescription.optionTwo && (
+            <div>
+              <h6>{programData.programDescription.optionTwo.title}</h6>
+              <p>
+                {programData.programDescription.optionTwo.hours}
+                <br />
+                {programData.programDescription.optionTwo.description}
+              </p>
+              <DividingLine />
+            </div>
+          )}
+          {programData.programDescription.additionalInfo && (
+            <div>
+              <p>{programData.programDescription.additionalInfo}</p>
+            </div>
+          )}
         </AboutRight>
       </AboutTheProgram>
-      <Banner>
-        <BannerInner>
-          <h1>6 Semester Program</h1>
-        </BannerInner>
-      </Banner>
-      <TableSection>
-        <SixSemesterAcupunctureMoxibustionProgramData />
-      </TableSection>
-      <Banner>
-        <BannerInner>
-          <h1>8 Semester Program</h1>
-        </BannerInner>
-      </Banner>
-      <TableSection>
-        <EightSemesterAcupunctureMoxibustionProgramData />
-      </TableSection>
+
+      {programData.courseData.optionOne && (
+        <>
+          <Banner>
+            <BannerInner>
+              <h1>{programData.courseData.optionOne.label}</h1>
+            </BannerInner>
+          </Banner>
+          <TableSection>
+            {/* <ProgramDataMap programData={ programData }/> */}
+            <SixSemesterAcupunctureMoxibustionProgramData />
+          </TableSection>
+        </>
+      )}
+      {programData.courseData.optionTwo && (
+        <>
+          <Banner>
+            <BannerInner>
+              <h1>{programData.courseData.optionTwo.label}</h1>
+            </BannerInner>
+          </Banner>
+          <TableSection>
+            <ProgramTableDataMap
+              programOption={programData.courseData.optionTwo}
+            />
+          </TableSection>
+        </>
+      )}
+      {programData.courseData.optionThree && (
+        <>
+          <Banner>
+            <BannerInner>
+              <h1>{programData.courseData.optionThree.label}</h1>
+            </BannerInner>
+          </Banner>
+          <TableSection>
+            <ProgramTableDataMap
+              programOption={programData.courseData.optionThree}
+            />
+          </TableSection>
+        </>
+      )}
+
       <ApplyNow />
     </>
   )
 }
-
 
 export default ProgramLayout
 
@@ -211,6 +229,7 @@ const AboutTheProgram = styled.section`
   justify-content: center;
   align-items: baseline;
   padding: 5rem 3rem;
+  padding-bottom: 6rem;
   margin: 0 auto;
 
   h6 {
@@ -220,13 +239,17 @@ const AboutTheProgram = styled.section`
   @media (max-width: ${breakpoints.xl}px) {
     flex-direction: column;
     padding: 3.5rem 1.5rem;
+    padding-bottom: 4rem;
   }
 `
 
 const AboutLeft = styled.div`
-  flex-basis: 38%;
+  flex-basis: 40%;
   padding: 0rem;
-
+  h3 {
+    font-size: 28px;
+    line-height: 150%;
+  }
   @media (max-width: ${breakpoints.xl}px) {
     flex-basis: 100%;
     h3 {
@@ -237,6 +260,9 @@ const AboutLeft = styled.div`
 const AboutRight = styled.div`
   flex-basis: 35%;
   margin-left: 10rem;
+  p {
+    font-size: 18px;
+  }
   @media (max-width: ${breakpoints.xl}px) {
     margin-left: 0rem;
   }

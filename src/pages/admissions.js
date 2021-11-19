@@ -346,7 +346,7 @@ const AdmissionsHeader = styled(motion.div)`
       padding-bottom: 1rem;
     }
     h6 {
-      width: 94%;
+      width: 95%;
     }
   }
 `
