@@ -33,7 +33,7 @@ const HomePage = ({ data }) => {
     hidden: {
       y: "-100%",
       transition: {
-        delay: 0.2,
+        // delay: 0.2,
         ease: "easeInOut",
         duration: 1,
       },
@@ -62,7 +62,7 @@ const HomePage = ({ data }) => {
       y: 0,
       opacity: 1,
       transition: {
-        delay: 0.2,
+        // delay: 0.2,
         duration: 1,
         ease: "easeInOut",
         staggerChildren: 0.5,
@@ -73,7 +73,7 @@ const HomePage = ({ data }) => {
   // ---------- INTERSECTION OBSERVER LOGIC ----------
   const [HideImageRef, HideImageInView] = useInView({
     root: null,
-    threshold: 0.8,
+    threshold: 0.7,
     triggerOnce: true,
   })
   const [DiplomaRef0, DiplomaInView0] = useInView({

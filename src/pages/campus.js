@@ -161,7 +161,12 @@ const Campus = ({ data }) => {
                 quality={100}
                 transformOptions={{ cropFocus: "center" }}
                 imgStyle={{ objectFit: "cover" }}
-                style={{ width: "100%", height: "100%" }}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  borderTopLeftRadius: "inherit",
+                  borderTopRightRadius: "inherit",
+                }}
               />
             </CardImage>
           </Card>
@@ -512,11 +517,11 @@ const CardWrapper = styled.div`
 const Card = styled(motion.div)`
   position: relative;
   display: flex;
-  overflow: hidden;
   width: 72.5%;
   height: 100%;
   border: 1px solid black;
   border-radius: 20px;
+  overflow: hidden;
   background-color: white;
   margin: 0 auto;
   margin-bottom: 5rem;
@@ -551,9 +556,13 @@ const CardImage = styled.div`
   top: 0;
   left: 0; */
   overflow: hidden;
+  position: relative;
+  z-index: 1;
 
   @media (max-width: ${breakpoints.s}px) {
     width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
   }
 `
 
