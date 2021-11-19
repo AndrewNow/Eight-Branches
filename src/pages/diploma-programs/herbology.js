@@ -39,209 +39,211 @@ const Herbology = ({ data }) => {
       additionalInfo:
         "Both programs qualify graduates to write the Pan-Canadian regulatory examinations and to become a Registered Acupuncturist (R.Ac).",
     },
-    courseData: {
-      optionOne: {
+    courseData: [
+      {
         label: "2 Year Program",
-        year: {
-          label: "Year One",
-          data: [
-            {
-              label: "Term 1 - Spring",
-              courses: [
-                {
-                  code: "103",
-                  title: "TCM Theory & Diagnostics III",
-                  type: "Lecture Term three",
-                  credits: "4 credits",
-                },
-                {
-                  code: "203",
-                  title: "Acupoint Theory and Location II",
-                  type: "Lecture & Practical",
-                  credits: "6 credits",
-                },
-                {
-                  code: "204",
-                  title: "Techniques of Acupuncture and Moxibustion",
-                  type: "Lecture",
-                  credits: "4 credits",
-                },
-                {
-                  code: "303",
-                  title: "Herbal Pharmacopeia I",
-                  type: "Lecture",
-                  credits: "4 credits",
-                },
-                {
-                  code: "504",
-                  title: "Physiology",
-                  type: "Lecture",
-                  credits: "4 credits",
-                },
-                {
-                  code: "600",
-                  title: "Clinical Assistance",
-                  type: "Lecture",
-                  credits: "4 credits",
-                },
-                {
-                  code: "703",
-                  title: "Tai Ji II",
-                  type: "Lecture",
-                  credits: "1 credit",
-                },
-              ],
-            },
-            {
-              label: "Term 2 - Winter",
-              courses: [
-                {
-                  code: "103",
-                  title: "TCM Theory & Diagnostics III",
-                  type: "Lecture Term three",
-                  credits: "4 credits",
-                },
-                {
-                  code: "203",
-                  title: "Acupoint Theory and Location II",
-                  type: "Lecture & Practical",
-                  credits: "6 credits",
-                },
-                {
-                  code: "204",
-                  title: "Techniques of Acupuncture and Moxibustion",
-                  type: "Lecture",
-                  credits: "4 credits",
-                },
-                {
-                  code: "303",
-                  title: "Herbal Pharmacopeia I",
-                  type: "Lecture",
-                  credits: "4 credits",
-                },
-                {
-                  code: "504",
-                  title: "Physiology",
-                  type: "Lecture",
-                  credits: "4 credits",
-                },
-                {
-                  code: "600",
-                  title: "Clinical Assistance",
-                  type: "Lecture",
-                  credits: "4 credits",
-                },
-                {
-                  code: "703",
-                  title: "Tai Ji II",
-                  type: "Lecture",
-                  credits: "1 credit",
-                },
-              ],
-            },
-          ],
-        },
-        yearTwo: {
-          label: "Year Two",
-          data: [
-            {
-              label: "Term 1 - Spring",
-              courses: [
-                {
-                  code: "103",
-                  title: "TCM Theory & Diagnostics III",
-                  type: "Lecture Term three",
-                  credits: "4 credits",
-                },
-                {
-                  code: "203",
-                  title: "Acupoint Theory and Location II",
-                  type: "Lecture & Practical",
-                  credits: "6 credits",
-                },
-                {
-                  code: "204",
-                  title: "Techniques of Acupuncture and Moxibustion",
-                  type: "Lecture",
-                  credits: "4 credits",
-                },
-                {
-                  code: "303",
-                  title: "Herbal Pharmacopeia I",
-                  type: "Lecture",
-                  credits: "4 credits",
-                },
-                {
-                  code: "504",
-                  title: "Physiology",
-                  type: "Lecture",
-                  credits: "4 credits",
-                },
-                {
-                  code: "600",
-                  title: "Clinical Assistance",
-                  type: "Lecture",
-                  credits: "4 credits",
-                },
-                {
-                  code: "703",
-                  title: "Tai Ji II",
-                  type: "Lecture",
-                  credits: "1 credit",
-                },
-              ],
-            },
-            {
-              label: "Term 2 - Winter",
-              courses: [
-                {
-                  code: "103",
-                  title: "TCM Theory & Diagnostics III",
-                  type: "Lecture Term three",
-                  credits: "4 credits",
-                },
-                {
-                  code: "203",
-                  title: "Acupoint Theory and Location II",
-                  type: "Lecture & Practical",
-                  credits: "6 credits",
-                },
-                {
-                  code: "204",
-                  title: "Techniques of Acupuncture and Moxibustion",
-                  type: "Lecture",
-                  credits: "4 credits",
-                },
-                {
-                  code: "303",
-                  title: "Herbal Pharmacopeia I",
-                  type: "Lecture",
-                  credits: "4 credits",
-                },
-                {
-                  code: "504",
-                  title: "Physiology",
-                  type: "Lecture",
-                  credits: "4 credits",
-                },
-                {
-                  code: "600",
-                  title: "Clinical Assistance",
-                  type: "Lecture",
-                  credits: "4 credits",
-                },
-                {
-                  code: "703",
-                  title: "Tai Ji II",
-                  type: "Lecture",
-                  credits: "1 credit",
-                },
-              ],
-            },
-          ],
-        },
+        year: [
+          {
+            label: "Year One",
+            data: [
+              {
+                label: "Term 1 - Spring",
+                courses: [
+                  {
+                    code: "103",
+                    title: "TCM Theory & Diagnostics III",
+                    type: "Lecture Term three",
+                    credits: 4,
+                  },
+                  {
+                    code: "203",
+                    title: "Acupoint Theory and Location II",
+                    type: "Lecture & Practical",
+                    credits: 6,
+                  },
+                  {
+                    code: "204",
+                    title: "Techniques of Acupuncture and Moxibustion",
+                    type: "Lecture",
+                    credits: 4,
+                  },
+                  {
+                    code: "303",
+                    title: "Herbal Pharmacopeia I",
+                    type: "Lecture",
+                    credits: 4,
+                  },
+                  {
+                    code: "504",
+                    title: "Physiology",
+                    type: "Lecture",
+                    credits: 4,
+                  },
+                  {
+                    code: "600",
+                    title: "Clinical Assistance",
+                    type: "Lecture",
+                    credits: 4,
+                  },
+                  {
+                    code: "703",
+                    title: "Tai Ji II",
+                    type: "Lecture",
+                    credits: 1,
+                  },
+                ],
+              },
+              {
+                label: "Term 2 - Winter",
+                courses: [
+                  {
+                    code: "103",
+                    title: "TCM Theory & Diagnostics III",
+                    type: "Lecture Term three",
+                    credits: 4,
+                  },
+                  {
+                    code: "203",
+                    title: "Acupoint Theory and Location II",
+                    type: "Lecture & Practical",
+                    credits: 6,
+                  },
+                  {
+                    code: "204",
+                    title: "Techniques of Acupuncture and Moxibustion",
+                    type: "Lecture",
+                    credits: 4,
+                  },
+                  {
+                    code: "303",
+                    title: "Herbal Pharmacopeia I",
+                    type: "Lecture",
+                    credits: 4,
+                  },
+                  {
+                    code: "504",
+                    title: "Physiology",
+                    type: "Lecture",
+                    credits: 4,
+                  },
+                  {
+                    code: "600",
+                    title: "Clinical Assistance",
+                    type: "Lecture",
+                    credits: 4,
+                  },
+                  {
+                    code: "703",
+                    title: "Tai Ji II",
+                    type: "Lecture",
+                    credits: 1,
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            label: "Year Two",
+            data: [
+              {
+                label: "Term 1 - Spring",
+                courses: [
+                  {
+                    code: "103",
+                    title: "TCM Theory & Diagnostics III",
+                    type: "Lecture Term three",
+                    credits: 4,
+                  },
+                  {
+                    code: "203",
+                    title: "Acupoint Theory and Location II",
+                    type: "Lecture & Practical",
+                    credits: 6,
+                  },
+                  {
+                    code: "204",
+                    title: "Techniques of Acupuncture and Moxibustion",
+                    type: "Lecture",
+                    credits: 4,
+                  },
+                  {
+                    code: "303",
+                    title: "Herbal Pharmacopeia I",
+                    type: "Lecture",
+                    credits: 4,
+                  },
+                  {
+                    code: "504",
+                    title: "Physiology",
+                    type: "Lecture",
+                    credits: 4,
+                  },
+                  {
+                    code: "600",
+                    title: "Clinical Assistance",
+                    type: "Lecture",
+                    credits: 4,
+                  },
+                  {
+                    code: "703",
+                    title: "Tai Ji II",
+                    type: "Lecture",
+                    credits: 1,
+                  },
+                ],
+              },
+              {
+                label: "Term 2 - Winter",
+                courses: [
+                  {
+                    code: "103",
+                    title: "TCM Theory & Diagnostics III",
+                    type: "Lecture Term three",
+                    credits: 4,
+                  },
+                  {
+                    code: "203",
+                    title: "Acupoint Theory and Location II",
+                    type: "Lecture & Practical",
+                    credits: 6,
+                  },
+                  {
+                    code: "204",
+                    title: "Techniques of Acupuncture and Moxibustion",
+                    type: "Lecture",
+                    credits: 4,
+                  },
+                  {
+                    code: "303",
+                    title: "Herbal Pharmacopeia I",
+                    type: "Lecture",
+                    credits: 4,
+                  },
+                  {
+                    code: "504",
+                    title: "Physiology",
+                    type: "Lecture",
+                    credits: 4,
+                  },
+                  {
+                    code: "600",
+                    title: "Clinical Assistance",
+                    type: "Lecture",
+                    credits: 4,
+                  },
+                  {
+                    code: "703",
+                    title: "Tai Ji II",
+                    type: "Lecture",
+                    credits: 1,
+                  },
+                ],
+              },
+            ],
+          },
+        ],
       },
-      optionTwo: {
+      {
         label: "3 Year Program",
         year: [
           {
@@ -590,7 +592,7 @@ const Herbology = ({ data }) => {
           },
         ],
       },
-    },
+    ],
   }
 
   return (

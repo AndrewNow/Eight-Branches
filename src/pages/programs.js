@@ -463,7 +463,7 @@ const OurPrograms = ({ data }) => {
             </CardText>
             <CardImage>
               <StaticImage
-                src="../images/ProgramsImages/acupuncture.png"
+                src="../images/Programs/certificate-acupuncture.png"
                 alt="A picture of a prosthetic foot with illustrated acupuncture points."
                 quality={100}
                 transformOptions={{ cropFocus: "center" }}
@@ -500,7 +500,7 @@ const OurPrograms = ({ data }) => {
             </CardText>
             <CardImage>
               <StaticImage
-                src="../images/ProgramsImages/bodywork.png"
+                src="../images/Programs/certificate-bodywork.png"
                 alt="A practitioner performs moxibustion, igniting a bundle of herbs."
                 quality={100}
                 transformOptions={{ cropFocus: "center" }}
@@ -537,7 +537,7 @@ const OurPrograms = ({ data }) => {
             </CardText>
             <CardImage>
               <StaticImage
-                src="../images/ProgramsImages/massage.png"
+                src="../images/Programs/certificate-tcm.png"
                 alt="A practitioner performs moxibustion, igniting a bundle of herbs."
                 quality={100}
                 transformOptions={{ cropFocus: "center" }}
@@ -572,7 +572,7 @@ export const pageQuery = graphql`
       }
     }
     ProgramssImages: allFile(
-      filter: { relativeDirectory: { eq: "ProgramsImages" } }
+      filter: { relativeDirectory: { eq: "Programs" } }
       sort: { fields: base, order: ASC }
     ) {
       edges {
@@ -1102,6 +1102,7 @@ const CardText = styled.div`
   padding: 2.5rem 2rem;
   height: 50%;
   h4 {
+    width: 90%;
     margin-top: 1rem;
     margin-bottom: 3rem;
   }

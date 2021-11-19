@@ -1,13 +1,7 @@
 import React from "react"
-import { graphql } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import StampLogo from "../../svg/stamplogo"
 import breakpoints from "../../components/breakpoints"
-import {
-  SixSemesterAcupunctureMoxibustionProgramData,
-  EightSemesterAcupunctureMoxibustionProgramData,
-} from "../../components/CertificatePrograms/certificateprograms"
 import { ApplyNow } from "../generalcomponents"
 import { motion } from "framer-motion"
 import { ProgramTableDataMap } from "./programTableDataMap"
@@ -83,48 +77,21 @@ const ProgramLayout = ({ programData }) => {
         </AboutRight>
       </AboutTheProgram>
 
-      {programData.courseData.optionOne && (
-        <>
-          <Banner>
-            <BannerInner>
-              <h1>{programData.courseData.optionOne.label}</h1>
-            </BannerInner>
-          </Banner>
-          <TableSection>
-            {/* <ProgramDataMap programData={ programData }/> */}
-            <SixSemesterAcupunctureMoxibustionProgramData />
-          </TableSection>
-        </>
-      )}
-      {programData.courseData.optionTwo && (
-        <>
-          <Banner>
-            <BannerInner>
-              <h1>{programData.courseData.optionTwo.label}</h1>
-            </BannerInner>
-          </Banner>
-          <TableSection>
-            <ProgramTableDataMap
-              programOption={programData.courseData.optionTwo}
-            />
-          </TableSection>
-        </>
-      )}
-      {programData.courseData.optionThree && (
-        <>
-          <Banner>
-            <BannerInner>
-              <h1>{programData.courseData.optionThree.label}</h1>
-            </BannerInner>
-          </Banner>
-          <TableSection>
-            <ProgramTableDataMap
-              programOption={programData.courseData.optionThree}
-            />
-          </TableSection>
-        </>
-      )}
-
+      {programData.courseData.map(programOption => {
+        console.log(programOption)
+        return (
+          <>
+            <Banner>
+              <BannerInner>
+                <h1>{programOption.label}</h1>
+              </BannerInner>
+            </Banner>
+            <TableSection>
+              <ProgramTableDataMap programOption={programOption} />
+            </TableSection>
+          </>
+        )
+      })}
       <ApplyNow />
     </>
   )
