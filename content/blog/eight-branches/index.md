@@ -5,4 +5,6 @@ readtime: 6
 description: Test post !
 thumbnail: copy-of-eight_branches_060919-043.jpg.jpg
 ---
-This is my first test of ***Netlify CMS***. I'm liking it so far!
+https://www.youtube.com/watch?v=QviukHkw_aI
+
+Testing video
