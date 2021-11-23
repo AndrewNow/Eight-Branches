@@ -139,8 +139,9 @@ const Admissions = ({ data }) => {
             transition={{ ease: "easeInOut" }}
           >
             <h6>
-              Demonstrated understanding of the responsibilities associated with
-              being a healthcare professional;
+              If applying as a mature student, completion of an Eight
+              Branches "Mature Student Test" and/or "Canadian Adult Achievement
+              Test" and/or equivalent;
             </h6>
           </Requirement>
           <Requirement

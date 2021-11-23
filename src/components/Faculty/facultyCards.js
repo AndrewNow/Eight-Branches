@@ -71,7 +71,7 @@ export const FacultyLeadership = ({
             image={portraitpic}
             alt={title}
             transformOptions={{ cropFocus: "right" }}
-            imgStyle={{ objectFit: "cover" }}
+            imgStyle={{ objectFit: "cover", width: "100%" }}
           />
         </PortraitThumbnail>
         <TextWrapper>
@@ -398,7 +398,7 @@ const ModalImage = styled.div`
   img {
     min-height: 60vh;
     border-radius: 5px;
-    max-width: 50%;
+    /* max-width: 50%; */
   }
 
   @media (max-width: ${breakpoints.xl}px) {
@@ -423,19 +423,20 @@ const ModalText = styled.div`
   pointer-events: auto;
   p {
     font-family: "Matter-light";
-    padding-top: 1rem;
+    padding-top: 2rem;
+    font-size: 21px;
+    line-height: 130%;
   }
   a {
-    font-size: 22px;
-    line-height: 34px;
+    font-size: 21px;
+    line-height: 130%;
     text-decoration: underline;
     color: var(--color-darkgreen);
     font-family: "Matter-light";
   }
   @media (max-width: ${breakpoints.xl}px) {
-    a {
+    a, p {
       font-size: 18px;
-      line-height: 31px;
     }
   }
   @media (max-width: ${breakpoints.m}px) {
@@ -445,9 +446,8 @@ const ModalText = styled.div`
     padding-left: 0;
     padding-right: 0;
     overflow-y: default;
-    a {
+    a, p {
       font-size: 16px;
-      line-height: 27px;
     }
   }
 `
