@@ -6,15 +6,28 @@ import styled from "styled-components"
 import breakpoints from "../components/breakpoints"
 import { motion } from "framer-motion"
 
-
 const NotFoundPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
+
+  const FadeIn = {
+    hidden: {
+      y: 40,
+      opacity: 0,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 1,
+      },
+    },
+  }
 
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="404: Not Found" />
       <Bg>
-        <TextWrapper>
+        <TextWrapper variants={FadeIn} initial="hidden" animate="visible">
           <h1>404</h1>
           <p>
             Oops! You've reached a page that no longer exists. Please click the
@@ -46,7 +59,7 @@ const Bg = styled.div`
   color: var(--color-darkgreen);
 `
 
-const TextWrapper = styled.div`
+const TextWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: center;

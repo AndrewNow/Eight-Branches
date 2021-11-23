@@ -40,7 +40,6 @@ const Layout = ({ children }) => {
 const GlobalWrapper = styled(motion.div)`
   margin: 0 auto;
   padding-bottom: 550px;
-  /* overflow-x: hidden; */
 
   @media (max-width: ${breakpoints.xxl}px) {
     h1 {

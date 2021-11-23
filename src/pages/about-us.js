@@ -65,11 +65,57 @@ const AboutUs = ({ data }) => {
     },
   }
 
-  // Intersection observer logic
+  const fadeIn = {
+    hidden: {
+      y: 40,
+      opacity: 0,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        delay: 0.5,
+        duration: 1,
+        ease: "easeInOut",
+        staggerChildren: 0.5,
+      },
+    },
+  }
+  const principlesFadeIn = {
+    hidden: {
+      y: 30,
+      opacity: 0,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.85,
+        ease: "easeInOut",
+        staggerChildren: 0.35,
+      },
+    },
+  }
 
+  // Intersection observer logic
   const [OurStoryRef, OurStoryInView] = useInView({
     root: null,
     threshold: 0.5,
+    triggerOnce: true,
+  })
+  const [CorePrinciples1Ref, CorePrinciples1InView] = useInView({
+    root: null,
+    threshold: 0.35,
+    triggerOnce: true,
+  })
+  const [CorePrinciples2Ref, CorePrinciples2InView] = useInView({
+    root: null,
+    threshold: 0.35,
+    triggerOnce: true,
+  })
+  const [CorePrinciples3Ref, CorePrinciples3InView] = useInView({
+    root: null,
+    threshold: 0.35,
     triggerOnce: true,
   })
 
@@ -168,50 +214,52 @@ const AboutUs = ({ data }) => {
             style={{ height: "100%" }}
           />
         </Left>
-        <Right>
-          <h3>
+        <Right variants={fadeIn} initial="hidden" animate="visible">
+          <motion.h3 variants={fadeIn}>
             Eight Branches Academy of Eastern Medicine is a Toronto Acupuncture
             School which offers students a comprehensive education with a
             foundation in Traditional Chinese Medicine.
-          </h3>
-          <HiddenText
-            variants={clickExpand}
-            initial="hidden"
-            animate={expand ? "visible" : "hidden"}
-          >
-            <Gradient
-              variants={hideGradient}
-              intial="visible"
-              animate={expand ? "hidden" : "visible"}
-            />
-            <p>
-              Before Eight Branches Academy was established, it was Kokoro Dojo
-              – a peaceful sanctuary tucked behind the residences and busy
-              storefronts in the heart of Toronto's Annex. Kokoro Dojo was a Zen
-              Shiatsu school focused on the teachings of Shizuto Masunaga. These
-              teachings emphasize personal development through meditation, Qi
-              Gong, and extensive hands-on practice, in addition to technical
-              instruction.
-              <br />
-              <br />
-              After studying Traditional Chinese Medicine in British Columbia,
-              Toronto and Chengdu, our founder was introduced to Kokoro Dojo,
-              and found that its principals of practice coincided profoundly
-              with his own. He established a thriving practice and became an
-              integral part of the Dojo, teaching TCM theory and diagnosis; in
-              addition to completing the Zen Shiatsu program himself. ​ Dondrub
-              and Diana, who managed the Dojo and clinic, welcomed Ryan’s idea
-              of incorporating a technical acupuncture program that included the
-              Zen and Taoist principals of the Masunaga traditions. ​ The
-              program was received enthusiastically by its students, and driven
-              by an increased demand for comprehensive TCM instruction in
-              Toronto, Eight Branches Academy of Eastern Medicine was
-              established. With the addition of other treatment modalities and
-              practitioners, the Dojo developed into Eight Branches Healing Arts
-              Centre.
-            </p>
-          </HiddenText>
-          <ExpandButton onClick={() => setExpand(!expand)}>
+          </motion.h3>
+          <motion.div variants={fadeIn}>
+            <HiddenText
+              variants={clickExpand}
+              initial="hidden"
+              animate={expand ? "visible" : "hidden"}
+            >
+              <Gradient
+                variants={hideGradient}
+                intial="visible"
+                animate={expand ? "hidden" : "visible"}
+              />
+              <p>
+                Before Eight Branches Academy was established, it was Kokoro
+                Dojo – a peaceful sanctuary tucked behind the residences and
+                busy storefronts in the heart of Toronto's Annex. Kokoro Dojo
+                was a Zen Shiatsu school focused on the teachings of Shizuto
+                Masunaga. These teachings emphasize personal development through
+                meditation, Qi Gong, and extensive hands-on practice, in
+                addition to technical instruction.
+                <br />
+                <br />
+                After studying Traditional Chinese Medicine in British Columbia,
+                Toronto and Chengdu, our founder was introduced to Kokoro Dojo,
+                and found that its principals of practice coincided profoundly
+                with his own. He established a thriving practice and became an
+                integral part of the Dojo, teaching TCM theory and diagnosis; in
+                addition to completing the Zen Shiatsu program himself. ​
+                Dondrub and Diana, who managed the Dojo and clinic, welcomed
+                Ryan’s idea of incorporating a technical acupuncture program
+                that included the Zen and Taoist principals of the Masunaga
+                traditions.​ The program was received enthusiastically by its
+                students, and driven by an increased demand for comprehensive
+                TCM instruction in Toronto, Eight Branches Academy of Eastern
+                Medicine was established. With the addition of other treatment
+                modalities and practitioners, the Dojo developed into Eight
+                Branches Healing Arts Centre.
+              </p>
+            </HiddenText>
+          </motion.div>
+          <ExpandButton variants={fadeIn} onClick={() => setExpand(!expand)}>
             <p>{!expand ? "Continue Reading" : "Close"}</p>
             <motion.svg
               animate={expand ? { rotate: "180deg" } : { rotate: 0 }}
@@ -257,10 +305,16 @@ const AboutUs = ({ data }) => {
       <OurCorePrinciples>
         <h2>Our Core Principles</h2>
         <PrinciplesWrapper>
-          <PrinciplesItem>
+          <PrinciplesItem
+            ref={CorePrinciples1Ref}
+            variants={principlesFadeIn}
+            initial="hidden"
+            animate={CorePrinciples1InView ? "visible" : "hidden"}
+          >
             <PrinciplesImage
               whileHover={{ y: -5, scale: 1.05 }}
               transition={{ ease: "easeOut" }}
+              variants={principlesFadeIn}
             >
               <StaticImage
                 src="../images/AboutUs/OurCorePrinciples/herbs.png"
@@ -268,15 +322,21 @@ const AboutUs = ({ data }) => {
                 quality={100}
               />
             </PrinciplesImage>
-            <p>
+            <motion.p variants={principlesFadeIn}>
               Education based upon the 8 foundational branches of Eastern
               Medicine.
-            </p>
+            </motion.p>
           </PrinciplesItem>
-          <PrinciplesItem>
+          <PrinciplesItem
+            ref={CorePrinciples2Ref}
+            variants={principlesFadeIn}
+            initial="hidden"
+            animate={CorePrinciples2InView ? "visible" : "hidden"}
+          >
             <PrinciplesImage
               whileHover={{ y: -5, scale: 1.05 }}
               transition={{ ease: "easeOut" }}
+              variants={principlesFadeIn}
             >
               <StaticImage
                 src="../images/AboutUs/OurCorePrinciples/acu.png"
@@ -284,15 +344,21 @@ const AboutUs = ({ data }) => {
                 quality={100}
               />
             </PrinciplesImage>
-            <p>
+            <motion.p variants={principlesFadeIn}>
               Focus on personal development and care based on the Daoist Arts,
               which enrich the understanding of this system of medicine.
-            </p>
+            </motion.p>
           </PrinciplesItem>
-          <PrinciplesItem>
+          <PrinciplesItem
+            ref={CorePrinciples3Ref}
+            variants={principlesFadeIn}
+            initial="hidden"
+            animate={CorePrinciples3InView ? "visible" : "hidden"}
+          >
             <PrinciplesImage
               whileHover={{ y: -5, scale: 1.05 }}
               transition={{ ease: "easeOut" }}
+              variants={principlesFadeIn}
             >
               <StaticImage
                 src="../images/AboutUs/OurCorePrinciples/massage.png"
@@ -300,10 +366,10 @@ const AboutUs = ({ data }) => {
                 quality={100}
               />
             </PrinciplesImage>
-            <p>
+            <motion.p variants={principlesFadeIn}>
               Balanced courses, offering both in-depth theory and extensive
               hands-on practice.
-            </p>
+            </motion.p>
           </PrinciplesItem>
         </PrinciplesWrapper>
       </OurCorePrinciples>
@@ -460,22 +526,6 @@ export const pageQuery = graphql`
   }
 `
 
-const SectionWrapper = styled.div`
-  width: 100%;
-  margin: 0 auto;
-  background-color: var(--color-beige);
-  & h2 {
-    padding-bottom: 5rem;
-  }
-
-  @media (max-width: ${breakpoints.m}px) {
-    & h2 {
-      padding-top: 5rem;
-      padding-bottom: 2.5rem;
-    }
-  }
-`
-
 const EightBranchesFacts = styled.section`
   width: 100%;
   margin: 0 auto;
@@ -513,67 +563,6 @@ const EightBranchesFacts = styled.section`
   }
 `
 
-const ImageBanner = styled.div`
-  width: 100%;
-  height: 70vh;
-  overflow: hidden;
-  margin: 0 auto;
-  position: relative;
-
-  @media (max-width: ${breakpoints.xl}px) {
-    height: 60vh;
-  }
-  @media (max-width: ${breakpoints.l}px) {
-    height: auto;
-  }
-  @media (max-width: ${breakpoints.s}px) {
-    display: none;
-  }
-`
-
-const ImageBannerMobile = styled.div`
-  display: none;
-
-  @media (max-width: ${breakpoints.s}px) {
-    display: block;
-    width: 100%;
-    overflow: hidden;
-    margin: 0 auto;
-    position: relative;
-  }
-`
-
-const BannerText = styled.div`
-  position: absolute;
-  z-index: 20;
-  bottom: 5rem;
-  left: 5vw;
-  color: white;
-
-  & h1 {
-    padding-bottom: 1rem;
-  }
-
-  @media (max-width: ${breakpoints.m}px) {
-    width: 90%;
-    bottom: 10%;
-
-    & h1 {
-      font-size: 50px;
-      line-height: 58px;
-      padding-bottom: 0.5rem;
-    }
-  }
-  @media (max-width: ${breakpoints.s}px) {
-    bottom: 2.5rem;
-    h1 {
-      font-size: 36px;
-      line-height: 46px;
-      white-space: nowrap;
-    }
-  }
-`
-
 const AboutUsSection = styled.section`
   background-color: var(--color-sandbeige);
   display: flex;
@@ -594,10 +583,6 @@ const Left = styled.div`
 
   @media (max-width: ${breakpoints.l}px) {
     display: none;
-    /* width: 100%;
-    height: 40%;
-    position: relative;
-    overflow: visible; */
   }
 `
 
@@ -611,19 +596,19 @@ const HideImageBeige = styled(motion.div)`
   left: 0;
 `
 
-const Right = styled.div`
+const Right = styled(motion.div)`
   width: 50vw;
   background-color: var(--color-sandbeige);
   position: relative;
   z-index: 10;
 
   h3 {
-    padding-top: 15rem;
+    padding-top: 25vh;
     padding-bottom: 5rem;
     margin: 0 auto;
     width: 85%;
   }
-  
+
   @media (max-width: ${breakpoints.xxl}px) {
     h3 {
       width: 80%;
@@ -632,7 +617,8 @@ const Right = styled.div`
   }
   @media (max-width: ${breakpoints.xl}px) {
     h3 {
-      margin: 0 2rem;
+      padding-top: 15vh;
+      margin: 0 auto;
     }
   }
   @media (max-width: ${breakpoints.l}px) {
@@ -696,7 +682,7 @@ const Gradient = styled(motion.div)`
   }
 `
 
-const ExpandButton = styled.button`
+const ExpandButton = styled(motion.button)`
   width: 65%;
   margin: 0 auto;
   margin-bottom: 5rem;
@@ -749,8 +735,9 @@ const OurCorePrinciples = styled.section`
     }
   }
   @media (max-width: ${breakpoints.s}px) {
-    padding: 2.5rem 0;
+    padding: 1.5rem 0;
     h2 {
+      font-size: 30px;
       margin-top: 3rem;
     }
   }
@@ -773,15 +760,19 @@ const PrinciplesWrapper = styled.div`
     width: 100%;
     padding-top: 2.5rem;
   }
+  @media (max-width: ${breakpoints.s}px) {
+    padding-top: .5rem;
+  }
 `
 
-const PrinciplesItem = styled.div`
+const PrinciplesItem = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 31%;
   p {
+    font-family: "Matter-light";
     padding-top: 1rem;
     text-align: center;
   }
@@ -811,6 +802,7 @@ const PrinciplesItem = styled.div`
     width: 90%;
     margin: 2rem 0;
     p {
+      line-height: 140%;
       font-size: 17px;
       width: 70vw;
     }
@@ -1006,9 +998,7 @@ const TCLeft = styled.div`
   /* max-width: 36vw; */
   width: 40%;
   height: 100%;
-  
-  
-  
+
   @media (max-width: ${breakpoints.xxl}px) {
     /* max-width: 40vw; */
     align-self: flex-start;
@@ -1023,7 +1013,6 @@ const TCLeft = styled.div`
     display: none;
   }
 `
-
 
 const TCRight = styled.div`
   flex-basis: 50%;
@@ -1109,11 +1098,11 @@ const Hours = styled.div`
   @media (max-width: ${breakpoints.xl}px) {
     padding-top: 2rem;
   }
-  
+
   @media (max-width: ${breakpoints.l}px) {
     padding-top: 0rem;
   }
-  
+
   @media (max-width: ${breakpoints.m}px) {
     padding-top: 2rem;
   }

@@ -1,15 +1,12 @@
 import React from "react"
 import styled from "styled-components"
-// import { YearOneTermOne } from "./terms/terms"
-// import { YearOneTermTwo } from "./terms/terms"
 import breakpoints from "../breakpoints"
 import ProgramYearDataMap from "./programYearDataMap"
 
 export const ProgramTableDataMap = ({ programOption }) => {
-  // programOption is shorthand for {programData.courseData.optionXYZ}
-  //
-  // whereby "optionXYZ" refers to the program configuration option (2 year program offering, 3 year program offering... etc.)
-
+  
+  // programOption is shorthand for {programData.courseData}
+  
   return (
     <>
       <Year>

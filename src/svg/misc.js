@@ -1,6 +1,6 @@
 import React from "react"
 
-export const Arrow = () => (
+export const Arrow = ({color}) => (
   <svg
     width="8"
     height="12"
@@ -10,14 +10,15 @@ export const Arrow = () => (
   >
     <path
       d="M0.590088 10.59L5.17009 6L0.590088 1.41L2.00009 0L8.00009 6L2.00009 12L0.590088 10.59Z"
-      fill="black"
+      fill={color ? color : "black"}
+
     />
   </svg>
 )
 
 
 export const CheckmarkSVG = () => (
-   <svg
+  <svg
       width="31"
       height="31"
       viewBox="0 0 31 31"

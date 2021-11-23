@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react"
+import React, { useState, useEffect, useRef, useCallback } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import contactInfo from "../../site/settings/contact_info.json"
@@ -14,12 +14,13 @@ const Footer = () => {
   const footerRef = useRef()
   // logic to hide the footer unless it is within a certain threshold from the top of the viewport
   // this is to prevent it appearing when an iOS user triggers a "scroll bounce" when scrolling to the top of the page, revealing the footer behind the <body>
-  const showFooter = () => {
+  const showFooter = useCallback(() => {
     setVisible(true)
-  }
-  const hideFooter = () => {
+  }, [])
+  
+  const hideFooter = useCallback(() => {
     setVisible(false)
-  }
+  }, [])
 
   useEffect(() => {
     const onScroll = () => {

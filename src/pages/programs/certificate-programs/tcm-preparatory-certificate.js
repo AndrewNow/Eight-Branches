@@ -1,21 +1,22 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import Layout from "../../components/layout"
-import Seo from "../../components/seo"
-import ProgramLayout from "../../components/ProgramPageTemplates/programLayout"
+import Layout from "../../../components/layout"
+import Seo from "../../../components/seo"
+import ProgramLayout from "../../../components/ProgramPageTemplates/programLayout"
 
 const Herbology = ({ data }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Advanced TCMP`
+  const siteTitle =
+    data.site.siteMetadata?.title || `TCM Preparatory Certificate`
 
   const programData = {
-    programName: "Post-Graduate Advanced TCMP",
-    programType: "Diploma Program",
+    programName: "TCM Preparatory Certificate",
+    programType: "Certificate Program",
     about:
-      "This full-time diploma program can be completed in 1 year,  preparing post-graduates to qualify as an Advanced Registered Traditional Chinese Medicine Practitioner or Doctor of Traditional Chinese Medicine, according to different Provincial designations. In addition to the TCMP curriculum, the Advanced curriculum focuses on integrated treatment and specialized fields as well as the study of the Chinese medicine classics such as the huang di nei jing and the shang han lun. The program also features Japanese Acupuncture & Moxibustion, Korean Five Element Acupuncture and Cosmetic Acupuncture.",
+      "This program qualifies graduates to write the Pan-Canadian regulatory examinations and to become a Registered Acupuncturist (R.Ac) and a Registered TCM Practitioner (R.TCMP). Students will also be able to prescribe herbal remedies. This program can be completed in 3 years studying full time (11 semesters).  In addition to teaching acupuncture and moxibustion, the program integrates an extensive Herbology coursework and covers the main specialties of Chinese medicine, such as Internal and External Medicine, Gynaecology and Paediatrics.",
     image: (
       <StaticImage
-        src="../../images/Programs/diploma-advanced-TCMP.png"
+        src="../../../images/Programs/certificate-tcm.png"
         alt="Image of a student weighing traditional herbal medicine."
         quality={100}
         transformOptions={{ cropFocus: "center" }}
@@ -597,7 +598,7 @@ const Herbology = ({ data }) => {
 
   return (
     <Layout title={siteTitle}>
-      <Seo title="Advanced TCMP" />
+      <Seo title="TCM Preparatory Certificate" />
       <ProgramLayout programData={programData} />
     </Layout>
   )

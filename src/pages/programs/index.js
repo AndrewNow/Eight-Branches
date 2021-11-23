@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react"
 import { graphql, Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Layout from "../../components/layout"
+import Seo from "../../components/seo"
 import { useInView } from "react-intersection-observer"
-import breakpoints from "../components/breakpoints"
-import LeafPattern from "../svg/leafPattern"
-import StampLogo from "../svg/stamplogo"
+import breakpoints from "../../components/breakpoints"
+import LeafPattern from "../../svg/leafPattern"
+import StampLogo from "../../svg/stamplogo"
 import { motion } from "framer-motion"
-import { ApplyNow, AcademicAdvisor } from "../components/generalcomponents"
+import { ApplyNow, AcademicAdvisor } from "../../components/generalcomponents"
 
 const OurPrograms = ({ data }) => {
   const siteTitle = data.site.siteMetadata?.title || `Our Programs`
@@ -124,16 +124,16 @@ const OurPrograms = ({ data }) => {
 
       <SectionWrapper>
         <ImageBanner>
-          <BannerText>
-            <h1>Our Programs</h1>
-            <h5>
-              Interested in Eastern Medicine? Our academy offers a rich
-              experience across a wide gamut of academic environments. Explore
-              our programs to find one that suits you best.
-            </h5>
+          <BannerText variants={fadeIn} initial="hidden" animate="visible">
+            <motion.h1 variants={fadeIn}>Our Programs</motion.h1>
+            <motion.h5 variants={fadeIn}>
+              Our academy offers a rich experience across a wide gamut of
+              academic environments. Explore our programs to find one that suits
+              you best.
+            </motion.h5>
           </BannerText>
           <StaticImage
-            src="../images/TeachingClinic/banner.png"
+            src="../../images/TeachingClinic/banner.png"
             alt="Beige background image with a tea set in the foreground."
             quality={100}
             layout="constrained"
@@ -141,17 +141,17 @@ const OurPrograms = ({ data }) => {
         </ImageBanner>
 
         <ImageBannerMobile>
-          <BannerText>
-            <h1>Our Programs</h1>
-            <h6>
-              Interested in Eastern Medicine? Our academy offers a rich
-              experience across a wide gamut of academic environments. Explore
-              our programs to find one that suits you best.
-            </h6>
+          <BannerText variants={fadeIn} initial="hidden" animate="visible">
+            <motion.h1 variants={fadeIn}>Our Programs</motion.h1>
+            <motion.h5 variants={fadeIn}>
+              Our academy offers a rich experience across a wide gamut of
+              academic environments. Explore our programs to find one that suits
+              you best.
+            </motion.h5>
           </BannerText>
 
           <StaticImage
-            src="../images/TeachingClinic/mobilebanner.png"
+            src="../../images/TeachingClinic/mobilebanner.png"
             alt="Beige background image with a bonsai in the foreground."
             quality={100}
             layout="constrained"
@@ -176,7 +176,7 @@ const OurPrograms = ({ data }) => {
                   exit="hidden"
                 />
                 <StaticImage
-                  src="../images/Programs/programs-acupuncture.png"
+                  src="../../images/Programs/programs-acupuncture.png"
                   alt="A practitioner carefully performs acupuncture on a patient's foot."
                   quality={100}
                   transformOptions={{ cropFocus: "center" }}
@@ -202,7 +202,7 @@ const OurPrograms = ({ data }) => {
               </motion.h6>
               <ProgramLink
                 variants={fadeIn}
-                to="/diploma-programs/acupuncture-and-moxibustion"
+                to="/programs/diploma-programs/acupuncture-and-moxibustion"
               >
                 <LinkWrapper variants={fadeIn}>
                   <p>View Program</p>{" "}
@@ -249,7 +249,7 @@ const OurPrograms = ({ data }) => {
                   exit="hidden"
                 />
                 <StaticImage
-                  src="../images/Programs/programs-cupping.png"
+                  src="../../images/Programs/programs-cupping.png"
                   alt="A practitioner performs cupping on a patient with 6 cups on their back."
                   quality={100}
                   transformOptions={{ cropFocus: "center" }}
@@ -272,7 +272,10 @@ const OurPrograms = ({ data }) => {
                 regulatory examinations and to become a Registered Acupuncturist
                 (R.Ac) and a Registered TCM Practitioner (R.TCMP).
               </motion.h6>
-              <ProgramLink variants={fadeIn} to="/diploma-programs/TCMP">
+              <ProgramLink
+                variants={fadeIn}
+                to="/programs/diploma-programs/TCMP"
+              >
                 <LinkWrapper variants={fadeIn}>
                   <p>View Program</p>{" "}
                   <svg
@@ -309,7 +312,7 @@ const OurPrograms = ({ data }) => {
                   exit="hidden"
                 />
                 <StaticImage
-                  src="../images/Programs/programs-tcmp.png"
+                  src="../../images/Programs/programs-tcmp.png"
                   alt="A professor leads a group in Tai Chi in one of our salons."
                   quality={100}
                   transformOptions={{ cropFocus: "center" }}
@@ -336,7 +339,7 @@ const OurPrograms = ({ data }) => {
               </motion.h6>
               <ProgramLink
                 variants={fadeIn}
-                to="/diploma-programs/advanced-TCMP"
+                to="/programs/diploma-programs/advanced-TCMP"
               >
                 <LinkWrapper variants={fadeIn}>
                   <p>View Program</p>{" "}
@@ -374,7 +377,10 @@ const OurPrograms = ({ data }) => {
                 examinations. Herbology graduates can become a Registered TCM
                 Herbalist. (R.TCM.H)
               </motion.h6>
-              <ProgramLink variants={fadeIn} to="/diploma-programs/herbology">
+              <ProgramLink
+                variants={fadeIn}
+                to="/programs/diploma-programs/herbology"
+              >
                 <LinkWrapper variants={fadeIn}>
                   <p>View Program</p>{" "}
                   <svg
@@ -406,7 +412,7 @@ const OurPrograms = ({ data }) => {
                   exit="hidden"
                 />
                 <StaticImage
-                  src="../images/Programs/programs-herbology.png"
+                  src="../../images/Programs/programs-herbology.png"
                   alt="A picture of a collection of herbs and jars from our Apothecary."
                   quality={100}
                   transformOptions={{ cropFocus: "center" }}
@@ -443,7 +449,7 @@ const OurPrograms = ({ data }) => {
           >
             <CardText>
               <h4>Acupuncture & Moxibustion Certificate</h4>
-              <CertificateLink to="/certificate-programs/acupuncture-and-moxibustion">
+              <CertificateLink to="/programs/certificate-programs/acupuncture-and-moxibustion">
                 <CertificateLinkWrapper>
                   <p>View Program</p>
                   <svg
@@ -463,7 +469,7 @@ const OurPrograms = ({ data }) => {
             </CardText>
             <CardImage>
               <StaticImage
-                src="../images/Programs/certificate-acupuncture.png"
+                src="../../images/Programs/certificate-acupuncture.png"
                 alt="A picture of a prosthetic foot with illustrated acupuncture points."
                 quality={100}
                 transformOptions={{ cropFocus: "center" }}
@@ -480,7 +486,7 @@ const OurPrograms = ({ data }) => {
           >
             <CardText>
               <h4>Certificate in Asian Bodywork Therapy</h4>
-              <CertificateLink to="/certificate-programs/asian-bodywork-therapy">
+              <CertificateLink to="/programs/certificate-programs/asian-bodywork-therapy">
                 <CertificateLinkWrapper>
                   <p>View Program</p>
                   <svg
@@ -500,7 +506,7 @@ const OurPrograms = ({ data }) => {
             </CardText>
             <CardImage>
               <StaticImage
-                src="../images/Programs/certificate-bodywork.png"
+                src="../../images/Programs/certificate-bodywork.png"
                 alt="A practitioner performs moxibustion, igniting a bundle of herbs."
                 quality={100}
                 transformOptions={{ cropFocus: "center" }}
@@ -517,7 +523,7 @@ const OurPrograms = ({ data }) => {
           >
             <CardText>
               <h4>TCM Preparatory Certificate</h4>
-              <CertificateLink to="/certificate-programs/tcm-preparatory-certificate">
+              <CertificateLink to="/programs/certificate-programs/tcm-preparatory-certificate">
                 <CertificateLinkWrapper>
                   <p>View Program</p>
                   <svg
@@ -537,7 +543,7 @@ const OurPrograms = ({ data }) => {
             </CardText>
             <CardImage>
               <StaticImage
-                src="../images/Programs/certificate-tcm.png"
+                src="../../images/Programs/certificate-tcm.png"
                 alt="A practitioner performs moxibustion, igniting a bundle of herbs."
                 quality={100}
                 transformOptions={{ cropFocus: "center" }}
@@ -626,7 +632,7 @@ const ImageBannerMobile = styled.div`
   }
 `
 
-const BannerText = styled.div`
+const BannerText = styled(motion.div)`
   position: absolute;
   z-index: 20;
   top: 25%;
@@ -652,6 +658,9 @@ const BannerText = styled.div`
 
     h1 {
       padding-bottom: 0.5rem;
+    }
+    h5 {
+      margin-top: 0rem;
     }
   }
   @media (max-width: ${breakpoints.xs}px) {

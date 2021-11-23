@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { AnimatePresence, motion } from "framer-motion"
 import breakpoints from "../breakpoints"
 
-export const FAQ = ({ index, question, answer }) => {
+export const Faq = ({ index, question, answer }) => {
   const expandAnimation = {
     visible: {
       height: "auto",
@@ -156,7 +156,7 @@ const Answer = styled(motion.div)`
     }
     h6 {
       padding: 1.5rem 2rem;
-      &:last-child {
+      :last-child {
         text-align: center;
       }
     }

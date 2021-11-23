@@ -1,21 +1,21 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import Layout from "../../components/layout"
-import Seo from "../../components/seo"
-import ProgramLayout from "../../components/ProgramPageTemplates/programLayout"
+import Layout from "../../../components/layout"
+import Seo from "../../../components/seo"
+import ProgramLayout from "../../../components/ProgramPageTemplates/programLayout"
 
 const Herbology = ({ data }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Herbology`
+  const siteTitle = data.site.siteMetadata?.title || `Asian Bodywork Therapy`
 
   const programData = {
-    programName: "Herbology",
-    programType: "Diploma Program",
+    programName: "Asian Bodywork Therapy",
+    programType: "Certificate Program",
     about:
-      "This program qualifies graduates to apply for professional membership as a Registered Herbalist (RH) with the Ontario Herbalists Association and to write the Pan-Canadian regulatory examinations and to become a Registered TCM Herbalist (R.TCM.H). The program combines Eastern and Western medical theory, clinical practice and internships. In addition to herbology, the curriculum includes training in eastern nutrition, TCM Theory & Diagnostics, advanced Formula preparation, Internal & External Medicine, Gynaecology & Paediatrics. Unlike the other programs, our herbology program is ineligible for OSAP and student loan funding.",
+      "This program qualifies graduates to write the Pan-Canadian regulatory examinations and to become a Registered Acupuncturist (R.Ac) and a Registered TCM Practitioner (R.TCMP). Students will also be able to prescribe herbal remedies. This program can be completed in 3 years studying full time (11 semesters).  In addition to teaching acupuncture and moxibustion, the program integrates an extensive Herbology coursework and covers the main specialties of Chinese medicine, such as Internal and External Medicine, Gynaecology and Paediatrics.",
     image: (
       <StaticImage
-        src="../../images/Programs/diploma-herbology.png"
+        src="../../../images/Programs/certificate-bodywork.png"
         alt="Image of a student weighing traditional herbal medicine."
         quality={100}
         transformOptions={{ cropFocus: "center" }}
@@ -597,7 +597,7 @@ const Herbology = ({ data }) => {
 
   return (
     <Layout title={siteTitle}>
-      <Seo title="Herbology" />
+      <Seo title="Asian Bodywork Therapy" />
       <ProgramLayout programData={programData} />
     </Layout>
   )

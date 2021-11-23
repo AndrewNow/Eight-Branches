@@ -5,7 +5,7 @@ import breakpoints from "../../components/breakpoints"
 import { ApplyNow } from "../generalcomponents"
 import { motion } from "framer-motion"
 import { ProgramTableDataMap } from "./programTableDataMap"
-
+import { useInView } from "react-intersection-observer"
 
 const ProgramLayout = ({ programData }) => {
   const hideImage = {
@@ -21,64 +21,91 @@ const ProgramLayout = ({ programData }) => {
       },
     },
   }
+  const FadeIn = {
+    hidden: {
+      y: 40,
+      opacity: 0,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        delay: 1.25,
+        duration: 1,
+      },
+    },
+  }
+
+  // ---------- INTERSECTION OBSERVER LOGIC ----------
+  const [HideImageRef, HideImageInView] = useInView({
+    root: null,
+    threshold: 0.7,
+    triggerOnce: true,
+  })
+
+  const ProgramDescription = programData.programDescription
 
   return (
     <>
       <LandingSection>
-        <ImageWrapper>
+        <LeftSection ref={HideImageRef}>
           <HideImage
-            style={{ backgroundColor: "var(--color-sandbeige)" }}
+            animate={HideImageInView ? "hidden" : "visible"}
             variants={hideImage}
             initial="visible"
             animate="hidden"
             exit="hidden"
           />
           {programData.image}
-        </ImageWrapper>
+        </LeftSection>
         <RightSection>
-          <LandingTextWrapper>
+          <LandingTextWrapper
+            variants={FadeIn}
+            initial="hidden"
+            animate="visible"
+          >
             <StampLogo fillColor="black" />
-            <h1>{programData.programName}</h1>
-            <h4>{programData.programType}</h4>
+            <motion.h1 variants={FadeIn}>{programData.programName}</motion.h1>
+            <motion.h4 variants={FadeIn}>{programData.programType}</motion.h4>
           </LandingTextWrapper>
         </RightSection>
       </LandingSection>
-      <AboutTheProgram>
-        <AboutLeft>
-          <h6>About the Program</h6>
-          <h3>{programData.about}</h3>
-        </AboutLeft>
-        <AboutRight>
-          <div>
-            <h6>{programData.programDescription.optionOne.title}</h6>
-            <p>
-              {programData.programDescription.optionOne.hours}
-              <br />
-              {programData.programDescription.optionOne.description}
-            </p>
-            <DividingLine />
-          </div>
-          {programData.programDescription.optionTwo && (
+      <AboutProgramBG>
+        <AboutTheProgram>
+          <AboutLeft>
+            <h6>About the Program</h6>
+            <h3>{programData.about}</h3>
+          </AboutLeft>
+          <AboutRight>
             <div>
-              <h6>{programData.programDescription.optionTwo.title}</h6>
+              <h6>{ProgramDescription.optionOne.title}</h6>
               <p>
-                {programData.programDescription.optionTwo.hours}
+                {ProgramDescription.optionOne.hours}
                 <br />
-                {programData.programDescription.optionTwo.description}
+                {ProgramDescription.optionOne.description}
               </p>
               <DividingLine />
             </div>
-          )}
-          {programData.programDescription.additionalInfo && (
-            <div>
-              <p>{programData.programDescription.additionalInfo}</p>
-            </div>
-          )}
-        </AboutRight>
-      </AboutTheProgram>
-
+            {ProgramDescription.optionTwo && (
+              <div>
+                <h6>{ProgramDescription.optionTwo.title}</h6>
+                <p>
+                  {ProgramDescription.optionTwo.hours}
+                  <br />
+                  {ProgramDescription.optionTwo.description}
+                </p>
+                <DividingLine />
+              </div>
+            )}
+            {ProgramDescription.additionalInfo && (
+              <div>
+                <p>{ProgramDescription.additionalInfo}</p>
+              </div>
+            )}
+          </AboutRight>
+        </AboutTheProgram>
+      </AboutProgramBG>
       {programData.courseData.map(programOption => {
-        console.log(programOption)
         return (
           <>
             <Banner>
@@ -87,7 +114,11 @@ const ProgramLayout = ({ programData }) => {
               </BannerInner>
             </Banner>
             <TableSection>
+              {/* this is where the data gets fed into for the dropdowns */}
+              {/* ------------------------------------------------------ */}
               <ProgramTableDataMap programOption={programOption} />
+              {/* ------------------------------------------------------ */}
+              {/* this is where the data gets fed into for the dropdowns */}
             </TableSection>
           </>
         )
@@ -100,37 +131,73 @@ const ProgramLayout = ({ programData }) => {
 export default ProgramLayout
 
 const LandingSection = styled.span`
+  height: 100vh;
   display: flex;
+  position: relative;
   align-items: center;
-  background-color: var(--color-sandbeige);
   color: black;
+  background-color: var(--color-sandbeige);
   svg {
     color: black;
   }
-
-  @media (max-width: ${breakpoints.xl}px) {
+  
+  @media (max-width: ${breakpoints.l}px) {
+    background-color: var(--color-lightestbeige);
     flex-direction: column-reverse;
+    height: 125vh;
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    height: auto;
+  }
+`
+
+const LeftSection = styled.div`
+  position: relative;
+  width: 50%;
+  height: 100%;
+
+  @media (max-width: ${breakpoints.l}px) {
+    width: 100%;
+    height: 40%;
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    height: 40vh;
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    height: 250px;
   }
 `
 
 const RightSection = styled.div`
-  height: 100vh;
-  width: 50%;
-
-  @media (max-width: ${breakpoints.xl}px) {
-    padding-top: 10rem;
-    width: 100%;
+  height: 100%;
+  width: 50vw;
+  position: relative;
+  z-index: 10;
+  background-color: var(--color-sandbeige);
+  
+  @media (max-width: ${breakpoints.l}px) {
+    background-color: var(--color-lightestbeige);
+    width: 100vw;
+    margin-top: 10vh;
+    height: 60%;
+    svg {
+      width: 45px;
+    }
   }
-
+  
   @media (max-width: ${breakpoints.m}px) {
-    padding-top: 5rem;
+    height: auto;
     svg {
       width: 40px;
     }
   }
+  @media (max-width: ${breakpoints.s}px) {
+    margin-top: 5vh;
+    padding-top: 10vh;
+  }
 `
 
-const LandingTextWrapper = styled.div`
+const LandingTextWrapper = styled(motion.div)`
   height: 100%;
   text-align: center;
   display: flex;
@@ -155,29 +222,47 @@ const LandingTextWrapper = styled.div`
     width: 60%;
   }
 
-  @media (max-width: ${breakpoints.m}px) {
+  @media (max-width: 1600px) {
     h1 {
-      margin-top: 0rem;
-      margin-bottom: 1rem;
+      font-size: 60px;
+      line-height: 130%;
     }
   }
-`
-
-const ImageWrapper = styled.div`
-  max-width: 50%;
-  overflow-x: hidden;
-  height: 100vh;
-  position: relative;
-
+  @media (max-width: ${breakpoints.xxl}px) {
+    h1 {
+      font-size: 50px;
+      line-height: 58px;
+    }
+  }
   @media (max-width: ${breakpoints.xl}px) {
-    min-height: auto;
-    max-width: 100%;
-    width: 100%;
-    height: 60vh;
+    h1 {
+      width: 55%;
+    }
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    h1 {
+      font-size: 45px;
+      line-height: 50px;
+      margin-top: 0rem;
+    }
   }
   @media (max-width: ${breakpoints.m}px) {
-    height: 30vh;
-    overflow: hidden;
+    h1 {
+      font-size: 45px;
+      line-height: 50px;
+      margin-bottom: 1rem;
+      width: 70%;
+    }
+    h4 {
+      margin-bottom: 5rem;
+    }
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    h1 {
+      font-size: 36px;
+      line-height: 46px;
+      width: 90%;
+    }
   }
 `
 
@@ -188,26 +273,42 @@ const HideImage = styled(motion.div)`
   height: 100%;
   top: 0;
   left: 0;
+  background-color: var(--color-sandbeige);
+
+  @media (max-width: ${breakpoints.l}px) {
+    background-color: var(--color-lightestbeige);
+  }
 `
 
 const AboutTheProgram = styled.section`
-  background-color: var(--color-lightestbeige);
   display: flex;
   justify-content: center;
   align-items: baseline;
-  padding: 5rem 3rem;
-  padding-bottom: 6rem;
   margin: 0 auto;
+  padding: 5rem 0;
 
   h6 {
     padding: 1rem 0;
   }
 
   @media (max-width: ${breakpoints.xl}px) {
+    justify-content: space-between;
+    padding-bottom: 4rem;
+    width: 90%;
+  }
+  @media (max-width: ${breakpoints.l}px) {
     flex-direction: column;
-    padding: 3.5rem 1.5rem;
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    padding: 2.5rem 0;
     padding-bottom: 4rem;
   }
+`
+
+const AboutProgramBG = styled.div`
+  width: 100%;
+  margin: 0 auto;  
+  background-color: var(--color-lightestbeige);
 `
 
 const AboutLeft = styled.div`
@@ -218,9 +319,22 @@ const AboutLeft = styled.div`
     line-height: 150%;
   }
   @media (max-width: ${breakpoints.xl}px) {
-    flex-basis: 100%;
+    flex-basis: 55%;
     h3 {
       margin-bottom: 2.5rem;
+    }
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    flex-basis: 100%;
+    h6 {
+      color: var(--color-darkgreen);
+    }
+  }
+
+  @media (max-width: ${breakpoints.s}px) {
+    h3 {
+      font-size: 18px;
+      font-family: "Matter-regular";
     }
   }
 `
@@ -232,6 +346,11 @@ const AboutRight = styled.div`
   }
   @media (max-width: ${breakpoints.xl}px) {
     margin-left: 0rem;
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    h6 {
+      color: var(--color-darkgreen);
+    }
   }
 `
 

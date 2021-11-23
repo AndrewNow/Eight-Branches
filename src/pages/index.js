@@ -39,9 +39,9 @@ const HomePage = ({ data }) => {
       },
     },
   }
-  const FadeIn = {
+  const fadeIn = {
     hidden: {
-      y: 50,
+      y: 40,
       opacity: 0,
     },
     visible: {
@@ -53,7 +53,7 @@ const HomePage = ({ data }) => {
       },
     },
   }
-  const FadeInDiplomaText = {
+  const fadeInDiplomaText = {
     hidden: {
       y: 25,
       opacity: 0,
@@ -100,7 +100,7 @@ const HomePage = ({ data }) => {
   const DiplomaData = [
     {
       title: "Acupuncture & Moxibustion",
-      path: "/diploma-programs/acupuncture-and-moxibustion",
+      path: "/programs/diploma-programs/acupuncture-and-moxibustion",
       ref: DiplomaRef0,
       inView: DiplomaInView0,
       image: (
@@ -116,7 +116,7 @@ const HomePage = ({ data }) => {
     },
     {
       title: "Traditional Chinese Medicine Practitioner ",
-      path: "/diploma-programs/TCMP",
+      path: "/programs/diploma-programs/TCMP",
       ref: DiplomaRef1,
       inView: DiplomaInView1,
       image: (
@@ -132,7 +132,7 @@ const HomePage = ({ data }) => {
     },
     {
       title: "Post-Graduate Advanced TCMP",
-      path: "/diploma-programs/advanced-TCMP",
+      path: "/programs/diploma-programs/advanced-TCMP",
       ref: DiplomaRef2,
       inView: DiplomaInView2,
       image: (
@@ -148,7 +148,7 @@ const HomePage = ({ data }) => {
     },
     {
       title: "Herbology",
-      path: "/diploma-programs/herbology",
+      path: "/programs/diploma-programs/herbology",
       ref: DiplomaRef3,
       inView: DiplomaInView3,
       image: (
@@ -252,25 +252,25 @@ const HomePage = ({ data }) => {
           />
           <StaticImage
             src="../images/HomePage/home.png"
+            alt="Soft image of a practitioner performing acupuncture on a foot."
             quality={100}
             transformOptions={{ cropFocus: "bottom" }}
             imgStyle={{ objectFit: "cover" }}
             style={{ height: "100%" }}
-            alt="Soft image of a practitioner performing acupuncture on a foot."
           />
         </LeftSection>
         <RightSection>
           <LandingTextWrapper
-            variants={FadeIn}
+            variants={fadeIn}
             initial="hidden"
             animate="visible"
           >
             <StampLogo />
-            <motion.h1 varaints={FadeIn}>
+            <motion.h1 variants={fadeIn}>
               Ancient Wisdom, <br />
               Modern Practice
             </motion.h1>
-            <motion.h6 variants={FadeIn}>
+            <motion.h6 variants={fadeIn}>
               Eight Branches offers students a holistic and industry-leading
               education, firmly rooted in Traditional Chinese Medicine (TCM).
             </motion.h6>
@@ -309,20 +309,21 @@ const HomePage = ({ data }) => {
             part in sharing and integrating the powerful healing benefits of
             Eastern medicine.
           </p>
+          <ProgramsLink to="/programs">
+            <p>View All Programs</p> <Arrow color="var(--color-darkgreen)"/>
+          </ProgramsLink>
         </DiplomaHeader>
         {DiplomaData.map((diploma, index) => (
           <DiplomaEntry key={index} ref={diploma.ref}>
             <EntryText
-              variants={FadeInDiplomaText}
+              variants={fadeInDiplomaText}
               initial="hidden"
               animate={diploma.inView ? "visible" : "hidden"}
             >
-              <motion.h1 variants={FadeInDiplomaText}>
+              <motion.h1 variants={fadeInDiplomaText}>
                 {diploma.title}
               </motion.h1>
-              <DiplomaReadMore to="/diploma-programs/">
-                View Program
-              </DiplomaReadMore>
+              <DiplomaReadMore to={diploma.path}>View Program</DiplomaReadMore>
             </EntryText>
             <EntryImage>
               <BorderRadius>
@@ -482,8 +483,8 @@ const LandingSection = styled.div`
   height: 100vh;
   display: flex;
   position: relative;
-  background-color: var(--color-beige);
   align-items: center;
+  background-color: var(--color-beige);
 
   @media (max-width: ${breakpoints.l}px) {
     flex-direction: column-reverse;
@@ -523,9 +524,9 @@ const HideImage = styled(motion.div)`
 const RightSection = styled.div`
   height: 100%;
   width: 50vw;
-  background-color: var(--color-beige);
   position: relative;
   z-index: 10;
+  background-color: var(--color-beige);
 
   @media (max-width: ${breakpoints.l}px) {
     width: 100vw;
@@ -774,6 +775,13 @@ const EntryText = styled(motion.div)`
     max-width: 90%;
     margin-bottom: 2rem;
   }
+
+  @media (max-width: 1870px) {
+    width: 39%;
+  }
+  @media (max-width: 1670px) {
+    width: 43%;
+  }
   @media (max-width: 1600px) {
     width: 45vw;
   }
@@ -1011,6 +1019,44 @@ const EventsHeader = styled.header`
   margin: 0 auto;
 `
 
+const ProgramsLink = styled(Link)`
+  color: var(--color-darkgreen);
+  text-decoration: none;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+
+  svg {
+    transition: 0.2s all cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  
+  p {
+    width: unset;
+    padding-top: 1.5rem;
+    padding-right: 0.75rem;
+    font-family: "Matter-regular";
+    font-size: 19px;
+    transition: 0.2s all cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  :hover {
+    color: #00000095;
+    p {
+      opacity: 0.65;
+    }
+    svg {
+      opacity: 0.65;
+      transform: translate3d(4px, 0, 0);
+    }
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    p {
+      font-size: 17px;
+    }
+  }
+`
+
 const BulletinBoardLink = styled(Link)`
   color: black;
   text-decoration: none;
@@ -1027,7 +1073,8 @@ const BulletinBoardLink = styled(Link)`
     padding-top: 0.5rem;
     font-family: "Matter-regular";
     font-size: 19px;
-  }
+    transition: 0.2s all cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
 
   :hover {
     color: #00000095;

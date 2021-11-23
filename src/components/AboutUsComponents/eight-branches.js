@@ -232,7 +232,8 @@ const EightBranches = () => {
               initial="hidden"
               exit="hidden"
             >
-              <div
+              <InfoDropDownButton
+                aria-label="Expand Acupuncture information dropdown"
                 onClick={() =>
                   setExpand({
                     acupuncture: false,
@@ -240,7 +241,7 @@ const EightBranches = () => {
                 }
               >
                 <AboutUsClose />
-              </div>
+              </InfoDropDownButton>
               <motion.h4 variants={fadeout}>
                 The theory and practice of acupuncture is based on Traditional
                 Chinese Medicine, a comprehensive natural health care system
@@ -260,7 +261,8 @@ const EightBranches = () => {
               initial="hidden"
               exit="hidden"
             >
-              <div
+              <InfoDropDownButton
+                aria-label="Expand Moxibustion information dropdown"
                 onClick={() =>
                   setExpand({
                     moxibustion: false,
@@ -268,7 +270,7 @@ const EightBranches = () => {
                 }
               >
                 <AboutUsClose />
-              </div>
+              </InfoDropDownButton>
               <motion.h4 variants={fadeout}>
                 This form of heat therapy has been used for centuries throughout
                 China. Since the early development of this medical system moxa
@@ -292,7 +294,8 @@ const EightBranches = () => {
               initial="hidden"
               exit="hidden"
             >
-              <div
+              <InfoDropDownButton
+                aria-label="Expand Cupping information dropdown"
                 onClick={() =>
                   setExpand({
                     cupping: false,
@@ -300,7 +303,7 @@ const EightBranches = () => {
                 }
               >
                 <AboutUsClose />
-              </div>
+              </InfoDropDownButton>
               <motion.h4 variants={fadeout}>
                 This is one of the oldest manual therapies in Chinese medicine,
                 with recorded use dating back to early fourth century. Thick
@@ -323,7 +326,8 @@ const EightBranches = () => {
               initial="hidden"
               exit="hidden"
             >
-              <div
+              <InfoDropDownButton
+                aria-label="Expand Herbology information dropdown"
                 onClick={() =>
                   setExpand({
                     herbology: false,
@@ -331,7 +335,7 @@ const EightBranches = () => {
                 }
               >
                 <AboutUsClose />
-              </div>
+              </InfoDropDownButton>
               <motion.h4 variants={fadeout}>
                 Eastern Herbology has its roots in nutrition, in particular in
                 China where herbs, seeds, minerals, barks and other remedies are
@@ -491,7 +495,8 @@ const EightBranches = () => {
               initial="hidden"
               exit="hidden"
             >
-              <div
+              <InfoDropDownButton
+                aria-label="Expand Gua Sha information dropdown"
                 onClick={() =>
                   setExpand({
                     guasha: false,
@@ -499,7 +504,7 @@ const EightBranches = () => {
                 }
               >
                 <AboutUsClose />
-              </div>
+              </InfoDropDownButton>
               <motion.h4 variants={fadeout}>
                 Gua sha is an ancient Chinese healing technique that involves
                 using a round edged instrument to stroke the surface of the skin
@@ -524,7 +529,8 @@ const EightBranches = () => {
               initial="hidden"
               exit="hidden"
             >
-              <div
+              <InfoDropDownButton
+                aria-label="Expand Nutrition information dropdown"
                 onClick={() =>
                   setExpand({
                     nutrition: false,
@@ -532,7 +538,7 @@ const EightBranches = () => {
                 }
               >
                 <AboutUsClose />
-              </div>
+              </InfoDropDownButton>
               <motion.h4 variants={fadeout}>
                 Nutrition is at the very foundation of traditional Chinese
                 medicine as it is used to create harmony between one’s internal
@@ -553,7 +559,8 @@ const EightBranches = () => {
               initial="hidden"
               exit="hidden"
             >
-              <div
+              <InfoDropDownButton
+                aria-label="Expand Taoist Arts information dropdown"
                 onClick={() =>
                   setExpand({
                     taoist: false,
@@ -561,7 +568,7 @@ const EightBranches = () => {
                 }
               >
                 <AboutUsClose />
-              </div>
+              </InfoDropDownButton>
               <motion.h4 variants={fadeout}>
                 Yang Shen refers to traditional Chinese practices meant to
                 promote health or nourishing life through harmonized breathing,
@@ -585,7 +592,8 @@ const EightBranches = () => {
               initial="hidden"
               exit="hidden"
             >
-              <div
+              <InfoDropDownButton
+                aria-label="Expand Bodywork information dropdown"
                 onClick={() =>
                   setExpand({
                     bodywork: false,
@@ -593,7 +601,7 @@ const EightBranches = () => {
                 }
               >
                 <AboutUsClose />
-              </div>
+              </InfoDropDownButton>
               <motion.h4 variants={fadeout}>
                 The principle of Asian bodywork is based in correcting the flow
                 of energy through the body and balancing yin and yang energies.
@@ -736,4 +744,13 @@ const InfoDropDown = styled(motion.div)`
       line-height: 175%;
     }
   }
+`
+
+const InfoDropDownButton = styled.button`
+  border: none;
+  background: none;
+  border: 0;
+  padding: 0px;
+  font-size: 100%;
+  font-family: inherit;
 `

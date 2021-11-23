@@ -39,7 +39,6 @@ const Navbar = () => {
 
   const menuAnimation = {
     visible: {
-      // y: 0,
       opacity: 1,
       transition: {
         delay: 0.1,
@@ -204,13 +203,20 @@ const LogoWrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
 
-  & svg {
+  svg {
     height: 75px;
     margin-top: 1rem;
   }
+  @media (max-width: ${breakpoints.l}px) {
+    svg {
+      margin-top: .5rem;
+      height: 60px;
+      max-width: 200px;
+    }
+  }
 
   @media (max-width: ${breakpoints.m}px) {
-    & svg {
+    svg {
       margin-top: 0;
       height: 50px;
       max-width: 200px;
@@ -240,7 +246,7 @@ const NavMenu = styled(motion.nav)`
   background-color: var(--color-beige);
   padding: 3rem;
 
-  & h3 {
+  h3 {
     margin-bottom: 2rem;
     text-align: center;
 
@@ -262,22 +268,41 @@ const NavMenu = styled(motion.nav)`
     }
   }
 
+  @media (max-width: ${breakpoints.xl}px) {
+    width: 52vw;
+
+    h3 {
+      :nth-child(1) {
+        padding-top: 7.5vh;
+      }
+    }
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    width: 55vw;
+
+    h3 {
+      :nth-child(1) {
+        padding-top: 7.5vh;
+      }
+    }
+  }
+
   @media (max-width: ${breakpoints.m}px) {
     border: none;
     width: 100vw;
     left: 0;
 
-    & h3 {
-      &:nth-child(1) {
+    h3 {
+      :nth-child(1) {
         padding-top: 5vh;
       }
     }
   }
   @media (max-width: ${breakpoints.s}px) {
-    & h3 {
+    h3 {
       font-size: 24px;
       margin-bottom: 1.5rem;
-      &:nth-child(1) {
+      :nth-child(1) {
         padding-top: 7vh;
       }
     }

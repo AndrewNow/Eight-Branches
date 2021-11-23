@@ -1,5 +1,5 @@
 import React from "react"
-import { FAQ } from "./FAQ"
+import { Faq } from "./FAQ"
 
 const FAQMap = () => {
   const FAQData = [
@@ -27,7 +27,7 @@ const FAQMap = () => {
   ]
 
   return FAQData.map((item, index) => (
-    <FAQ question={item.question} answer={item.answer} index={index} />
+    <Faq question={item.question} answer={item.answer} index={index} />
   ))
 }
 

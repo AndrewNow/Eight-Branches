@@ -1,21 +1,21 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import Layout from "../../components/layout"
-import Seo from "../../components/seo"
-import ProgramLayout from "../../components/ProgramPageTemplates/programLayout"
+import Layout from "../../../components/layout"
+import Seo from "../../../components/seo"
+import ProgramLayout from "../../../components/ProgramPageTemplates/programLayout"
 
 const Herbology = ({ data }) => {
-  const siteTitle = data.site.siteMetadata?.title || `TCMP`
+  const siteTitle = data.site.siteMetadata?.title || `Acupuncture & Moxibustion`
 
   const programData = {
-    programName: "TCMP",
+    programName: "Acupuncture & Moxibustion",
     programType: "Diploma Program",
     about:
-      "This program qualifies graduates to write the Pan-Canadian regulatory examinations and to become a Registered Acupuncturist (R.Ac) and a Registered TCM Practitioner (R.TCMP). Students will also be able to prescribe herbal remedies. This program can be completed in 3 years studying full time (11 semesters).  In addition to teaching acupuncture and moxibustion, the program integrates an extensive Herbology coursework and covers the main specialties of Chinese medicine, such as Internal and External Medicine, Gynaecology and Paediatrics.",
+      "This acupuncture program can be completed in 2 years (includes summer study) or 3 years (summers off). Our program is hybrid delivery, which incudes both online and on-site study formats. In addition to acupuncture, the curriculum includes training in moxibustion, nutrition, herbology, eastern massage, cupping, gua sha and the taoist arts.",
     image: (
       <StaticImage
-        src="../../images/Programs/diploma-TCMP.png"
+        src="../../../images/Programs/diploma-acupuncture.png"
         alt="Image of a student weighing traditional herbal medicine."
         quality={100}
         transformOptions={{ cropFocus: "center" }}
@@ -597,7 +597,7 @@ const Herbology = ({ data }) => {
 
   return (
     <Layout title={siteTitle}>
-      <Seo title="TCMP" />
+      <Seo title="Acupuncture & Moxibustion" />
       <ProgramLayout programData={programData} />
     </Layout>
   )

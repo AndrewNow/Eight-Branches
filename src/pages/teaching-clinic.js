@@ -484,8 +484,8 @@ const TeachingClinic = ({ data }) => {
                 imgStyle={{
                   borderRadius: "30px",
                   height: "100%",
+                  objectFit: "cover"
                 }}
-                imgStyle={{ objectFit: "cover" }}
                 style={{ height: "100%" }}
               />
             </TreatmentsImageWrapper>

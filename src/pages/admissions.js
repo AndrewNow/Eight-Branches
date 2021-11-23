@@ -34,7 +34,7 @@ const Admissions = ({ data }) => {
       y: 0,
       opacity: 1,
       transition: {
-        delayChildren: .15,
+        delayChildren: 0.15,
         staggerChildren: 0.15,
         ease: "easeInOut",
         duration: 1,
@@ -46,11 +46,41 @@ const Admissions = ({ data }) => {
     },
   }
 
+  const RequirementFadeIn = {
+    hidden: {
+      y: 30,
+      opacity: 0,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.85,
+        ease: "easeInOut",
+        staggerChildren: 0.35,
+      },
+    },
+  }
 
   // ---------- INTERSECTION OBSERVER LOGIC ----------
   const [HideImageRef, HideImageInView] = useInView({
     root: null,
     threshold: 0.4,
+    triggerOnce: true,
+  })
+  const [Requirement1Ref, Requirement1InView] = useInView({
+    root: null,
+    threshold: 0.35,
+    triggerOnce: true,
+  })
+  const [Requirement2Ref, Requirement2InView] = useInView({
+    root: null,
+    threshold: 0.35,
+    triggerOnce: true,
+  })
+  const [Requirement3Ref, Requirement3InView] = useInView({
+    root: null,
+    threshold: 0.35,
     triggerOnce: true,
   })
 
@@ -88,6 +118,10 @@ const Admissions = ({ data }) => {
         <h1>Academic Requirements</h1>
         <RequirementWrapper>
           <Requirement
+            ref={Requirement1Ref}
+            variants={RequirementFadeIn}
+            initial="hidden"
+            animate={Requirement1InView ? "visible" : "hidden"}
             whileHover={{ y: -5 }}
             transition={{ ease: "easeInOut" }}
           >
@@ -97,6 +131,10 @@ const Admissions = ({ data }) => {
             </h6>
           </Requirement>
           <Requirement
+            ref={Requirement2Ref}
+            variants={RequirementFadeIn}
+            initial="hidden"
+            animate={Requirement2InView ? "visible" : "hidden"}
             whileHover={{ y: -5 }}
             transition={{ ease: "easeInOut" }}
           >
@@ -106,6 +144,10 @@ const Admissions = ({ data }) => {
             </h6>
           </Requirement>
           <Requirement
+            ref={Requirement3Ref}
+            variants={RequirementFadeIn}
+            initial="hidden"
+            animate={Requirement3InView ? "visible" : "hidden"}
             whileHover={{ y: -5 }}
             transition={{ ease: "easeInOut" }}
           >
@@ -389,7 +431,6 @@ const AcademicRequirements = styled.section`
     }
   }
   @media (max-width: ${breakpoints.s}px) {
-
   }
 `
 
@@ -604,7 +645,8 @@ const Right = styled.div`
     }
   }
   @media (max-width: ${breakpoints.s}px) {
-    h5, h6 {
+    h5,
+    h6 {
       font-size: 18px;
     }
   }

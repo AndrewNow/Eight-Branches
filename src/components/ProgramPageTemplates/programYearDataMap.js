@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import breakpoints from "../breakpoints"
 import styled from "styled-components"
 
 // this needs to be its own component because we need the dropdown state to operate independently for each dropdown
 // if this were in ProgramTableDataMap.js, one clicked dropdown would expand all of them because the state of each dropdown is not locally scoped.
+
 const ProgramYearDataMap = ({ term, index }) => {
   // {term} is shorthand for {programOption.year} in ProgramTableDataMap.js
 
@@ -52,17 +53,18 @@ const ProgramYearDataMap = ({ term, index }) => {
         key={index}
       >
         <h5>{term.label}</h5>
-        <motion.svg
-          animate={{ rotate: expand ? 45 : 0 }}
-          width="35"
-          height="35"
-          viewBox="0 0 32 32"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M0 16H32" stroke="white" />
-          <path d="M16 0L16 32" stroke="white" />
-        </motion.svg>
+        <Svg animate={{ rotate: expand ? 45 : 0 }}>
+          <svg
+            width="35"
+            height="35"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M0 16H32" stroke="white" />
+            <path d="M16 0L16 32" stroke="white" />
+          </svg>
+        </Svg>
       </Header>
 
       <AnimatePresence exitBeforeEnter>
@@ -129,6 +131,42 @@ const Header = styled(motion.div)`
     padding: 1rem;
   }
 `
+const Svg = styled(motion.div)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+
+  svg {
+    width: 35px;
+    height: 35px;
+    align-self: center;
+    justify-self: center;
+    margin: 0 auto;
+
+    // make svg black
+    filter: invert(1);
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    width: 35px;
+    height: 35px;
+    svg {
+      width: 35px;
+      height: 35px;
+    }
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    width: 25px;
+    height: 25px;
+    svg {
+      width: 25px;
+      height: 25px;
+    }
+  }
+`
+
 
 const Term = styled(motion.div)`
   background-color: white;
@@ -188,9 +226,6 @@ const TermHeader = styled(motion.div)`
     padding: 2.5rem 0;
     padding-bottom: 1rem;
     color: var(--color-darkgreen);
-    /* :last-child {
-      justify-self: end;
-    } */
   }
 
   @media (max-width: ${breakpoints.m}px) {
