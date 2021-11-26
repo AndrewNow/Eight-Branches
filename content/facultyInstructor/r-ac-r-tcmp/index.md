@@ -1,5 +1,5 @@
 ---
-title: R.Ac, R.TCMP
+title: Mohmedshoeb Chikhlikar R.Ac, R.TCMP
 role: Instructor
 portrait: judy-gu-for-eight-branches-faculty-selects-010.jpg
 description: Mohmed supervises graduate course, teaches and ensures that Eight
