@@ -65,6 +65,16 @@ const AboutUs = ({ data }) => {
     },
   }
 
+  const parent = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: .15,
+      },
+    },
+  }
+
   const fadeIn = {
     hidden: {
       y: 40,
@@ -74,10 +84,10 @@ const AboutUs = ({ data }) => {
       y: 0,
       opacity: 1,
       transition: {
-        delay: 0.5,
+        // delay: 0.5,
         duration: 1,
         ease: "easeInOut",
-        staggerChildren: 0.5,
+        // staggerChildren: 0.5,
       },
     },
   }
@@ -214,7 +224,7 @@ const AboutUs = ({ data }) => {
             style={{ height: "100%" }}
           />
         </Left>
-        <Right variants={fadeIn} initial="hidden" animate="visible">
+        <Right variants={parent} initial="hidden" animate="visible">
           <motion.h3 variants={fadeIn}>
             Eight Branches Academy of Eastern Medicine is a Toronto Acupuncture
             School which offers students a comprehensive education with a
@@ -699,6 +709,7 @@ const ExpandButton = styled(motion.button)`
   p {
     padding-right: 0.5rem;
     font-size: 20px;
+    color: black;
   }
   @media (max-width: ${breakpoints.xl}px) {
     width: 80%;
@@ -761,7 +772,7 @@ const PrinciplesWrapper = styled.div`
     padding-top: 2.5rem;
   }
   @media (max-width: ${breakpoints.s}px) {
-    padding-top: .5rem;
+    padding-top: 0.5rem;
   }
 `
 

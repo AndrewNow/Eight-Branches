@@ -54,7 +54,7 @@ const Campus = ({ data }) => {
   })
 
   // ---------- Embla config for autoplay scrolling ----------
-  const AUTOPLAY_INTERVAL = 2250
+  const AUTOPLAY_INTERVAL = 1750
   const autoplay = useCallback(() => {
     if (!embla) return
     if (embla.canScrollNext()) {
@@ -400,12 +400,15 @@ const EmblaViewport = styled.div`
   width: 100%;
 
   border-radius: 20px;
+  -webkit-border-radius: 20px;
 
   @media (max-width: ${breakpoints.m}px) {
     border-radius: 10px;
+    -webkit-border-radius: 10px;
   }
   @media (max-width: ${breakpoints.s}px) {
     border-radius: 5px;
+    -webkit-border-radius: 5px;
   }
 `
 

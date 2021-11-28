@@ -257,11 +257,11 @@ const FlexWrapper = styled.span`
   @media (max-width: ${breakpoints.s}px) {
     width: 90%;
     padding-top: 0;
-    /* padding-top: 10vh; */
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    /* padding-top: 10vh; */
     /* padding-top: 15rem; */
   }
   @media (max-width: ${breakpoints.xs}px) {
@@ -334,6 +334,9 @@ const SiteMenu = styled.section`
 `
 
 const Title = styled.p`
+  :hover{
+    color: black!important;
+  }
   @media (max-width: ${breakpoints.m}px) {
     font-family: "Matter-regular"!important;
     font-size: 18px!important;

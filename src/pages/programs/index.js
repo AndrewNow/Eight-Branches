@@ -660,6 +660,7 @@ const BannerText = styled(motion.div)`
       padding-bottom: 0.5rem;
     }
     h5 {
+      font-size: 17px;
       margin-top: 0rem;
     }
   }
@@ -1010,12 +1011,19 @@ const CertificatePrograms = styled.section`
       line-height: 150%;
       width: 90%;
       padding-bottom: 7rem;
+      strong {
+        font-size: 18px;
+        line-height: 150%;
+      }
     }
   }
   @media (max-width: ${breakpoints.l}px) {
     p:last-child {
       width: 95%;
       font-size: 16px;
+      strong {
+        font-size: 16px;
+      }
     }
   }
 
@@ -1023,12 +1031,9 @@ const CertificatePrograms = styled.section`
     padding-top: 5rem;
 
     p:last-child {
-      font-size: 16px;
-      line-height: 24px;
       width: 90%;
       padding-bottom: 5rem;
     }
-
     svg {
       width: 30px;
     }

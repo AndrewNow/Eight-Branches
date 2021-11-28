@@ -52,6 +52,7 @@
 }
 
 body {
+  background-color: var(--color-beige);
   margin: 0;
   overscroll-behavior: none;
 }

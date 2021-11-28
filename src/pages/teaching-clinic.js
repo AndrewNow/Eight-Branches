@@ -112,7 +112,7 @@ const TeachingClinic = ({ data }) => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        // staggerChildren: 0.1,
       },
     },
   }
@@ -482,7 +482,7 @@ const TeachingClinic = ({ data }) => {
                 image={treatmentsImage.imagesrc}
                 alt={treatmentsImage.imagealt}
                 imgStyle={{
-                  borderRadius: "30px",
+                  // borderRadius: "30px",
                   height: "100%",
                   objectFit: "cover"
                 }}
@@ -1083,7 +1083,7 @@ const TreatmentsImageWrapper = styled.div`
     border-radius: 10px;
   }
   @media (max-width: ${breakpoints.s}px) {
-    border-radius: 0;
+    border-radius: 0px;
     max-height: 55vh;
   }
 `
@@ -1197,8 +1197,8 @@ const InnerText = styled.div`
   flex-direction: column;
 
   h1 {
-    padding-bottom: 1rem;
-    line-height: 130%;
+    padding-bottom: 2rem;
+    line-height: 100%;
   }
   h6 {
     width: 90%;
@@ -1215,6 +1215,9 @@ const InnerText = styled.div`
     width: 70%;
     text-align: center;
     align-items: center;
+    h1 {
+      padding-bottom: 1rem;
+    }
   }
 
   @media (max-width: ${breakpoints.m}px) {
@@ -1225,14 +1228,17 @@ const InnerText = styled.div`
     border-bottom: 1px solid var(--color-white);
     /* text-align: center; */
     /* align-items: center; */
-
     h6 {
       width: 100%;
     }
   }
-  @media (max-width: ${breakpoints.m}px) {
-    br {
-      display: block;
+  @media (max-width: ${breakpoints.s}px) {
+    /* text-align: left; */
+    h1 {
+      padding-bottom: .75rem;
+    }
+    h6 {
+      width: 85%;
     }
   }
 `
@@ -1250,8 +1256,11 @@ const BookNowButton = styled.a`
   font-family: "Matter-regular";
 
   transition: 0.25s all ease-in-out;
-  &:hover {
+  :hover {
     color: var(--color-white);
     background-color: var(--color-darkgreen);
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    /* align-self: flex-start; */
   }
 `
