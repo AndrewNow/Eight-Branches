@@ -262,7 +262,6 @@ const FlexWrapper = styled.span`
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px dotted green;
     /* padding-top: 15rem; */
   }
   @media (max-width: ${breakpoints.xs}px) {
@@ -286,17 +285,17 @@ const Newsletter = styled.section`
   @media (max-width: ${breakpoints.xxl}px) {
     max-width: 400px;
     h4 {
-      font-size: 30px;
+      font-size: 30px!important;
     }
   }
   @media (max-width: ${breakpoints.xl}px) {
     margin-right: 1rem;
-    h4 {
-      font-size: 28px;
-    }
   }
   @media (max-width: ${breakpoints.l}px) {
     max-width: 350px;
+    h4 {
+      font-size: 28px!important;
+    }
   }
 
   @media (max-width: ${breakpoints.m}px) {
@@ -312,12 +311,12 @@ const Newsletter = styled.section`
   @media (max-width: ${breakpoints.s}px) {
     width: 100%;
     h4 {
-      font-size: 22px;
+      font-size: 22px!important;
     }
   }
   @media (max-width: ${breakpoints.xs}px) {
     h4 {
-      font-size: 20px;
+      font-size: 20px!important;
     }
   }
 `
@@ -359,13 +358,13 @@ const SocialIcons = styled.div`
   width: 70%;
 `
 
-const FooterStampMobile = styled.div`
-  display: none;
+// const FooterStampMobile = styled.div`
+//   display: none;
 
-  @media (max-width: ${breakpoints.m}px) {
-    display: flex;
-  }
-`
+//   @media (max-width: ${breakpoints.m}px) {
+//     display: flex;
+//   }
+// `
 
 const MobileWrapper = styled.div`
   width: 45%;

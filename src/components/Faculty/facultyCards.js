@@ -128,7 +128,7 @@ export const FacultyLeadership = ({
 export const FacultyInstructor = ({
   title,
   role,
-  briefdescription,
+  excerpt,
   bio,
   email,
   slug,
@@ -192,7 +192,7 @@ export const FacultyInstructor = ({
           <p>{role}</p>
           <h3>{title}</h3>
           <FacultyDescription>
-            <p>{briefdescription}</p>
+            <p>{excerpt}</p>
           </FacultyDescription>
           <ReadMore>Read More</ReadMore>
         </TextWrapper>
