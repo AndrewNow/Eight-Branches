@@ -204,8 +204,11 @@ const LogoWrapper = styled.div`
   align-items: center;
 
   svg {
-    height: 75px;
+    height: 90px;
+    width: auto;
     margin-top: 1rem;
+    /* height: 75px; */
+    /* margin-top: 1rem; */
   }
   @media (max-width: ${breakpoints.l}px) {
     svg {

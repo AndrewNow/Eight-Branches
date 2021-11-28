@@ -448,6 +448,7 @@ const EventsButton = styled.button`
     border: 1px solid var(--color-orange);
   }
   p {
+    color: black;
     font-size: 18px;
     font-family: "Matter-light";
     padding-bottom: 4px;

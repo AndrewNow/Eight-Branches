@@ -127,7 +127,7 @@ const OurPrograms = ({ data }) => {
           <BannerText variants={fadeIn} initial="hidden" animate="visible">
             <motion.h1 variants={fadeIn}>Our Programs</motion.h1>
             <motion.h5 variants={fadeIn}>
-              Our academy offers a rich experience across a wide gamut of
+              Our college offers a rich experience across a wide gamut of
               academic environments. Explore our programs to find one that suits
               you best.
             </motion.h5>
@@ -144,7 +144,7 @@ const OurPrograms = ({ data }) => {
           <BannerText variants={fadeIn} initial="hidden" animate="visible">
             <motion.h1 variants={fadeIn}>Our Programs</motion.h1>
             <motion.h5 variants={fadeIn}>
-              Our academy offers a rich experience across a wide gamut of
+              Our college offers a rich experience across a wide gamut of
               academic environments. Explore our programs to find one that suits
               you best.
             </motion.h5>
