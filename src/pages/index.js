@@ -407,7 +407,7 @@ const HomePage = ({ data }) => {
             </BulletinBoardLink>
           </EventsHeader>
           <EventWrapper>
-            {data.events.edges?.slice(0, 2).map(eventData => {
+            {data.events.edges?.slice(0, 2).map((eventData, i) => {
               const eventDataQuery = eventData.node.childrenMarkdownRemark[0]
               if (!eventDataQuery) {
                 return null
@@ -417,7 +417,7 @@ const HomePage = ({ data }) => {
 
               return (
                 eventDataQuery && (
-                  <Event>
+                  <Event key={i}>
                     <EventTitle to={slug} itemProp="url">
                       <h4 key={slug}>{title}</h4>
                     </EventTitle>

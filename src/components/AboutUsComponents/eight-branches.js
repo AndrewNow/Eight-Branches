@@ -666,7 +666,7 @@ const BlockInner = styled.div`
   h3 {
     text-align: center;
   }
-  &:hover {
+  :hover {
     background-color: var(--color-lightorange);
     color: var(--color-beige);
   }
@@ -689,6 +689,17 @@ const BlockInner = styled.div`
   @media (max-width: ${breakpoints.m}px) {
     h3 {
       font-size: 20px;
+      line-height: 140%;
+    }
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    h3 {
+      font-size: 22px;
+    }
+  }
+  @media (max-width: ${breakpoints.xs}px) {
+    h3 {
+      font-size: 18px;
     }
   }
 `

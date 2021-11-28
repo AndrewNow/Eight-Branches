@@ -1,7 +1,8 @@
 import React from "react"
 import styled from "styled-components"
-import { ImArrowRight2 } from "react-icons/im"
 import breakpoints from "../breakpoints"
+import { NewsletterArrow } from "../../svg/misc"
+import { motion } from "framer-motion"
 
 const MailchimpInputField = props => {
   //Checks if all the fields are filled and if an @ sign is used in the email field
@@ -21,9 +22,31 @@ const MailchimpInputField = props => {
           disabled={validateInput(props.formValues)}
         />
         {validateInput(props.formValues) ? (
-          <ImArrowRight2 size={25} style={{ color: "#00000050" }} />
+          <div>
+            <NewsletterArrow
+              color={"#7B797370"}
+              style={{ transition: "var(--hover-transition)" }}
+            />
+          </div>
         ) : (
-          <ImArrowRight2 size={25} style={{ color: "#00000090" }} />
+          <motion.div
+            initial={{ x: 0 }}
+            animate={{
+              x: [0, 5, 0],
+              transition: {
+                repeat: Infinity,
+                repeatType: "mirror",
+                repeatDelay: 2,
+                duration: 1,
+                ease: "easeInOut",
+              },
+            }}
+          >
+            <NewsletterArrow
+              color={"#7B7973"}
+              style={{ transition: "var(--hover-transition)" }}
+            />
+          </motion.div>
         )}
       </SubmitLabel>
     )
@@ -66,35 +89,29 @@ const EmailInput = styled.input`
   background: none;
   background-color: none;
   font-family: "Matter-regular";
-  font-size: 18px;
+  font-size: 22px;
   box-sizing: border-box;
   color: #00000050;
 
-  &:focus {
+  :focus {
     border-radius: 3px;
     outline: none !important;
     color: #00000090;
   }
+
+  @media (max-width: ${breakpoints.xl}px) {
+    font-size: 18px;
+  }
 `
 
 const SubmitLabel = styled.label`
-  /* border: 1px solid grey; */
-  & svg {
-    position: absolute;
-    color: #00000050;
-    transform: translate(-2rem, 0rem);
-    transition: var(--hover-transition);
-
-    &:hover {
-      color: var(--color-orange) !important;
+  div {
+    position: relative;
+    svg {
+      position: absolute;
+      transform: translate(1rem, -1.75rem);
+      transition: var(--hover-transition);
       cursor: pointer;
-    }
-  }
-
-  @media (max-width: ${breakpoints.m}px) {
-    & svg {
-      transform: translate(-3rem, -.25rem);
-      /* position: relative; */
     }
   }
 `
@@ -102,17 +119,27 @@ const SubmitLabel = styled.label`
 const SubmitInput = styled.input`
   color: none;
   font-family: "Matter-light";
-  padding-left: 1rem;
-  padding-bottom: 1rem;
+  /* padding-left: 1rem; */
+  /* padding-bottom: 1rem; */
   border: none;
   width: 50px;
+  height: 35px;
   background: none;
   background-color: none;
-  cursor: pointer;
+  /* cursor: pointer; */
 
-  &:disabled {
-    cursor: default;
+  :not(:disabled) {
+    cursor: pointer;
+
+    :hover {
+      ~ div svg {
+        path {
+          fill: var(--color-orange) !important;
+        }
+      }
+    }
   }
+
   @media (max-width: ${breakpoints.m}px) {
     /* padding-bottom: 0rem; */
   }

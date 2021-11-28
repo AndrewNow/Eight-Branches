@@ -39,7 +39,7 @@ const Layout = ({ children }) => {
 
 const GlobalWrapper = styled(motion.div)`
   margin: 0 auto;
-  padding-bottom: 550px;
+  padding-bottom: var(--footer-height);
 
   @media (max-width: ${breakpoints.xxl}px) {
     h1 {
@@ -80,6 +80,8 @@ const GlobalWrapper = styled(motion.div)`
       font-size: 18px;
       line-height: 31px;
     }
+    padding-bottom: 70vh;
+    // ^ same value as FooterComponent's height in footer.js. see media queries in FooterComponent
   }
   @media (max-width: ${breakpoints.l}px) {
     h1 {
@@ -133,7 +135,9 @@ const GlobalWrapper = styled(motion.div)`
       font-size: 16px;
       line-height: 27px;
     }
+    padding-bottom: 80vh;
   }
+
   @media (max-width: ${breakpoints.s}px) {
     h1 {
       font-size: 36px;
@@ -165,6 +169,7 @@ const GlobalWrapper = styled(motion.div)`
       font-size: 16px;
       line-height: 27px;
     }
+    padding-bottom: 95vh;
   }
 `
 
@@ -175,7 +180,11 @@ const Main = styled.main`
   z-index: 2;
 
   @media (max-width: ${breakpoints.m}px) {
-    margin-bottom: 10rem;
+    /* margin-bottom: 30vh; */
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    /* margin-bottom: 90vh; */
+    /* margin-bottom: 30vh; */
   }
 `
 

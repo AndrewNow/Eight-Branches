@@ -92,9 +92,11 @@ const EmailForm = styled.form`
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #00000050;
+  padding-bottom: .35rem;
 
   @media (max-width: ${breakpoints.m}px) {
     width: 100%;
+    max-width: none;
   }
 `
 
@@ -106,13 +108,13 @@ const Sending = styled(motion.div)`
   border: 1px solid black;
   border-radius: 10px;
   background-color: var(--color-white);
-  margin-top: 5rem;
+  margin-top: 4rem;
   width: 270px;
   word-wrap: wrap;
   padding: 1rem 2rem;
   color: var(--color-darkgreen);
 
-  & a {
+  a {
     padding-top: 1rem;
     font-family: "Matter-regular";
     font-size: 16px;
@@ -132,16 +134,24 @@ const Error = styled(motion.div)`
   border: 1px solid black;
   border-radius: 10px;
   background-color: var(--color-white);
-  margin-top: 5rem;
-  width: 270px;
+  margin-top: 4rem;
+  width: 310px;
   word-wrap: wrap;
   padding: 1rem 2rem;
 
-  & a {
+  p, a {
     padding-top: 1rem;
     font-family: "Matter-regular";
     font-size: 16px;
-    line-height: 16px;
+    line-height: 110%;
+  }
+  a {
+    text-decoration: underline;
+    padding-top: 1rem;
+    display: block;
+    :hover{
+      text-decoration: underline;
+    }
   }
   @media (max-width: ${breakpoints.m}px) {
     margin-top: 2.5rem;
@@ -156,13 +166,13 @@ const Success = styled(motion.div)`
   border: 1px solid black;
   border-radius: 10px;
   background-color: var(--color-white);
-  margin-top: 5rem;
+  margin-top: 4rem;
   width: 270px;
   word-wrap: wrap;
   padding: 1rem 2rem;
   color: var(--color-darkgreen);
 
-  & a {
+  p, a {
     padding-top: 1rem;
     font-family: "Matter-regular";
     font-size: 16px;

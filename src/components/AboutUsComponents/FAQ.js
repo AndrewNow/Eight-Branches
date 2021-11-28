@@ -98,6 +98,12 @@ const Header = styled(motion.div)`
       max-width: 85%;
     }
   }
+  @media (max-width: ${breakpoints.s}px) {
+    h5 {
+      font-size: 17px;
+      line-height: 120%;
+    }
+  }
 `
 
 const Svg = styled(motion.div)`

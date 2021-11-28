@@ -17,7 +17,7 @@ const Footer = () => {
   const showFooter = useCallback(() => {
     setVisible(true)
   }, [])
-  
+
   const hideFooter = useCallback(() => {
     setVisible(false)
   }, [])
@@ -68,104 +68,108 @@ const Footer = () => {
             <FlexWrapper>
               <Newsletter>
                 <div>
-                  <h4>Sign up for our newsletter</h4>
+                  <h4>
+                    Join our newsletter to stay in touch with the latest events
+                    and updates
+                  </h4>
                   <MailchimpFormContainer />
                 </div>
                 <FooterStamp />
               </Newsletter>
               <MobileWrapper>
-                <Website>
-                  <h4>Website</h4>
+                <SiteMenu>
+                  <Title>Menu</Title>
+                  <CollapseBreakMobile />
+                  <CollapseBreakMobile />
                   <Link to="/about-us">
                     <p>About Us</p>
                   </Link>
                   <Link to="/programs">
                     <p>Programs</p>
                   </Link>
-                  <Link to="/bulletin-board">
-                    <p>Bulletin Board</p>
+                  <Link to="/admissions">
+                    <p>Admissions</p>
                   </Link>
                   <Link to="/campus">
                     <p>Campus</p>
                   </Link>
                   <Link to="/our-faculty">
-                    <p>Our Faculty</p>
+                    <p>Meet Our Faculty</p>
                   </Link>
                   <Link to="/teaching-clinic">
                     <p>Teaching Clinic</p>
                   </Link>
-                  <Link
-                  // to="/studentlogin"
-                  >
-                    <p>Student Login</p>
+                  <Link to="/bulletin-board">
+                    <p>Bulletin Board</p>
                   </Link>
-                  <Link to="/admissions">
-                    <p>Admissions</p>
-                  </Link>
-                  {/*
-                  <Link to="/careers">
-                    <p>Careers</p>
-                  </Link> */}
-                </Website>
+                  <a href="https://online.erealia.com/ebaem/cwv/">
+                    <p>Student Portal</p>
+                  </a>
+                </SiteMenu>
 
                 <GetInTouch>
-                  <h4>Get in touch</h4>
-                  <a href={`mailto: ${contactInfo.email}`}>
-                    {contactInfo.email}
-                  </a>
-                  <br />
-                  <br />
-                  <a href={`tel: ${contactInfo.phone}`} alt="Main phone number">
-                    {contactInfo.phone}
-                  </a>
-                  <br />
-                  <a
-                    href={`tel: ${contactInfo.phone2}`}
-                    alt="Toll-free phone number"
-                  >
-                    {contactInfo.phone2}
-                  </a>
-                  <br />
-                  <br />
+                  <Title>Get in touch</Title>
+                  <CollapseBreakMobile />
+                  <CollapseBreakMobile />
+                  <div>
+                    <a href={`mailto: ${contactInfo.email}`}>
+                      {contactInfo.email}
+                    </a>
+                    <br />
+                    <br />
+                    <a
+                      href={`tel: ${contactInfo.phone}`}
+                      alt="Main phone number"
+                    >
+                      {contactInfo.phone}
+                    </a>
+                    <br />
+                    <a
+                      href={`tel: ${contactInfo.phone2}`}
+                      alt="Toll-free phone number"
+                    >
+                      {contactInfo.phone2}
+                    </a>
+                    <br />
+                    <br />
+                    <a
+                      href="https://goo.gl/maps/c1mUx1rVNAh6rBZ59"
+                      target="blank"
+                    >
+                      {contactInfo.address.street}
+                    </a>
+                  </div>
 
-                  <a
-                    href="https://goo.gl/maps/c1mUx1rVNAh6rBZ59"
-                    target="blank"
-                  >
-                    {contactInfo.address.street}
-                  </a>
                   <br />
+                  <br />
+                  <SocialIcons>
+                    <a
+                      href="https://www.instagram.com/eightbranches/"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                    >
+                      <SiTiktok size={27} />
+                    </a>
+                    <a
+                      href="https://www.instagram.com/eightbranches/"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                    >
+                      <SiInstagram size={27} />
+                    </a>
+                    <a
+                      href="https://ca.linkedin.com/company/eight-branches-academy-of-eastern-medicine"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                    >
+                      <SiLinkedin size={27} />
+                    </a>
+                  </SocialIcons>
                 </GetInTouch>
               </MobileWrapper>
-              <StayConnected>
-                <FooterStampMobile>
-                  <FooterStamp />
-                </FooterStampMobile>
-                <div>
-                  <h4>Stay connected</h4>
-                  <a
-                    href="https://www.instagram.com/eightbranches/"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                  >
-                    <SiTiktok size={27} />
-                  </a>
-                  <a
-                    href="https://www.instagram.com/eightbranches/"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                  >
-                    <SiInstagram size={27} />
-                  </a>
-                  <a
-                    href="https://ca.linkedin.com/company/eight-branches-academy-of-eastern-medicine"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                  >
-                    <SiLinkedin size={27} />
-                  </a>
-                </div>
-              </StayConnected>
+              {/* <FooterStampMobile>
+                <FooterStamp />
+              </FooterStampMobile> */}
             </FlexWrapper>
           </FooterComponent>
         )}
@@ -182,19 +186,26 @@ const FooterComponent = styled(motion.footer)`
   width: 100%;
   background-color: var(--color-beige);
 
+  @media (max-width: ${breakpoints.xl}px) {
+    height: 70vh;
+  }
   @media (max-width: ${breakpoints.m}px) {
-    height: auto;
+    /* height: auto; */
+    height: 80vh;
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    height: 95vh;
   }
 `
 
 const FlexWrapper = styled.span`
   display: flex;
-  justify-content: space-evenly;
-  width: 90%;
+  justify-content: space-between;
+  width: 70%;
   margin: 0 auto;
   padding-top: 5rem;
 
-  & a,
+  a,
   p {
     color: var(--color-black);
     font-size: 18px;
@@ -203,31 +214,60 @@ const FlexWrapper = styled.span`
     font-family: "Matter-light";
     transition: var(--hover-transition);
 
-    &:hover {
+    :hover {
       color: var(--color-orange);
     }
   }
 
-  & p {
+  p {
     padding-bottom: 0.5rem;
   }
 
-  & h4 {
+  h4 {
     padding-bottom: 1.5rem;
   }
 
-  @media (max-width: ${breakpoints.m}px) {
-    flex-direction: column;
-    padding-top: 8rem;
+  @media (max-width: 1600px) {
+    width: 80%;
+  }
+  @media (max-width: ${breakpoints.xl}px) {
+    width: 85%;
 
-    & h4 {
+    p,
+    a {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: ${breakpoints.l}px) {
+    width: 90%;
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    width: 90%;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 5vh;
+
+    h4 {
       font-family: "Matter-regular";
       color: #2b2b2b;
       padding-bottom: 0.75rem;
     }
-
-    & a {
-      font-size: 16px;
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    width: 90%;
+    padding-top: 0;
+    /* padding-top: 10vh; */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px dotted green;
+    /* padding-top: 15rem; */
+  }
+  @media (max-width: ${breakpoints.xs}px) {
+    p, a {
+      font-size: 14px;
     }
   }
 `
@@ -236,63 +276,128 @@ const Newsletter = styled.section`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  max-width: 500px;
 
+  h4 {
+    line-height: 120%;
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: ${breakpoints.xxl}px) {
+    max-width: 400px;
+    h4 {
+      font-size: 30px;
+    }
+  }
   @media (max-width: ${breakpoints.xl}px) {
     margin-right: 1rem;
+    h4 {
+      font-size: 28px;
+    }
   }
+  @media (max-width: ${breakpoints.l}px) {
+    max-width: 350px;
+  }
+
   @media (max-width: ${breakpoints.m}px) {
-    & > :nth-child(2) {
+    max-width: none;
+    width: 90%;
+    align-self: flex-start;
+
+    > :nth-child(2) {
       display: none;
     }
     padding-bottom: 2.5rem;
   }
+  @media (max-width: ${breakpoints.s}px) {
+    width: 100%;
+    h4 {
+      font-size: 22px;
+    }
+  }
+  @media (max-width: ${breakpoints.xs}px) {
+    h4 {
+      font-size: 20px;
+    }
+  }
 `
 
-const Website = styled.section`
+const SiteMenu = styled.section`
   color: var(--color-black);
   text-decoration: none;
+
+  @media (max-width: ${breakpoints.m}px) {
+    margin-right: 5rem;
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    margin-right: 1rem;
+  }
+`
+
+const Title = styled.p`
+  @media (max-width: ${breakpoints.m}px) {
+    font-family: "Matter-regular"!important;
+    font-size: 18px!important;
+    margin-bottom: .5rem;
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    margin-bottom: 0rem;
+  }
 `
 
 const GetInTouch = styled.section`
   flex-basis: 3rem;
-  & a {
+  a {
     cursor: pointer;
   }
 `
-
-const StayConnected = styled.section`
-  white-space: nowrap;
-  & a {
-    padding-right: 1.5rem;
-  }
-
-  @media (max-width: ${breakpoints.m}px) {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    padding-bottom: 1.5rem;
-  }
+const SocialIcons = styled.div`
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
 `
 
 const FooterStampMobile = styled.div`
   display: none;
+
   @media (max-width: ${breakpoints.m}px) {
     display: flex;
   }
 `
 
 const MobileWrapper = styled.div`
+  width: 45%;
   display: flex;
   justify-content: space-between;
 
   @media (max-width: ${breakpoints.xxl}px) {
+    width: 55%;
     justify-content: space-evenly;
   }
-  @media (max-width: ${breakpoints.l}px) {
+  @media (max-width: ${breakpoints.xl}px) {
+    width: 40%;
     justify-content: space-between;
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    width: 45%;
   }
   @media (max-width: ${breakpoints.m}px) {
     flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    justify-content: space-between;
+    /* margin-bottom: 2rem; */
+  }
+  
+`
+
+const CollapseBreakMobile = styled.br`
+  @media (max-width: ${breakpoints.m}px) {
+    display: none;
   }
 `
 

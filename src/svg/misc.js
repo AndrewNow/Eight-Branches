@@ -1,6 +1,7 @@
 import React from "react"
+import { motion } from "framer-motion"
 
-export const Arrow = ({color}) => (
+export const Arrow = ({ color }) => (
   <svg
     width="8"
     height="12"
@@ -11,25 +12,41 @@ export const Arrow = ({color}) => (
     <path
       d="M0.590088 10.59L5.17009 6L0.590088 1.41L2.00009 0L8.00009 6L2.00009 12L0.590088 10.59Z"
       fill={color ? color : "black"}
-
     />
   </svg>
 )
 
 
-export const CheckmarkSVG = () => (
-  <svg
-      width="31"
-      height="31"
-      viewBox="0 0 31 31"
+export const NewsletterArrow = ({color}) => (
+  <div>
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M11.6247 20.8862L6.23846 15.4999L4.4043 17.3212L11.6247 24.5416L27.1247 9.04159L25.3035 7.22034L11.6247 20.8862Z"
-        fill="black"
+        d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z"
+        fill={color ? color : "black"}
       />
     </svg>
+  </div>
+)
+
+export const CheckmarkSVG = () => (
+  <svg
+    width="31"
+    height="31"
+    viewBox="0 0 31 31"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M11.6247 20.8862L6.23846 15.4999L4.4043 17.3212L11.6247 24.5416L27.1247 9.04159L25.3035 7.22034L11.6247 20.8862Z"
+      fill="black"
+    />
+  </svg>
 )
 
 export const LeftLogoPattern = () => {
