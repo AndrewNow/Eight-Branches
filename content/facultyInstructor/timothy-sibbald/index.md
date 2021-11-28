@@ -1,5 +1,5 @@
 ---
-title: " Timothy Sibbald"
+title: " Timothy Sibbald, B.Sc B.Med (China) R. TCMP"
 role: Instructor
 portrait: judy-gu-for-eight-branches-faculty-selects-012.jpg
 description: B.Sc B.Med (China) R. TCMP
