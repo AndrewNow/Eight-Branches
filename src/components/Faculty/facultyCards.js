@@ -250,7 +250,7 @@ const FacultyPost = styled.article`
   display: flex;
   flex-direction: column;
   width: auto;
-  height: 620px;
+  /* height: 620px; */
   margin-bottom: 5rem;
   transition: all ease-out 0.55s;
 
@@ -289,6 +289,7 @@ const FacultyPost = styled.article`
 const TextWrapper = styled.div`
   border-top: 1px solid black;
   padding: 1rem 1.5rem;
+  padding-bottom: 1.5rem;
 `
 
 const PortraitThumbnail = styled.div`
@@ -425,7 +426,7 @@ const ModalText = styled.div`
     font-family: "Matter-light";
     padding-top: 2rem;
     font-size: 21px;
-    line-height: 130%;
+    line-height: 150%;
   }
   a {
     font-size: 21px;
