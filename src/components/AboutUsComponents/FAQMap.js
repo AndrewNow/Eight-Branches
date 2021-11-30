@@ -12,7 +12,7 @@ const FAQMap = () => {
     {
       question: "Am I eligible for student loans?",
       answer:
-        "Eight Branches is recognized by OSAP and most other student loan services from other provinces. Students in our full time programs may be eligible for student loan funding. To find out if you are eligible, please contact student loan services in your province.",
+        "Students enrolled in a full time Diploma Program may be eligible, if qualified, for loans, grants, or awards granted under the Ontario Student Assistance Program (OSAP). To find out if you are eligible, please contact student loan services in your province.",
     },
     {
       question: "How much is tuition?",
@@ -22,7 +22,7 @@ const FAQMap = () => {
     {
       question: "Why Choose Eight Branches?",
       answer:
-        "Eight Branches does not only focus on theory-based pracitioner training, but also incorporates business management and marketing into the curriculum to ensure our students are set up for success. Our Student Clinic with clinical residency also gives practitioners the ability to apply the training they’ve received and convey it in a professional manner in a mixture of clinical settings.",
+        "Eight Branches does not only focus on theory-based practitioner training, but also incorporates business management and marketing into the curriculum to ensure our students are set up for success. Our Student Clinic with clinical residency also gives practitioners the ability to apply the training they’ve received and convey it in a professional manner in a mixture of clinical settings.",
     },
   ]
 

@@ -130,6 +130,7 @@ h5,
 h6, 
 p,
 a {
+  font-feature-settings: "calt" 0;
   font-weight: 300;
   margin: 0;
 }

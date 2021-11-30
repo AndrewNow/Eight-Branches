@@ -71,7 +71,7 @@ const MailchimpCustomForm = ({ status, message, onValidated }) => {
           onChangeHandler={setEmail}
           type="email"
           value={email}
-          placeholder="Enter Email Address"
+          placeholder="Your Email..."
           isRequired
         />
 

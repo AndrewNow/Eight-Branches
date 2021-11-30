@@ -77,13 +77,12 @@ const ProgramYearDataMap = ({ term, index }) => {
             exit="hidden"
           >
             <TermHeader variants={children}>
-              <h6>CODE</h6>
-              <h6>COURSE TITLE</h6>
-              <h6>COURSE TYPE</h6>
-              <h6>CREDITS</h6>
+              <h6>Code</h6>
+              <h6>Course title</h6>
+              <h6>Type</h6>
+              <h6>Credits</h6>
             </TermHeader>
             {term.courses.map((course, i) => {
-              // array.push(course.credits)
               return (
                 <TermInfo key={i} variants={children}>
                   <p>{course.code}</p>
@@ -167,7 +166,6 @@ const Svg = styled(motion.div)`
   }
 `
 
-
 const Term = styled(motion.div)`
   background-color: white;
   border-bottom: 1px solid black;
@@ -194,6 +192,8 @@ const TermInfo = styled(motion.div)`
   justify-items: space-between;
   margin: 0 auto;
   padding: 0rem 2.5rem;
+  align-items: start;
+
 
   @media (max-width: ${breakpoints.m}px) {
     padding: 0rem;
@@ -205,10 +205,13 @@ const TermInfo = styled(motion.div)`
       font-size: 11px;
       line-height: 16px;
       padding-bottom: 1rem;
-      align-self: center;
+      align-self: start;
 
       :nth-child(3) {
-        width: 90%;
+        /* width: 90%; */
+        /* border: 1px solid red; */
+        margin: 0 auto;
+        text-align: center;
       }
     }
   }
@@ -221,6 +224,7 @@ const TermHeader = styled(motion.div)`
   background-color: white;
   margin: 0 auto;
   padding: 0rem 2.5rem;
+  text-transform: uppercase;
 
   h6 {
     padding: 2.5rem 0;
@@ -239,6 +243,12 @@ const TermHeader = styled(motion.div)`
       padding-bottom: 1rem;
       letter-spacing: 0.02rem;
       align-self: center;
+      :nth-child(3) {
+        /* width: 90%; */
+        border: 1px solid red;
+        margin: 0 auto;
+        text-align: center;
+      }
     }
   }
 `

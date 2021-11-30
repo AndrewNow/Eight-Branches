@@ -226,7 +226,7 @@ const AboutUs = ({ data }) => {
         </Left>
         <Right variants={parent} initial="hidden" animate="visible">
           <motion.h3 variants={fadeIn}>
-            Eight Branches Academy of Eastern Medicine is a Toronto Acupuncture
+            Eight Branches College of Eastern Medicine is a Toronto Acupuncture
             School which offers students a comprehensive education with a
             foundation in Traditional Chinese Medicine.
           </motion.h3>
@@ -242,7 +242,7 @@ const AboutUs = ({ data }) => {
                 animate={expand ? "hidden" : "visible"}
               />
               <p>
-                Before Eight Branches Academy was established, it was Kokoro
+                Before Eight Branches College was established, it was Kokoro
                 Dojo – a peaceful sanctuary tucked behind the residences and
                 busy storefronts in the heart of Toronto's Annex. Kokoro Dojo
                 was a Zen Shiatsu school focused on the teachings of Shizuto
@@ -252,7 +252,7 @@ const AboutUs = ({ data }) => {
                 <br />
                 <br />
                 After studying Traditional Chinese Medicine in British Columbia,
-                Toronto and Chengdu, our founder was introduced to Kokoro Dojo,
+                Toronto and Chengdu, our founder Ryan was introduced to Kokoro Dojo,
                 and found that its principals of practice coincided profoundly
                 with his own. He established a thriving practice and became an
                 integral part of the Dojo, teaching TCM theory and diagnosis; in
