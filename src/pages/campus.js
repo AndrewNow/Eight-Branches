@@ -143,9 +143,9 @@ const Campus = ({ data }) => {
               </motion.h6>
               <ComingSoon
                 variants={fadeIn}
-                href="https://eightbranches.librarika.com/"
-                target="_blank"
-                rel="noreferrer"
+                // href="https://eightbranches.librarika.com/"
+                // target="_blank"
+                // rel="noreferrer"
               >
                 <ComingSoonWrapper variants={fadeIn}>
                   <AiOutlineClockCircle />
@@ -264,9 +264,13 @@ const Campus = ({ data }) => {
         <TorontoText>
           <h2>Conveniently Located</h2>
           <h6>
-            Our academy is in the heart of Midtown Toronto, a pleasant
+            Our school is in the heart of Midtown Toronto, a pleasant
             neighborhood rich in character and with a long history of embracing
-            healthy and community-focused lifestyles.
+            healthy and community-focused lifestyles. Conveniently located 5
+            minutes from Davisville subway station and 10 minutes from local
+            parks and walking trails, Eight Branches offers a tranquil learning
+            environment with easy access to all the benefits of downtown
+            Toronto.
           </h6>
         </TorontoText>
 

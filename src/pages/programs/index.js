@@ -10,6 +10,7 @@ import LeafPattern from "../../svg/leafPattern"
 import StampLogo from "../../svg/stamplogo"
 import { motion } from "framer-motion"
 import { ApplyNow, AcademicAdvisor } from "../../components/generalcomponents"
+import { AiOutlineClockCircle } from "react-icons/ai"
 
 const OurPrograms = ({ data }) => {
   const siteTitle = data.site.siteMetadata?.title || `Our Programs`
@@ -486,23 +487,12 @@ const OurPrograms = ({ data }) => {
           >
             <CardText>
               <h4>Certificate in Asian Bodywork Therapy</h4>
-              <CertificateLink to="/programs/certificate-programs/asian-bodywork-therapy">
-                <CertificateLinkWrapper>
-                  <p>View Program</p>
-                  <svg
-                    width="8"
-                    height="12"
-                    viewBox="0 0 8 12"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0.590088 10.59L5.17009 6L0.590088 1.41L2.00009 0L8.00009 6L2.00009 12L0.590088 10.59Z"
-                      fill="black"
-                    />
-                  </svg>
-                </CertificateLinkWrapper>
-              </CertificateLink>
+              <TemporarilyUnavailableWrapper>
+                <TemporarilyUnavailable>
+                  <AiOutlineClockCircle />
+                  <p>Temporarily unavailable</p>
+                </TemporarilyUnavailable>
+              </TemporarilyUnavailableWrapper>
             </CardText>
             <CardImage>
               <StaticImage
@@ -523,23 +513,12 @@ const OurPrograms = ({ data }) => {
           >
             <CardText>
               <h4>TCM Preparatory Certificate</h4>
-              <CertificateLink to="/programs/certificate-programs/tcm-preparatory-certificate">
-                <CertificateLinkWrapper>
-                  <p>View Program</p>
-                  <svg
-                    width="8"
-                    height="12"
-                    viewBox="0 0 8 12"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0.590088 10.59L5.17009 6L0.590088 1.41L2.00009 0L8.00009 6L2.00009 12L0.590088 10.59Z"
-                      fill="black"
-                    />
-                  </svg>
-                </CertificateLinkWrapper>
-              </CertificateLink>
+              <TemporarilyUnavailableWrapper>
+                <TemporarilyUnavailable>
+                  <AiOutlineClockCircle />
+                  <p>Temporarily unavailable</p>
+                </TemporarilyUnavailable>
+              </TemporarilyUnavailableWrapper>
             </CardText>
             <CardImage>
               <StaticImage
@@ -938,6 +917,46 @@ const CertificateLink = styled(Link)`
   }
   @media (max-width: ${breakpoints.l}px) {
     margin-top: 0;
+  }
+`
+const TemporarilyUnavailableWrapper = styled.div`
+  color: black;
+  text-decoration: none;
+
+  @media (max-width: ${breakpoints.xl}px) {
+    margin-bottom: 1rem;
+  }
+`
+
+const TemporarilyUnavailable = styled.div`
+  display: flex;
+  align-items: baseline;
+  font-family: "matter-regular";
+
+  p, svg {
+    filter: opacity(0.4)!important;
+    color: black!important;
+  }
+  
+  svg {
+    margin-right: 0.5rem;
+    transform: translateY(0.1rem);
+  }
+
+  p {
+    margin: 0!important;
+    padding-bottom: 0!important;
+    padding-right: 0.75rem!important;
+    padding-top: 1rem!important;
+    font-family: "Matter-regular"!important;
+    font-size: 19px!important;
+    transition: var(--hover-transition);
+  }
+
+  @media (max-width: ${breakpoints.xl}px) {
+    p {
+      font-size: 17px!important;
+    }
   }
 `
 

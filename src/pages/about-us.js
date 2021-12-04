@@ -407,7 +407,7 @@ const AboutUs = ({ data }) => {
                 <StaticImage
                   src="../images/AboutUs/Graphs/allexams.png"
                   alt="Graph depicting how Eight Branches consistently scores higher in written exam success rates compared to other Ontario colleges."
-                  placeholder="blurred"
+                  placeholder="none"
                   quality={100}
                 />
               </EmblaSlide>
@@ -415,7 +415,7 @@ const AboutUs = ({ data }) => {
                 <StaticImage
                   src="../images/AboutUs/Graphs/clinicalexams.png"
                   alt="Graph depicting how Eight Branches consistently scores higher in clinical exam success rates compared to other Ontario colleges."
-                  placeholder="blurred"
+                  placeholder="none"
                   quality={100}
                 />
               </EmblaSlide>
@@ -423,7 +423,7 @@ const AboutUs = ({ data }) => {
                 <StaticImage
                   src="../images/AboutUs/Graphs/writtenexams.png"
                   alt="Graph depicting how Eight Branches consistently scores higher in written exam success rates compared to other Ontario colleges."
-                  placeholder="blurred"
+                  placeholder="none"
                   quality={100}
                 />
               </EmblaSlide>
@@ -431,7 +431,7 @@ const AboutUs = ({ data }) => {
                 <StaticImage
                   src="../images/AboutUs/Graphs/tcmpexams.png"
                   alt="Graph depicting how Eight Branches consistently scores higher in traditional chinese medicine practitioner exam success rates compared to other Ontario colleges."
-                  placeholder="blurred"
+                  placeholder="none"
                   quality={100}
                 />
               </EmblaSlide>

@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -51,6 +52,41 @@ const OurFaculty = ({ data, location }) => {
           </FacultyGrid>
         </SectionWrapper>
       </FacultyWrapper>
+      <OurPartners>
+        <h1>Our Partners</h1>
+        <h6>
+          Eight Branches continues to support our alumni and students through
+          our partnerships and connections to several groups and associations.
+          We are continuously expanding our network to connect our students with
+          internships and other opportunities.
+        </h6>
+        <LogoGrid>
+          <StaticImage
+            src="../images/PartnershipLogos/8BClinic.png"
+            alt="Eight Branches' Clinic and Apothecary logo"
+          />
+          <StaticImage
+            src="../images/PartnershipLogos/Council.png"
+            alt="Council of Traditional Chinese Medicine & Acupuncture Schools of Ontario logo"
+          />
+          <StaticImage
+            src="../images/PartnershipLogos/Channels.png"
+            alt="Channels of Wellness logo"
+          />
+          <StaticImage
+            src="../images/PartnershipLogos/Hillgreen.png"
+            alt="Hillgreen Oncology Acupuncture & Herbs logo"
+          />
+          <StaticImage
+            src="../images/PartnershipLogos/FTCM.png"
+            alt="Federation of Traditional Chinese Medicine Colleges of Canada logo"
+          />
+          <StaticImage
+            src="../images/PartnershipLogos/CCATCM.png"
+            alt="Canadian College of Acupuncture & Traditional Chinese Medicine logo"
+          />
+        </LogoGrid>
+      </OurPartners>
     </Layout>
   )
 }
@@ -169,5 +205,84 @@ const FacultyGrid = styled.div`
   }
   @media (max-width: ${breakpoints.s}px) {
     display: inline;
+  }
+`
+
+const OurPartners = styled.div`
+  background-color: var(--color-charcoal);
+  color: var(--color-beige);
+  padding: 7rem 0;
+  margin: 0 auto;
+  text-align: center;
+
+  h6 {
+    padding: 2rem 0;
+    margin: 0 auto;
+    width: 50%;
+  }
+
+  @media (max-width: ${breakpoints.xl}px) {
+    h6 {
+      width: 75%;
+    }
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    padding: 5rem 0;
+    h6 {
+      width: 90%;
+    }
+  }
+`
+
+const LogoGrid = styled.div`
+  width: 60%;
+  margin: 0 auto;
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+
+  > * {
+    margin: 1rem 2rem;
+  }
+
+  @media (max-width: 1600px) {
+    width: 70%;
+  }
+  @media (max-width: ${breakpoints.xxl}px) {
+    width: 75%;
+  }
+  @media (max-width: ${breakpoints.xl}px) {
+    width: 80%;
+    > * {
+      margin: 0.5rem 1.5rem;
+    }
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    width: 85%;
+
+    > * {
+      transform: scale(0.8);
+    }
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    width: 100%;
+
+    > * {
+      margin: 0.5rem 1rem;
+      transform: scale(1);
+      max-width: 200px;
+    }
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    > * {
+      max-width: 145px;
+    }
+  }
+  @media (max-width: ${breakpoints.xs}px) {
+    > * {
+      max-width: 125px;
+    }
   }
 `

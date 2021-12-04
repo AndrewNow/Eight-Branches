@@ -139,9 +139,9 @@ const Admissions = ({ data }) => {
             transition={{ ease: "easeInOut" }}
           >
             <h6>
-              If applying as a mature student, completion of an Eight
-              Branches "Mature Student Test" and/or "Canadian Adult Achievement
-              Test" and/or equivalent;
+              If applying as a mature student, completion of an Eight Branches
+              "Mature Student Test" and/or "Canadian Adult Achievement Test"
+              and/or equivalent;
             </h6>
           </Requirement>
           <Requirement
@@ -165,17 +165,34 @@ const Admissions = ({ data }) => {
         </Left>
         <Right>
           <Procedure>
-            Prospective students are invited to download the application form
-            below and submit it by mail. The form can also be obtained by
-            calling the registration office, or in person if a tour of the
-            facility is desired.
+            Prospective students are invited to fill out the following{" "}
+            <a
+              href="https://eightbranches.classe365.com/form/view/Eight_Branches_Admission_Form"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <strong>online admissions form</strong>
+            </a>{" "}
+            in order to send out their application. The form can also be
+            obtained by calling the registration office, or in person if a tour
+            of the facility is desired. Please ensure you read all the admission
+            guidelines prior to completing the form.
           </Procedure>
           <DividingLine />
           <h3>Application Requirements</h3>
           <ul>
             <li>
               <CheckmarkSVG />
-              <h6>Submission of properly-completed application form;</h6>
+              <h6>
+                Submission of properly-completed{" "}
+                <a
+                  href="https://eightbranches.classe365.com/form/view/Eight_Branches_Admission_Form"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <strong>application form;</strong>
+                </a>{" "}
+              </h6>
             </li>
             <li>
               <CheckmarkSVG />
@@ -224,7 +241,7 @@ const Admissions = ({ data }) => {
             Language) exam in which they received a passing grade, and
             demonstrate satisfactory written/oral comprehension of English.
           </h5>
-          <DividingLine />
+          {/* <DividingLine />
           <h3>Mailing Instructions:</h3>
           <h5>
             Eight Branches Academy of Eastern Medicine
@@ -234,7 +251,7 @@ const Admissions = ({ data }) => {
             M4S 2Z8
             <br />
             Attention: Admissions
-          </h5>
+          </h5> */}
         </Right>
       </AdmissionsSection>
       <BannerWrapper>
@@ -524,6 +541,12 @@ const Left = styled.div`
 `
 
 const Procedure = styled.h5`
+  a {
+    font-family: "Matter-regular";
+    text-decoration: underline;
+    color: var(--color-darkgreen);
+    cursor: pointer;
+  }
   @media (max-width: ${breakpoints.s}px) {
     font-size: 16px;
   }
@@ -568,6 +591,13 @@ const DividingLine = styled.div`
 const Right = styled.div`
   width: 45%;
 
+  a {
+    font-family: "Matter-regular";
+    text-decoration: underline;
+    color: var(--color-darkgreen);
+    cursor: pointer;
+  }
+  
   h3 {
     color: var(--color-darkgreen);
   }

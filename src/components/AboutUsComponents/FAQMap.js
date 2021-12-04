@@ -12,12 +12,12 @@ const FAQMap = () => {
     {
       question: "Am I eligible for student loans?",
       answer:
-        "Students enrolled in a full time Diploma Program may be eligible, if qualified, for loans, grants, or awards granted under the Ontario Student Assistance Program (OSAP). To find out if you are eligible, please contact student loan services in your province.",
+        "Students enrolled in a full time Diploma Program may be eligible, if qualified, for loans, grants, or awards granted under the Ontario Student Assistance Program (OSAP). To find out if you are eligible, please contact our financial aid officer - info@eightbranches.ca"
     },
     {
       question: "How much is tuition?",
       answer:
-        "For tuition details, please email admissions@eightbranches with the name of the program you are interested in for a breakdown of class fees and supplies.",
+        "For tuition details, please email admissions@eightbranches.ca with the name of the program you are interested in for a breakdown of class fees and supplies.",
     },
     {
       question: "Why Choose Eight Branches?",

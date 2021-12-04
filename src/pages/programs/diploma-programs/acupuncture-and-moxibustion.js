@@ -26,15 +26,15 @@ const Herbology = ({ data }) => {
     programDescription: {
       optionOne: {
         title: "2 Year Program (September Start Date)",
-        hours: "Program Hours: 2400",
+        hours: "Program Hours: 2268 (includes 668 clinical hours)",
         description:
-          "This program can be completed in 2 years studying full-time",
+          "This program can be completed in 2 years studying full-time starting in September or Janurary",
       },
       optionTwo: {
         title: "3 Year Program (January Start Date)",
-        hours: "Program Hours: 2400",
+        hours: "Program Hours: 2268 (includes 668 clinical hours)",
         description:
-          "This program can be completed in 3 years studying full-time",
+          "This program can be completed in 3 years studying Fall to Spring starting in September or January.",
       },
       additionalInfo:
         "Both programs qualify graduates to write the Pan-Canadian regulatory examinations and to become a Registered Acupuncturist (R.Ac).",
