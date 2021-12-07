@@ -18,39 +18,81 @@ const Campus = ({ data }) => {
   // ---------- INTERSECTION OBSERVER LOGIC ----------
   const [SectionRef1, sectionInView1] = useInView({
     root: null,
-    threshold: 0.85,
+    threshold: 0.5,
     triggerOnce: true,
   })
   const [SectionRef2, sectionInView2] = useInView({
     root: null,
-    threshold: 0.85,
+    threshold: 0.5,
     triggerOnce: true,
   })
   const [SectionRef3, sectionInView3] = useInView({
     root: null,
-    threshold: 0.85,
+    threshold: 0.5,
+    triggerOnce: true,
+  })
+  const [HideCarouselRef, HideCarouselInView] = useInView({
+    root: null,
+    threshold: 0.3,
+    triggerOnce: true,
+  })
+  const [HideImageRef, HideImageInView] = useInView({
+    root: null,
+    threshold: 0.5,
     triggerOnce: true,
   })
 
   // ---------- FRAMER LOGIC ----------
-  const fadeIn = {
+
+  const Header = {
     visible: {
+      y: 0,
       opacity: 1,
-      top: 0,
       transition: {
-        duration: 0.75,
-        staggerChildren: 0.35,
+        delayChildren: 0.15,
+        staggerChildren: 0.15,
+        ease: "easeInOut",
+        duration: 1,
       },
     },
     hidden: {
-      top: 30,
+      y: 40,
       opacity: 0,
+    },
+  }
+  const fadeIn = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        // duration: 0.75,
+        duration: 1,
+        // staggerChildren: 0.35,
+      },
+    },
+    hidden: {
+      y: 30,
+      opacity: 0,
+    },
+  }
+  const hideImage = {
+    visible: {
+      y: 0,
+    },
+    hidden: {
+      y: "-100%",
+      transition: {
+        // delay: 0.15,
+        ease: "easeInOut",
+        duration: 1,
+      },
     },
   }
 
   // ---------- Initialize Embla Carousel ----------
   const [emblaRef, embla] = useEmblaCarousel({
     loop: true,
+    containScroll: "trimSnaps",
   })
 
   // ---------- Embla config for autoplay scrolling ----------
@@ -86,19 +128,26 @@ const Campus = ({ data }) => {
     <Layout title={siteTitle}>
       <Seo title="Our Campus" />
       <HeaderWrapper>
-        <CampusHeader>
-          <h1>Our Campus</h1>
-          <h6>
+        <CampusHeader variants={Header} initial="hidden" animate="visible">
+          <motion.h1 variants={Header}>Our Campus</motion.h1>
+          <motion.h6 variants={Header}>
             Eight Branches offers students a range of classroom environments to
             suit different types of study, including academic classrooms, a
             serene studio and a teaching clinic, which features 8 fully equipped
             teaching spaces.
-          </h6>
+          </motion.h6>
         </CampusHeader>
 
-        <Embla>
+        <Embla ref={HideCarouselRef}>
           <EmblaViewport ref={emblaRef}>
             <EmblaContainer>
+              <HideImage
+              style={{ backgroundColor: "var(--color-lightestbeige)" }}
+              variants={hideImage}
+              initial="visible"
+              animate={HideCarouselInView ? "hidden" : "visible"}
+              exit="hidden"
+            />
               {data.CampusImages.edges.map((image, index) => {
                 return (
                   <EmblaSlide key={index}>
@@ -136,18 +185,17 @@ const Campus = ({ data }) => {
             animate={sectionInView1 ? "visible" : "hidden"}
           >
             <CardText variants={fadeIn}>
-              <motion.h4 variants={fadeIn}>Our Apothecary</motion.h4>
-              <motion.h6 variants={fadeIn}>
-                Discover the Eight Branches apothecary, which houses a unique &
+              <h4>Our Apothecary</h4>
+              <h6>
+                Discover the Eight Branches apothecary, which houses a unique and
                 extensive collection of raw Chinese herbs & granules.
-              </motion.h6>
+              </h6>
               <ComingSoon
-                variants={fadeIn}
-                // href="https://eightbranches.librarika.com/"
-                // target="_blank"
-                // rel="noreferrer"
+              // href="https://eightbranches.librarika.com/"
+              // target="_blank"
+              // rel="noreferrer"
               >
-                <ComingSoonWrapper variants={fadeIn}>
+                <ComingSoonWrapper>
                   <AiOutlineClockCircle />
                   <p>Coming soon!</p>
                 </ComingSoonWrapper>
@@ -188,18 +236,17 @@ const Campus = ({ data }) => {
               />
             </CardImage>
             <CardText variants={fadeIn}>
-              <motion.h4 variants={fadeIn}>Our Library</motion.h4>
-              <motion.h6 variants={fadeIn}>
+              <h4>Our Library</h4>
+              <h6>
                 Eight Branches has an ever expanding library. Students can
                 browse our collection in person or through our online catalogue.
-              </motion.h6>
+              </h6>
               <CardLinkOutbound
-                variants={fadeIn}
                 href="https://eightbranches.librarika.com/"
                 target="_blank"
                 rel="noreferrer"
               >
-                <LinkWrapper variants={fadeIn}>
+                <LinkWrapper>
                   <p>View Our Catalog</p>
                   <svg
                     width="8"
@@ -224,13 +271,13 @@ const Campus = ({ data }) => {
             animate={sectionInView3 ? "visible" : "hidden"}
           >
             <CardText variants={fadeIn}>
-              <motion.h4 variants={fadeIn}>The Teaching Clinic</motion.h4>
-              <motion.h6 variants={fadeIn}>
+              <h4>The Teaching Clinic</h4>
+              <h6>
                 Explore affordable, community-based TCM treatments from our
                 student-run clinic.
-              </motion.h6>
-              <CardLink variants={fadeIn} to="/teaching-clinic">
-                <LinkWrapper variants={fadeIn}>
+              </h6>
+              <CardLink to="/teaching-clinic">
+                <LinkWrapper>
                   <p>Learn more</p>{" "}
                   <svg
                     width="8"
@@ -260,46 +307,42 @@ const Campus = ({ data }) => {
           </Card>
         </CardWrapper>
       </Facilities>
-      <TorontoBanner>
-        <TorontoText>
-          <h2>Conveniently Located</h2>
+      <LocationDescription>
+        <LocationImage ref={HideImageRef}>
+          <HideImage
+            style={{ backgroundColor: "var(--color-sandbeige)" }}
+            variants={hideImage}
+            initial="visible"
+            animate={HideImageInView ? "hidden" : "visible"}
+            exit="hidden"
+          />
+          <StaticImage
+            src="../images/Facilities/toronto.jpg"
+            alt="Images of Toronto's skyline on a sunny day, with a body of water in the foreground."
+            quality={100}
+            transformOptions={{ cropFocus: "center" }}
+            imgStyle={{ objectFit: "cover" }}
+            style={{ minHeight: "100%" }}
+          />
+        </LocationImage>
+        <LocationText>
+          <h1>
+            Conveniently <br />
+            Located
+          </h1>
           <h6>
             Our school is in the heart of Midtown Toronto, a pleasant
             neighborhood rich in character and with a long history of embracing
-            healthy and community-focused lifestyles. Conveniently located 5
-            minutes from Davisville subway station and 10 minutes from local
-            parks and walking trails, Eight Branches offers a tranquil learning
-            environment with easy access to all the benefits of downtown
-            Toronto.
-          </h6>
-        </TorontoText>
-
-        <StaticImage
-          layout="fixed"
-          src="../images/Facilities/toronto.jpg"
-          alt="Images of Toronto's skyline on a sunny day, with a body of water in the foreground."
-          quality={100}
-          objectFit="cover"
-        />
-      </TorontoBanner>
-
-      <TorontoBannerMobile>
-        <TorontoText>
-          <h2>Conveniently Located</h2>
-          <p>
-            Our academy is in the heart of Midtown Toronto, a pleasant
-            neighborhood rich in character and with a long history of embracing
             healthy and community-focused lifestyles.
-          </p>
-        </TorontoText>
-
-        <StaticImage
-          src="../images/Facilities/torontomobile.png"
-          alt="Images of Toronto's skyline on a sunny day, with a body of water in the foreground."
-          quality={100}
-        />
-      </TorontoBannerMobile>
-
+            <br />
+            <br />
+            Situated 5 minutes from Davisville subway station and 10 minutes
+            from local parks and walking trails, Eight Branches offers a
+            tranquil learning environment with easy access to all the benefits
+            of downtown Toronto.
+          </h6>
+        </LocationText>
+      </LocationDescription>
       <GoogleMaps />
     </Layout>
   )
@@ -326,7 +369,8 @@ export const pageQuery = graphql`
             gatsbyImageData(
               width: 1920
               aspectRatio: 1.5
-              placeholder: BLURRED
+              # placeholder: BLURRED
+              placeholder: NONE
               quality: 90
               blurredOptions: { width: 120 }
               webpOptions: { quality: 90 }
@@ -351,7 +395,7 @@ const HeaderWrapper = styled.section`
   }
 `
 
-const CampusHeader = styled.div`
+const CampusHeader = styled(motion.div)`
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -359,24 +403,49 @@ const CampusHeader = styled.div`
   text-align: center;
   margin: 0 auto;
   padding-bottom: 7.5rem;
+  position: relative;
+  z-index: 10;
 
   h1 {
     padding-bottom: 2rem;
   }
 
   h6 {
-    width: 47.5%;
+    width: 40%;
+  }
+  @media (max-width: ${breakpoints.xxl}px) {
+    h6 {
+      width: 55%;
+    }
   }
 
   @media (max-width: ${breakpoints.xl}px) {
     h6 {
-      width: 70%;
+      width: 65%;
     }
   }
-  @media (max-width: ${breakpoints.s}px) {
+  @media (max-width: ${breakpoints.l}px) {
+    padding-bottom: 5rem;
+    h6 {
+      width: 60%;
+    }
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
     padding-bottom: 2.5rem;
+
     h6 {
       width: 90%;
+    }
+  }
+
+  @media (max-width: ${breakpoints.s}px) {
+    padding-bottom: 4rem;
+    h1 {
+      padding-bottom: 1rem;
+    }
+    h6 {
+      width: 95%;
     }
   }
 `
@@ -385,6 +454,11 @@ const Embla = styled.div`
   width: 70%;
   margin: 0 auto;
   padding-bottom: 15rem;
+
+
+  @media (max-width: ${breakpoints.xxl}px) {
+    width: 85%;
+  }
 
   @media (max-width: ${breakpoints.xl}px) {
     width: 90%;
@@ -402,6 +476,7 @@ const Embla = styled.div`
 const EmblaViewport = styled.div`
   overflow: hidden;
   width: 100%;
+
 
   border-radius: 20px;
   -webkit-border-radius: 20px;
@@ -422,6 +497,10 @@ const EmblaContainer = styled.div`
   -webkit-touch-callout: none;
   -khtml-user-select: none;
   -webkit-tap-highlight-color: transparent;
+
+  position: relative;
+  /* overflow: hidden; */
+  /* border: 1px solid; */
 `
 
 const EmblaSlide = styled.div`
@@ -489,12 +568,7 @@ const Facilities = styled.section`
 
   h1 {
     margin: 0 auto;
-    padding-bottom: 10rem;
-  }
-  @media (max-width: ${breakpoints.l}px) {
-    h1 {
-      padding-bottom: 5rem;
-    }
+    padding-bottom: 5rem;
   }
 
   @media (max-width: ${breakpoints.m}px) {
@@ -514,10 +588,13 @@ const CardWrapper = styled.div`
   flex-direction: column;
   margin: 0 auto;
   position: relative;
-  padding-bottom: 15rem;
+  padding-bottom: 7.5rem;
 
   @media (max-width: ${breakpoints.m}px) {
     padding-bottom: 5rem;
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    padding-bottom: 3rem;
   }
 `
 
@@ -531,7 +608,7 @@ const Card = styled(motion.div)`
   overflow: hidden;
   background-color: white;
   margin: 0 auto;
-  margin-bottom: 5rem;
+  margin-bottom: 4rem;
   align-items: center;
 
   @media (max-width: ${breakpoints.xl}px) {
@@ -559,9 +636,6 @@ const Card = styled(motion.div)`
 const CardImage = styled.div`
   width: 55%;
   height: 100%;
-  /* position: absolute;
-  top: 0;
-  left: 0; */
   overflow: hidden;
   position: relative;
   z-index: 1;
@@ -681,53 +755,72 @@ const LinkWrapper = styled(motion.div)`
   }
 `
 
-const TorontoBanner = styled.div`
-  height: 100%;
-  overflow: hidden;
+const LocationDescription = styled.section`
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background-color: var(--color-sandbeige);
+
+  @media (max-width: ${breakpoints.s}px) {
+    padding: 0;
+  }
+`
+
+const LocationImage = styled.div`
+  width: 90%;
   margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
   position: relative;
 
   @media (max-width: ${breakpoints.s}px) {
-    display: none;
-  }
-`
-const TorontoBannerMobile = styled.div`
-  display: none;
-
-  @media (max-width: ${breakpoints.s}px) {
-    display: inline-block;
-    height: 100%;
+    border-radius: 0;
     width: 100%;
-    overflow: hidden;
-    margin: 0 auto;
-    position: relative;
-    z-index: 10;
-    border-bottom: 1px solid black;
   }
 `
 
-const TorontoText = styled.div`
+const HideImage = styled(motion.div)`
   position: absolute;
-  color: white;
-  z-index: 20;
-  bottom: 5rem;
-  left: 15rem;
-  width: 55%;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+`
 
+const LocationText = styled.div`
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+
+  h1 {
+    padding-right: 3rem;
+  }
+
+  h6 {
+    width: 55%;
+    align-self: flex-end;
+  }
   @media (max-width: ${breakpoints.l}px) {
-    left: 5rem;
+    flex-direction: column;
+    h1 {
+      padding-right: 0rem;
+    }
+    h6 {
+      padding-top: 2rem;
+      align-self: flex-start;
+      width: 85%;
+    }
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    padding-bottom: 2rem;
+    h6 {
+      width: 100%;
+    }
   }
   @media (max-width: ${breakpoints.s}px) {
-    margin: 0 auto;
-    width: 100%;
-    height: 100%;
-    left: 0vw;
-    bottom: 0vw;
-    padding: 7vw 5vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    backdrop-filter: blur(2px);
-    overflow: hidden;
+    padding-top: 2rem;
   }
 `

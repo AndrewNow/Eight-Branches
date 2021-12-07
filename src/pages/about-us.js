@@ -327,8 +327,8 @@ const AboutUs = ({ data }) => {
               variants={principlesFadeIn}
             >
               <StaticImage
-                src="../images/AboutUs/OurCorePrinciples/herbs.png"
-                alt="Beige background image with an in the foreground."
+                src="../images/AboutUs/OurCorePrinciples/left.png"
+                alt="Image of a practitioner performing moxibustion."
                 quality={100}
               />
             </PrinciplesImage>
@@ -349,8 +349,8 @@ const AboutUs = ({ data }) => {
               variants={principlesFadeIn}
             >
               <StaticImage
-                src="../images/AboutUs/OurCorePrinciples/acu.png"
-                alt="Beige background image with an in the foreground."
+                src="../images/AboutUs/OurCorePrinciples/middle.png"
+                alt="Soothing image of a Chinese money plant, located in one of our facilities."
                 quality={100}
               />
             </PrinciplesImage>
@@ -371,8 +371,8 @@ const AboutUs = ({ data }) => {
               variants={principlesFadeIn}
             >
               <StaticImage
-                src="../images/AboutUs/OurCorePrinciples/massage.png"
-                alt="Beige background image with an in the foreground."
+                src="../images/AboutUs/OurCorePrinciples/right.png"
+                alt="Image of a practitioner performing acupuncture on a shoulder."
                 quality={100}
               />
             </PrinciplesImage>

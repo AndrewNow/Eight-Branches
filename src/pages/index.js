@@ -295,7 +295,7 @@ const HomePage = ({ data }) => {
               Our college seeks to help inspired learners impact their
               communities through the practice of Eastern medicine, promoting
               restoration of health and prevention of illness.
-              <ReadMore to="/aboutus">Read More</ReadMore>
+              <ReadMore to="/about-us">Read More</ReadMore>
             </h1>
           </AboutUsText>
         </AboutUsWrapper>

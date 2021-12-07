@@ -175,7 +175,10 @@ const Map = styled.div`
 
   @media (max-width: ${breakpoints.xl}px) {
     flex-basis: 67%;
-    height: 300px;
+    /* height: 350px; */
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    height: 350px;
   }
 
   @media (max-width: ${breakpoints.m}px) {

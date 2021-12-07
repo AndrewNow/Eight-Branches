@@ -45,17 +45,17 @@ const OurPrograms = ({ data }) => {
   const [Card1Ref, Card1InView] = useInView({
     root: null,
     triggerOnce: true,
-    threshold: 0.75,
+    threshold: 0.5,
   })
   const [Card2Ref, Card2InView] = useInView({
     root: null,
     triggerOnce: true,
-    threshold: 0.75,
+    threshold: 0.5,
   })
   const [Card3Ref, Card3InView] = useInView({
     root: null,
     triggerOnce: true,
-    threshold: 0.75,
+    threshold: 0.5,
   })
 
   // ---------- PARALLAX SCROLL LOGIC ----------
@@ -490,7 +490,7 @@ const OurPrograms = ({ data }) => {
               <TemporarilyUnavailableWrapper>
                 <TemporarilyUnavailable>
                   <AiOutlineClockCircle />
-                  <p>Temporarily unavailable</p>
+                  <p>Coming Soon!</p>
                 </TemporarilyUnavailable>
               </TemporarilyUnavailableWrapper>
             </CardText>
@@ -516,7 +516,7 @@ const OurPrograms = ({ data }) => {
               <TemporarilyUnavailableWrapper>
                 <TemporarilyUnavailable>
                   <AiOutlineClockCircle />
-                  <p>Temporarily unavailable</p>
+                  <p>Coming Soon!</p>
                 </TemporarilyUnavailable>
               </TemporarilyUnavailableWrapper>
             </CardText>

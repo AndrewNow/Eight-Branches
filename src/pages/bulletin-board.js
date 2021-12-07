@@ -114,14 +114,14 @@ const News = ({ data, location }) => {
           {visiblePosts >= data.blog.edges?.length ? (
             // if user hits end of data.blog.edges array, button closes posts
             <LoadMore>
-              <EventsButton layout onClick={handleClosePosts}>
+              <EventsButton onClick={handleClosePosts}>
                 <p>View less posts</p>
               </EventsButton>
             </LoadMore>
           ) : (
             // Button to open more posts
             <LoadMore>
-              <EventsButton layout onClick={handleLoadNewPosts}>
+              <EventsButton onClick={handleLoadNewPosts}>
                 <p>Load more posts</p>
               </EventsButton>
             </LoadMore>
@@ -443,8 +443,13 @@ const EventsButton = styled.button`
   margin: 0 auto;
   font-family: "Matter-regular";
   transition: var(--hover-transition);
+  p {
+    transition: var(--hover-transition);
+  }
   :hover {
-    color: var(--color-orange);
+    p {
+      color: var(--color-orange);
+    }
     border: 1px solid var(--color-orange);
   }
   p {
