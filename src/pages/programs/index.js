@@ -470,7 +470,7 @@ const OurPrograms = ({ data }) => {
             </CardText>
             <CardImage>
               <StaticImage
-                src="../../images/Programs/certificate-acupuncture.png"
+                src="../../images/Programs/certificate-acupuncture.jpg"
                 alt="A picture of a prosthetic foot with illustrated acupuncture points."
                 quality={100}
                 transformOptions={{ cropFocus: "center" }}
