@@ -7,6 +7,7 @@ module.exports = {
     },
     description: `Eight Branches Academy of Eastern Medicine is a Toronto Acupuncture School that offers students a comprehensive education with a firm foundation in Traditional Chinese Medicine.`,
     siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    image: `https://i.imgur.com/oYDGbYr.png`,
     social: {
       twitter: `eightbranches`,
     },
@@ -161,7 +162,7 @@ module.exports = {
               }
             `,
             output: "/rss.xml",
-            title: "Eight Branches' RSS Feed"
+            title: "Eight Branches' RSS Feed",
           },
         ],
       },
