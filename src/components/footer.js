@@ -144,7 +144,7 @@ const Footer = () => {
                   <br />
                   <SocialIcons>
                     <a
-                      href="https://www.instagram.com/eightbranches/"
+                      href="https://www.tiktok.com/@eightbranches?fromUrl=%2Feightbranches&lang=en"
                       target="_blank"
                       rel="noreferrer noopener"
                     >
