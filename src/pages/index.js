@@ -48,7 +48,7 @@ const HomePage = ({ data }) => {
       y: 0,
       opacity: 1,
       transition: {
-        delay: 1.25,
+        delay: .75,
         duration: 1,
       },
     },
@@ -292,7 +292,7 @@ const HomePage = ({ data }) => {
           <AboutUsText>
             <h6>About Us</h6>
             <h1>
-              Our college seeks to help inspired learners impact their
+              Our college empowers students to uplift
               communities through the practice of Eastern medicine, promoting
               restoration of health and prevention of illness.
               <ReadMore to="/about-us">Read More</ReadMore>

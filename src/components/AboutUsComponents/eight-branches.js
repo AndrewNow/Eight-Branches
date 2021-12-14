@@ -667,8 +667,8 @@ const BlockInner = styled.div`
     text-align: center;
   }
   :hover {
-    background-color: var(--color-lightorange);
-    color: var(--color-beige);
+    background-color: var(--color-lightorange)!important;
+    color: var(--color-beige)!important;
   }
   @media (max-width: ${breakpoints.xl}px) {
     height: 150px;

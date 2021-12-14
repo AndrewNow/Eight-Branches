@@ -145,8 +145,9 @@ const Svg = styled(motion.div)`
 const Answer = styled(motion.div)`
   border-bottom: 1px solid black;
   overflow-y: hidden;
-
+  background-color: white;
   p {
+    font-family: "Matter-light";
     width: 80%;
     margin: 0 auto;
     padding: 2.5rem;

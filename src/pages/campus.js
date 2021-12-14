@@ -451,7 +451,7 @@ const CampusHeader = styled(motion.div)`
 `
 
 const Embla = styled.div`
-  width: 70%;
+  width: 72.5%;
   margin: 0 auto;
   padding-bottom: 15rem;
 
@@ -610,6 +610,10 @@ const Card = styled(motion.div)`
   margin: 0 auto;
   margin-bottom: 4rem;
   align-items: center;
+
+  @media (max-width: ${breakpoints.xxl}px) {
+    width: 85%;
+  }
 
   @media (max-width: ${breakpoints.xl}px) {
     width: 90%;

@@ -219,6 +219,7 @@ const AboutUs = ({ data }) => {
             src="../images/AboutUs/school.png"
             alt="Image of an office within our school. A wooden table is pictured against a green wall backdrop, surrounded by decorative plants."
             quality={100}
+            placeholder="none"
             transformOptions={{ cropFocus: "center" }}
             imgStyle={{ objectFit: "cover" }}
             style={{ height: "100%" }}

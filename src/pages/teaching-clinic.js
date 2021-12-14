@@ -208,7 +208,7 @@ const TeachingClinic = ({ data }) => {
 
   const [TeachingClinicRef, TeachingClinicInView] = useInView({
     root: null,
-    threshold: 0.5,
+    threshold: 0.4,
     triggerOnce: true,
   })
   const [AppointmentRef, AppointmentInView] = useInView({
