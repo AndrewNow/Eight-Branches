@@ -12,7 +12,7 @@ const Herbology = ({ data }) => {
     programName: "Post-Graduate Advanced TCMP",
     programType: "Diploma Program",
     about:
-      "This full-time diploma program can be completed in 1 year, preparing post-graduates to qualify as an Advanced Registered Traditional Chinese Medicine Practitioner or Doctor of Traditional Chinese Medicine, according to different Provincial designations. In addition to the TCMP curriculum, the Advanced curriculum focuses on integrated treatment and specialized fields as well as the study of the Chinese medicine classics such as the huang di nei jing and the shang han lun. The program also features Japanese Acupuncture & Moxibustion, Korean Five Element Acupuncture and Cosmetic Acupuncture.",
+      "This 1-year program prepares post-graduates to qualify as an Advanced Registered Traditional Chinese Medicine Practitioner or Doctor of Traditional Chinese Medicine, according to different Provincial designations. In addition to the TCMP curriculum, the Advanced curriculum focuses on integrated treatment and specialized fields as well as the study of the Chinese medicine classics such as the Huang Di Nei Jing and the Shang Han Lun.",
     image: (
       <StaticImage
         src="../../../images/Programs/diploma-advanced-TCMP.png"
@@ -25,19 +25,13 @@ const Herbology = ({ data }) => {
     ),
     programDescription: {
       optionOne: {
-        title: "2 Year Program (September Start Date)",
-        hours: "Program Hours: 2400",
+        title: "1 Year Program",
+        hours: "Program Hours: 970 (includes 250 clinical hours)",
         description:
           "This program can be completed in 2 years studying full-time",
       },
-      optionTwo: {
-        title: "3 Year Program (January Start Date)",
-        hours: "Program Hours: 2400",
-        description:
-          "This program can be completed in 3 years studying full-time",
-      },
       additionalInfo:
-        "Both programs qualify graduates to write the Pan-Canadian regulatory examinations and to become a Registered Acupuncturist (R.Ac).",
+        "This Program can be taken fully online with additional on-site components for specialization accredidations. ",
     },
     courseData: [
       {
@@ -78,13 +72,7 @@ const Herbology = ({ data }) => {
                     code: "ACU-2010",
                     title:
                       "Korean Five Element Acupuncture, Cosmetic Acupuncture",
-                    type: "Lecture",
-                    credits: 3,
-                  },
-                  {
-                    code: "CLC-9041",
-                    title: "ATCMP Clinical Internship (250 Hours)",
-                    type: "Internship",
+                    type: "Lecture/Practical",
                     credits: 3,
                   },
                 ],
@@ -125,7 +113,7 @@ const Herbology = ({ data }) => {
                   {
                     code: "ACU-2009",
                     title: "Japanese Acupuncture & Moxibustion",
-                    type: "Lecture",
+                    type: "Lecture/Practical",
                     credits: 3,
                   },
                 ],
@@ -148,7 +136,7 @@ const Herbology = ({ data }) => {
                   },
                   {
                     code: "HBT-1211",
-                    title: "Psychoemotional Disorders",
+                    title: "Integrated Treatment - Psychoemotional Disorders",
                     type: "Lecture",
                     credits: 3,
                   },
@@ -157,6 +145,17 @@ const Herbology = ({ data }) => {
                     title: "Advanced Pharmacology",
                     type: "Lecture",
                     credits: 3,
+                  },
+                ],
+              },
+              {
+                label: "Clinical Experience",
+                courses: [
+                  {
+                    code: "CLC-9041",
+                    title: "Adv.TCMP Clinic Internship (250 hours)",
+                    type: "Residency",
+                    credits: 16,
                   },
                 ],
               },

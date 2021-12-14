@@ -62,7 +62,6 @@ const HomePage = ({ data }) => {
       y: 0,
       opacity: 1,
       transition: {
-        // delay: 0.2,
         duration: 1,
         ease: "easeInOut",
         staggerChildren: 0.5,
@@ -310,7 +309,7 @@ const HomePage = ({ data }) => {
             Eastern medicine.
           </p>
           <ProgramsLink to="/programs">
-            <p>View All Programs</p> <Arrow color="var(--color-darkgreen)"/>
+            <p>View All Programs</p> <Arrow color="var(--color-darkgreen)" />
           </ProgramsLink>
         </DiplomaHeader>
         {DiplomaData.map((diploma, index) => (
@@ -1029,7 +1028,7 @@ const ProgramsLink = styled(Link)`
   svg {
     transition: 0.2s all cubic-bezier(0.34, 1.56, 0.64, 1);
   }
-  
+
   p {
     width: unset;
     padding-top: 1.5rem;
@@ -1074,7 +1073,7 @@ const BulletinBoardLink = styled(Link)`
     font-family: "Matter-regular";
     font-size: 19px;
     transition: 0.2s all cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
+  }
 
   :hover {
     color: #00000095;

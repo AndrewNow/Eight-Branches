@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import styled from "styled-components"
 import Navbar from "../components/navbar.js"
 import Footer from "../components/footer.js"
@@ -24,16 +24,18 @@ const Layout = ({ children }) => {
   }
 
   return (
-    <GlobalWrapper
-      variants={PageTransition}
-      initial="initial"
-      animate="animate"
-      exit="initial"
-    >
-      <Navbar />
-      <Main>{children}</Main>
-      <Footer />
-    </GlobalWrapper>
+      <GlobalWrapper
+        variants={PageTransition}
+        initial="initial"
+        animate="animate"
+        exit="initial"
+      >
+        <Navbar />
+        <Main>
+          {children}
+        </Main>
+        <Footer />
+      </GlobalWrapper>
   )
 }
 

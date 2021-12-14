@@ -12,7 +12,7 @@ const Herbology = ({ data }) => {
     programName: "Acupuncture & Moxibustion",
     programType: "Diploma Program",
     about:
-      "This acupuncture program can be completed in 2 years (includes summer study) or 3 years (summers off). Our program is hybrid delivery, which incudes both online and on-site study formats. In addition to acupuncture, the curriculum includes training in moxibustion, nutrition, herbology, eastern massage, cupping, gua sha and the taoist arts.",
+      "This program can be completed in 2 years (with Clinical course hours taking place throughout each year & during additional summer terms) or in 3 years (with all Clinical hours taking place during the third year). Our program is hybrid delivery, which incudes both online and on-site study formats. In addition to acupuncture, the curriculum includes training in moxibustion, nutrition, herbology, eastern massage, cupping, gua sha and the taoist arts.",
     image: (
       <StaticImage
         src="../../../images/Programs/diploma-acupuncture.png"
@@ -25,16 +25,16 @@ const Herbology = ({ data }) => {
     ),
     programDescription: {
       optionOne: {
-        title: "2 Year Program (September Start Date)",
+        title: "2 Year Program",
         hours: "Program Hours: 2268 (includes 668 clinical hours)",
         description:
-          "This program can be completed in 2 years studying full-time starting in September or Janurary",
+          "This program can be completed in 2 years studying full-time, multiple intakes per year.",
       },
       optionTwo: {
-        title: "3 Year Program (January Start Date)",
+        title: "3 Year Program",
         hours: "Program Hours: 2268 (includes 668 clinical hours)",
         description:
-          "This program can be completed in 3 years studying Fall to Spring starting in September or January.",
+          "This program can be completed in 3 years, with all clinical hours taking place in the senior year.",
       },
       additionalInfo:
         "Both programs qualify graduates to write the Pan-Canadian regulatory examinations and to become a Registered Acupuncturist (R.Ac).",
@@ -50,14 +50,20 @@ const Herbology = ({ data }) => {
                 label: "Term 1",
                 courses: [
                   {
-                    code: "TCM-1001",
-                    title: "Foundation of Traditional Chinese Medicine (A)",
-                    type: "Lecture",
+                    code: "EMA-4001",
+                    title: "Eastern Bodywork I",
+                    type: "Practical",
                     credits: 3,
                   },
                   {
-                    code: "EMA-4001",
-                    title: "Eastern Bodywork I",
+                    code: "SHA-6001",
+                    title: "Self Healing Arts",
+                    type: "Practical",
+                    credits: 3,
+                  },
+                  {
+                    code: "TCM-1005",
+                    title: "TCM History, Pinyin, Chinese Language, etc.",
                     type: "Lecture",
                     credits: 3,
                   },
@@ -69,21 +75,15 @@ const Herbology = ({ data }) => {
                     credits: 3,
                   },
                   {
-                    code: "TCM-1005",
-                    title: "TCM History, Pinyin, Chinese Language, etc.",
-                    type: "Lecture",
-                    credits: 3,
-                  },
-                  {
-                    code: "SHA-6001",
-                    title: "Self Healing Arts",
+                    code: "TCM-1001",
+                    title: "Foundation of Traditional Chinese Medicine (A)",
                     type: "Lecture",
                     credits: 3,
                   },
                   {
                     code: "CLC-9000",
-                    title: "Clinical Observation (68 Hours)",
-                    type: "Lecture",
+                    title: "Clinical Observation (68 hours)",
+                    type: "Clinical",
                     credits: 4,
                   },
                 ],
@@ -95,6 +95,12 @@ const Herbology = ({ data }) => {
                     code: "ACU-2008",
                     title:
                       "Acupuncturist Safety, Jurisprudence, Regulation, Intro to Clinic",
+                    type: "Lecture",
+                    credits: 3,
+                  },
+                  {
+                    code: "ACU-2002",
+                    title: "Acupuncture Points Theory (A)",
                     type: "Lecture",
                     credits: 3,
                   },
@@ -113,19 +119,13 @@ const Herbology = ({ data }) => {
                   {
                     code: "ACU-2005",
                     title: "Acupuncture Allied Therapies",
-                    type: "Lecture",
-                    credits: 3,
-                  },
-                  {
-                    code: "ACU-2002",
-                    title: "Acupuncture Points Theory (A)",
-                    type: "Lecture",
+                    type: "Practical",
                     credits: 3,
                   },
                   {
                     code: "CLC-9001",
-                    title: "Clinical Internship A (50 Hours)",
-                    type: "Internship",
+                    title: "Clinical Internship A (50 hours)",
+                    type: "Clinical",
                     credits: 3,
                   },
                 ],
@@ -134,14 +134,8 @@ const Herbology = ({ data }) => {
                 label: "Term 3",
                 courses: [
                   {
-                    code: "TCM-1003",
-                    title: "Diagnostics of Traditional Chinese Medicine (A)",
-                    type: "Lecture",
-                    credits: 3,
-                  },
-                  {
-                    code: "ACU-2006",
-                    title: "Acupuncture Techniques (A)",
+                    code: "BIO-5002",
+                    title: "Physiology",
                     type: "Lecture",
                     credits: 3,
                   },
@@ -152,15 +146,9 @@ const Herbology = ({ data }) => {
                     credits: 3,
                   },
                   {
-                    code: "BIO-5002",
-                    title: "Physiology",
-                    type: "Lecture",
-                    credits: 3,
-                  },
-                  {
-                    code: "EMA-4002",
-                    title: "Eastern Bodywork II",
-                    type: "Lecture",
+                    code: "ACU-2006",
+                    title: "Acupuncture Techniques (A)",
+                    type: "Practical",
                     credits: 3,
                   },
                   {
@@ -170,10 +158,33 @@ const Herbology = ({ data }) => {
                     credits: 3,
                   },
                   {
-                    code: "CLC-9002",
-                    title: "Clinical Internship B (50 Hours)",
+                    code: "EMA-4002",
+                    title: "Eastern Bodywork II",
+                    type: "Practical",
+                    credits: 3,
+                  },
+                  {
+                    code: "TCM-1003",
+                    title: "Diagnostics of Traditional Chinese Medicine (A)",
                     type: "Lecture",
                     credits: 3,
+                  },
+                  {
+                    code: "CLC-9002",
+                    title: "Clinical Internship A (50 hours)",
+                    type: "Clinical",
+                    credits: 3,
+                  },
+                ],
+              },
+              {
+                label: "Summer Term",
+                courses: [
+                  {
+                    code: "CLC-9002",
+                    title: "Clinical Internship B (200 hours)",
+                    type: "Clinical",
+                    credits: 12,
                   },
                 ],
               },
@@ -186,26 +197,8 @@ const Herbology = ({ data }) => {
                 label: "Term 1",
                 courses: [
                   {
-                    code: "TCM-1004",
-                    title: "Diagnostics of Traditional Chinese Medicine (B)",
-                    type: "Lecture",
-                    credits: 3,
-                  },
-                  {
                     code: "ACU-2003",
                     title: "Acupuncture Points Theory (B)",
-                    type: "Lecture",
-                    credits: 3,
-                  },
-                  {
-                    code: "EMA-4003",
-                    title: "Tui Na",
-                    type: "Lecture",
-                    credits: 3,
-                  },
-                  {
-                    code: "BIO-5003",
-                    title: "Pathology",
                     type: "Lecture",
                     credits: 3,
                   },
@@ -216,15 +209,33 @@ const Herbology = ({ data }) => {
                     credits: 3,
                   },
                   {
-                    code: "CLC-9002",
-                    title: "Clinical Internship (50 Hours)",
-                    type: "Internship",
+                    code: "EMA-4003",
+                    title: "Tui Na",
+                    type: "Practical",
                     credits: 3,
                   },
                   {
-                    code: "RES-9021",
+                    code: "TCM-1004",
+                    title: "Diagnostics of Traditional Chinese Medicine (B)",
+                    type: "Lecture",
+                    credits: 3,
+                  },
+                  {
+                    code: "BIO-5003",
+                    title: "Pathology",
+                    type: "Lecture",
+                    credits: 3,
+                  },
+                  {
+                    code: "CLC-9002",
+                    title: "Clinical Internship (50 Hours)",
+                    type: "Clinical",
+                    credits: 3,
+                  },
+                  {
+                    code: "CLC-9021",
                     title: "Residency (50 Hours)",
-                    type: "Residency",
+                    type: "Clinical",
                     credits: 3,
                   },
                 ],
@@ -241,7 +252,7 @@ const Herbology = ({ data }) => {
                   {
                     code: "ACU-2007",
                     title: "Acupuncture Techniques (B)",
-                    type: "Lecture",
+                    type: "Practical",
                     credits: 3,
                   },
                   {
@@ -269,9 +280,9 @@ const Herbology = ({ data }) => {
                     credits: 3,
                   },
                   {
-                    code: "RES-9021",
+                    code: "CLC-9021",
                     title: "Residency (100 Hours)",
-                    type: "Residency",
+                    type: "Clinical",
                     credits: 6,
                   },
                 ],
@@ -280,26 +291,8 @@ const Herbology = ({ data }) => {
                 label: "Term 3",
                 courses: [
                   {
-                    code: "HRB-8001",
-                    title: "TCM Nutrition",
-                    type: "Lecture",
-                    credits: 3,
-                  },
-                  {
-                    code: "BIO-5005",
-                    title: "Neuroanatomy & Emergency Medicine",
-                    type: "Lecture",
-                    credits: 3,
-                  },
-                  {
                     code: "ACT-3002",
                     title: "Acupuncture Gynecology & Pediatric Diseases",
-                    type: "Lecture",
-                    credits: 3,
-                  },
-                  {
-                    code: "BIO-5006",
-                    title: "Western Medical Diagnostics & Examination",
                     type: "Lecture",
                     credits: 3,
                   },
@@ -311,21 +304,39 @@ const Herbology = ({ data }) => {
                     credits: 3,
                   },
                   {
-                    code: "RES-9021",
-                    title: "Residency (100 Hours)",
-                    type: "Residency",
+                    code: "BIO-5005",
+                    title: "Neuroanatomy & Emergency Medicine",
+                    type: "Lecture",
                     credits: 3,
+                  },
+                  {
+                    code: "BIO-5006",
+                    title: "Western Medical Diagnostics & Examination",
+                    type: "Lecture/Practical",
+                    credits: 3,
+                  },
+                  {
+                    code: "HRB-8001",
+                    title: "TCM Nutrition",
+                    type: "Lecture",
+                    credits: 3,
+                  },
+                  {
+                    code: "CLC-9021",
+                    title: "Residency (100 Hours)",
+                    type: "Clinical",
+                    credits: 6,
                   },
                 ],
               },
               {
-                label: "Term 4",
+                label: "Summer Term",
                 courses: [
                   {
                     code: "PRO-7002",
                     title: "Exam Preparation, Career Planning",
-                    type: "Lecture",
-                    credits: 3,
+                    type: "Preperatory",
+                    credits: 4,
                   },
                 ],
               },
@@ -343,14 +354,20 @@ const Herbology = ({ data }) => {
                 label: "Term 1",
                 courses: [
                   {
-                    code: "TCM-1001",
-                    title: "Foundation of Traditional Chinese Medicine (A)",
-                    type: "Lecture",
+                    code: "EMA-4001",
+                    title: "Eastern Bodywork I",
+                    type: "Practical",
                     credits: 3,
                   },
                   {
-                    code: "EMA-4001",
-                    title: "Eastern Bodywork I",
+                    code: "SHA-6001",
+                    title: "Self Healing Arts",
+                    type: "Practical",
+                    credits: 3,
+                  },
+                  {
+                    code: "TCM-1005",
+                    title: "TCM History, Pinyin, Chinese Language, etc.",
                     type: "Lecture",
                     credits: 3,
                   },
@@ -362,14 +379,8 @@ const Herbology = ({ data }) => {
                     credits: 3,
                   },
                   {
-                    code: "TCM-1005",
-                    title: "TCM History, Pinyin, Chinese Language, etc.",
-                    type: "Lecture",
-                    credits: 3,
-                  },
-                  {
-                    code: "SHA-6001",
-                    title: "Self Healing Arts",
+                    code: "TCM-1001",
+                    title: "Foundation of Traditional Chinese Medicine (A)",
                     type: "Lecture",
                     credits: 3,
                   },
@@ -382,6 +393,12 @@ const Herbology = ({ data }) => {
                     code: "ACU-2008",
                     title:
                       "Acupuncturist Safety, Jurisprudence, Regulation, Intro to Clinic",
+                    type: "Lecture",
+                    credits: 3,
+                  },
+                  {
+                    code: "ACU-2002",
+                    title: "Acupuncture Points Theory (A)",
                     type: "Lecture",
                     credits: 3,
                   },
@@ -400,13 +417,7 @@ const Herbology = ({ data }) => {
                   {
                     code: "ACU-2005",
                     title: "Acupuncture Allied Therapies",
-                    type: "Lecture",
-                    credits: 3,
-                  },
-                  {
-                    code: "ACU-2002",
-                    title: "Acupuncture Points Theory (A)",
-                    type: "Lecture",
+                    type: "Practical",
                     credits: 3,
                   },
                 ],
@@ -415,14 +426,8 @@ const Herbology = ({ data }) => {
                 label: "Term 3",
                 courses: [
                   {
-                    code: "TCM-1003",
-                    title: "Diagnostics of Traditional Chinese Medicine (A)",
-                    type: "Lecture",
-                    credits: 3,
-                  },
-                  {
-                    code: "ACU-2006",
-                    title: "Acupuncture Techniques (A)",
+                    code: "BIO-5002",
+                    title: "Physiology",
                     type: "Lecture",
                     credits: 3,
                   },
@@ -433,20 +438,26 @@ const Herbology = ({ data }) => {
                     credits: 3,
                   },
                   {
-                    code: "BIO-5002",
-                    title: "Physiology",
+                    code: "ACU-2006",
+                    title: "Acupuncture Techniques (A)",
+                    type: "Practical",
+                    credits: 3,
+                  },
+                  {
+                    code: "BIO-5011",
+                    title: "Anatomy II",
                     type: "Lecture",
                     credits: 3,
                   },
                   {
                     code: "EMA-4002",
                     title: "Eastern Bodywork II",
-                    type: "Lecture",
+                    type: "Practical",
                     credits: 3,
                   },
                   {
-                    code: "BIO-5011",
-                    title: "Anatomy II",
+                    code: "TCM-1003",
+                    title: "Diagnostics of Traditional Chinese Medicine (A)",
                     type: "Lecture",
                     credits: 3,
                   },
@@ -461,32 +472,32 @@ const Herbology = ({ data }) => {
                 label: "Term 1",
                 courses: [
                   {
-                    code: "TCM-1004",
-                    title: "Diagnostics of TCM (B)",
-                    type: "Lecture",
-                    credits: 3,
-                  },
-                  {
-                    code: "ACU-2007",
+                    code: "ACU-2003",
                     title: "Acupuncture Points Theory (B)",
                     type: "Lecture",
                     credits: 3,
                   },
                   {
-                    code: "BIO-5004",
-                    title: "Tui Na",
-                    type: "Lecture",
-                    credits: 3,
-                  },
-                  {
-                    code: "HRB-8002",
-                    title: "Pathology",
-                    type: "Lecture",
-                    credits: 3,
-                  },
-                  {
-                    code: "ACT-3001",
+                    code: "ACT-3005",
                     title: "Acupuncture Therapeutics",
+                    type: "Lecture",
+                    credits: 3,
+                  },
+                  {
+                    code: "EMA-4003",
+                    title: "Tui Na",
+                    type: "Practical",
+                    credits: 3,
+                  },
+                  {
+                    code: "TCM-1004",
+                    title: "Diagnostics of Traditional Chinese Medicine (B)",
+                    type: "Lecture",
+                    credits: 3,
+                  },
+                  {
+                    code: "BIO-5003",
+                    title: "Pathology",
                     type: "Lecture",
                     credits: 3,
                   },
@@ -504,7 +515,7 @@ const Herbology = ({ data }) => {
                   {
                     code: "ACU-2007",
                     title: "Acupuncture Techniques (B)",
-                    type: "Lecture",
+                    type: "Practical",
                     credits: 3,
                   },
                   {
@@ -537,26 +548,8 @@ const Herbology = ({ data }) => {
                 label: "Term 3",
                 courses: [
                   {
-                    code: "HRB-8001",
-                    title: "TCM Nutrition",
-                    type: "Lecture",
-                    credits: 3,
-                  },
-                  {
-                    code: "BIO-5005",
-                    title: "Neuroanatomy & Emergency Medicine",
-                    type: "Lecture",
-                    credits: 3,
-                  },
-                  {
                     code: "ACT-3002",
                     title: "Acupuncture Gynecology & Pediatric Diseases",
-                    type: "Lecture",
-                    credits: 3,
-                  },
-                  {
-                    code: "BIO-5006",
-                    title: "Western Medical Diagnostics & Examination",
                     type: "Lecture",
                     credits: 3,
                   },
@@ -567,15 +560,33 @@ const Herbology = ({ data }) => {
                     type: "Lecture",
                     credits: 3,
                   },
+                  {
+                    code: "BIO-5005",
+                    title: "Neuroanatomy & Emergency Medicine",
+                    type: "Lecture",
+                    credits: 3,
+                  },
+                  {
+                    code: "BIO-5006",
+                    title: "Western Medical Diagnostics & Examination",
+                    type: "Lecture/Practical",
+                    credits: 3,
+                  },
+                  {
+                    code: "HRB-8001",
+                    title: "TCM Nutrition",
+                    type: "Lecture",
+                    credits: 3,
+                  },
                 ],
               },
               {
-                label: "Term 4",
+                label: "Summer Term",
                 courses: [
                   {
                     code: "PRO-7002",
                     title: "Exam Preparation, Career Planning",
-                    type: "Lecture",
+                    type: "Preperatory",
                     credits: 3,
                   },
                 ],
@@ -586,7 +597,7 @@ const Herbology = ({ data }) => {
             label: "Year Three",
             data: [
               {
-                label: "Internships & Residencies",
+                label: "Clinical Experience",
                 courses: [
                   {
                     code: "CLC-9000",
@@ -596,46 +607,21 @@ const Herbology = ({ data }) => {
                   },
                   {
                     code: "CLC-9001",
-                    title:
-                      "Clinical Internship A (Transitional Clinic 50 Hours)",
+                    title: "Clinical Internship A (100 Hours)",
                     type: "Clinical",
-                    credits: 3,
-                  },
-                  {
-                    code: "CLC-9002",
-                    title: "Clinical Internship B (50 Hours)",
-                    type: "Clinical",
-                    credits: 3,
-                  },
-                  {
-                    code: "CLC-9002",
-                    title: "Clinical Internship B (200 Hours)",
-                    type: "Clinical",
-                    credits: 12,
-                  },
-                  {
-                    code: "CLC-9002",
-                    title: "Clinical Internship B (50 Hours)",
-                    type: "Clinical",
-                    credits: 3,
-                  },
-                  {
-                    code: "RES-9021",
-                    title: "Residency (50 Hours)",
-                    type: "Residency",
-                    credits: 3,
-                  },
-                  {
-                    code: "RES-9021",
-                    title: "Residency (100 Hours)",
-                    type: "Residency",
                     credits: 6,
                   },
                   {
-                    code: "RES-9021",
-                    title: "Residency (100 Hours)",
-                    type: "Residency",
-                    credits: 6,
+                    code: "CLC-9002",
+                    title: "Clinical Internship A (250 Hours)",
+                    type: "Clinical",
+                    credits: 16,
+                  },
+                  {
+                    code: "CLC-9021",
+                    title: "Acupuncture Residency (250 Hours)",
+                    type: "Clinical",
+                    credits: 16,
                   },
                 ],
               },

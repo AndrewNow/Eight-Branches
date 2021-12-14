@@ -3,14 +3,18 @@ import "typeface-montserrat"
 import "typeface-merriweather"
 // custom CSS styles
 import "./src/style.css"
+import React from "react"
 
 // Wrapper for page transitions
-import React from "react"
 import { AnimatePresence } from "framer-motion"
 
-export const wrapPageElement = ({ element }) => (
-  <AnimatePresence exitBeforeEnter>{element}</AnimatePresence>
-)
+export const wrapPageElement = ({ element }) => {
+  // Locomotive smooth scroll config, info here  https://www.npmjs.com/package/react-locomotive-scroll
+
+  return (
+      <AnimatePresence exitBeforeEnter>{element}</AnimatePresence>
+  )
+}
 
 export const shouldUpdateScroll = ({
   routerProps: { location },

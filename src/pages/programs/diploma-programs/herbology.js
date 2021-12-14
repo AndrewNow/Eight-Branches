@@ -12,7 +12,7 @@ const Herbology = ({ data }) => {
     programName: "Herbology",
     programType: "Diploma Program",
     about:
-      "This program qualifies graduates to apply for professional membership as a Registered Herbalist (RH) with the Ontario Herbalists Association and to write the Pan-Canadian regulatory examinations and to become a Registered TCM Herbalist (R.TCM.H). The program combines Eastern and Western medical theory, clinical practice and internships. In addition to herbology, the curriculum includes training in eastern nutrition, TCM Theory & Diagnostics, advanced Formula preparation, Internal & External Medicine, Gynaecology & Paediatrics. Unlike the other programs, our herbology program is ineligible for OSAP and student loan funding.",
+      "This program qualifies graduates to apply for professional membership as a Registered Herbalist (RH) with the Ontario Herbalists Association and to write the Pan-Canadian regulatory examinations and to become a Registered TCM Herbalist (R.TCM.H) The program can be completed in 2 years studying part-time (6 semesters). The program combines Eastern and Western medical theory, clinical practice and internships. In addition to herbology, the curriculum includes training in eastern nutrition, TCM Theory & Diagnostics, advanced Formula preparation, Internal & External Medicine, Gynaecology & Paediatrics.",
     image: (
       <StaticImage
         src="../../../images/Programs/diploma-herbology.png"
@@ -26,12 +26,12 @@ const Herbology = ({ data }) => {
     programDescription: {
       optionOne: {
         title: "2 Year Program (September Start Date)",
-        hours: "Program Hours: 2400",
+        hours: "Program Hours: 1598 (includes 350 clinical hours)",
         description:
-          "This program can be completed in 2 years studying full-time",
+          "This program can be completed in 2 years, studying full-time starting in September or Janurary.",
       },
       additionalInfo:
-        "Both programs qualify graduates to write the Pan-Canadian regulatory examinations and to become a Registered Acupuncturist (R.Ac).",
+        "Please note that the sequence of courses in this curriculum are subject to change by year. The course is 1598 hours long in total, with 350 hours of practical supervised clinic experience, 384 in the sciences and 576 for core herbal knowledge.",
     },
     courseData: [
       {
@@ -64,18 +64,6 @@ const Herbology = ({ data }) => {
                   {
                     code: "BIO-5013",
                     title: "Advanced Western Pathology Case Studies",
-                    type: "Lecture",
-                    credits: 3,
-                  },
-                  {
-                    code: "TCM-1001",
-                    title: "Foundation of Traditional Chinese Medicine (A)",
-                    type: "Lecture",
-                    credits: 3,
-                  },
-                  {
-                    code: "TCM-1001",
-                    title: "Foundation of Traditional Chinese Medicine (A)",
                     type: "Lecture",
                     credits: 3,
                   },
@@ -156,15 +144,20 @@ const Herbology = ({ data }) => {
                     credits: 3,
                   },
                   {
-                    code: "PRO-7001",
-                    title:
-                      "Interpersonal Skills, Practice Management, Professionalism ",
+                    code: "SHA-6001",
+                    title: "Self Healing Arts",
                     type: "Elective",
                     credits: 3,
                   },
+                ],
+              },
+              {
+                label: "Summer Term",
+                courses: [
                   {
-                    code: "SHA-6001",
-                    title: "Self Healing Arts",
+                    code: "PRO-7001",
+                    title:
+                      "Interpersonal Skills, Practice Management, Professionalism ",
                     type: "Elective",
                     credits: 3,
                   },
@@ -243,6 +236,17 @@ const Herbology = ({ data }) => {
                     title: "Advanced Pharmacology",
                     type: "Elective",
                     credits: 3,
+                  },
+                ],
+              },
+              {
+                label: "Clinical Experience",
+                courses: [
+                  {
+                    code: "CLC-9000",
+                    title: "Herbology Clinic (350 hours)",
+                    type: "Clinical",
+                    credits: 22,
                   },
                 ],
               },
