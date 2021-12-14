@@ -30,7 +30,7 @@ const ProgramLayout = ({ programData }) => {
       y: 0,
       opacity: 1,
       transition: {
-        delay: 1.25,
+        delay: .45,
         duration: 1,
       },
     },

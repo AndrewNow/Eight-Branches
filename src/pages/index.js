@@ -48,7 +48,7 @@ const HomePage = ({ data }) => {
       y: 0,
       opacity: 1,
       transition: {
-        delay: .75,
+        delay: .65,
         duration: 1,
       },
     },
