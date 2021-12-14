@@ -184,7 +184,7 @@ const Campus = ({ data }) => {
             initial="hidden"
             animate={sectionInView1 ? "visible" : "hidden"}
           >
-            <CardText variants={fadeIn}>
+            <CardText>
               <h4>Our Apothecary</h4>
               <h6>
                 Discover the Eight Branches apothecary, which houses a unique and
@@ -235,7 +235,7 @@ const Campus = ({ data }) => {
                 style={{ height: "100%" }}
               />
             </CardImage>
-            <CardText variants={fadeIn}>
+            <CardText>
               <h4>Our Library</h4>
               <h6>
                 Eight Branches has an ever expanding library. Students can
@@ -270,7 +270,7 @@ const Campus = ({ data }) => {
             initial="hidden"
             animate={sectionInView3 ? "visible" : "hidden"}
           >
-            <CardText variants={fadeIn}>
+            <CardText>
               <h4>The Teaching Clinic</h4>
               <h6>
                 Explore affordable, community-based TCM treatments from our
@@ -309,13 +309,13 @@ const Campus = ({ data }) => {
       </Facilities>
       <LocationDescription>
         <LocationImage ref={HideImageRef}>
-          <HideImage
+          {/* <HideImage
             style={{ backgroundColor: "var(--color-sandbeige)" }}
             variants={hideImage}
             initial="visible"
             animate={HideImageInView ? "hidden" : "visible"}
             exit="hidden"
-          />
+          /> */}
           <StaticImage
             src="../images/Facilities/toronto.jpg"
             alt="Images of Toronto's skyline on a sunny day, with a body of water in the foreground."

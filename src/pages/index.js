@@ -104,7 +104,7 @@ const HomePage = ({ data }) => {
       inView: DiplomaInView0,
       image: (
         <StaticImage
-          src="../images/HomePage/acupuncturediploma.png"
+          src="../images/HomePage/acupuncture.png"
           quality={100}
           transformOptions={{ cropFocus: "bottom" }}
           imgStyle={{ objectFit: "cover" }}
@@ -136,7 +136,7 @@ const HomePage = ({ data }) => {
       inView: DiplomaInView2,
       image: (
         <StaticImage
-          src="../images/HomePage/advancedtcmpdiploma.png"
+          src="../images/HomePage/advtcmp.png"
           quality={100}
           transformOptions={{ cropFocus: "bottom" }}
           imgStyle={{ objectFit: "cover" }}
@@ -253,6 +253,7 @@ const HomePage = ({ data }) => {
             src="../images/HomePage/home.png"
             alt="Soft image of a practitioner performing acupuncture on a foot."
             quality={100}
+            placeholder="none"
             transformOptions={{ cropFocus: "bottom" }}
             imgStyle={{ objectFit: "cover" }}
             style={{ height: "100%" }}
