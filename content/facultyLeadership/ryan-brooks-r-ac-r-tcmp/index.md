@@ -1,5 +1,5 @@
 ---
-title: Ryan Brooks, R. Ac, R. TCMP
+title: Ryan Brooks, R.Ac, R.TCMP
 role: President
 portrait: unnamed-2-.jpg
 email: test@eightbranches.ca
