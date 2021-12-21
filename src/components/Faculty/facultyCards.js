@@ -114,7 +114,11 @@ export const FacultyLeadership = ({
                   <p>{role}</p>
                   <h3>{title}</h3>
                   <div dangerouslySetInnerHTML={{ __html: bio }} />
-                  <GetInTouch href={`mailto:${email}`}>Get in touch</GetInTouch>
+                  {email && (
+                    <GetInTouch href={`mailto:${email}`}>
+                      Get in touch
+                    </GetInTouch>
+                  )}
                 </ModalText>
               </Modal>
             </ModalWrapper>
@@ -436,7 +440,8 @@ const ModalText = styled.div`
     font-family: "Matter-light";
   }
   @media (max-width: ${breakpoints.xl}px) {
-    a, p {
+    a,
+    p {
       font-size: 18px;
     }
   }
@@ -447,7 +452,8 @@ const ModalText = styled.div`
     padding-left: 0;
     padding-right: 0;
     overflow-y: default;
-    a, p {
+    a,
+    p {
       font-size: 16px;
     }
   }
