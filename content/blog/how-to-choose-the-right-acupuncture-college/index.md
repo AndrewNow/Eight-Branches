@@ -27,7 +27,7 @@ A good instructor can make a class and a bad one can break it! Choose carefully 
 
 3. What courses and programs are available?
 
-![](judy-gu-for-eight-branches-action-shot-selects-010.jpg)
+![](judy-gu-for-eight-branches-action-shot-selects-011.jpg)
 
 Every program is different, so make sure you look into the curriculum to see if you like what you see. You'll be in the program for a few years so definitely choose one that appeals to you! Do you want to maybe pursue herbology after graduation? Or maybe you want to become a R. TCMP? Finding a college that also has additional post-grad programs available could also be helpful in furthering your career and expanding your knowledge! After all, the scope of TCM is so huge that there's always something new to learn. Here at Eight Branches, our programs are diverse and cover all Eight Branches of Eastern Medicine, so there's definitely something for everybody.
 
