@@ -45,4 +45,4 @@ The proof is in the pudding! The best way to gauge a school's success is determi
 
 If you've made it this far, you're obviously pretty serious about beginning a career in acupuncture! We'd love to help you get started. You can book an appointment to speak [](f)with an advisor using the link below:
 
-``
+``<https://eightbranches.youcanbook.me/>``
