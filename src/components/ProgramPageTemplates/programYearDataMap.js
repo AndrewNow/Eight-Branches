@@ -96,7 +96,7 @@ const ProgramYearDataMap = ({ term, index }) => {
               )
             })}
             <motion.h6 variants={expandAnimation}>
-              Total Term Credits: {courseCreditsSum}
+              Total Credits: {courseCreditsSum}
             </motion.h6>
           </Term>
         )}

@@ -48,7 +48,6 @@ const EventPostTemplate = ({ data }) => {
               {/* check to see if previous exists, if so display previous post */}
               {previous && (
                 <BulletinPost key={previous.fields.slug}>
-                  <article>
                     <h6>
                       <Link to={previous.fields.slug} itemProp="url">
                         {previous.frontmatter.title}
@@ -58,14 +57,12 @@ const EventPostTemplate = ({ data }) => {
                     <BulletinDescription>
                       <p>{previous.frontmatter.date}</p>
                     </BulletinDescription>
-                  </article>
                 </BulletinPost>
               )}
             </div>
             <div>
               {next && (
                 <BulletinPost key={next.fields.slug}>
-                  <article>
                     <h6>
                       <Link to={next.fields.slug} itemProp="url">
                         {next.frontmatter.title}
@@ -75,7 +72,6 @@ const EventPostTemplate = ({ data }) => {
                     <BulletinDescription>
                       <p>{next.frontmatter.date}</p>
                     </BulletinDescription>
-                  </article>
                 </BulletinPost>
               )}
             </div>
@@ -162,25 +158,36 @@ const Header = styled.div`
     font-size: 16px;
     line-height: 26px;
   }
+  @media (max-width: ${breakpoints.xxl}px) {
+    h1 {
+      max-width: 70%;
+    }
+  }
+  @media (max-width: ${breakpoints.xl}px) {
+    h1 {
+      max-width: 80%;
+    }
+  }
 
   @media (max-width: ${breakpoints.m}px) {
     padding-top: 10rem;
-    & h1 {
-      max-width: 100%;
-    }
     & p {
       padding-top: 1rem;
+    }
+    & h1 {
+      max-width: 100%;
     }
   }
 `
 
 const BlogContentHeader = styled.section`
   padding-left: 25vw;
-  /* padding-bottom: 5rem; */
-  padding-bottom: 2.5rem;
+  padding-bottom: 5rem;
 
   @media (max-width: ${breakpoints.m}px) {
     padding-left: 0rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
   }
 `
 
@@ -251,7 +258,7 @@ const BlogContent = styled.section`
 
   & ul {
     & li {
-      padding-left: 0rem;
+      padding-left: 1rem;
       & ul {
         padding-left: 1rem;
       }
@@ -294,15 +301,138 @@ const BlogContent = styled.section`
       padding-left: 1rem;
     }
   }
-  @media (max-width: ${breakpoints.m}px) {
-    padding-top: 0rem;
-    * {
+
+  ol {
+    padding-top: 3rem;
+  }
+
+  img {
+    padding-bottom: 2rem;
+  }
+
+  @media (max-width: ${breakpoints.xxl}px) {
+    & * {
+      padding-left: 15vw;
+    }
+    p {
+      font-size: 20px;
+      line-height: 150%;
+    }
+    & ul,
+    ol {
+      padding-left: 20vw;
+    }
+  }
+  @media (max-width: ${breakpoints.xl}px) {
+    img {
+      padding-bottom: 0rem;
+    }
+    & * {
+      padding-left: 0vw;
+    }
+
+    & p {
+      font-size: 18px;
+      line-height: 30px;
+      font-family: "Matter-light";
+    }
+
+    & a {
+      text-decoration: underline;
+      font-weight: 800;
+      color: var(--color-black);
+      transition: ease 0.15s all;
+      &:hover {
+        color: var(--color-orange);
+      }
+    }
+
+    & ul,
+    ol {
+      padding-left: 2rem;
+      font-size: 18px;
+      line-height: 30px;
+      font-family: "Matter-regular";
+    }
+
+    & ul {
+      & li {
+        padding-left: 1rem;
+        & ul {
+          padding-left: 1rem;
+        }
+      }
+      & p {
+        padding-left: 0;
+      }
+    }
+
+    & blockquote {
+      border-left: 2px solid var(--color-darkgreen);
       padding-left: 0rem;
+      margin: 2.5rem auto;
+
+      & p {
+        font-family: "Matter-regular";
+        padding-left: 1rem;
+        font-size: 18px;
+        line-height: 30px;
+      }
+    }
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    & * {
+      padding-left: 0vw;
     }
 
     & p {
       font-size: 16px;
       line-height: 27.5px;
+      font-family: "Matter-light";
+    }
+
+    & a {
+      text-decoration: underline;
+      font-weight: 800;
+      color: var(--color-black);
+      transition: ease 0.15s all;
+      &:hover {
+        color: var(--color-orange);
+      }
+    }
+
+    & ul,
+    ol {
+      padding-left: 1rem;
+      font-size: 16px;
+      line-height: 27.5px;
+      font-family: "Matter-regular";
+    }
+
+    & ul {
+      & li {
+        padding-left: 1rem;
+        & ul {
+          padding-left: 1rem;
+        }
+      }
+      & p {
+        padding-left: 0;
+      }
+    }
+
+    & blockquote {
+      border-left: 2px solid var(--color-darkgreen);
+      padding-left: 0rem;
+      margin: 2.5rem auto;
+
+      & p {
+        font-family: "Matter-regular";
+        padding-left: 1rem;
+        font-size: 18px;
+        line-height: 27.5px;
+      }
     }
   }
 `
@@ -319,13 +449,16 @@ const ContinueReading = styled.section`
     justify-content: center;
     align-items: center;
   }
+
+  @media (max-width: ${breakpoints.xxl}px) {
+    margin-top: 10rem;
+  }
+
   @media (max-width: ${breakpoints.m}px) {
     width: 100%;
     margin-top: 10rem;
-
     & h1 {
-      width: 90%;
-      text-align: center;
+      margin-bottom: 4rem;
     }
   }
 `
@@ -336,8 +469,19 @@ const BulletinPost = styled.article`
   width: 550px;
   height: 420px;
   margin-bottom: 5rem;
+  margin: 0 3rem;
+  position: relative;
 
   & h6 {
+    a {
+      -webkit-line-clamp: 1;
+      display: -webkit-box;
+      line-clamp: 1;
+      width: 100%;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
     padding-top: 0.75rem;
     padding-bottom: 1rem;
     transition: color ease-in-out 0.15s;
@@ -346,13 +490,13 @@ const BulletinPost = styled.article`
       color: var(--color-orange);
     }
   }
+
   @media (max-width: ${breakpoints.m}px) {
+    /* width: 100%; */
+    margin: 0 auto;
     width: auto;
     height: auto;
-
-    & h6 {
-      padding-bottom: 0.5rem;
-    }
+    padding-bottom: 2.5rem;
   }
 `
 
@@ -365,11 +509,6 @@ const BulletinDescription = styled.small`
     font-size: 16px;
     color: #3a3a3a;
   }
-  @media (max-width: ${breakpoints.m}px) {
-    & p {
-      padding-top: 0rem;
-    }
-  }
 `
 
 const EndArticle = styled.div`
@@ -381,9 +520,12 @@ const EndArticle = styled.div`
     margin: 0 auto;
   }
 
-  @media (max-width: ${breakpoints.m}px) {
+  @media (max-width: ${breakpoints.xxl}px) {
     margin-top: 5rem;
     margin-bottom: 5rem;
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
     & svg {
       width: 30px;
     }
@@ -399,7 +541,12 @@ const ContinueReadingPostWrapper = styled.div`
   list-style: none;
   padding-bottom: 10rem;
 
+  @media (max-width: ${breakpoints.l}px) {
+    width: 95%;
+  }
+
   @media (max-width: ${breakpoints.m}px) {
     width: 90%;
+    flex-direction: column;
   }
 `

@@ -52,61 +52,55 @@ const BlogPostTemplate = ({ data }) => {
         <ContinueReading>
           <h1>More Posts</h1>
           <ContinueReadingPostWrapper>
-              {/* check to see if previous exists, if so display previous post */}
-              {previous && (
-                <BulletinPost key={previous.fields.slug}>
-                  <article className="post-list-item">
-                    <h6>
-                      <Link to={previous.fields.slug} itemProp="url">
-                        <span itemProp="headline">
-                          {previous.frontmatter.title}
-                        </span>
-                      </Link>
-                    </h6>
-                    <Link to={previous.fields.slug} itemProp="url">
-                      <GatsbyImage
-                        image={
-                          previous.frontmatter.thumbnail.childImageSharp
-                            .gatsbyImageData
-                        }
-                        alt={previous.frontmatter.description}
-                      />
-                    </Link>
-                    <BulletinDescription>
-                      <p>{previous.frontmatter.readtime} minute read</p>
-                      <p>{previous.frontmatter.date}</p>
-                    </BulletinDescription>
-                  </article>
-                </BulletinPost>
-              )}
-              {next && (
-                <BulletinPost key={next.fields.slug}>
-                  <article className="post-list-item">
-                    <h6>
-                      <Link to={next.fields.slug} itemProp="url">
-                        <span itemProp="headline">
-                          {next.frontmatter.title}
-                        </span>
-                      </Link>
-                    </h6>
-                    <Link to={next.fields.slug} itemProp="url">
-                      {next.frontmatter.thumbnail && (
-                        <GatsbyImage
-                          image={
-                            next.frontmatter.thumbnail.childImageSharp
-                              .gatsbyImageData
-                          }
-                          alt={next.frontmatter.description}
-                        />
-                      )}
-                    </Link>
-                    <BulletinDescription>
-                      <p>{next.frontmatter.readtime} minute read</p>
-                      <p>{next.frontmatter.date}</p>
-                    </BulletinDescription>
-                  </article>
-                </BulletinPost>
-              )}
+            {/* check to see if previous exists, if so display previous post */}
+            {previous && (
+              <BulletinPost key={previous.fields.slug}>
+                <h6>
+                  <Link to={previous.fields.slug} itemProp="url">
+                    <span itemProp="headline">
+                      {previous.frontmatter.title}
+                    </span>
+                  </Link>
+                </h6>
+                <Link to={previous.fields.slug} itemProp="url">
+                  <GatsbyImage
+                    image={
+                      previous.frontmatter.thumbnail.childImageSharp
+                        .gatsbyImageData
+                    }
+                    alt={previous.frontmatter.description}
+                  />
+                </Link>
+                <BulletinDescription>
+                  <p>{previous.frontmatter.readtime} minute read</p>
+                  <p>{previous.frontmatter.date}</p>
+                </BulletinDescription>
+              </BulletinPost>
+            )}
+            {next && (
+              <BulletinPost key={next.fields.slug}>
+                <h6>
+                  <Link to={next.fields.slug} itemProp="url">
+                    <span itemProp="headline">{next.frontmatter.title}</span>
+                  </Link>
+                </h6>
+                <Link to={next.fields.slug} itemProp="url">
+                  {next.frontmatter.thumbnail && (
+                    <GatsbyImage
+                      image={
+                        next.frontmatter.thumbnail.childImageSharp
+                          .gatsbyImageData
+                      }
+                      alt={next.frontmatter.description}
+                    />
+                  )}
+                </Link>
+                <BulletinDescription>
+                  <p>{next.frontmatter.readtime} minute read</p>
+                  <p>{next.frontmatter.date}</p>
+                </BulletinDescription>
+              </BulletinPost>
+            )}
           </ContinueReadingPostWrapper>
         </ContinueReading>
       </BgColor>
@@ -219,6 +213,16 @@ const Header = styled.div`
     padding-top: 3rem;
     font-size: 16px;
     line-height: 26px;
+  }
+  @media (max-width: ${breakpoints.xxl}px) {
+    h1 {
+      max-width: 70%;
+    }
+  }
+  @media (max-width: ${breakpoints.xl}px) {
+    h1 {
+      max-width: 80%;
+    }
   }
 
   @media (max-width: ${breakpoints.m}px) {
@@ -354,6 +358,85 @@ const BlogContent = styled.section`
     }
   }
 
+  ol {
+    padding-top: 3rem;
+  }
+
+  img {
+    padding-bottom: 2rem;
+  }
+
+  @media (max-width: ${breakpoints.xxl}px) {
+    & * {
+      padding-left: 15vw;
+    }
+    p {
+      font-size: 20px;
+      line-height: 150%;
+    }
+    & ul,
+    ol {
+      padding-left: 20vw;
+    }
+  }
+  @media (max-width: ${breakpoints.xl}px) {
+    img {
+      padding-bottom: 0rem;
+    }
+    & * {
+      padding-left: 0vw;
+    }
+
+    & p {
+      font-size: 18px;
+      line-height: 30px;
+      font-family: "Matter-light";
+    }
+
+    & a {
+      text-decoration: underline;
+      font-weight: 800;
+      color: var(--color-black);
+      transition: ease 0.15s all;
+      &:hover {
+        color: var(--color-orange);
+      }
+    }
+
+    & ul,
+    ol {
+      padding-left: 2rem;
+      font-size: 18px;
+      line-height: 30px;
+      font-family: "Matter-regular";
+    }
+
+    & ul {
+      & li {
+        padding-left: 1rem;
+        & ul {
+          padding-left: 1rem;
+        }
+      }
+      & p {
+        padding-left: 0;
+      }
+    }
+
+    & blockquote {
+      border-left: 2px solid var(--color-darkgreen);
+      padding-left: 0rem;
+      margin: 2.5rem auto;
+
+      & p {
+        font-family: "Matter-regular";
+        padding-left: 1rem;
+        font-size: 18px;
+        line-height: 30px;
+      }
+    }
+  }
+
   @media (max-width: ${breakpoints.m}px) {
     & * {
       padding-left: 0vw;
@@ -422,6 +505,11 @@ const ContinueReading = styled.section`
     justify-content: center;
     align-items: center;
   }
+
+  @media (max-width: ${breakpoints.xxl}px) {
+    margin-top: 10rem;
+  }
+
   @media (max-width: ${breakpoints.m}px) {
     width: 100%;
     margin-top: 10rem;
@@ -438,8 +526,18 @@ const BulletinPost = styled.article`
   height: 420px;
   margin-bottom: 5rem;
   margin: 0 3rem;
+  position: relative;
 
   & h6 {
+    a {
+      -webkit-line-clamp: 1;
+      display: -webkit-box;
+      line-clamp: 1;
+      width: 100%;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
     padding-top: 0.75rem;
     padding-bottom: 1rem;
     transition: color ease-in-out 0.15s;
@@ -478,9 +576,12 @@ const EndArticle = styled.div`
     margin: 0 auto;
   }
 
-  @media (max-width: ${breakpoints.m}px) {
+  @media (max-width: ${breakpoints.xxl}px) {
     margin-top: 5rem;
     margin-bottom: 5rem;
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
     & svg {
       width: 30px;
     }
@@ -495,6 +596,10 @@ const ContinueReadingPostWrapper = styled.div`
   justify-content: center;
   list-style: none;
   padding-bottom: 10rem;
+
+  @media (max-width: ${breakpoints.l}px) {
+    width: 95%;
+  }
 
   @media (max-width: ${breakpoints.m}px) {
     width: 90%;

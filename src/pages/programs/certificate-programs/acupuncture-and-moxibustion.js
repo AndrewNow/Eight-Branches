@@ -25,19 +25,13 @@ const Herbology = ({ data }) => {
     ),
     programDescription: {
       optionOne: {
-        title: "2 Year Program (September Start Date)",
-        hours: "Program Hours: 2400",
+        title: "1 Year Program",
+        hours: "Program Hours: 384",
         description:
-          "This program can be completed in 2 years studying full-time",
-      },
-      optionTwo: {
-        title: "3 Year Program (January Start Date)",
-        hours: "Program Hours: 2400",
-        description:
-          "This program can be completed in 3 years studying full-time",
+          "This program can be completed in 1 year studying part time or in shorter time studying asynchronously.",
       },
       additionalInfo:
-        "Both programs qualify graduates to write the Pan-Canadian regulatory examinations and to become a Registered Acupuncturist (R.Ac).",
+        "This certificate program is a Confirmed Acupuncture Education Program for the purpose of requesting authorization from CMTO to practise using acupuncture within the scope of Massage Therapy in Ontario. It also satisfies requirements laid out by other organizations to become an acupuncture provider. Please contact us for more details.",
     },
     courseData: [
       {
@@ -47,11 +41,34 @@ const Herbology = ({ data }) => {
             label: "Year One",
             data: [
               {
-                label: "Term 1",
+                label: "TCM Foundational Courses",
                 courses: [
                   {
                     code: "TCM-1001",
                     title: "Foundation of Traditional Chinese Medicine (A)",
+                    type: "Lecture",
+                    credits: 3,
+                  },
+                  {
+                    code: "TCM-1002",
+                    title: "Foundation of Traditional Chinese Medicine (B)",
+                    type: "Lecture",
+                    credits: 3,
+                  },
+                  {
+                    code: "ACU-2001",
+                    title: "Meridian Theory",
+                    type: "Lecture",
+                    credits: 3,
+                  },
+                ],
+              },
+              {
+                label: "Acupuncture Courses",
+                courses: [
+                  {
+                    code: "ACU-2002",
+                    title: "Acupuncture Points Theory (A)",
                     type: "Lecture",
                     credits: 3,
                   },
@@ -61,26 +78,15 @@ const Herbology = ({ data }) => {
                     type: "Lecture",
                     credits: 3,
                   },
-                ],
-              },
-              {
-                label: "Term 2",
-                courses: [
-                  {
-                    code: "ACU-2001",
-                    title: "Meridian Theory",
-                    type: "Lecture",
-                    credits: 3,
-                  },
-                  {
-                    code: "ACU-2002",
-                    title: "Acupuncture Points Theory (A)",
-                    type: "Lecture",
-                    credits: 3,
-                  },
                   {
                     code: "ACU-2004",
                     title: "Acupuncture Points Theory (C)",
+                    type: "Lecture",
+                    credits: 3,
+                  },
+                  {
+                    code: "ACU-2006",
+                    title: "Acupuncture Techniques (A)",
                     type: "Lecture",
                     credits: 3,
                   },
@@ -93,17 +99,49 @@ const Herbology = ({ data }) => {
                 ],
               },
               {
-                label: "Term 3",
+                label: "Optional Electives",
                 courses: [
                   {
-                    code: "ACU-2006",
-                    title: "Acupuncture Techniques (A)",
+                    code: "ACU-2005",
+                    title: "Acupuncture Allied Therapies",
+                    type: "Practical",
+                    credits: 3,
+                  },
+                  {
+                    code: "ACT-3003",
+                    title: "Acupuncture External Medicine and Misc.",
                     type: "Lecture",
                     credits: 3,
                   },
                   {
-                    code: "TCM-1002",
-                    title: "Foundation of Traditional Chinese Medicine (B)",
+                    code: "ACT-3004",
+                    title:
+                      "Acupuncture Orthopedics, Sports Medicine, Traumatology",
+                    type: "Lecture",
+                    credits: 3,
+                  },
+                  {
+                    code: "TCM-1003 ",
+                    title: "Diagnostics of Traditional Chinese Medicine (A)",
+                    type: "Lecture",
+                    credits: 3,
+                  },
+                  {
+                    code: "TCM-1004",
+                    title: "Diagnostics of Traditional Chinese Medicine (B)",
+                    type: "Lecture",
+                    credits: 3,
+                  },
+                  {
+                    code: "SHA-6001",
+                    title: "Self Healing Arts",
+                    type: "Lecture",
+                    credits: 3,
+                  },
+                  {
+                    code: "ACU-2008",
+                    title:
+                      "Acupuncturist Safety, Jurisprudence, Regulation, Intro to Clinic",
                     type: "Lecture",
                     credits: 3,
                   },

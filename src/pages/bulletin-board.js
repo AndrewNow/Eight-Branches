@@ -377,32 +377,37 @@ const BulletinPost = styled.article`
   border-top: 1px solid black;
   justify-self: center;
   max-width: 550px;
-  height: 420px;
+  /* height: 420px; */
   margin-bottom: 5rem;
 
   & h6 {
     padding-top: 0.75rem;
     margin-bottom: 1rem;
     transition: var(--hover-transition);
-    -webkit-line-clamp: 1;
     display: -webkit-box; 
-    line-clamp: 1;
-    width: 100%;
     -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    height: 75px;
+    width: 85%;
     overflow: hidden;
 
     &:hover {
       color: var(--color-orange);
     }
   }
-
-  @media (max-width: ${breakpoints.xxl}px) {
-    margin-bottom: 3.5rem;
-    height: auto;
+  @media (max-width: 1600px) {
+    margin-bottom: 4rem;
   }
-
+  
   @media (max-width: ${breakpoints.m}px) {
     width: auto;
+  }
+  
+  @media (max-width: ${breakpoints.s}px) {
+    h6 {
+      height: auto;
+    }
     height: auto;
   }
 `

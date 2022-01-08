@@ -36,11 +36,11 @@ const Campus = ({ data }) => {
     threshold: 0.3,
     triggerOnce: true,
   })
-  const [HideImageRef, HideImageInView] = useInView({
-    root: null,
-    threshold: 0.5,
-    triggerOnce: true,
-  })
+  // const [HideImageRef, HideImageInView] = useInView({
+  //   root: null,
+  //   threshold: 0.5,
+  //   triggerOnce: true,
+  // })
 
   // ---------- FRAMER LOGIC ----------
 
@@ -308,7 +308,9 @@ const Campus = ({ data }) => {
         </CardWrapper>
       </Facilities>
       <LocationDescription>
-        <LocationImage ref={HideImageRef}>
+        <LocationImage
+          // ref={HideImageRef}
+        >
           {/* <HideImage
             style={{ backgroundColor: "var(--color-sandbeige)" }}
             variants={hideImage}
