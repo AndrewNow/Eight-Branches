@@ -236,6 +236,15 @@ const TeachingClinic = ({ data }) => {
             Explore affordable TCM treatments we offer to the public from our
             student-run clinic.
           </motion.h6>
+          <motion.div variants={FadeIn}>
+            <BookNowButton
+              href="https://eightbranches.janeapp.com/#"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Book Treatment
+            </BookNowButton>
+          </motion.div>
         </TeachingClinicHeader>
       </HeaderWrapper>
 
@@ -484,7 +493,7 @@ const TeachingClinic = ({ data }) => {
                 imgStyle={{
                   // borderRadius: "30px",
                   height: "100%",
-                  objectFit: "cover"
+                  objectFit: "cover",
                 }}
                 style={{ height: "100%" }}
               />
@@ -580,8 +589,7 @@ const TeachingClinic = ({ data }) => {
           <InnerText>
             <h1>Book an Appointment</h1>
             <h6>
-              Interested in scheduling a treatment session? {" "}
-              <br />
+              Interested in scheduling a treatment session? <br />
               Click the link below to book an appointment.
               {/* Explore low-cost treatments performed by our students with careful
               supervision from certified professionals. */}
@@ -677,6 +685,7 @@ const TeachingClinicHeader = styled(motion.div)`
 
   h6 {
     width: 30%;
+    padding-bottom: 2rem;
   }
 
   @media (max-width: ${breakpoints.xl}px) {
@@ -705,6 +714,7 @@ const TeachingClinicHeader = styled(motion.div)`
     }
     h6 {
       width: 94%;
+      padding-bottom: 1.5rem;
     }
   }
 `
@@ -824,6 +834,8 @@ const TextWrapper = styled.div`
   }
 
   @media (max-width: ${breakpoints.l}px) {
+    margin-top: 2rem;
+    padding: 0 4rem;
     h2 {
       font-size: 3.75vw;
     }
@@ -1003,7 +1015,7 @@ const Svg = styled(motion.div)`
   align-items: center;
   width: 35px;
   height: 35px;
-  
+
   svg {
     width: 35px;
     height: 35px;
@@ -1235,7 +1247,7 @@ const InnerText = styled.div`
   @media (max-width: ${breakpoints.s}px) {
     /* text-align: left; */
     h1 {
-      padding-bottom: .75rem;
+      padding-bottom: 0.75rem;
     }
     h6 {
       width: 85%;

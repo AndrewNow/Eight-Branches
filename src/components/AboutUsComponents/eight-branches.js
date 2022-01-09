@@ -513,7 +513,7 @@ const EightBranches = () => {
                 petequia, or sha, to the surface of the skin. This sha is an
                 indication of pathogenic blood or qi stagnation, which is a
                 possible cause of pain, stiffness, cough, and congestion,
-                amongst other health issues.? The sha that results from
+                amongst other health issues. The sha that results from
                 treatment may feel slightly sensitive to the touch, though both
                 redness and sensitivity fades within a few days of the
                 treatment.

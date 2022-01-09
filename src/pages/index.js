@@ -354,7 +354,7 @@ const HomePage = ({ data }) => {
             <br />
             Our students consistently outperform the Ontario average in terms of
             pass rates on the Pan-Canadian examinations, the only objective
-            measure which is used used to compare schools.
+            measure which is used to compare schools.
           </h6>
         </GraphTop>
         <Embla>

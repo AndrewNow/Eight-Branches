@@ -13,6 +13,8 @@ import { CheckmarkSVG } from "../svg/misc"
 import { useInView } from "react-intersection-observer"
 import { motion } from "framer-motion"
 
+import admissions from "../../site/settings/admissions.json"
+
 const Admissions = ({ data }) => {
   const siteTitle = data.site.siteMetadata?.title || `Admissions`
 
@@ -126,8 +128,8 @@ const Admissions = ({ data }) => {
             transition={{ ease: "easeInOut" }}
           >
             <h6>
-              Minimum of two years post-secondary education, or equivalent
-              professional experience;
+              Completion of Ontario Secondary School Diploma (OSSD) or
+              equivalent;
             </h6>
           </Requirement>
           <Requirement
@@ -272,65 +274,42 @@ const Admissions = ({ data }) => {
         </Left>
         <Right>
           <h5>
-            Applications are due thirty days prior to the commencement of term.
+            Applications are due one month prior to the commencement of term.
             Students are encouraged to apply early as space is limited. Late
-            applicants will be considered on a case-by-case basis.
+            applicants will only be considered on a case-by-case basis if space
+            is available in the program.
             <br />
             <br />
             The academic year is split into three terms: Fall, Winter, and
-            Spring, each term is 15 weeks in duration.
+            Spring, each term is 12 weeks in duration.
           </h5>
           <DividingLine />
-          <Term>
-            <h3>Fall Term</h3>
-            <TermInner>
-              <TermItem>
-                <FaRegCalendar size={21} />
-                <DeadlineText>
-                  Start Date: September 8, 2020 <br /> End Date: December 19,
-                  2020
-                </DeadlineText>
-              </TermItem>
-              <TermItem>
-                <AiOutlineClockCircle size={24} />
-                <DeadlineText>Applications due: August 8, 2020</DeadlineText>
-              </TermItem>
-            </TermInner>
-          </Term>
-          <DividingLine />
-          <Term>
-            <h3>Winter Term</h3>
-            <TermInner>
-              <TermItem>
-                <FaRegCalendar size={21} />
-                <DeadlineText>
-                  Start Date: September 8, 2020 <br /> End Date: December 19,
-                  2020
-                </DeadlineText>
-              </TermItem>
-              <TermItem>
-                <AiOutlineClockCircle size={24} />
-                <DeadlineText>Applications due: August 8, 2020</DeadlineText>
-              </TermItem>
-            </TermInner>
-          </Term>
-          <DividingLine />
-          <Term>
-            <h3>Fall Term</h3>
-            <TermInner>
-              <TermItem>
-                <FaRegCalendar size={21} />
-                <DeadlineText>
-                  Start Date: September 8, 2020 <br /> End Date: December 19,
-                  2020
-                </DeadlineText>
-              </TermItem>
-              <TermItem>
-                <AiOutlineClockCircle size={24} />
-                <DeadlineText>Applications due: August 8, 2020</DeadlineText>
-              </TermItem>
-            </TermInner>
-          </Term>
+
+          {admissions.list?.map((term, i) => {
+            return (
+              <>
+                <Term key={i}>
+                  <h3>{term.termTitle}</h3>
+                  <TermInner>
+                    <TermItem>
+                      <FaRegCalendar size={21} />
+                      <DeadlineText>
+                        Start Date: {term.startDate} <br /> End Date:{" "}
+                        {term.endDate}
+                      </DeadlineText>
+                    </TermItem>
+                    <TermItem>
+                      <AiOutlineClockCircle size={24} />
+                      <DeadlineText>
+                        Applications due: {term.endDate}
+                      </DeadlineText>
+                    </TermItem>
+                  </TermInner>
+                </Term>
+                <DividingLine />
+              </>
+            )
+          })}
         </Right>
       </AdmissionsSection>
       <AcademicAdvisor />
@@ -597,7 +576,7 @@ const Right = styled.div`
     color: var(--color-darkgreen);
     cursor: pointer;
   }
-  
+
   h3 {
     color: var(--color-darkgreen);
   }
