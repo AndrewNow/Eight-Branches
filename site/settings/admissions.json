@@ -1,0 +1,22 @@
+{
+  "list": [
+    {
+      "termTitle": "Fall Term",
+      "startDate": "September 20, 2020",
+      "endDate": "December 19, 2020",
+      "info": "August 20, 2020"
+    },
+    {
+      "termTitle": "Winter Term",
+      "startDate": "January 3, 2020 ",
+      "endDate": "December 19, 2020",
+      "info": "December 3, 2020"
+    },
+    {
+      "termTitle": "Spring Term",
+      "startDate": "April 7, 2020",
+      "endDate": "December 19, 2020",
+      "info": "March 7, 2020"
+    }
+  ]
+}
