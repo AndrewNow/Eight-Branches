@@ -9,10 +9,14 @@ description: There are dozens of examples of ancient wisdom extending from the
 thumbnail: tu-youyou-eight-branches-post.jpg
 ---
 > Ancient Wisdom, Modern Practise: Winning Nobel Prize with TCM
->
->
+
+
 
 Modern Medicine is often associated with new, high-tech, and at odds with Traditional Medicine. This is a very uncooperative perspective as there is often knowledge and wisdom hidden in ancient societies. From the pyramids, to 2000-year-old seismoscopes (Earthquake detectors), there are dozens of examples of ancient wisdom extending from the past to teach the modern world; however, few rival stories the impact of Tu Youyou’s 2015 Noble prize in Medicine and Physiology for the discovery of a treatment for Malaria.
+
+
+
+> **What is Traditional Chinese Medicine?**
 
 Traditional Chinese medicine (TCM) and ancient practices are considered to be beneficial even in the modern era to achieve better health care outcomes. Traditional Chinese Medicine (TCM) refers to the health care system that’s comprised of Eight Branches (Acupuncture, Asian Bodywork, Guasha, Cupping, Moxibustion, Nutrition, Self-healing/Yangsheng, and Herbology) (Xu et al., 2019). In the past, most of the medicines that were used to cure an ailment were based on herbal remedies and even today several of the best-known medicines are made up of plant or plant-based material. According to the United States Department of Agriculture, “A full 40 percent of the drugs behind the pharmacist’s counter in the Western world are derived from plants that people have used for centuries, including the top 20 best selling prescription drugs in the United States today. For example ... and licorice root (Glycyrrhiza glabra) has been an ingredient in cough drops for more than 3,500 years. The species native to the United States, Glycyrrhiza lepidota, has a broad range from western Ontario to Washington, south to Texas, Mexico and Missouri. Eastward, there are scattered populations. The leaves and roots have been used for treating sores on the backs of horses, toothaches, and fever in children, sore throats and cough”(USDA, 2022)
 
