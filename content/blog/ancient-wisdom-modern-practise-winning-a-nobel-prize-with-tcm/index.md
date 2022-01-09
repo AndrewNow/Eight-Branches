@@ -8,7 +8,9 @@ description: There are dozens of examples of ancient wisdom extending from the
   treatment for Malaria.
 thumbnail: tu-youyou-eight-branches-post.jpg
 ---
-Ancient Wisdom, Modern Practise: Winning Nobel Prize with TCM
+> Ancient Wisdom, Modern Practise: Winning Nobel Prize with TCM
+>
+>
 
 Modern Medicine is often associated with new, high-tech, and at odds with Traditional Medicine. This is a very uncooperative perspective as there is often knowledge and wisdom hidden in ancient societies. From the pyramids, to 2000-year-old seismoscopes (Earthquake detectors), there are dozens of examples of ancient wisdom extending from the past to teach the modern world; however, few rival stories the impact of Tu Youyou’s 2015 Noble prize in Medicine and Physiology for the discovery of a treatment for Malaria.
 
@@ -25,7 +27,6 @@ A recounting of her discovery from her Nobel Prize Lecture - [link](https://www.
 > The earliest mentioning of Qinghao’s application as an herbal medicine was found on the silk manuscripts entitled 五十二病方 (Prescriptions for Fify-two Kinds of Disease) unearthed from the third Han Tomb at Mawangdui. Its medical application was also recorded in 神农本草经 (Sheng Nong’s Herbal Classic), 补遗 雷公炮制便览 (Bu Yi Lei Gong Pao Zhi) and 本草纲目 (Compendium of Materia Medica) etc*
 
 Recently, the values of TCM have been appreciated excessively. Thousands of TCM-based formulas and herbs have been practiced historically and are known to serve as a “treasure house for modern drug development” (Xu et al., 2019). Traditional Chinese medicine is also known to be cost-effective and has fewer side effects and it provides a unique practical and theoretical approach to diagnose as well as treat the disease. Learning these ancient practices can surely help provide a much needed modern integrated approach to medicine.
-
 
 References
 Cheung, F. (2011). TCM: Made in China. Nature, 480(7378), S82–S83.
