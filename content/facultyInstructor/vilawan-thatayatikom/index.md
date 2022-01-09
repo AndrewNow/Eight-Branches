@@ -1,7 +1,7 @@
 ---
 title: Vilawan Thatayatikom
 role: Instructor
-portrait: vilawan-1.png
+portrait: vilawan1.png
 ---
 Vilawan Thatayatikom (she/her) is a Registered Acupuncturist (R.Ac) and Traditional Chinese Medicine Practitioner (R.TCMP), licensed in both Ontario and British Columbia. She has completed her TCM education with honours at Humber College in Toronto, including clinical experience in Taiwan. She has also completed the Doctor in Traditional Chinese Medicine Program at Tzu Chi International College in Vancouver.
 
