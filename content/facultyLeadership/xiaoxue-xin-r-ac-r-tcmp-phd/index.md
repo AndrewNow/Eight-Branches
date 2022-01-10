@@ -1,7 +1,7 @@
 ---
 title: Xiaoxue Xin, R.Ac, R.TCMP, PhD
 role: Academic Director and Instructor
-portrait: yin.webp
+portrait: pic1.png
 email: test@eightbranches.ca
 ---
 <!--StartFragment-->
