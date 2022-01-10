@@ -21,7 +21,7 @@ bio: >-
 name: Elyse Tera B.A., R.Ac, Dipl. Ac (NCCAOM)
 title: Lihui Guo, R.Ac, R.TCMP, MD
 role: Instructor
-portrait: egqpmjb.png
+portrait: download-removebg-preview.png
 email: test2@gmail.com
 description: Elyse Tera has been practicing and teaching Chinese medicine since
   1994. She has a Bachelor’s Degree (Honours) in Comparative Religion and
