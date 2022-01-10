@@ -1,7 +1,7 @@
 ---
 title: Paul Rooney
 role: Instructor
-portrait: paul.jpg
+portrait: n8tghelm_400x400-removebg-preview.png
 email: info@eightbranches.ca
 ---
 Paul Rooney is a NYS licensed, nationally board certified acupuncturist. His clinic has been located in Rochester, NY since 1997.
