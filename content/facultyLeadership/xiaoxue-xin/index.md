@@ -1,5 +1,5 @@
 ---
-title: Xiaoxue Xin
+title: Xiaoxue Xin, R.Ac, R.TCMP, PhD
 role: Academic Director and Instructor
 portrait: xiaoxue-xin.png
 ---
