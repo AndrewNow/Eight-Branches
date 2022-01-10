@@ -1,7 +1,7 @@
 ---
 title: Dr.Diana Tong Li
 role: Professor
-portrait: dr-li-300x300.png
+portrait: dr-li-300x300-removebg-preview.png
 ---
 Dr. Diana Tong Li is the founder and president of the Canadian College of Acupuncture and Traditional Chinese Medicine (CCATCM), the vice president of the Chinese Medicine and Acupuncture Association of Canada (CMAAC), and the president of the Nova Scotia chapter of CMAAC. Dr. Diana Tong Li is an executive committee member of the World Federation of the Acupuncture-Moxibustion Societies (WFAS), the vice chairman of Psychosomatic Medicine Committee of the World Federation of Chinese Societies (WFCMS). Vice President of Federation of Traditional Chinese Medicine Colleges of Canada.
 
