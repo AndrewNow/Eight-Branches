@@ -23,17 +23,17 @@ const OurPrograms = ({ data }) => {
   })
   const [SectionRef2, sectionInView2] = useInView({
     root: null,
-    threshold: 0.45,
+    threshold: 0.4,
     triggerOnce: true,
   })
   const [SectionRef3, sectionInView3] = useInView({
     root: null,
-    threshold: 0.45,
+    threshold: 0.4,
     triggerOnce: true,
   })
   const [SectionRef4, sectionInView4] = useInView({
     root: null,
-    threshold: 0.45,
+    threshold: 0.4,
     triggerOnce: true,
   })
   const [contentRef, inView] = useInView({
@@ -80,7 +80,7 @@ const OurPrograms = ({ data }) => {
       y: 0,
       transition: {
         duration: 1,
-        delayChildren: 0.2,
+        delayChildren: 0.1,
         staggerChildren: 0.15,
         ease: "easeInOut",
       },
@@ -112,7 +112,7 @@ const OurPrograms = ({ data }) => {
     hidden: {
       y: "-100%",
       transition: {
-        delay: 0.15,
+        delay: 0.1,
         ease: "easeInOut",
         duration: 1,
       },

@@ -31,37 +31,42 @@ const News = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="News" />
-      <UpcomingEventsWrapper>
-        <SectionWrapper>
-          <h2>Upcoming Events</h2>
+      {data.events.edges.length > 0 ? (
+        <UpcomingEventsWrapper>
+          <SectionWrapper>
+            <h2>Upcoming Events</h2>
+            <EventWrapper>
+              {data.events.edges?.slice(0, 3).map(eventData => {
+                const eventDataQuery = eventData.node.childrenMarkdownRemark[0]
+                if (!eventDataQuery) {
+                  return null
+                }
+                const { title, date, host } = eventDataQuery.frontmatter
+                const slug = eventDataQuery.fields.slug
 
-          <EventWrapper>
-            {data.events.edges?.slice(0, 3).map(eventData => {
-              const eventDataQuery = eventData.node.childrenMarkdownRemark[0]
-              if (!eventDataQuery) {
-                return null
-              }
-              const { title, date, host } = eventDataQuery.frontmatter
-              const slug = eventDataQuery.fields.slug
-
-              return (
-                eventDataQuery && (
-                  <Event>
-                    <EventLink to={slug} itemProp="url">
-                      <h4 key={slug}>{title}</h4>
-                    </EventLink>
-                    <p>Hosted by: {host}</p>
-                    <p>{date}</p>
-                    <SignUpLink to={slug} itemProp="url">
-                      <p>View details</p>
-                    </SignUpLink>
-                  </Event>
+                return (
+                  eventDataQuery && (
+                    <Event>
+                      <div>
+                        <EventLink to={slug} itemProp="url">
+                          <h4 key={slug}>{title}</h4>
+                        </EventLink>
+                        <h6>Hosted by: {host}</h6>
+                        <h6>{date}</h6>
+                      </div>
+                      <SignUpLink to={slug} itemProp="url">
+                        View details
+                      </SignUpLink>
+                    </Event>
+                  )
                 )
-              )
-            })}
-          </EventWrapper>
-        </SectionWrapper>
-      </UpcomingEventsWrapper>
+              })}
+            </EventWrapper>
+          </SectionWrapper>
+        </UpcomingEventsWrapper>
+      ) : (
+        <NoEventsFallback></NoEventsFallback>
+      )}
 
       <BulletinWrapper>
         <SectionWrapper>
@@ -199,7 +204,10 @@ export const pageQuery = graphql`
     }
   }
 `
-
+const NoEventsFallback = styled.div`
+  background-color: white;
+  height: 7rem;
+`
 const UpcomingEventsWrapper = styled.div`
   background-color: var(--color-darkgreen);
   position: sticky;
@@ -290,7 +298,6 @@ const Event = styled.article`
 `
 const EventLink = styled(Link)`
   text-decoration: none;
-
   h4 {
     color: var(--color-white);
     padding-bottom: 0.5rem;
@@ -299,26 +306,26 @@ const EventLink = styled(Link)`
 `
 
 const SignUpLink = styled(Link)`
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 150px;
+  cursor: pointer;
+  border-radius: 10px;
+  line-height: 26px;
+  font-size: 16px;
+  border: 1px solid var(--color-white);
+  color: var(--color-white);
+  margin-top: 1rem;
+  padding: 0.35rem 1.5rem;
   text-decoration: none;
-  p {
-    font-size: 18px;
-    font-family: "Matter-light";
-    padding-bottom: 4px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    color: var(--color-white);
-    border: 1px solid var(--color-white);
-    border-radius: 10px;
-    width: 160px;
-    height: 40px;
-    transition: var(--hover-transition);
+  font-family: "Matter-regular";
 
-    &:hover {
-      background-color: var(--color-white);
-      color: var(--color-darkgreen);
-    }
+  transition: 0.25s all ease-in-out;
+  :hover {
+    color: var(--color-white);
+    background-color: var(--color-darkgreen);
   }
 `
 
@@ -340,7 +347,6 @@ const Bulletingrid = styled.div`
   }
 
   @media (max-width: ${breakpoints.m}px) {
-
   }
   @media (max-width: ${breakpoints.s}px) {
     grid-template-columns: 1fr;
@@ -384,7 +390,7 @@ const BulletinPost = styled.article`
     padding-top: 0.75rem;
     margin-bottom: 1rem;
     transition: var(--hover-transition);
-    display: -webkit-box; 
+    display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     line-clamp: 2;
@@ -399,11 +405,11 @@ const BulletinPost = styled.article`
   @media (max-width: 1600px) {
     margin-bottom: 4rem;
   }
-  
+
   @media (max-width: ${breakpoints.m}px) {
     width: auto;
   }
-  
+
   @media (max-width: ${breakpoints.s}px) {
     h6 {
       height: auto;
