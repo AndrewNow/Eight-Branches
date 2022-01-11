@@ -1,5 +1,5 @@
 ---
-title: "Ancient Wisdom, Modern Practise: Winning a Nobel Prize with TCM"
+title: "Ancient Wisdom, Modern Practice: Winning a Nobel Prize with TCM"
 date: 2022-01-06T17:29:59.419Z
 readtime: 20
 description: There are dozens of examples of ancient wisdom extending from the
