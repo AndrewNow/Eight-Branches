@@ -1,5 +1,5 @@
 ---
-title: "Ancient Wisdom, Modern Practise: Winning a Nobel Prize with TCM"
+title: "Ancient Wisdom, Modern Practice: Winning a Nobel Prize with TCM"
 date: 2022-01-06T17:29:59.419Z
 readtime: 20
 description: There are dozens of examples of ancient wisdom extending from the
@@ -8,7 +8,7 @@ description: There are dozens of examples of ancient wisdom extending from the
   treatment for Malaria.
 thumbnail: tu-youyou-eight-branches-post.jpg
 ---
-Ancient Wisdom, Modern Practise: Winning Nobel Prize with TCM
+Ancient Wisdom, Modern Practice: Winning Nobel Prize with TCM
 
 Modern Medicine is often associated with new, high-tech, and at odds with Traditional Medicine. This is a very uncooperative perspective as there is often knowledge and wisdom hidden in ancient societies. From the pyramids, to 2000-year-old seismoscopes (Earthquake detectors), there are dozens of examples of ancient wisdom extending from the past to teach the modern world; however, few rival stories the impact of Tu Youyou’s 2015 Noble prize in Medicine and Physiology for the discovery of a treatment for Malaria.
 
@@ -18,7 +18,7 @@ Traditional Chinese medicine (TCM) and ancient practices are considered to be be
 
 > **Tu Youyou's Success Story**
 
-Tu Youyou was China's First Nobel Prize Laureate in Medicine winning the 2015 Nobel Prize in Physiology or Medicine despite having no medical degree, no doctorate, and no overseas experience. She is affectionately coined as the "three noes" winner. The scientist, Tu Youyou, told the World Health Organisation about artemisia in 1982, but it was decades before the plant which had been used for centuries in Chinese remedies was accepted by Western medicine. 
+Tu Youyou was China's First Nobel Prize Laureate in Medicine winning the 2015 Nobel Prize in Physiology or Medicine despite having no medical degree, no doctorate, and no overseas experience. She is affectionately coined as the "three noes" winner. The scientist, Tu Youyou, told the World Health Organization about artemisia in 1982, but it was decades before the plant which had been used for centuries in Chinese remedies was accepted by Western medicine. 
 One active compound in “wormwood” qinghao, artemsinin, which appeared to battle malaria-friendly parasites was previously studied by others but abandoned because they were not able to extract the compound successfully. Tu Youyou studied ancient Chinese texts and applied them to modern scientific practices. She even first tested her medicine on herself to ensure it was safe. This discovery greatly contributed to saving millions of people who suffered from malaria. Tu Youyou was awarded a noble prize in medicine and physiology in 2015 for this discovery (Su & Miller, 2015)
 A recounting of her discovery from her Nobel Prize Lecture - [link](https://www.nobelprize.org/uploads/2018/06/tu-lecture.pdf),
 
