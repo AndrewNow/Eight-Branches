@@ -13,15 +13,11 @@ With Toronto being a big city, it can be quite difficult to know where to go or 
 
 Be prepared because I will be unlocking some of Toronto's hidden gems (growing up here you find yourself wandering off and discovering some cool places) as well as some of the local touristy spots!
 
-
-
 > **1. Doris McCarthy Trail**
 
 If you're up for a hike and an awesome view this spot is great to go with a buddy or even spending some time alone. Leads from Ravine Drive, which takes you down a pathway that will take you to a beautiful view of Lake Ontario and the Scarborough Bluffs. From personal experience, if you decide to take this trail, bring water (you will thank me later!). 
 
 ![Photo by Glenn Sumi](gatesgully1.png)
-
-
 
 > **2. Art Gallery of Ontario (AGO)**
 
@@ -33,8 +29,6 @@ LOCATION: 317 Dundas St W, Toronto, ON M5T 1G4
 
 ![Photo by Donna Lay](donna-lay-azyj04pl-mo-unsplash.jpg)
 
-
-
 > **3. Humber Bay Park**
 
 This gorgeous waterfront park is located in Etobicoke and it's where the famous Humber Bay Arch Bridge is located. When visiting the park, you'll find yourself spending an entire afternoon here from either walking the trails, renting a bike, looking at the Toronto skyline, and maybe even grabbing an ice cream cone along the way! Obviously, the best time to visit is in the summer - that being said, when you cross the Humber Bay Arch Bridge go to the *Sheldon Lookout* where you will see a beautiful skyline of Toronto. If you get there early in time you can snag yourself a seat and prepare yourself for a beautiful sunset of the city!
@@ -43,8 +37,6 @@ LOCATION: Matin Goodman Trail, Toronto, ON M8X 3M9
 
 ![Photo by Brian Jones](brian-jones-ooul3urqh50-unsplash.jpg)
 
-
-
 > **4. Explore Kensington Market**
 
 With the bohemian vibes this market gives off it really is the best place for thrifting and anything vintage. One step into this welcoming neighbourhood and you'll find awesome street art, indie shops, lot's of food options, and shops! By far one of the coolest places in the city and you'll also meet such kind-hearted people. 
@@ -52,8 +44,6 @@ With the bohemian vibes this market gives off it really is the best place for th
 LOCATION: 93 Front St, E Toronto, ON M5E 1C3
 
 ![Photo by Brad Killen](brad-killen-c0scoqazpey-unsplash.jpg)
-
-
 
 > **5. CN Tower Edge Walk** 
 
@@ -65,8 +55,6 @@ Cite: <https://www.cntower.ca/en-ca/plan-your-visit/attractions/edgewalk/edgewal
 
 ![Photo by Erin Minuskin](erin-minuskin-zpvd3fakck0-unsplash.jpg)
 
-
-
 > **6. Centre Island**
 
 Take a boat to Toronto's very own island and have yourself a fun and relaxing day. You can spend an entire day at the island from having a picnic to even chilling on the beach. They also have a petting zoo, an amusement park, and you can even kayak around the entire island! A day spend here is a day that you will not regret. 
@@ -75,8 +63,6 @@ LOCATION: Board the ferry from Queen's Quay
 
 ![Photo by Sandro Schuh](sandro-schuh-6wvqcek030y-unsplash.jpg)
 
-
-
 > **7. St. Lawrence Market**
 
 St. Lawrence Market located in downtown Toronto has over one hundred vendors that operate stalls to provide the freshest product, meats, and goods that can be purchased. Not only has it been voted as the #1 Food Market in the world by National Geographic but it's also sentimental because these stalls have been passed down generation after generation!
@@ -84,8 +70,6 @@ St. Lawrence Market located in downtown Toronto has over one hundred vendors tha
 LOCATION: 93 Front St E, Toronto, ON M5E 1C3
 
 ![Photo by Tommao Wang](tommao-wang-m-u02i4nazk-unsplash.jpg)
-
-
 
 > **8. Scarborough Gardens**
 
@@ -101,8 +85,6 @@ LOCATION:
 
 ![Photo by Jeffrey Eisen](jeffrey-eisen-t60mj7wllfm-unsplash.jpg)
 
-
-
 > **9. Ontario Science Centre**
 
 \*Temporarily Closed\*
@@ -111,9 +93,7 @@ This science museum is super interactive and loads of fun. Not only can you lear
 
 LOCATION: 770 Don Mills Rd, North York, ON M3C 1T3
 
-![Photo by Ontario Science Centre	](ontario-science-centre-toronto.webp)
-
-
+![Photo by Ontario Science Centre](ontario-science-centre-toronto.webp)
 
 > **10. Distillery District** 
 
@@ -121,4 +101,4 @@ Now filled with shops, boutiques, and restaurants this district was once the Goo
 
 Toronto, Ontario
 
-![Photo by The Distillery District	](1200.jpg)
+![Photo by The Distillery District](1200.jpg)
