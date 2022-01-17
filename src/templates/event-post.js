@@ -27,7 +27,8 @@ const EventPostTemplate = ({ data }) => {
             <Header>
               <h1 itemProp="headline">{post.frontmatter.title}</h1>
               <p>Hosted by: {post.frontmatter.host}</p>
-              <p>Event date: 
+              <p>
+                Event date:
                 {!post.frontmatter.date ||
                 post.frontmatter.date === "Invalid date"
                   ? " Date TBD"
@@ -53,7 +54,7 @@ const EventPostTemplate = ({ data }) => {
           </article>
         </SectionWrapper>
         <ContinueReading>
-          <h1>Other upcoming events</h1>
+          <h1>Other Upcoming Events</h1>
           <ContinueReadingPostWrapper>
             <div>
               {/* check to see if previous exists, if so display previous post */}
@@ -190,7 +191,7 @@ const Header = styled.div`
   padding-top: 15rem;
 
   h1 {
-    max-width: 55%;
+    max-width: 65%;
     padding-bottom: 2rem;
   }
 
@@ -201,7 +202,7 @@ const Header = styled.div`
 
   @media (max-width: ${breakpoints.xxl}px) {
     h1 {
-      max-width: 70%;
+      padding-bottom: 1rem;
     }
   }
   @media (max-width: ${breakpoints.xl}px) {
@@ -210,14 +211,13 @@ const Header = styled.div`
       padding-bottom: 1rem;
     }
     p {
-      padding-bottom: 2rem;
+      padding-bottom: 0rem;
     }
   }
 
   @media (max-width: ${breakpoints.l}px) {
     p {
-      padding-top: 1rem;
-      padding-bottom: 2rem;
+      padding: 0rem;
     }
   }
 
@@ -227,9 +227,6 @@ const Header = styled.div`
     h1 {
       padding-bottom: 1rem;
       max-width: 100%;
-    }
-    p {
-      padding-bottom: 0rem;
     }
   }
 `
@@ -255,6 +252,14 @@ const EventLink = styled.a`
   :hover {
     color: var(--color-white);
     background-color: var(--color-orange);
+  }
+  @media (max-width: ${breakpoints.xxl}px) {
+    margin-top: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    margin-top: 2rem;
+    margin-bottom: 0rem;
   }
 `
 
@@ -542,6 +547,11 @@ const ContinueReading = styled.section`
       margin-bottom: 4rem;
     }
   }
+  @media (max-width: ${breakpoints.s}px) {
+    h1 {
+      text-align: center;
+    }
+  }
 `
 
 const BulletinPost = styled.article`
@@ -575,6 +585,9 @@ const BulletinPost = styled.article`
     padding-top: 0;
   }
   @media (max-width: ${breakpoints.m}px) {
+    small > p {
+      padding-top: .5rem;
+    }
     h6 {
       a {
         height: auto;
@@ -583,6 +596,12 @@ const BulletinPost = styled.article`
     margin: 0 auto;
     width: auto;
     padding-bottom: 5rem;
+  }
+
+  @media (max-width: ${breakpoints.s}px) {
+    small {
+      padding-top: 0rem;
+    }
   }
 `
 

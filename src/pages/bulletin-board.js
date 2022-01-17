@@ -417,6 +417,7 @@ const BulletinPost = styled.article`
   }
 
   @media (max-width: ${breakpoints.s}px) {
+    margin-bottom: 3rem;
     h6 {
       height: auto;
     }
