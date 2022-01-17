@@ -13,10 +13,8 @@ With Toronto being a big city, it can be quite difficult to know where to go or 
 
 Be prepared because I will be unlocking some of Toronto's hidden gems (growing up here you find yourself wandering off and discovering some cool places) as well as some of the local touristy spots!
 
-
-
 > **1. Doris McCarthy Trail**
 
-If you're up for a hike and an awesome view this spot is great to go with a buddy or even spending some time alone. Leads from Ravine Drive, which takes you down a pathway that will take you to a beautiful view of Lake Ontario and the Scarborough Bluffs. From personal experience, if you decide to take this trail, bring water (you will thank me later!).
+If you're up for a hike and an awesome view this spot is great to go with a buddy or even spending some time alone. Leads from Ravine Drive, which takes you down a pathway that will take you to a beautiful view of Lake Ontario and the Scarborough Bluffs. From personal experience, if you decide to take this trail, bring water (you will thank me later!). 
 
-![]()
+![](gatesgully1.png)
