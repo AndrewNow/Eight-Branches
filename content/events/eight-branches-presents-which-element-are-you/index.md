@@ -1,15 +1,15 @@
 ---
 title: Cosmetic Acupuncture Workshop
-date: 2022-02-24T15:00:50.592Z
+date: ""
 description: With Lucy Griffiths
-host: Dr.Diana Tong Li
+link: https://eightbranches.classe365.com/form/view/CosmeticWorkshop
+host: Dr. Diana Tong Li
 ---
-This In Person Facial Rejuvenation-Cosmetic course will allow you to use principles of Traditional Chinese Medicine (TCM) to do cosmetic Acupuncture & cosmetic TCM treatment. Achieve beauty from the inside out. This course also will cover TCM foundations, meridians, acupuncture points, and TCM facial
-diagnostics.
+This In-Person Facial Rejuvenation-Cosmetic course will allow you to use principles of Traditional Chinese Medicine (TCM) to do cosmetic Acupuncture & cosmetic TCM treatment. Achieve beauty from the inside out: this course also will cover TCM foundations, meridians, acupuncture points, and TCM facial diagnostics.\
+\
+We will cover:
 
-• Rejuvenation-Cosmetic Acupuncture needling techniques
-• Signature Cosmetic Facial Acupressure massage
-• Cosmetic Facial Gua Sha
-• Facial cupping techniques and more
-
-[Link to Register for the Workshop](https://eightbranches.classe365.com/form/view/CosmeticWorkshop)
+* Rejuvenation-Cosmetic Acupuncture needling techniques;
+* Signature Cosmetic Facial Acupressure massage;
+* Cosmetic Facial Gua Sha;
+* Facial cupping techniques and more.
