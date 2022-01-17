@@ -1,6 +1,6 @@
 ---
 title: Eight Branches Medical Esthetics Workshop
-link: eight-branches.netlify.app/
+link: ""
 date: 2022-01-17T21:27:31.028Z
 host: Dr. Ky Lo B.Sc. B.A. ND, R.Ac
 ---
