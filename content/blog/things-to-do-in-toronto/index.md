@@ -13,7 +13,7 @@ With Toronto being a big city, it can be quite difficult to know where to go or 
 
 Be prepared because I will be unlocking some of Toronto's hidden gems (growing up here you find yourself wandering off and discovering some cool places) as well as some of the local touristy spots!
 
-## **1. Doris McCarthy Trail**
+## **1. Doris McCarthy Trail** 
 
 If you're up for a hike and an awesome view this spot is great to go with a buddy or even spending some time alone. Leads from Ravine Drive, which takes you down a pathway that will take you to a beautiful view of Lake Ontario and the Scarborough Bluffs. From personal experience, if you decide to take this trail, bring water (you will thank me later!). 
 
@@ -45,7 +45,7 @@ LOCATION: 93 Front St, E Toronto, ON M5E 1C3
 
 ![Photo by Brad Killen](brad-killen-c0scoqazpey-unsplash.jpg)
 
-## **5. CN Tower Edge Walk** 
+## **5. CN Tower Edge Walk**
 
 Now, if you're looking for more of an experience and an awesome view (and you're not scared of heights) to see all of Toronto, you may want to add the CN Tower Edge Walk on your list. You'd get the chance to walk a full circle (hands-free) around the top of the Tower's main pod. This will have you 356m/1168 ft (116 stories) above the ground. It's definitely the most thrilling experience and one to remember!
 
@@ -95,7 +95,7 @@ LOCATION: 770 Don Mills Rd, North York, ON M3C 1T3
 
 ![Photo by Ontario Science Centre](ontario-science-centre-toronto.webp)
 
-## **10. Distillery District** 
+## **10. Distillery District**
 
 Now filled with shops, boutiques, and restaurants this district was once the Gooderham & Worts Distillery which was left abandoned but now developed to what it's known as today! Total fun on a night out and has some nice spots to take pictures as well.
 
