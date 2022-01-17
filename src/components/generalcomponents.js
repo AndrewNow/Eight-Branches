@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import { StaticImage} from "gatsby-plugin-image"
+import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import breakpoints from "./breakpoints"
 import contactInfo from "../../site/settings/contact_info.json"
@@ -49,7 +49,11 @@ export const AcademicAdvisor = () => {
           Have any questions? <br />
           Speak with an academic advisor!
         </h2>
-        <BookAnAppointment href="https://eightbranches.youcanbook.me/" target="_blank" rel="noreferrer">
+        <BookAnAppointment
+          href="https://eightbranches.youcanbook.me/"
+          target="_blank"
+          rel="noreferrer"
+        >
           Book an appointment
         </BookAnAppointment>
       </AcademicAdvisorText>
@@ -70,7 +74,9 @@ export const ApplyNow = () => {
   return (
     <ApplyNowSection>
       <ApplyNowInner>
-        <h1>Start Your <br/> Application Today</h1>
+        <h1>
+          Start Your <br /> Application Today
+        </h1>
         <ReadMore to="/admissions">Apply Now</ReadMore>
       </ApplyNowInner>
     </ApplyNowSection>
@@ -143,7 +149,6 @@ const MapText = styled.div`
     flex-basis: 100%;
     border-radius: 20px;
     width: 90%;
-    
 
     > :nth-child(2) {
       margin-bottom: 2.5rem;
@@ -192,10 +197,6 @@ const Map = styled.div`
   }
 `
 
-
-
-
-
 const AcademicAdvisorWrapper = styled.div`
   width: 100%;
   background-color: var(--color-lightgreen);
@@ -206,7 +207,6 @@ const AcademicAdvisorWrapper = styled.div`
     flex-direction: column-reverse;
   }
 `
-
 
 const AcademicAdvisorText = styled.div`
   align-self: center;
@@ -223,23 +223,31 @@ const AcademicAdvisorText = styled.div`
     line-height: 130%;
     color: white;
   }
-  
+
+  @media (max-width: ${breakpoints.xxl}px) {
+    h2 {
+      font-size: 35px;
+    }
+  }
+
   @media (max-width: ${breakpoints.xl}px) {
     padding: 2.5rem 2rem;
     width: 90%;
     border-radius: 20px;
   }
+
   @media (max-width: ${breakpoints.m}px) {
     padding: 2rem 1.5rem;
     h2 {
       margin-top: 0rem;
     }
   }
+
   @media (max-width: ${breakpoints.s}px) {
     margin: 1rem;
     text-align: center;
     align-items: center;
-}
+  }
 `
 
 const AcademicAdvisorImage = styled.div`
@@ -247,6 +255,10 @@ const AcademicAdvisorImage = styled.div`
   width: 50%;
   overflow-x: hidden;
   position: relative;
+
+  @media (max-width: ${breakpoints.xxl}px) {
+    /* min-height: 325px; */
+  }
 
   @media (max-width: ${breakpoints.l}px) {
     width: 100%;
@@ -280,9 +292,6 @@ const BookAnAppointment = styled.a`
     font-size: 17px;
   }
 `
-
-
-
 
 const ApplyNowSection = styled.section`
   background-color: var(--color-darkgreen);

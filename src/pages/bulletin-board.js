@@ -52,7 +52,11 @@ const News = ({ data, location }) => {
                           <h4 key={slug}>{title}</h4>
                         </EventLink>
                         <h6>Hosted by: {host}</h6>
-                        <h6>{date}</h6>
+                        <h6>
+                          {!date || date === "Invalid date"
+                            ? "Date TBD"
+                            : `${date}`}
+                        </h6>
                       </div>
                       <SignUpLink to={slug} itemProp="url">
                         View details
@@ -65,7 +69,7 @@ const News = ({ data, location }) => {
           </SectionWrapper>
         </UpcomingEventsWrapper>
       ) : (
-        <NoEventsFallback></NoEventsFallback>
+        <NoEventsFallback />
       )}
 
       <BulletinWrapper>
@@ -114,22 +118,24 @@ const News = ({ data, location }) => {
               )
             })}
           </Bulletingrid>
-          {/* {console.log(data.blog.edges?.length)}
-          {console.log(visiblePosts)} */}
-          {visiblePosts >= data.blog.edges?.length ? (
-            // if user hits end of data.blog.edges array, button closes posts
-            <LoadMore>
-              <EventsButton onClick={handleClosePosts}>
-                <p>View less posts</p>
-              </EventsButton>
-            </LoadMore>
-          ) : (
-            // Button to open more posts
-            <LoadMore>
-              <EventsButton onClick={handleLoadNewPosts}>
-                <p>Load more posts</p>
-              </EventsButton>
-            </LoadMore>
+          {visiblePosts > 6 && (
+            <>
+              {visiblePosts >= data.blog.edges?.length ? (
+                // if user hits end of data.blog.edges array, button closes posts
+                <LoadMore>
+                  <EventsButton onClick={handleClosePosts}>
+                    <p>View less posts</p>
+                  </EventsButton>
+                </LoadMore>
+              ) : (
+                // Button to open more posts
+                <LoadMore>
+                  <EventsButton onClick={handleLoadNewPosts}>
+                    <p>Load more posts</p>
+                  </EventsButton>
+                </LoadMore>
+              )}
+            </>
           )}
         </SectionWrapper>
       </BulletinWrapper>

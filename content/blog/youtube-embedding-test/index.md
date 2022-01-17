@@ -6,5 +6,4 @@ description: Testing video embedding
 thumbnail: image61.png
 ---
 
-
 `youtube: https://www.youtube.com/watch?v=GzxrqlJCCFk`

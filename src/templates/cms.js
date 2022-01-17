@@ -1,6 +1,4 @@
 // this document allows us to embed videos into the Netlify CMS posts
-
-//!!!!!!!!!!! this is currently broken though. ive made an Issue on github but still have not gotten a reply
 // from: https://www.iliascreates.com/blog/post/embeding-youtube-videos-markdown-gatsby-netlifycms/
 import CMS from "netlify-cms-app"
 

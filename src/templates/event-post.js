@@ -26,12 +26,23 @@ const EventPostTemplate = ({ data }) => {
           >
             <Header>
               <h1 itemProp="headline">{post.frontmatter.title}</h1>
-              <p>{post.frontmatter.date}</p>
+              <p>Hosted by: {post.frontmatter.host}</p>
+              <p>Event date: 
+                {!post.frontmatter.date ||
+                post.frontmatter.date === "Invalid date"
+                  ? "Date TBD -"
+                  : " " + post.frontmatter.date}
+              </p>
+              {post.frontmatter.link && (
+                <EventLink
+                  href={post.frontmatter.link}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  RSVP Here
+                </EventLink>
+              )}
             </Header>
-            <BlogContentHeader>
-              <h6>{post.frontmatter.description}</h6>
-            </BlogContentHeader>
-
             <BlogContent
               dangerouslySetInnerHTML={{ __html: post.html }}
               itemProp="articleBody"
@@ -55,7 +66,12 @@ const EventPostTemplate = ({ data }) => {
                   </h6>
                   <Link to={previous.fields.slug} itemProp="url"></Link>
                   <BulletinDescription>
-                    <p>{previous.frontmatter.date}</p>
+                    <p>
+                      {!previous.frontmatter.date ||
+                      previous.frontmatter.date === "Invalid date"
+                        ? "Date TBD"
+                        : `${previous.frontmatter.date}`}
+                    </p>
                   </BulletinDescription>
                 </BulletinPost>
               )}
@@ -70,7 +86,12 @@ const EventPostTemplate = ({ data }) => {
                   </h6>
                   <Link to={next.fields.slug} itemProp="url"></Link>
                   <BulletinDescription>
-                    <p>{next.frontmatter.date}</p>
+                    <p>
+                      {!next.frontmatter.date ||
+                      next.frontmatter.date === "Invalid date"
+                        ? "Date TBD"
+                        : `${next.frontmatter.date}`}
+                    </p>
                   </BulletinDescription>
                 </BulletinPost>
               )}
@@ -117,6 +138,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         host
+        link
         date(formatString: "dddd, MMMM Do (hh:mma)")
         # body
       }
@@ -169,14 +191,14 @@ const Header = styled.div`
 
   h1 {
     max-width: 55%;
+    padding-bottom: 2rem;
   }
 
   p {
     color: #989898;
-    padding-top: 3rem;
     font-size: 16px;
-    line-height: 26px;
   }
+
   @media (max-width: ${breakpoints.xxl}px) {
     h1 {
       max-width: 70%;
@@ -185,9 +207,9 @@ const Header = styled.div`
   @media (max-width: ${breakpoints.xl}px) {
     h1 {
       max-width: 80%;
+      padding-bottom: 1rem;
     }
     p {
-      padding-top: 1rem;
       padding-bottom: 2rem;
     }
   }
@@ -201,32 +223,38 @@ const Header = styled.div`
 
   @media (max-width: ${breakpoints.m}px) {
     padding-top: 10rem;
+
+    h1 {
+      padding-bottom: 1rem;
+      max-width: 100%;
+    }
     p {
       padding-bottom: 0rem;
-      padding-top: 1rem;
-    }
-    h1 {
-      max-width: 100%;
     }
   }
 `
 
-const BlogContentHeader = styled.section`
-  padding-left: 25vw;
-  padding-bottom: 5rem;
+const EventLink = styled.a`
+  margin-top: 2.5rem;
+  padding: 0.35rem 1.5rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 150px;
+  cursor: pointer;
+  border-radius: 10px;
+  line-height: 26px;
+  font-size: 16px;
+  border: 1px solid var(--color-orange);
+  color: var(--color-orange);
+  text-decoration: none;
+  font-family: "Matter-regular";
 
-  @media (max-width: ${breakpoints.l}px) {
-    padding-left: 0rem;
-  }
-
-  @media (max-width: ${breakpoints.m}px) {
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
-  }
-  @media (max-width: ${breakpoints.s}px) {
-    h6 {
-      font-size: 16px;
-    }
+  transition: 0.25s all ease-in-out;
+  :hover {
+    color: var(--color-white);
+    background-color: var(--color-orange);
   }
 `
 
@@ -276,7 +304,7 @@ const BlogContent = styled.section`
 
   ul,
   ol {
-    padding-left: 30vw;
+    padding-left: 28vw;
     font-size: 18px;
     line-height: 25px;
     font-family: "Matter-regular";
@@ -534,9 +562,8 @@ const BulletinPost = styled.article`
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
-
     padding-top: 0.75rem;
-    padding-bottom: 1rem;
+    /* padding-bottom: 1rem; */
     transition: color ease-in-out 0.15s;
 
     :hover {
@@ -544,6 +571,9 @@ const BulletinPost = styled.article`
     }
   }
 
+  small > p {
+    padding-top: 0;
+  }
   @media (max-width: ${breakpoints.m}px) {
     h6 {
       a {

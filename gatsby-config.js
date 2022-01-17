@@ -25,23 +25,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-embed-youtube`,
-            options: {
-              width: 800,
-              height: 400,
-            },
-          },
-          `gatsby-remark-embed-video`,
-          `gatsby-remark-images`,
-          `gatsby-remark-responsive-iframe`,
-        ],
-      },
-    },
-    {
       resolve: `gatsby-plugin-netlify-cms`,
       options: {
         modulePath: `${__dirname}/src/templates/cms.js`,
@@ -90,14 +73,21 @@ module.exports = {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
-    },
-
+    },  
     {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          // gatsby-remark-relative-images must go before gatsby-remark-images
           {
+            resolve: `gatsby-remark-embed-video`,
+            options: {
+              ratio: 1.77,
+              related: false,
+              // width: 800,
+            },
+          },
+          {
+            // gatsby-remark-relative-images must go before gatsby-remark-images
             resolve: `gatsby-remark-relative-images`,
             options: {
               // [Optional] The root of "media_folder" in your config.yml
