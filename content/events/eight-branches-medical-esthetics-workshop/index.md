@@ -1,7 +1,7 @@
 ---
 title: Eight Branches Medical Esthetics Workshop
 link: ""
-date: 2022-01-17T21:27:31.028Z
+date: ""
 host: Dr. Ky Lo B.Sc. B.A. ND, R.Ac
 ---
 Medical Esthetics is an under-represented area of opportunity for regulated health professionals. The non-
