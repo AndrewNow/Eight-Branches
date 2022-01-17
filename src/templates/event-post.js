@@ -30,7 +30,7 @@ const EventPostTemplate = ({ data }) => {
               <p>Event date: 
                 {!post.frontmatter.date ||
                 post.frontmatter.date === "Invalid date"
-                  ? "Date TBD -"
+                  ? " Date TBD"
                   : " " + post.frontmatter.date}
               </p>
               {post.frontmatter.link && (
