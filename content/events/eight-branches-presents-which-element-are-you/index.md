@@ -1,7 +1,15 @@
 ---
-title: "Eight Branches Presents: Which Element Are You?"
-date: 2021-08-13T19:40:34.594Z
+title: Cosmetic Acupuncture Workshop
+date: 2022-02-24T15:00:50.592Z
 description: With Lucy Griffiths
-host: Lucy Griffiths
+host: Dr.Diana Tong Li
 ---
-During this talk, Lucy will discuss the five-element theory and how it is used for diagnosis in Traditional Chinese Medicine. 
+This In Person Facial Rejuvenation-Cosmetic course will allow you to use principles of Traditional Chinese Medicine (TCM) to do cosmetic Acupuncture & cosmetic TCM treatment. Achieve beauty from the inside out. This course also will cover TCM foundations, meridians, acupuncture points, and TCM facial
+diagnostics.
+
+• Rejuvenation-Cosmetic Acupuncture needling techniques
+• Signature Cosmetic Facial Acupressure massage
+• Cosmetic Facial Gua Sha
+• Facial cupping techniques and more
+
+[Link to Register for the Workshop](https://eightbranches.classe365.com/form/view/CosmeticWorkshop)
