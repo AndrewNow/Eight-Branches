@@ -8,10 +8,9 @@ description: There are dozens of examples of ancient wisdom extending from the
   treatment for Malaria.
 thumbnail: index.jpg
 ---
-
 Modern Medicine is often associated with new, high-tech, and at odds with Traditional Medicine. This is a very uncooperative perspective as there is often knowledge and wisdom hidden in ancient societies. From the pyramids, to 2000-year-old seismoscopes (Earthquake detectors), there are dozens of examples of ancient wisdom extending from the past to teach the modern world; however, few rival stories the impact of Tu Youyou’s 2015 Noble prize in Medicine and Physiology for the discovery of a treatment for Malaria.
 
-## What is Traditional Chinese Medicine (TCM)?
+> ## What is Traditional Chinese Medicine (TCM)?
 
 Traditional Chinese medicine (TCM) and ancient practices are considered to be beneficial even in the modern era to achieve better health care outcomes. Traditional Chinese Medicine (TCM) refers to the health care system that’s comprised of Eight Branches (Acupuncture, Asian Bodywork, Guasha, Cupping, Moxibustion, Nutrition, Self-healing/Yangsheng, and Herbology) (Xu et al., 2019).
 \
@@ -21,7 +20,7 @@ In the past, most of the medicines that were used to cure an ailment were based 
 \
 For example, \[...] licorice root (Glycyrrhiza glabra) has been an ingredient in cough drops for more than 3,500 years. The species native to the United States, Glycyrrhiza lepidota, has a broad range from western Ontario to Washington, south to Texas, Mexico and Missouri. Eastward, there are scattered populations. The leaves and roots have been used for treating sores on the backs of horses, toothaches, and fever in children, sore throats and cough” (USDA, 2022).
 
-## Tu Youyou's Success Story
+> ## Tu Youyou's Success Story
 
 Tu Youyou was China's First Nobel Prize Laureate in Medicine winning the 2015 Nobel Prize in Physiology or Medicine despite having no medical degree, no doctorate, and no overseas experience. She is affectionately coined as the "three noes" winner. The scientist, Tu Youyou, told the World Health Organization about artemisia in 1982, but it was decades before the plant which had been used for centuries in Chinese remedies was accepted by Western medicine.
 \
@@ -32,13 +31,13 @@ One active compound in “wormwood” qinghao, artemsinin, which appeared to bat
 A recounting of her discovery from [her Nobel Prize Lecture](https://www.nobelprize.org/uploads/2018/06/tu-lecture.pdf):
 \
 \
-_"I reviewed the traditional Chinese literature again when our research stalled, following numerous failures. In reading 肘后备急方 written by 葛洪 (Ge Hong’s A Handbook of Prescriptions for Emergencies, the East Jin Dynasty, around 317–420 A.D.), I further pondered the sentence 青蒿一握, 以水二升渍, 绞取 汁, 尽服之 (A handful of Qinghao immersed in two liters of water, wring out the juice and drink it all) which recommended cold Qinghao for alleviating malaria symptoms._
+*"I reviewed the traditional Chinese literature again when our research stalled, following numerous failures. In reading 肘后备急方 written by 葛洪 (Ge Hong’s A Handbook of Prescriptions for Emergencies, the East Jin Dynasty, around 317–420 A.D.), I further pondered the sentence 青蒿一握, 以水二升渍, 绞取 汁, 尽服之 (A handful of Qinghao immersed in two liters of water, wring out the juice and drink it all) which recommended cold Qinghao for alleviating malaria symptoms.*
 \
 \
-_Most herbs were typically boiled in water and made into decoction before taken by the patients. This unique way of using Qinghao suddenly gave me the idea that heating might need to be avoided during extraction, in order to preserve the herb’s activity. I subsequently redesigned the experiments by extracting the leaves and stems of Qinghao separately at a low temperature using water, ethanol and ethyl ether"._
+*Most herbs were typically boiled in water and made into decoction before taken by the patients. This unique way of using Qinghao suddenly gave me the idea that heating might need to be avoided during extraction, in order to preserve the herb’s activity. I subsequently redesigned the experiments by extracting the leaves and stems of Qinghao separately at a low temperature using water, ethanol and ethyl ether".*
 \
 \
-_The earliest mentioning of Qinghao’s application as an herbal medicine was found on the silk manuscripts entitled 五十二病方 (Prescriptions for Fify-two Kinds of Disease) unearthed from the third Han Tomb at Mawangdui. Its medical application was also recorded in 神农本草经 (Sheng Nong’s Herbal Classic), 补遗 雷公炮制便览 (Bu Yi Lei Gong Pao Zhi) and 本草纲目 (Compendium of Materia Medica) etc._
+*The earliest mentioning of Qinghao’s application as an herbal medicine was found on the silk manuscripts entitled 五十二病方 (Prescriptions for Fify-two Kinds of Disease) unearthed from the third Han Tomb at Mawangdui. Its medical application was also recorded in 神农本草经 (Sheng Nong’s Herbal Classic), 补遗 雷公炮制便览 (Bu Yi Lei Gong Pao Zhi) and 本草纲目 (Compendium of Materia Medica) etc.*
 \
 \
 Recently, the values of TCM have been appreciated excessively. Thousands of TCM-based formulas and herbs have been practiced historically and are known to serve as a “treasure house for modern drug development” (Xu et al., 2019). Traditional Chinese medicine is also known to be cost-effective and has fewer side effects and it provides a unique practical and theoretical approach to diagnose as well as treat the disease. Learning these ancient practices can surely help provide a much needed modern integrated approach to medicine.
