@@ -48,7 +48,7 @@ const HomePage = ({ data }) => {
       y: 0,
       opacity: 1,
       transition: {
-        delay: .65,
+        delay: 0.65,
         duration: 1,
       },
     },
@@ -292,9 +292,9 @@ const HomePage = ({ data }) => {
           <AboutUsText>
             <h6>About Us</h6>
             <h1>
-              Our college empowers students to uplift
-              communities through the practice of Eastern medicine, promoting
-              restoration of health and prevention of illness.
+              Our college empowers students to uplift communities through the
+              practice of Eastern medicine, promoting restoration of health and
+              prevention of illness.
               <ReadMore to="/about-us">Read More</ReadMore>
             </h1>
           </AboutUsText>
@@ -418,14 +418,19 @@ const HomePage = ({ data }) => {
               return (
                 eventDataQuery && (
                   <Event key={i}>
-                    <EventTitle to={slug} itemProp="url">
-                      <h4 key={slug}>{title}</h4>
-                    </EventTitle>
-                    <h6>
-                      With {host}&nbsp; &nbsp;| &nbsp; &nbsp;{date}
-                    </h6>
+                    <div>
+                      <EventTitle to={slug} itemProp="url">
+                        <h4 key={slug}>{title}</h4>
+                      </EventTitle>
+                      <h6>
+                        With {host}&nbsp; &nbsp;| &nbsp;
+                        {!date || date === "Invalid date"
+                          ? " Date TBD"
+                          : " " + date}
+                      </h6>
+                    </div>
                     <SignUpLink to={slug} itemProp="url">
-                      <p>Event Details</p>
+                      Event Details
                     </SignUpLink>
                   </Event>
                 )
@@ -1120,7 +1125,7 @@ const Event = styled.article`
   width: 27.5%;
   color: var(--color-black);
   background-color: var(--color-white);
-  border-radius: 30px;
+  border-radius: 20px;
   border: 1px solid black;
   padding: 3rem 2rem;
   margin: 1.5rem;
@@ -1139,6 +1144,14 @@ const Event = styled.article`
   @media (max-width: ${breakpoints.xxl}px) {
     min-width: 33%;
     max-width: 50%;
+    border-radius: 20px;
+  }
+  @media (max-width: ${breakpoints.xl}px) {
+    h6 {
+      font-size: 17px;
+      margin-top: 0.5rem;
+      margin-bottom: 2rem;
+    }
   }
   @media (max-width: ${breakpoints.l}px) {
     min-width: 80%;
@@ -1180,24 +1193,26 @@ const EventTitle = styled(Link)`
 
 const SignUpLink = styled(Link)`
   text-decoration: none;
-  p {
-    font-size: 18px;
-    font-family: "Matter-light";
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    color: var(--color-darkgreen);
-    border: 1px solid var(--color-darkgreen);
-    border-radius: 10px;
-    width: 160px;
-    height: 40px;
-    transition: var(--hover-transition);
+  font-size: 18px;
+  font-family: "Matter-light";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: var(--color-darkgreen);
+  border: 1px solid var(--color-darkgreen);
+  border-radius: 10px;
+  width: 160px;
+  height: 40px;
+  transition: var(--hover-transition);
 
-    :hover {
-      background-color: var(--color-darkgreen);
-      color: var(--color-white);
-    }
+  :hover {
+    background-color: var(--color-darkgreen);
+    color: var(--color-white);
+  }
+
+  @media (max-width: ${breakpoints.xl}px) {
+    font-size: 17px;
   }
 `
 
