@@ -17,7 +17,7 @@ Vikruti comes from the Sanskrit term *Vikru* meaning “to alter” and it refer
 
 Ayurvedic practitioners use prakruti to develop treatment plans to restore the health of their patients and it can be determined using the clinical assessment techniques of observation, questioning and touch. Some areas of assessment of vikruti include pulse, tongue, lip, nail and face. Treatments are a combination of nutrition and lifestyle recommendations, herbology and cleansing therapies that are personalized to the individual.
 
-![](prakruti-and-vikruti.png)
+![](prakruti-and-vikruti.png "Example of a Vata-Pitta individual who experiences an imbalance in the doshas")
 
 Ayurveda utilizes the laws of nature with a concept of healing based on the premise of like increases like and opposites balance, this means that increasing the inherent qualities/attributes of the dosha will increase the quantitative expression of the dosha in your body. There are 20 Gunas also known as qualities which define the doshas (see table below); for example, the fire element has the characteristics of being hot and sharp which are qualities associated with pitta dosha and the air element has the characteristics of being dry and light which are qualities of vata. The Gunas which are made up of 10 opposing pairs of qualities that are used to help bring the individual back into a state of equilibrium. For example, the summer season has attributes similar to pitta and will therefore increase or aggravate pitta dosha in your body – opposite attributes such as cold and heavy and the water element would be used across herbology, therapy and diet to reduce pitta. 
 
