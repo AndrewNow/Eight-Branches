@@ -58,7 +58,7 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string", required: true  }
       - { label: "Role", name: "role", widget: "string", required: true }
-      - { label: "Portrait", name: "portrait", widget: "image", required: true }
+      - { label: "Portrait", name: "portrait", widget: "image", allow_multiple: false, required: false }
       # - { label: "Brief Description (160 char limit)", name: "description", widget: "string", required: true }
       - { label: "Bio", name: "body", widget: "markdown", required: true }
       - { label: "Email Address", name: "email", widget: "string", required: false }
@@ -77,7 +77,7 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string", required: true  }
       - { label: "Role", name: "role", widget: "string", required: true, default: "Instructor" }
-      - { label: "Portrait", name: "portrait", widget: "image", required: true }
+      - { label: "Portrait", name: "portrait", widget: "image", allow_multiple: false, required: false}
       # - { label: "Brief Description (160 char limit)", name: "description", widget: "string", required: true }
       - { label: "Bio", name: "body", widget: "markdown", required: true }
       - { label: "Email Address", name: "email", widget: "string", required: false }

@@ -4,6 +4,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import { motion, AnimatePresence } from "framer-motion"
 import { GrClose } from "react-icons/gr"
 import breakpoints from "../breakpoints"
+import StampLogo from "../../svg/stamplogo"
 
 export const FacultyLeadership = ({
   title,
@@ -24,7 +25,6 @@ export const FacultyLeadership = ({
       return () => (document.body.style.overflow = originalStyle)
     }, [])
   }
-
   const ScrollLock = () => {
     useLockBodyScroll()
     return <></>
@@ -67,12 +67,18 @@ export const FacultyLeadership = ({
       {open && <ScrollLock />}
       <FacultyPost key={slug} onClick={() => setOpen(!open)}>
         <PortraitThumbnail>
-          <GatsbyImage
-            image={portraitpic}
-            alt={title}
-            transformOptions={{ cropFocus: "right" }}
-            imgStyle={{ objectFit: "cover", width: "100%" }}
-          />
+          {portraitpic ? (
+            <GatsbyImage
+              image={portraitpic}
+              alt={title}
+              transformoptions={{ cropFocus: "right" }}
+              imgStyle={{ objectFit: "cover", width: "100%" }}
+            />
+          ) : (
+            <Fallback>
+              <StampLogo />
+            </Fallback>
+          )}
         </PortraitThumbnail>
         <TextWrapper>
           <p>{role}</p>
@@ -190,7 +196,18 @@ export const FacultyInstructor = ({
       {open && <ScrollLock />}
       <FacultyPost key={slug} onClick={() => setOpen(!open)}>
         <PortraitThumbnail>
-          <GatsbyImage image={portraitpic} alt={title} />
+          {portraitpic ? (
+            <GatsbyImage
+              image={portraitpic}
+              alt={title}
+              transformoptions={{ cropFocus: "right" }}
+              imgStyle={{ objectFit: "cover", width: "100%" }}
+            />
+          ) : (
+            <Fallback>
+              <StampLogo />
+            </Fallback>
+          )}
         </PortraitThumbnail>
         <TextWrapper>
           <p>{role}</p>
@@ -221,14 +238,20 @@ export const FacultyInstructor = ({
                 animate={open ? "visible" : "hidden"}
                 exit="hidden"
               >
-                <ModalImage>
-                  <GatsbyImage
-                    image={portraitpic}
-                    alt={title}
-                    imgStyle={{ objectFit: "cover" }}
-                    style={{ minWidth: "100%" }}
-                  />
-                </ModalImage>
+                {portraitpic ? (
+                  <ModalImage>
+                    <GatsbyImage
+                      image={portraitpic}
+                      alt={title}
+                      imgStyle={{ objectFit: "cover" }}
+                      style={{ minWidth: "100%" }}
+                    />
+                  </ModalImage>
+                ) : (
+                  <ModalFallback>
+                    <StampLogo />
+                  </ModalFallback>
+                )}
                 <ModalText>
                   <p>{role}</p>
                   <h3>{title}</h3>
@@ -279,7 +302,7 @@ const FacultyPost = styled.article`
     }
   }
   @media (max-width: ${breakpoints.xxl}px) {
-    height: auto;
+    /* height: auto; */
   }
   @media (max-width: ${breakpoints.m}px) {
     width: auto;
@@ -297,9 +320,20 @@ const TextWrapper = styled.div`
 `
 
 const PortraitThumbnail = styled.div`
-  img {
+  position: relative;
+  :first-child {
     max-width: 550px;
   }
+`
+
+const Fallback = styled.div`
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  aspect-ratio: 547.5/313;
+  width: 100%;
 `
 
 const FacultyDescription = styled.small`
@@ -394,7 +428,33 @@ const Modal = styled(motion.div)`
     overflow: scroll;
   }
 `
+const ModalFallback = styled.div`
+  min-height: 60vh;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 50%;
+  border-radius: 5px;
+  align-self: center;
+  border: 1px solid black;
 
+  @media (max-width: ${breakpoints.m}px) {
+    min-height: auto;
+    height: 350px;
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    min-width: 100%;
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    min-height: 100%;
+    height: 200px;
+
+    svg {
+      transform: scale(.6);
+    }
+  }
+`
 const ModalImage = styled.div`
   border-radius: 5px;
   align-self: center;
