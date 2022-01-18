@@ -6,7 +6,6 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import FooterStamp from "../svg/footerStamp"
 import breakpoints from "../components/breakpoints"
-import { Rotate } from "hamburger-react"
 
 const BlogPostTemplate = ({ data }) => {
   const post = data.markdownRemark

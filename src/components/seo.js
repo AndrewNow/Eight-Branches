@@ -4,7 +4,6 @@
  *
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
-
 import * as React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
@@ -27,7 +26,7 @@ const Seo = ({ description, lang, meta, title }) => {
       }
     `
   )
-
+  
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
 
