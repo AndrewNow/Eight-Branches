@@ -14,7 +14,7 @@ bio: >-
 name: Sandy Antunes, M.OMSc.
 title: "Marzyeh Moazenzadeh M.D. R.Ac, R.TCMP "
 role: Instructor
-portrait: eight-branches-stamp4.svg
+portrait: untitled-4.png
 email: dr_moazen@yahoo.com
 description: Yan Yen is a licensed naturopathic doctor in Toronto. She has a
   general practice that is grounded in mental, digestive and hormonal health.
