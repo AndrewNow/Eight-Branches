@@ -1,6 +1,12 @@
 {
   "list": [
     {
+      "termTitle": "Spring Term 2022",
+      "startDate": "April 11, 2022",
+      "endDate": "June 30, 2022",
+      "info": "March 11, 2022"
+    },
+    {
       "termTitle": "Fall Term 2022",
       "startDate": "September 19, 2022",
       "endDate": "December 12, 2022",
@@ -11,12 +17,6 @@
       "startDate": "January 2, 2023",
       "endDate": "March 25, 2023",
       "info": "December 2, 2022"
-    },
-    {
-      "termTitle": "Spring Term 2022",
-      "startDate": "April 11, 2022",
-      "endDate": "June 30, 2022",
-      "info": "March 11, 2022"
     }
   ]
 }
