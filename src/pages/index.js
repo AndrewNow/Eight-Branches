@@ -190,6 +190,7 @@ const HomePage = ({ data }) => {
   const NextButton = ({ enabled, onClick }) => {
     return (
       <NextEmblaButton
+        aria-label="Next slide button"
         onClick={onClick}
         disabled={!enabled}
         whileHover={{ scale: 1.05 }}
@@ -212,6 +213,7 @@ const HomePage = ({ data }) => {
   const PrevButton = ({ enabled, onClick }) => {
     return (
       <PrevEmblaButton
+        aria-label="Previous slide button"
         onClick={onClick}
         disabled={!enabled}
         whileHover={{ scale: 1.05 }}
@@ -270,10 +272,10 @@ const HomePage = ({ data }) => {
               Ancient Wisdom, <br />
               Modern Practice
             </motion.h1>
-            <motion.h6 variants={fadeIn}>
+            <motion.p variants={fadeIn}>
               Eight Branches offers students a holistic and industry-leading
               education, firmly rooted in Traditional Chinese Medicine (TCM).
-            </motion.h6>
+            </motion.p>
           </LandingTextWrapper>
         </RightSection>
       </LandingSection>
@@ -295,7 +297,9 @@ const HomePage = ({ data }) => {
               Our college empowers students to uplift communities through the
               practice of Eastern medicine, promoting restoration of health and
               prevention of illness.
-              <ReadMore to="/about-us">Read More</ReadMore>
+              <ReadMore to="/about-us" aria-label="Link to About Us page">
+                Learn More
+              </ReadMore>
             </h1>
           </AboutUsText>
         </AboutUsWrapper>
@@ -402,7 +406,10 @@ const HomePage = ({ data }) => {
         <UpcomingEvents>
           <EventsHeader>
             <h1>Upcoming Events</h1>
-            <BulletinBoardLink to="/bulletin-board">
+            <BulletinBoardLink
+              to="/bulletin-board"
+              aria-label="Link to Bulletin Board page"
+            >
               <p>Learn More</p> <Arrow />
             </BulletinBoardLink>
           </EventsHeader>
@@ -556,11 +563,14 @@ const LandingTextWrapper = styled(motion.div)`
   flex-direction: column;
 
   h1,
-  h6 {
+  p {
     color: var(--color-darkgreen);
   }
-  h6 {
+  p {
+    font-family: "Matter-light";
     width: 60%;
+    font-size: 22px;
+    line-height: 32px;
     margin-bottom: 3rem;
   }
 
@@ -569,8 +579,14 @@ const LandingTextWrapper = styled(motion.div)`
     margin-bottom: 2rem;
   }
 
+  @media (max-width: ${breakpoints.xxl}px) {
+    p {
+      font-size: 20px;
+      line-height: 30px;
+    }
+  }
   @media (max-width: ${breakpoints.l}px) {
-    h6 {
+    p {
       margin-bottom: 6rem;
     }
     svg {
@@ -579,8 +595,10 @@ const LandingTextWrapper = styled(motion.div)`
   }
 
   @media (max-width: ${breakpoints.m}px) {
-    h6 {
+    p {
       width: 70%;
+      font-size: 18px;
+      line-height: 28px;
     }
     svg {
       transform: scale(0.75);
@@ -590,9 +608,11 @@ const LandingTextWrapper = styled(motion.div)`
     h1 {
       margin-top: 0.5rem;
     }
-    h6 {
+    p {
       margin-bottom: 5rem;
       width: 90%;
+      font-size: 17px;
+      line-height: 28px;
     }
     svg {
       transform: scale(0.7);
@@ -642,6 +662,7 @@ const AboutUsImage = styled.div`
   }
   @media (max-width: ${breakpoints.l}px) {
     display: none;
+    visibility: hidden;
   }
 `
 

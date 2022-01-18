@@ -114,7 +114,8 @@ const Navbar = () => {
         key="header"
       >
         <LogoWrapper>
-          <Link to="/">
+          <Link aria-label="Home button"
+            to="/">
             <NavLogo />
           </Link>
         </LogoWrapper>
@@ -124,6 +125,7 @@ const Navbar = () => {
             toggle={setOpen}
             onClick={() => setOpen(!open)}
             color="black"
+            aria-label="Nav menu hamburger button"
           />
         </IconWrapper>
       </HeaderWrapper>
