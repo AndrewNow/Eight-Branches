@@ -75,8 +75,6 @@ LOCATION: 93 Front St E, Toronto, ON M5E 1C3
 
 Scarborough is well-known for top two popular gardens which are *Rosetta McClain Garden* and *Guild Park & Garden*. Both are a thirteen-minute drive from one another and are both totally worth the visits. Be sure to bring a camera!
 
-
-
 LOCATION:\
 \
 5 Glen Everest Rd, Scarborough, ON M1N 1J2 (Rosetta McClain Garden)\
@@ -95,8 +93,6 @@ LOCATION:\
 
 This science museum is super interactive and loads of fun. Not only can you learn but you can also experiment at different sections of the centre! 
 
-
-
 LOCATION: 770 Don Mills Rd, North York, ON M3C 1T3
 
 ![Photo by Ontario Science Centre](ontario-science-centre-toronto.webp)
@@ -104,8 +100,6 @@ LOCATION: 770 Don Mills Rd, North York, ON M3C 1T3
 ## **10. Distillery District**
 
 Now filled with shops, boutiques, and restaurants this district was once the Gooderham & Worts Distillery which was left abandoned but now developed to what it's known as today! Total fun on a night out and has some nice spots to take pictures as well.
-
-
 
 Toronto, Ontario
 
