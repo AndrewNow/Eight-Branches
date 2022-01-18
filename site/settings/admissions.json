@@ -1,22 +1,28 @@
 {
   "list": [
     {
-      "termTitle": "Fall Term",
-      "startDate": "September 20, 2020",
-      "endDate": "December 19, 2020",
-      "info": "August 20, 2020"
+      "termTitle": "Spring Term 2022",
+      "startDate": "April 11, 2022",
+      "endDate": "June 30, 2022",
+      "info": "March 11, 2022"
     },
     {
-      "termTitle": "Winter Term",
-      "startDate": "January 3, 2020 ",
-      "endDate": "December 19, 2020",
-      "info": "December 3, 2020"
+      "termTitle": "Summer Term 2022",
+      "startDate": "July 4, 2022",
+      "endDate": "September 3, 2022",
+      "info": "No intake. New students can apply for the next available intake in Fall."
     },
     {
-      "termTitle": "Spring Term",
-      "startDate": "April 7, 2020",
-      "endDate": "December 19, 2020",
-      "info": "March 7, 2020"
+      "termTitle": "Fall Term 2022",
+      "startDate": "September 19, 2022",
+      "endDate": "December 12, 2022",
+      "info": "August 19, 2022"
+    },
+    {
+      "termTitle": "Winter Term 2023",
+      "startDate": "January 2, 2023",
+      "endDate": "March 25, 2023",
+      "info": "December 2, 2022"
     }
   ]
 }
