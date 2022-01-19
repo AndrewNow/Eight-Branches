@@ -1,5 +1,5 @@
 ---
-title: Things to do in Toronto
+title: Top 10 Things to Do in Toronto
 date: 2022-01-17T04:59:43.344Z
 readtime: 4
 description: Don't know what to do in Toronto? We got you!
