@@ -4,6 +4,7 @@ role: "Head of Student Clinic "
 portrait: judy-gu-for-eight-branches-faculty-selects-013.jpg
 description: A Graduate of Eight Branches. Carmen has quickly built a successful
   practice and now mentors students to acheive their same career goals.
+number: 1
 email: teachingclinc@eightbranches.ca
 ---
 Maria Del Carmen Urquizar is a Registered Acupuncturist, with the College of Traditional Chinese Medicine Practitioners and Acupuncturists (CTCMPAO), practicing in Toronto, Ontario. She works with her patients to develop comprehensive and personalized treatment plans that holistically restore their physical, emotional and mental well-being. Carmen’s treatments are designed to not only relieve her patient’s symptoms, but treat the underlying root cause of the disease as well; thus she focuses her practice on Acupuncture, Moxibustion, Cupping, Guasha, Tuina and Dietary Chinese Nutrition to bring your health into an overall state of balance and harmony.
