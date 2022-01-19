@@ -1,5 +1,5 @@
 ---
-title: Dr.Diana Tong Li
+title: Dr. Diana Tong Li
 role: Professor
 portrait: dr-li-300x300-removebg-preview.png
 ---
