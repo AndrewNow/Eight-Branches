@@ -10,7 +10,7 @@ const FacultyLeadershipQuery = () => {
           sourceInstanceName: { eq: "facultyLeadership" }
           internal: { mediaType: { eq: "text/markdown" } }
         }
-        sort: { fields: childMarkdownRemark___frontmatter___date, order: DESC }
+        sort: { fields: childMarkdownRemark___frontmatter___ordernumber, order: ASC }
       ) {
         edges {
           node {
@@ -21,6 +21,7 @@ const FacultyLeadershipQuery = () => {
               frontmatter {
                 title
                 role
+                ordernumber
                 email
                 portrait {
                   childImageSharp {

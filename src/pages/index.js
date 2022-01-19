@@ -410,7 +410,7 @@ const HomePage = ({ data }) => {
               to="/bulletin-board"
               aria-label="Link to Bulletin Board page"
             >
-              <p>Learn More</p> <Arrow />
+              <p>Visit Bulletin Board</p> <Arrow />
             </BulletinBoardLink>
           </EventsHeader>
           <EventWrapper>

@@ -10,7 +10,7 @@ const FacultyInstructorQuery = () => {
           sourceInstanceName: { eq: "facultyInstructor" }
           internal: { mediaType: { eq: "text/markdown" } }
         }
-        sort: { fields: childMarkdownRemark___frontmatter___date, order: DESC }
+        sort: { fields: childMarkdownRemark___frontmatter___ordernumber, order: ASC }
       ) {
         edges {
           node {
@@ -22,6 +22,7 @@ const FacultyInstructorQuery = () => {
                 title
                 role
                 email
+                ordernumber
                 portrait {
                   childImageSharp {
                     gatsbyImageData(
@@ -55,7 +56,7 @@ const FacultyInstructorQuery = () => {
     const slug = InstructorQuery.fields.slug
     const portraitpic =
       InstructorQuery.frontmatter.portrait?.childImageSharp.gatsbyImageData
-
+    
     return (
       InstructorQuery && (
         <FacultyInstructor
