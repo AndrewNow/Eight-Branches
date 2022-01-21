@@ -10,7 +10,7 @@ const FacultyInstructorQuery = () => {
           sourceInstanceName: { eq: "facultyInstructor" }
           internal: { mediaType: { eq: "text/markdown" } }
         }
-        sort: { fields: childMarkdownRemark___frontmatter___ordernumber, order: ASC }
+        sort: { fields: childMarkdownRemark___frontmatter___ordernumber, order: DESC }
       ) {
         edges {
           node {

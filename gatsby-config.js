@@ -14,14 +14,15 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: "gatsby-plugin-google-tagmanager",
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        id: "YOUR_GOOGLE_TAGMANAGER_ID",
-
-        // Include GTM in development.
-        //
-        // Defaults to false meaning GTM will only be loaded in production.
-        includeInDevelopment: false,
+        // You can add multiple tracking ids and a pageview event will be fired for all of them.
+        trackingIds: ["G-7S7VZRT31C", "UA-190810976-1"],
+        // This object is used for configuration specific to this plugin
+        pluginConfig: {
+          // Puts tracking script in the head instead of the body
+          head: true,
+        },
       },
     },
     {
@@ -73,7 +74,7 @@ module.exports = {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
-    },  
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {

@@ -96,6 +96,15 @@ const Admissions = ({ data }) => {
             Interested in studying at Eight Branches? Learn about the admissions
             procedure and ensure that you meet the necessary requirements when
             sending in your application.
+            <br />
+            <br />
+            <BookNowButton
+              href="https://eightbranches.classe365.com/form/view/Eight_Branches_Admission_Form"
+              target="_blank"
+              rel="noreferrer"
+            >
+              View Application Form
+            </BookNowButton>
           </motion.h6>
         </AdmissionsHeader>
         <AdmissionsImage ref={HideImageRef}>
@@ -387,6 +396,28 @@ const AdmissionsHeader = styled(motion.div)`
     h6 {
       width: 95%;
     }
+  }
+`
+
+const BookNowButton = styled.a`
+  display: inline;
+  cursor: pointer;
+  border-radius: 10px;
+  line-height: 26px;
+  font-size: 16px;
+  border: 1px solid var(--color-darkgreen);
+  color: var(--color-darkgreen);
+  padding: 0.35rem 1.5rem;
+  text-decoration: none;
+  font-family: "Matter-regular";
+
+  transition: 0.25s all ease-in-out;
+  :hover {
+    color: var(--color-white);
+    background-color: var(--color-darkgreen);
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    /* align-self: flex-start; */
   }
 `
 
