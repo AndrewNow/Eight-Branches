@@ -247,6 +247,10 @@ const AcademicAdvisorText = styled.div`
     margin: 1rem;
     text-align: center;
     align-items: center;
+    border-radius: 10px;
+    h2 {
+      font-size: 28px;
+    }
   }
 `
 
@@ -331,6 +335,7 @@ const ApplyNowInner = styled.div`
   }
   @media (max-width: ${breakpoints.s}px) {
     padding: 2rem 0;
+    border-radius: 10px;
   }
 `
 

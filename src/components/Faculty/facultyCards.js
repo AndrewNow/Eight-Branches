@@ -511,15 +511,15 @@ const ModalText = styled.div`
     margin-top: 1rem;
     padding-left: 0;
     padding-right: 0;
-    overflow-y: default;
+    overflow-y: visible;
     a,
     p {
       font-size: 16px;
     }
   }
   @media (max-width: ${breakpoints.s}px) {
-    overflow-y: auto;
-  }
+
+}
 `
 
 const GetInTouch = styled.a`

@@ -901,7 +901,7 @@ const BorderRadius = styled.div`
     border-radius: 10px;
   }
   @media (max-width: ${breakpoints.s}px) {
-    border-radius: 5px;
+    border-radius: 5px!important;
   }
 `
 
@@ -1013,6 +1013,7 @@ const CertificatePrograms = styled.section`
     color: #00000060;
 
     strong {
+      letter-spacing: 0rem!important;
       color: #00000090;
     }
   }
@@ -1168,6 +1169,11 @@ const CardText = styled.div`
     padding: 1.5rem;
     h4 {
       font-size: 25px;
+    }
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    h4 {
+      font-size: 24px;
     }
   }
 `
