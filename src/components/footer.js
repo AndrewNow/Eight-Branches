@@ -183,6 +183,10 @@ const FooterComponent = styled(motion.footer)`
   bottom: 0;
   z-index: 0;
   height: var(--footer-height);
+  // make sure to also change the padding-bottom in layout.js when adjusting the footer
+  // make sure to also change the padding-bottom in layout.js when adjusting the footer
+  // make sure to also change the padding-bottom in layout.js when adjusting the footer
+  // make sure to also change the padding-bottom in layout.js when adjusting the footer
   width: 100%;
   background-color: var(--color-beige);
 
@@ -194,7 +198,7 @@ const FooterComponent = styled(motion.footer)`
     height: 80vh;
   }
   @media (max-width: ${breakpoints.s}px) {
-    height: 95vh;
+    height: 98vh;
   }
 `
 

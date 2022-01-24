@@ -171,7 +171,7 @@ const GlobalWrapper = styled(motion.div)`
       font-size: 16px;
       line-height: 27px;
     }
-    padding-bottom: 95vh;
+    padding-bottom: 98vh;
   }
 `
 
