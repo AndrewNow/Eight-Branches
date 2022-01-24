@@ -517,6 +517,9 @@ const ModalText = styled.div`
       font-size: 16px;
     }
   }
+  @media (max-width: ${breakpoints.s}px) {
+    overflow-y: auto;
+  }
 `
 
 const GetInTouch = styled.a`
