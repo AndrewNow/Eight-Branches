@@ -2,7 +2,7 @@
 ordernumber: 16
 title: Amrit Singh
 role: Guest Lecturer @6babebeauty
-portrait: amrit.png
+portrait: thumbnail_img_0179reweb-removebg-preview.jpg
 ---
 Amrit Singh, Registered Acupuncturist and 'Healthcare Professional of the Year' Notable Award winner, has been working with women and their health for over a decade. Through her experience as an Acupuncturist focusing on Cosmetic Acupuncture, fertility, and digestive issues Amrit began to see the impacts of how lifestyle, societal expectations, relationships and workplace environments were taking a toll on women's health, self-esteem, stress, and mental health. 
 
