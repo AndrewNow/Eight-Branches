@@ -2,7 +2,7 @@
 ordernumber: 4
 title: " Atanu Nandy MB BS, DMV, MD"
 role: Instructor
-portrait: group-120.png
+portrait: re-edited.jpg
 ---
 Atanu Nandy MB BS, MD, DMV brings more than 25 years of teaching experience and applicable clinical diagnostics in the fields of Microbiology / Immunology / Infectious Diseases working in various hospitals and medical schools in India, the Caribbean, and Canada.
 
