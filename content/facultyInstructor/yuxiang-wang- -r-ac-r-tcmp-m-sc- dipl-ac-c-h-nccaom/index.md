@@ -1,5 +1,5 @@
 ---
-ordernumber: 6
+ordernumber: 7
 title: Yuxiang Wang,  R.Ac, R.TCMP, M.Sc. Dipl. Ac. & C.H. (NCCAOM)
 role: Instructor
 ---
