@@ -1,5 +1,5 @@
 ---
-ordernumber: 7
+ordernumber: 16
 title: Dr.Ky Lo, ND RAc
 role: Instructor
 portrait: img_3638-removebg-preview-copy.png
