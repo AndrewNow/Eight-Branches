@@ -12,7 +12,7 @@ bio: >-
 
   Yan Yen has a passion for teaching. When working with patients, she believe that a doctors main role is teacher. Outside of patient appointments, she leads various workshops and teaches students in biomedicine.
 name: Sandy Antunes, M.OMSc.
-ordernumber: 10
+ordernumber: 13
 title: "Marzyeh Moazenzadeh M.D. R.Ac, R.TCMP "
 role: Instructor
 portrait: untitled-4.png
