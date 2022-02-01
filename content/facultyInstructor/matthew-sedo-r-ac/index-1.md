@@ -1,5 +1,5 @@
 ---
-ordernumber: 17
+ordernumber: 15
 title: " Matthew Sedo,  R.Ac"
 role: Instructor
 portrait: untitled-1.png
