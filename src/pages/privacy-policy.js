@@ -25,7 +25,7 @@ const PrivacyPolicy = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo title="404: Not Found" />
+      <Seo title="Privacy Policy" />
       <Bg>
         <TextWrapper variants={FadeIn} initial="hidden" animate="visible">
           <h1>Privacy Policy</h1>
