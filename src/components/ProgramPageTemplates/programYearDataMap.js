@@ -245,7 +245,6 @@ const TermHeader = styled(motion.div)`
       align-self: center;
       :nth-child(3) {
         /* width: 90%; */
-        border: 1px solid red;
         margin: 0 auto;
         text-align: center;
       }
