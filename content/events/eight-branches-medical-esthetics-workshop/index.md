@@ -2,7 +2,7 @@
 title: Eight Branches Medical Esthetics Workshop
 link: https://eightbranches.classe365.com/form/view/MedicalEsthetics22
 date: 2022-03-05T17:00:00.000Z
-host: Dr. Ky Lo B.Sc. B.A. ND, R.Ac
+host: Dr. Ky Lo B.Sc. B.A., ND, R. Ac
 ---
 Medical Esthetics is an under-represented area of opportunity for regulated health professionals. The non-
 invasive anti-aging procedures are a rapidly growing industry, yet there are limited options to advance integumentary studies in areas of skin disease and anti- aging within the regulated health professionals like acupuncturists and naturopathic doctors. While pharmaceutical treatments may be indicated in severe skin
