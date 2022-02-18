@@ -6,7 +6,7 @@ description: There are dozens of examples of ancient wisdom extending from the
   past to teach the modern world; however, few rival stories the impact of Tu
   Youyou’s 2015 Noble prize in Medicine and Physiology for the discovery of a
   treatment for Malaria.
-thumbnail: index.jpg
+thumbnail: 3.png
 ---
 Modern Medicine is often associated with new, high-tech, and at odds with Traditional Medicine. This is a very uncooperative perspective as there is often knowledge and wisdom hidden in ancient societies. From the pyramids, to 2000-year-old seismoscopes (Earthquake detectors), there are dozens of examples of ancient wisdom extending from the past to teach the modern world; however, few rival stories the impact of Tu Youyou’s 2015 Noble prize in Medicine and Physiology for the discovery of a treatment for Malaria.
 
