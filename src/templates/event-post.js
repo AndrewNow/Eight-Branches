@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import FooterStamp from "../svg/footerStamp"
 import breakpoints from "../components/breakpoints"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 const EventPostTemplate = ({ data }) => {
   const post = data.markdownRemark
@@ -44,6 +45,16 @@ const EventPostTemplate = ({ data }) => {
                 </EventLink>
               )}
             </Header>
+            {post.frontmatter.thumbnail && (
+              <HeaderImg>
+                <GatsbyImage
+                  image={
+                    post.frontmatter.thumbnail.childImageSharp.gatsbyImageData
+                  }
+                  alt={post.frontmatter.description}
+                />
+              </HeaderImg>
+            )}
             <BlogContent
               dangerouslySetInnerHTML={{ __html: post.html }}
               itemProp="articleBody"
@@ -141,6 +152,17 @@ export const pageQuery = graphql`
         host
         link
         date(formatString: "dddd, MMMM Do (hh:mma)")
+        thumbnail {
+          childImageSharp {
+            gatsbyImageData(
+              width: 1150
+              quality: 90
+              placeholder: BLURRED
+              formats: [WEBP]
+              aspectRatio: 1.75
+            )
+          }
+        }
         # body
       }
     }
@@ -229,6 +251,10 @@ const Header = styled.div`
       max-width: 100%;
     }
   }
+`
+
+const HeaderImg = styled.div`
+  margin: 3rem 0;
 `
 
 const EventLink = styled.a`
@@ -586,7 +612,7 @@ const BulletinPost = styled.article`
   }
   @media (max-width: ${breakpoints.m}px) {
     small > p {
-      padding-top: .5rem;
+      padding-top: 0.5rem;
     }
     h6 {
       a {

@@ -42,6 +42,7 @@ collections:
       - { label: "Event Link URL", name: "link", widget: "string", required: false }
       - { label: "Date of Event (LEAVE BLANK FOR TBD)", name: "date", widget: "datetime", required: false}
       - { label: "Host", name: "host", widget: "string" }
+      - { label: "Image", name: "thumbnail", widget: "image", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
 
   - name: "facultyLeadership"
