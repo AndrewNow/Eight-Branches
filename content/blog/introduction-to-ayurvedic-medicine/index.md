@@ -3,7 +3,7 @@ title: Introduction to Ayurvedic Medicine
 date: 2022-01-17T15:27:22.632Z
 readtime: 5
 description: Learn about the basic principles of Ayurvedic medicine
-thumbnail: ayurveda-elements.png
+thumbnail: 2.png
 ---
 Ayurveda is a traditional system of medicine that is rich in history and has been practiced in India for over 5000 years. The word *Ayurveda* means “the science of life” and comes from the Sanskrit terms *Ayu* meaning ‘life’ and *Veda* meaning ‘knowing’. Ayurveda is one of the world’s oldest systems of medicine; it was first recorded in the Vedas, it defines health as state of equilibrium of the four dimensions Sharira (the physical body), Indriyas (the senses), Satva (the mind) and Atma (the soul). 
 
