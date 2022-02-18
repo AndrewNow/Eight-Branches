@@ -3,7 +3,7 @@ title: How to Choose the Right Acupuncture College
 date: 2022-01-06T16:47:33.277Z
 readtime: 6
 description: Stuck on how to find the right college for you? Maybe we can help!
-thumbnail: eight_branches_merton-_74_jpg.webp
+thumbnail: 4.png
 ---
 You're thinking about studying acupuncture, you've been doing your research on the sources of education available, but how do you make the final decision? Hopefully, we can help guide you in the right direction with this comprehensive guide to choosing the right school for you!
 
