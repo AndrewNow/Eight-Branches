@@ -208,8 +208,9 @@ const Admissions = ({ data }) => {
             <li>
               <CheckmarkSVG />
               <h6>
-                Official transcripts from all post-secondary institutions
-                attended (sent directly from the institution);
+                Transcripts from secondary school or all post-secondary
+                institutions attended (this can also be sent directly from the
+                institution);
               </h6>
             </li>
             <li>
@@ -218,11 +219,11 @@ const Admissions = ({ data }) => {
             </li>
             <li>
               <CheckmarkSVG />
-              <p>$50 for domestic students</p>
+              <p>$100 for domestic students</p>
             </li>
             <li>
               <CheckmarkSVG />
-              <p>$100 for international students</p>
+              <p>$200 for international students</p>
             </li>
             <li>
               <CheckmarkSVG />
@@ -237,6 +238,10 @@ const Admissions = ({ data }) => {
                 Personal letter (200-300 words) detailing your abilities,
                 purpose and motivation for studying at Eight Branches Academy.
               </h6>
+            </li>
+            <li>
+              <CheckmarkSVG />
+              <h6>Resume</h6>
             </li>
           </ul>
           <DividingLine />
