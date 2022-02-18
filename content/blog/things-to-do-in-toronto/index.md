@@ -3,7 +3,7 @@ title: Top 10 Things to Do in Toronto
 date: 2022-01-17T04:59:43.344Z
 readtime: 4
 description: Don't know what to do in Toronto? We got you!
-thumbnail: top-10-things-to-do-in-toronto.png
+thumbnail: 1.png
 ---
 I know Toronto from the back of my head. Being born and raised here has taught me so many things and along the way it's brought me to some awesome places within the city. Hi, my name is Adeela, and I'd like to say I'm a tourist in my own city. This spontaneous spirit of mine has led me to wander parts of Toronto that I have grown to love so much, and I'm still exploring new places every single day!\
 \
