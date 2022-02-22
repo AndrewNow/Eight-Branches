@@ -85,7 +85,7 @@ h3 {
 h4 {
   font-family: "Matter-light";
   font-size: 33px;
-  line-height: 48px;
+  line-height: 120%;
 }
 
 h5 {

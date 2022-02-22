@@ -115,7 +115,7 @@ const News = ({ data, location }) => {
                   `${dayOfTheMonth}` +
                   suffix +
                   ` (${time})`
-                
+
                 return (
                   eventDataQuery && (
                     <Event>
@@ -365,6 +365,12 @@ const Event = styled.article`
     font-family: "Matter-light";
   }
 
+  h6 {
+    :last-child {
+      padding-bottom: .5rem;
+    }
+  }
+
   @media (max-width: ${breakpoints.xxl}px) {
     min-width: 33%;
     max-width: 50%;
@@ -380,7 +386,7 @@ const EventLink = styled(Link)`
   text-decoration: none;
   h4 {
     color: var(--color-white);
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.75rem;
     /* padding-right: 0.5rem; */
   }
 `

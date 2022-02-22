@@ -430,10 +430,15 @@ const HomePage = ({ data }) => {
                         <h4 key={slug}>{title}</h4>
                       </EventTitle>
                       <h6>
-                        With {host}&nbsp; &nbsp;| &nbsp;
+                        {/* &nbsp; &nbsp;| &nbsp; */}
                         {!date || date === "Invalid date"
                           ? " Date TBD"
                           : " " + date}
+                        <br />
+                      </h6>
+                      <h6>
+                        <strong>Hosted by: </strong>
+                        {host}
                       </h6>
                     </div>
                     <SignUpLink to={slug} itemProp="url">
@@ -1143,35 +1148,50 @@ const EventWrapper = styled.div`
   }
 `
 const Event = styled.article`
-  width: 27.5%;
+  width: 29%;
   color: var(--color-black);
   background-color: var(--color-white);
   border-radius: 20px;
   border: 1px solid black;
-  padding: 3rem 2rem;
+  padding: 2.5rem 3.5rem;
   margin: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
   h6 {
-    margin-top: 1rem;
-    margin-bottom: 3rem;
-    font-size: 18px;
+    margin-top: .5rem;
+    margin-bottom: 1rem;
+    font-size: 20px;
     line-height: 120%;
-    font-family: "Matter-regular";
+    font-family: "Matter-light";
+    strong {
+      font-family: "Matter-regular";
+    }
+    
+    :last-child {
+      margin-bottom: 2rem;
+    }
+  }
+
+  @media (max-width: 1600px) {
+    width: 34%;
   }
 
   @media (max-width: ${breakpoints.xxl}px) {
     min-width: 33%;
     max-width: 50%;
     border-radius: 20px;
+    h4 {
+      font-size: 24px;
+    }
+    h6 {
+      font-size: 17px;
+    }
   }
   @media (max-width: ${breakpoints.xl}px) {
     h6 {
       font-size: 17px;
-      margin-top: 0.5rem;
-      margin-bottom: 2rem;
     }
   }
   @media (max-width: ${breakpoints.l}px) {
@@ -1180,9 +1200,6 @@ const Event = styled.article`
     width: 80%;
     margin: 1rem auto;
     padding: 2rem 2rem;
-    h6 {
-      margin-bottom: 2rem;
-    }
   }
   @media (max-width: ${breakpoints.m}px) {
     margin-bottom: 2.5rem;

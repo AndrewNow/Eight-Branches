@@ -36,7 +36,6 @@ const EventPostTemplate = ({ data }) => {
     "December",
   ]
 
-
   const date = post.frontmatter.date
 
   // get weekday
@@ -77,7 +76,7 @@ const EventPostTemplate = ({ data }) => {
 
   // format into (Day, Month Dayofthemonth Time Locale)
   const formattedEventDate =
-    `${day}, ` + `${month} ` + `${dayOfTheMonth}` + suffix + ` (${time})`
+    `${day}, ` + `${month} ` + dayOfTheMonth + suffix + ` (${time})`
 
   return (
     <Layout title={siteTitle}>
