@@ -44,6 +44,78 @@ const News = ({ data, location }) => {
                 const { title, date, host } = eventDataQuery.frontmatter
                 const slug = eventDataQuery.fields.slug
 
+                const weekday = [
+                  "Sunday",
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                ]
+                const months = [
+                  "January",
+                  "February",
+                  "March",
+                  "April",
+                  "May",
+                  "June",
+                  "July",
+                  "August",
+                  "September",
+                  "October",
+                  "November",
+                  "December",
+                ]
+
+                // get weekday
+                const formattedDay = new Date(date)
+                let day = weekday[formattedDay.getDay()]
+
+                // get month
+                const d = new Date(date)
+                let month = months[d.getMonth()]
+
+                // get day
+                const dd = new Date(date)
+                let dayOfTheMonth = dd.getDate()
+
+                // get time in hh:mm
+                let time = new Date(date)
+                time = time.toLocaleTimeString("en-US", {
+                  timeZone: "America/Toronto",
+                  timeZoneName: "short",
+                  hour: "2-digit",
+                  minute: "2-digit",
+                  hour12: true,
+                })
+
+                let suffix = "th"
+                if (
+                  dayOfTheMonth === 1 ||
+                  dayOfTheMonth === 21 ||
+                  dayOfTheMonth === 31
+                ) {
+                  suffix = "st"
+                } else if (dayOfTheMonth === 2 || dayOfTheMonth === 22) {
+                  suffix = "nd"
+                } else if (dayOfTheMonth === 3 || dayOfTheMonth === 23) {
+                  suffix = "rd"
+                } else if (
+                  (dayOfTheMonth >= 4 && dayOfTheMonth < 21) ||
+                  (dayOfTheMonth >= 24 && dayOfTheMonth < 31)
+                ) {
+                  suffix = "th"
+                }
+
+                // format into (Day, Month Dayofthemonth Time Locale)
+                const formattedEventDate =
+                  `${day}, ` +
+                  `${month} ` +
+                  `${dayOfTheMonth}` +
+                  suffix +
+                  ` (${time})`
+                
                 return (
                   eventDataQuery && (
                     <Event>
@@ -53,9 +125,10 @@ const News = ({ data, location }) => {
                         </EventLink>
                         <h6>Hosted by: {host}</h6>
                         <h6>
-                          {!date || date === "Invalid date"
+                          {!formattedEventDate ||
+                          formattedEventDate === "Invalid date"
                             ? "Date TBD"
-                            : `${date}`}
+                            : `${formattedEventDate}`}
                         </h6>
                       </div>
                       <SignUpLink to={slug} itemProp="url">
@@ -202,7 +275,8 @@ export const pageQuery = graphql`
             frontmatter {
               title
               host
-              date(formatString: "dddd, MMMM Do (hh:mma)", locale: "est")
+              date
+              # date(formatString: "dddd, MMMM Do (hh:mma) z")
             }
           }
         }
