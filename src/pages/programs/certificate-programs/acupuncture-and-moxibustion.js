@@ -87,13 +87,13 @@ const Herbology = ({ data }) => {
                   {
                     code: "ACU-2006",
                     title: "Acupuncture Techniques (A)",
-                    type: "Lecture",
+                    type: "Practical",
                     credits: 3,
                   },
                   {
                     code: "ACU-2007",
                     title: "Acupuncture Techniques (B)",
-                    type: "Lecture",
+                    type: "Practical",
                     credits: 3,
                   },
                 ],
