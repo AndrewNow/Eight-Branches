@@ -60,7 +60,7 @@ const Navbar = () => {
       y: 0,
       transition: {
         delay: 0.1,
-        duration: .5,
+        duration: 0.5,
         staggerChildren: 0.1,
         delayChildren: 0.1,
       },
@@ -114,8 +114,7 @@ const Navbar = () => {
         key="header"
       >
         <LogoWrapper>
-          <Link aria-label="Home button"
-            to="/">
+          <Link aria-label="Home button" to="/">
             <NavLogo />
           </Link>
         </LogoWrapper>
@@ -137,11 +136,8 @@ const Navbar = () => {
             exit="hidden"
             variants={menuAnimation}
           >
-            <motion.div
-              variants={innerMenuAnimation}
-            >
-              <motion.h3 variants={navItem}
-              >
+            <NavMenuInner variants={innerMenuAnimation}>
+              <motion.h3 variants={navItem}>
                 <Link to="/about-us">About Us</Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
@@ -163,9 +159,11 @@ const Navbar = () => {
                 <Link to="/bulletin-board">Bulletin Board</Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
-                <a href="https://online.erealia.com/ebaem/cwv/">Student Portal</a>
+                <a href="https://online.erealia.com/ebaem/cwv/">
+                  Student Portal
+                </a>
               </motion.h3>
-            </motion.div>
+            </NavMenuInner>
           </NavMenu>
         ) : null}
       </AnimatePresence>
@@ -214,7 +212,7 @@ const LogoWrapper = styled.div`
   }
   @media (max-width: ${breakpoints.l}px) {
     svg {
-      margin-top: .5rem;
+      margin-top: 0.5rem;
       height: 60px;
       max-width: 200px;
     }
@@ -234,7 +232,7 @@ const IconWrapper = styled.div`
   z-index: 1000;
 
   @media (max-width: ${breakpoints.s}px) {
-    transform: scale(.9);
+    transform: scale(0.9);
   }
 `
 
@@ -251,16 +249,46 @@ const NavMenu = styled(motion.nav)`
   background-color: var(--color-beige);
   padding: 3rem;
 
+  @media (max-width: ${breakpoints.xl}px) {
+    width: 52vw;
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    width: 55vw;
+  }
+
+  @media (max-width: ${breakpoints.m}px) {
+    border: none;
+    width: 100vw;
+    left: 0;
+  }
+`
+
+const NavMenuInner = styled(motion.div)`
+  margin-top: 13vh;
+  height: 70vh;
+  max-height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
   h3 {
-    margin-bottom: 2rem;
+    margin-bottom: clamp(0.75rem, 3.3vh, 3rem);
+    font-size: clamp(20px, 3.925vh, 38px);
+    line-height: 100%;
+    position: relative;
+    width: 100%;
     text-align: center;
 
     :nth-child(1) {
-      padding-top: 15vh;
+      /* padding-top: 15vh; */
     }
   }
 
   h3 > a {
+    margin: 0 auto;
+    width: 100%;
+    display: block;
     text-decoration: none;
     color: var(--color-black);
     transition: color ease-in-out 0.15s;
@@ -272,54 +300,31 @@ const NavMenu = styled(motion.nav)`
       color: var(--color-orange);
     }
   }
-
-  @media (max-width: ${breakpoints.xl}px) {
-    width: 52vw;
-
+  @media (max-width: ${breakpoints.xxl}px) {
     h3 {
-      :nth-child(1) {
-        padding-top: 7.5vh;
-      }
+      font-size: clamp(18px, 3.925vh, 30px);
     }
   }
-  @media (max-width: ${breakpoints.l}px) {
-    width: 55vw;
-
-    h3 {
-      :nth-child(1) {
-        padding-top: 7.5vh;
-      }
-    }
+  @media (max-width: ${breakpoints.xl}px) {
+    margin-top: 7.5vh;
   }
 
   @media (max-width: ${breakpoints.m}px) {
-    border: none;
-    width: 100vw;
-    left: 0;
-
-    h3 {
-      :nth-child(1) {
-        padding-top: 5vh;
-      }
-    }
+    margin-top: 10vh;
   }
+
   @media (max-width: ${breakpoints.s}px) {
+    margin: auto 0;
+    height: clamp(60vh, 70vh, 75vh);
+    max-height: 500px;
     h3 {
       font-size: 24px;
-      margin-bottom: 1.5rem;
-      :nth-child(1) {
-        padding-top: 7vh;
-      }
     }
   }
   @media (max-width: ${breakpoints.xs}px) {
     h3 {
       font-size: 20px;
-      margin-bottom: 1rem;
-
-      :nth-child(1) {
-        padding-top: 7vh;
-      }
+      /* margin-bottom: 1rem; */
     }
   }
 `

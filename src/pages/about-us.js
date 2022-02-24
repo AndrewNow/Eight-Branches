@@ -70,7 +70,7 @@ const AboutUs = ({ data }) => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: .15,
+        staggerChildren: 0.15,
       },
     },
   }
@@ -115,17 +115,17 @@ const AboutUs = ({ data }) => {
   })
   const [CorePrinciples1Ref, CorePrinciples1InView] = useInView({
     root: null,
-    threshold: 0.35,
+    threshold: 0.15,
     triggerOnce: true,
   })
   const [CorePrinciples2Ref, CorePrinciples2InView] = useInView({
     root: null,
-    threshold: 0.35,
+    threshold: 0.15,
     triggerOnce: true,
   })
   const [CorePrinciples3Ref, CorePrinciples3InView] = useInView({
     root: null,
-    threshold: 0.35,
+    threshold: 0.15,
     triggerOnce: true,
   })
 
@@ -243,30 +243,38 @@ const AboutUs = ({ data }) => {
                 animate={expand ? "hidden" : "visible"}
               />
               <p>
-                Before Eight Branches College was established, it was Kokoro
-                Dojo – a peaceful sanctuary tucked behind the residences and
-                busy storefronts in the heart of Toronto's Annex. Kokoro Dojo
-                was a Zen Shiatsu school focused on the teachings of Shizuto
-                Masunaga. These teachings emphasize personal development through
-                meditation, Qi Gong, and extensive hands-on practice, in
-                addition to technical instruction.
+                Eight Branches College of Eastern Medicine specializes in
+                teaching the ancient practice of Traditional Chinese Medicine
+                (TCM) and making it relevant in the modern world through capable
+                and confident graduates. The student experience includes a
+                balance of in-depth theory and extensive hands-on practice. The
+                education is comprehensive— based on eight foundational branches
+                of Eastern Medicine. Students are supported and mentored by a
+                warm community, and encouraged to grow; personally, as an expert
+                in TCM, and as a capable leader in your community. Eight
+                Branches fosters thought-leadership, academic excellence and
+                brings decades of experience to ensure that students are
+                equipped for success, and most importantly, are able to better
+                lives through this powerful and compassionate medicine.
                 <br />
                 <br />
-                After studying Traditional Chinese Medicine in British Columbia,
-                Toronto and Chengdu, our founder Ryan was introduced to Kokoro Dojo,
-                and found that its principals of practice coincided profoundly
-                with his own. He established a thriving practice and became an
-                integral part of the Dojo, teaching TCM theory and diagnosis; in
-                addition to completing the Zen Shiatsu program himself. ​
-                Dondrub and Diana, who managed the Dojo and clinic, welcomed
-                Ryan’s idea of incorporating a technical acupuncture program
-                that included the Zen and Taoist principals of the Masunaga
-                traditions.​ The program was received enthusiastically by its
-                students, and driven by an increased demand for comprehensive
-                TCM instruction in Toronto, Eight Branches Academy of Eastern
-                Medicine was established. With the addition of other treatment
-                modalities and practitioners, the Dojo developed into Eight
-                Branches Healing Arts Centre.
+                We are committed to the success of our students, and to offering
+                the best Eastern Medicine education in the province of Ontario,
+                Canada. To this effect we have established a program that has
+                lead to the highest pass rates on board regulatory examinations
+                in the Province of Ontario. Eight Branches works diligently to
+                ensure programs meet (and, where possible, exceed) the criteria
+                for excellence set out by all the major North American
+                regulatory bodies so that graduates can confidently practice
+                this medicine no matter where their future takes them. Eight
+                Branches offers continuing education, professional development
+                and advancement to our students, graduates and faculty. We aim
+                to create a supportive environment that encourages growth, and
+                promotes leaders in the field of TCM. We aim to be a centre for
+                mentorship and an incubator for leading edge approaches so that
+                the very best this medicine has to offer is readily available
+                via our ever-expanding community of dedicated and capable
+                practitioners.
               </p>
             </HiddenText>
           </motion.div>
@@ -651,7 +659,7 @@ const Right = styled(motion.div)`
 `
 
 const HiddenText = styled(motion.div)`
-  width: 65%;
+  width: 75%;
   margin: 0 auto;
   overflow: hidden;
   position: relative;
@@ -694,7 +702,7 @@ const Gradient = styled(motion.div)`
 `
 
 const ExpandButton = styled(motion.button)`
-  width: 65%;
+  width: 75%;
   margin: 0 auto;
   margin-bottom: 5rem;
   border: none;

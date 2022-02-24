@@ -72,7 +72,7 @@ const HomePage = ({ data }) => {
   // ---------- INTERSECTION OBSERVER LOGIC ----------
   const [HideImageRef, HideImageInView] = useInView({
     root: null,
-    threshold: 0.7,
+    threshold: 0.5,
     triggerOnce: true,
   })
   const [DiplomaRef0, DiplomaInView0] = useInView({
