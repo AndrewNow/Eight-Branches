@@ -76,6 +76,10 @@ const Seo = ({ description, lang, meta, title }) => {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name: `facebook-domain-verification`,
+          content: `e88hq58piyxysxvovrac152vmt8px8`,
+        },
       ].concat(meta)}
     >
       {!!isBrowser && (
