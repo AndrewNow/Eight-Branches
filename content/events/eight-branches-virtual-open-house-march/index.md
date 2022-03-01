@@ -1,7 +1,7 @@
 ---
 title: Eight Branches Virtual Open House (March)
 link: https://us02web.zoom.us/meeting/register/tZAofuyrrz4iGtcFZEgk_30_EULRYi1Cq2md
-date: 2022-03-20T16:00:00.000Z
+date: 2022-03-20T17:00:00.000Z
 host: Eight Branches
 thumbnail: copy-of-eight_branches_060919-254.jpg-1-.jpg
 ---
