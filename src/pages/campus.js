@@ -121,7 +121,25 @@ const Campus = ({ data }) => {
 
   return (
     <Layout title={siteTitle}>
-      <Seo title="Our Campus" />
+      <Seo
+        title="Our Campus"
+        keywords={[
+          `Eight Branches`,
+          `Eight Branches Campus Toronto`,
+          `Acupuncture school`,
+          `Acupuncture learn online`,
+          `TCM`,
+          `Traditional Chinese Medicine Toronto`,
+          `Best acupuncture school`,
+          `best acupuncture`,
+          `best acupuncture toronto`,
+          `school in toronto`,
+          `acupuncture near me`,
+          `local acupuncture clinic`,
+          `local acupuncture school`,
+          `local acupuncture academy`,
+        ]}
+      />
       <HeaderWrapper>
         <CampusHeader variants={Header} initial="hidden" animate="visible">
           <motion.h1 variants={Header}>Our Campus</motion.h1>
@@ -137,12 +155,12 @@ const Campus = ({ data }) => {
           <EmblaViewport ref={emblaRef}>
             <EmblaContainer>
               <HideImage
-              style={{ backgroundColor: "var(--color-lightestbeige)" }}
-              variants={hideImage}
-              initial="visible"
-              animate={HideCarouselInView ? "hidden" : "visible"}
-              exit="hidden"
-            />
+                style={{ backgroundColor: "var(--color-lightestbeige)" }}
+                variants={hideImage}
+                initial="visible"
+                animate={HideCarouselInView ? "hidden" : "visible"}
+                exit="hidden"
+              />
               {data.CampusImages.edges.map((image, index) => {
                 return (
                   <EmblaSlide key={index}>
@@ -182,8 +200,8 @@ const Campus = ({ data }) => {
             <CardText>
               <h4>Our Apothecary</h4>
               <h6>
-                Discover the Eight Branches apothecary, which houses a unique and
-                extensive collection of raw Chinese herbs & granules.
+                Discover the Eight Branches apothecary, which houses a unique
+                and extensive collection of raw Chinese herbs & granules.
               </h6>
               <ComingSoon
               // href="https://eightbranches.librarika.com/"
@@ -304,7 +322,7 @@ const Campus = ({ data }) => {
       </Facilities>
       <LocationDescription>
         <LocationImage
-          // ref={HideImageRef}
+        // ref={HideImageRef}
         >
           {/* <HideImage
             style={{ backgroundColor: "var(--color-sandbeige)" }}

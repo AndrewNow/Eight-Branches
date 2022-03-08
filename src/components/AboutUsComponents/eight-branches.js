@@ -717,6 +717,7 @@ const InfoDropDown = styled(motion.div)`
 
   h4 {
     width: 90%;
+    line-height: 175%;
     padding: 5rem;
   }
 
@@ -752,7 +753,6 @@ const InfoDropDown = styled(motion.div)`
       padding-top: 1rem;
       margin: 2.5rem auto;
       font-size: 18px;
-      line-height: 175%;
     }
   }
 `

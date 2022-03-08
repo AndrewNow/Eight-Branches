@@ -30,7 +30,23 @@ const OurFaculty = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo title="Our Faculty" />
+      <Seo
+        title="Our Faculty"
+        keywords={[
+          `Eight Branches`,
+          `Eight Branches Toronto`,
+          `Eight Branches ontario`,
+          `Eight Branches faculty`,
+          `chinese medicine experts canada`,
+          `chinese medicine experts ontario`,
+          `chinese medicine experts toronto`,
+          `chinese medicine doctor toronto`,
+          `chinese medicine doctor ontario`,
+          `tcm doctor toronto`,
+          `best chinese medicine toronto`,
+          `traditional chinese medicine mississauga`,
+        ]}
+      />
       <FacultyWrapper>
         <SectionWrapper>
           <FacultyHeader>

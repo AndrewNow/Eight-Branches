@@ -241,7 +241,28 @@ const HomePage = ({ data }) => {
 
   return (
     <Layout>
-      <Seo title="Home" />
+      <Seo
+        title="Home"
+        keywords={[
+          `Eight Branches`,
+          `acupuncture program in toronto`,
+          `Acupuncture education toronto ontario`,
+          `Acupuncture school online course`,
+          `Traditional Chinese Medicine toronto`,
+          `learn homeopathic medicine`,
+          `natural healing in toronto`,
+          `best local acupuncture clinic`,
+          `local acupuncture school`,
+          `top tcm academy`,
+          `tcm school in toronto`,
+          `acupuncture college toronto`,
+          `acupuncture program university`,
+          `chinese medicine diploma`,
+          `local oriental healing`,
+          `eastern medicine ontario`,
+          `traditional chinese medicine training`,
+        ]}
+      />
       <LandingSection>
         <LeftSection ref={HideImageRef}>
           <HideImage
@@ -1160,7 +1181,7 @@ const Event = styled.article`
   justify-content: space-between;
 
   h6 {
-    margin-top: .5rem;
+    margin-top: 0.5rem;
     margin-bottom: 1rem;
     font-size: 20px;
     line-height: 120%;
@@ -1168,7 +1189,7 @@ const Event = styled.article`
     strong {
       font-family: "Matter-regular";
     }
-    
+
     :last-child {
       margin-bottom: 2rem;
     }

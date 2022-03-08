@@ -88,7 +88,28 @@ const Admissions = ({ data }) => {
 
   return (
     <Layout title={siteTitle}>
-      <Seo title="Admissions" />
+      <Seo
+        title="Admissions"
+        keywords={[
+          `Eight Branches`,
+          `Eight Branches admissions`,
+          `8 branches admissions`,
+          `learn acupuncture near me`,
+          `learn acupuncture toronto`,
+          `Acupuncture learn online`,
+          `Acupuncture school online`,
+          `Acupuncture blog online`,
+          `learn TCM online`,
+          `learn TCM toronto`,
+          `tcm part time studies`,
+          `tcm university toronto`,
+          `tcm university online`,
+          `tcm graduates`,
+          `chinese medicine diploma`,
+          `learn traditional chinese medicine toronto`,
+          `best school for acupuncture`,
+        ]}
+      />
       <HeaderWrapper>
         <AdmissionsHeader variants={FadeIn} initial="hidden" animate="visible">
           <motion.h1 variants={FadeIn}>Student Admissions</motion.h1>

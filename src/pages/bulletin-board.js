@@ -30,7 +30,22 @@ const News = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo title="News" />
+      <Seo
+        title="News"
+        keywords={[
+          `Acupuncture learn online`,
+          `Acupuncture school online`,
+          `Acupuncture blog online`,
+          `learn TCM online`,
+          `chinese medicine blog`,
+          `learn TCM toronto`,
+          `Eight Branches bulletin board`,
+          `Eight Branches news`,
+          `Eight Branches updates`,
+          `Eight Branches events`,
+          `Eight Branches rsvp`,
+        ]}
+      />
       {data.events.edges.length > 0 ? (
         <UpcomingEventsWrapper>
           <SectionWrapper>

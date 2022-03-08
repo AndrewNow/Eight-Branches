@@ -121,7 +121,21 @@ const OurPrograms = ({ data }) => {
 
   return (
     <Layout title={siteTitle}>
-      <Seo title="Our Programs" />
+      <Seo
+        title="Our Programs"
+        keywords={[
+          `Eight Branches`,
+          `Eight Branches toronto`,
+          `Eight Branches programs`,
+          `herbology program`,
+          `acupuncture and moxibustion`,
+          `advanced TCMP`,
+          `Chinese medicine certificate`,
+          `TCM diploma`,
+          `toronto acupuncture programs`,
+          `toronto chinese medicine programs`
+        ]}
+      />
 
       <SectionWrapper>
         <ImageBanner>

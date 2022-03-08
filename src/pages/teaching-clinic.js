@@ -224,7 +224,21 @@ const TeachingClinic = ({ data }) => {
 
   return (
     <Layout title={siteTitle}>
-      <Seo title="Teaching Clinic" />
+      <Seo
+        title="Teaching Clinic"
+        keywords={[
+          `Eight Branches`,
+          `Eight Branches Toronto`,
+          `local TCM`,
+          `best chinese doctor in toronto`,
+          `inexpensive acupuncture treatment`,
+          `safe acupuncture toronto`,
+          `best acupuncture toronto`,
+          `cheap student acupuncture`,
+          `expert chinese medicine doctor`,
+          `the best chinese medicine toronto`,
+        ]}
+      />
       <HeaderWrapper>
         <TeachingClinicHeader
           variants={FadeIn}

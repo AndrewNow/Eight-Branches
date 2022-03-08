@@ -2,10 +2,10 @@ module.exports = {
   siteMetadata: {
     title: `Eight Branches`,
     author: {
-      name: ``,
+      name: `Eight Branches`,
       summary: ``,
     },
-    description: `Eight Branches Academy of Eastern Medicine is a Toronto Acupuncture School that offers students a comprehensive education with a firm foundation in Traditional Chinese Medicine.`,
+    description: `Eight Branches Academy of Eastern Medicine is a Toronto based Acupuncture School that offers students a comprehensive education with a firm foundation in Traditional Chinese Medicine.`,
     siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
     image: `https://i.imgur.com/oYDGbYr.png`,
     social: {

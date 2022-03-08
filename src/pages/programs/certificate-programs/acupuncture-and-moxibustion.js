@@ -156,7 +156,9 @@ const Herbology = ({ data }) => {
 
   return (
     <Layout title={siteTitle}>
-      <Seo title="Acupuncture & Moxibustion" />
+      <Seo
+        title="Acupuncture & Moxibustion"
+      />
       <ProgramLayout programData={programData} />
     </Layout>
   )

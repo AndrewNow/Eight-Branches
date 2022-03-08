@@ -9,7 +9,7 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-const Seo = ({ description, lang, meta, title }) => {
+const Seo = ({ description, lang, meta, title, keywords }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -80,7 +80,16 @@ const Seo = ({ description, lang, meta, title }) => {
           name: `facebook-domain-verification`,
           content: `e88hq58piyxysxvovrac152vmt8px8`,
         },
-      ].concat(meta)}
+      ]
+        .concat(
+          keywords.length > 0
+            ? {
+                name: `keywords`,
+                content: keywords.join(`, `),
+              }
+            : []
+        )
+        .concat(meta)}
     >
       {!!isBrowser && (
         <script defer type="application/javascript">
@@ -118,6 +127,7 @@ src="https://www.facebook.com/tr?id=3618624564866369&ev=PageView&noscript=1"
 Seo.defaultProps = {
   lang: `en`,
   meta: [],
+  keywords: [],
   description: ``,
 }
 
@@ -126,6 +136,7 @@ Seo.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
+  keywords: PropTypes.arrayOf(PropTypes.string),
 }
 
 export default Seo

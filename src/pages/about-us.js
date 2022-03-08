@@ -206,7 +206,28 @@ const AboutUs = ({ data }) => {
 
   return (
     <Layout title={siteTitle}>
-      <Seo title="About Us" />
+      <Seo
+        title="About Us"
+        keywords={[
+          `Eight Branches`,
+          `Eight Branches Toronto`,
+          `Eight Branches about`,
+          `Eight Branches about us`,
+          `what is traditional chinese medicine`,
+          `what is tcm`,
+          `learn acupuncture toronto`,
+          `Acupuncture learn online`,
+          `Acupuncture school online`,
+          `learn TCM toronto`,
+          `tcm university toronto`,
+          `tcm university online`,
+          `best school for acupuncture toronto`,
+          `best ranking school acupuncture toronto`,
+          `best ranking school acupuncture ontario`,
+          `best ranking school acupuncture canada`,
+          `affordable acupuncture toronto`,
+        ]}
+      />
       <AboutUsSection ref={OurStoryRef}>
         <Left>
           <HideImageBeige
