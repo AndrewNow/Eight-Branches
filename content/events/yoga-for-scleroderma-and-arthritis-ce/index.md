@@ -1,6 +1,6 @@
 ---
 title: Yoga for Scleroderma and Arthritis CE
-date: 2022-03-22T21:24:18.687Z
+date: ""
 host: Kathy Randolph
 ---
 **Yoga for Scleroderma and Arthritis CE** (18 hours)
