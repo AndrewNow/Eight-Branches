@@ -7,6 +7,8 @@ thumbnail: gua-sha-mastersclas-.png
 ---
 Amrit Singh R.Ac has taught her Facial Gua Sha Masterclass in Toronto, NYC, LA, Miami and to numerous sold out classes online.  In this workshop you will learn how your skin actually functions, what Facial Gua Sha can do for you, TCM skincare and how to do a full Facial Gua Sha routine at home safely and effectively. 
 
+
+
 **This workshop will also cover:**
 
 \- skin & facial anatomy
@@ -45,11 +47,7 @@ Amrit Singh R.Ac has taught her Facial Gua Sha Masterclass in Toronto, NYC, LA, 
 
 \- Gua Sha should not be done on skin that has received any injections for at least 4 weeks
 
-
-
 ✨  So grab a tea, your fave skin care products, your Gua Sha tools and we will see you on Sunday April 10/22!
-
-
 
 Please email [hello@6babebeauty.com](https://manage.wix.com/dashboard/a67a7102-c7d4-432a-8165-154d99d798bf/events/drafts/b903ef2c-285e-46fa-9e51-ef9e6d8740cd/event-details?referralInfo=my-sites) with any questions.
 
