@@ -1,6 +1,6 @@
 ---
 title: Yoga for the Special Child
-date: 2022-03-22T13:37:56.675Z
+date: ""
 host: Sherry LeBlanc
 thumbnail: screen-shot-2022-03-22-at-9.34.45-am.png
 ---
