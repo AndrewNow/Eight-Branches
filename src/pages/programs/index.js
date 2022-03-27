@@ -107,10 +107,10 @@ const OurPrograms = ({ data }) => {
 
   const hideImage = {
     visible: {
-      y: 0,
+      clipPath: "inset(100% 0% 0% 0%)",
     },
     hidden: {
-      y: "-100%",
+      clipPath: "inset(0% 0% 0% 0%)",
       transition: {
         delay: 0.1,
         ease: "easeInOut",
@@ -133,7 +133,7 @@ const OurPrograms = ({ data }) => {
           `Chinese medicine certificate`,
           `TCM diploma`,
           `toronto acupuncture programs`,
-          `toronto chinese medicine programs`
+          `toronto chinese medicine programs`,
         ]}
       />
 
@@ -182,14 +182,12 @@ const OurPrograms = ({ data }) => {
               initial="hidden"
               animate={sectionInView1 ? "visible" : "hidden"}
             >
-              <BorderRadius>
-                <HideImage
-                  style={{ backgroundColor: "var(--color-beige)" }}
-                  variants={hideImage}
-                  initial="visible"
-                  animate={sectionInView1 ? "hidden" : "visible"}
-                  exit="hidden"
-                />
+              <BorderRadius
+                variants={hideImage}
+                initial="visible"
+                animate={sectionInView1 ? "hidden" : "visible"}
+                exit="hidden"
+              >
                 <StaticImage
                   src="../../images/Programs/programs-acupuncture.png"
                   alt="A practitioner carefully performs acupuncture on a patient's foot."
@@ -255,14 +253,12 @@ const OurPrograms = ({ data }) => {
               initial="hidden"
               animate={sectionInView2 ? "visible" : "hidden"}
             >
-              <BorderRadius>
-                <HideImage
-                  style={{ backgroundColor: "var(--color-brown)" }}
-                  variants={hideImage}
-                  initial="visible"
-                  animate={sectionInView2 ? "hidden" : "visible"}
-                  exit="hidden"
-                />
+              <BorderRadius
+                variants={hideImage}
+                initial="visible"
+                animate={sectionInView2 ? "hidden" : "visible"}
+                exit="hidden"
+              >
                 <StaticImage
                   src="../../images/Programs/programs-cupping.png"
                   alt="A practitioner performs cupping on a patient with 6 cups on their back."
@@ -318,14 +314,12 @@ const OurPrograms = ({ data }) => {
               initial="hidden"
               animate={sectionInView3 ? "visible" : "hidden"}
             >
-              <BorderRadius>
-                <HideImage
-                  style={{ backgroundColor: "var(--color-sandbeige)" }}
-                  variants={hideImage}
-                  initial="visible"
-                  animate={sectionInView3 ? "hidden" : "visible"}
-                  exit="hidden"
-                />
+              <BorderRadius
+                variants={hideImage}
+                initial="visible"
+                animate={sectionInView3 ? "hidden" : "visible"}
+                exit="hidden"
+              >
                 <StaticImage
                   src="../../images/Programs/programs-tcmp.png"
                   alt="A professor leads a group in Tai Chi in one of our salons."
@@ -418,14 +412,13 @@ const OurPrograms = ({ data }) => {
               initial="hidden"
               animate={sectionInView4 ? "visible" : "hidden"}
             >
-              <BorderRadius>
-                <HideImage
-                  style={{ backgroundColor: "var(--color-salmon)" }}
-                  variants={hideImage}
-                  initial="visible"
-                  animate={sectionInView4 ? "hidden" : "visible"}
-                  exit="hidden"
-                />
+              <BorderRadius
+                variants={hideImage}
+                initial="visible"
+                animate={sectionInView4 ? "hidden" : "visible"}
+                exit="hidden"
+              >
+               
                 <StaticImage
                   src="../../images/Programs/programs-herbology.png"
                   alt="A picture of a collection of herbs and jars from our Apothecary."
@@ -698,15 +691,6 @@ const ProgramSection = styled.div`
   }
 `
 
-const HideImage = styled(motion.div)`
-  position: absolute;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-`
-
 const ProgramInner = styled.div`
   width: 90%;
   padding: 6rem 0;
@@ -906,7 +890,7 @@ const SvgWrapper = styled.div`
   }
 `
 
-const BorderRadius = styled.div`
+const BorderRadius = styled(motion.div)`
   position: relative;
   overflow: hidden;
   border-radius: 20px;
@@ -915,7 +899,7 @@ const BorderRadius = styled.div`
     border-radius: 10px;
   }
   @media (max-width: ${breakpoints.s}px) {
-    border-radius: 5px!important;
+    border-radius: 5px !important;
   }
 `
 
@@ -947,29 +931,30 @@ const TemporarilyUnavailable = styled.div`
   align-items: baseline;
   font-family: "matter-regular";
 
-  p, svg {
-    filter: opacity(0.4)!important;
-    color: black!important;
+  p,
+  svg {
+    filter: opacity(0.4) !important;
+    color: black !important;
   }
-  
+
   svg {
     margin-right: 0.5rem;
     transform: translateY(0.1rem);
   }
 
   p {
-    margin: 0!important;
-    padding-bottom: 0!important;
-    padding-right: 0.75rem!important;
-    padding-top: 1rem!important;
-    font-family: "Matter-regular"!important;
-    font-size: 19px!important;
+    margin: 0 !important;
+    padding-bottom: 0 !important;
+    padding-right: 0.75rem !important;
+    padding-top: 1rem !important;
+    font-family: "Matter-regular" !important;
+    font-size: 19px !important;
     transition: var(--hover-transition);
   }
 
   @media (max-width: ${breakpoints.xl}px) {
     p {
-      font-size: 17px!important;
+      font-size: 17px !important;
     }
   }
 `
@@ -1027,7 +1012,7 @@ const CertificatePrograms = styled.section`
     color: #00000060;
 
     strong {
-      letter-spacing: 0rem!important;
+      letter-spacing: 0rem !important;
       color: #00000090;
     }
   }

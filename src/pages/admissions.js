@@ -20,10 +20,10 @@ const Admissions = ({ data }) => {
 
   const hideImage = {
     visible: {
-      y: 0,
+      clipPath: "inset(100% 0% 0% 0%)",
     },
     hidden: {
-      y: "-100%",
+      clipPath: "inset(0% 0% 0% 0%)",
       transition: {
         delay: 0.15,
         ease: "easeInOut",
@@ -128,14 +128,13 @@ const Admissions = ({ data }) => {
             </BookNowButton>
           </motion.h6>
         </AdmissionsHeader>
-        <AdmissionsImage ref={HideImageRef}>
-          <HideImage
-            style={{ backgroundColor: "var(--color-lightestbeige)" }}
-            variants={hideImage}
-            initial="visible"
-            animate={HideImageInView ? "hidden" : "visible"}
-            exit="hidden"
-          />
+        <AdmissionsImage
+          ref={HideImageRef}
+          variants={hideImage}
+          initial="visible"
+          animate={HideImageInView ? "hidden" : "visible"}
+          exit="hidden"
+        >
           <StaticImage
             src="../images/Admissions/admissionsbanner.png"
             alt="Image of practitioners checking the tongue health of a student."
@@ -447,18 +446,9 @@ const BookNowButton = styled.a`
   }
 `
 
-const AdmissionsImage = styled.div`
+const AdmissionsImage = styled(motion.div)`
   position: relative;
   height: 100%;
-`
-
-const HideImage = styled(motion.div)`
-  position: absolute;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
 `
 
 const AcademicRequirements = styled.section`

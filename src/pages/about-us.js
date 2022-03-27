@@ -53,10 +53,10 @@ const AboutUs = ({ data }) => {
 
   const hideImage = {
     visible: {
-      y: 0,
+      clipPath: "inset(100% 0% 0% 0%)",
     },
     hidden: {
-      y: "-100%",
+      clipPath: "inset(0% 0% 0% 0%)",
       transition: {
         delay: 0.15,
         ease: "easeInOut",
@@ -84,10 +84,8 @@ const AboutUs = ({ data }) => {
       y: 0,
       opacity: 1,
       transition: {
-        // delay: 0.5,
         duration: 1,
         ease: "easeInOut",
-        // staggerChildren: 0.5,
       },
     },
   }
@@ -230,21 +228,22 @@ const AboutUs = ({ data }) => {
       />
       <AboutUsSection ref={OurStoryRef}>
         <Left>
-          <HideImageBeige
+          <HideImage
             variants={hideImage}
             initial="visible"
-            animate={OurStoryInView ? "hidden" : "false"}
+            animate={OurStoryInView ? "hidden" : "visible"}
             exit="hidden"
-          />
-          <StaticImage
-            src="../images/AboutUs/school.png"
-            alt="Image of an office within our school. A wooden table is pictured against a green wall backdrop, surrounded by decorative plants."
-            quality={100}
-            placeholder="none"
-            transformOptions={{ cropFocus: "center" }}
-            imgStyle={{ objectFit: "cover" }}
-            style={{ height: "100%" }}
-          />
+          >
+            <StaticImage
+              src="../images/AboutUs/school.png"
+              alt="Image of an office within our school. A wooden table is pictured against a green wall backdrop, surrounded by decorative plants."
+              quality={100}
+              placeholder="none"
+              transformOptions={{ cropFocus: "center" }}
+              imgStyle={{ objectFit: "cover" }}
+              style={{ height: "100%" }}
+            />
+          </HideImage>
         </Left>
         <Right variants={parent} initial="hidden" animate="visible">
           <motion.h3 variants={fadeIn}>
@@ -626,12 +625,11 @@ const Left = styled.div`
   }
 `
 
-const HideImageBeige = styled(motion.div)`
+const HideImage = styled(motion.div)`
   position: absolute;
   z-index: 2;
   width: 100%;
   height: 100%;
-  background-color: var(--color-sandbeige);
   top: 0;
   left: 0;
 `

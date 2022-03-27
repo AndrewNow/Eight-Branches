@@ -15,10 +15,10 @@ import { AcademicAdvisor } from "../components/generalcomponents"
 const HomePage = ({ data }) => {
   const hideImage = {
     visible: {
-      y: 0,
+      clipPath: "inset(100% 0% 0% 0%)",
     },
     hidden: {
-      y: "-100%",
+      clipPath: "inset(0% 0% 0% 0%)",
       transition: {
         delay: 0.15,
         ease: "easeInOut",
@@ -28,10 +28,10 @@ const HomePage = ({ data }) => {
   }
   const hideDiplomaImage = {
     visible: {
-      y: 0,
+      clipPath: "inset(100% 0% 0% 0%)",
     },
     hidden: {
-      y: "-100%",
+      clipPath: "inset(0% 0% 0% 0%)",
       transition: {
         // delay: 0.2,
         ease: "easeInOut",
@@ -266,21 +266,21 @@ const HomePage = ({ data }) => {
       <LandingSection>
         <LeftSection ref={HideImageRef}>
           <HideImage
-            style={{ backgroundColor: "var(--color-beige)" }}
             variants={hideImage}
             initial="visible"
             animate={HideImageInView ? "hidden" : "visible"}
             exit="hidden"
-          />
-          <StaticImage
-            src="../images/HomePage/home.png"
-            alt="Soft image of a practitioner performing acupuncture on a foot."
-            quality={100}
-            placeholder="none"
-            transformOptions={{ cropFocus: "bottom" }}
-            imgStyle={{ objectFit: "cover" }}
-            style={{ height: "100%" }}
-          />
+          >
+            <StaticImage
+              src="../images/HomePage/home.png"
+              alt="Soft image of a practitioner performing acupuncture on a foot."
+              quality={100}
+              placeholder="none"
+              transformOptions={{ cropFocus: "bottom" }}
+              imgStyle={{ objectFit: "cover" }}
+              style={{ height: "100%" }}
+            />
+          </HideImage>
         </LeftSection>
         <RightSection>
           <LandingTextWrapper
@@ -351,14 +351,12 @@ const HomePage = ({ data }) => {
               <DiplomaReadMore to={diploma.path}>View Program</DiplomaReadMore>
             </EntryText>
             <EntryImage>
-              <BorderRadius>
-                <HideImage
-                  style={{ backgroundColor: "var(--color-lightestbeige)" }}
-                  variants={hideDiplomaImage}
-                  initial="visible"
-                  animate={diploma.inView ? "hidden" : "visible"}
-                  exit="hidden"
-                />
+              <BorderRadius
+                variants={hideDiplomaImage}
+                initial="visible"
+                animate={diploma.inView ? "hidden" : "visible"}
+                exit="hidden"
+              >
                 {diploma.image}
               </BorderRadius>
             </EntryImage>
@@ -873,7 +871,7 @@ const EntryImage = styled.div`
   }
 `
 
-const BorderRadius = styled.div`
+const BorderRadius = styled(motion.div)`
   border-radius: 30px;
   overflow: hidden;
 
