@@ -12,7 +12,7 @@
     "embla-carousel": "^6.0.1",
     "embla-carousel-react": "^6.0.1",
     "framer-motion": "^5.3.0",
-    "gatsby": "^4.11.0",
+    "gatsby": "^4.7.0",
     "gatsby-plugin-facebook-pixel": "^1.0.8",
     "gatsby-plugin-feed": "^4.2.0",
     "gatsby-plugin-gatsby-cloud": "^4.2.0",
