@@ -131,17 +131,18 @@ const News = ({ data, location }) => {
                   suffix +
                   ` (${time})`
 
+
                 return (
                   eventDataQuery && (
-                    <Event>
+                    <Event key={slug}>
                       <div>
                         <EventLink to={slug} itemProp="url">
-                          <h4 key={slug}>{title}</h4>
+                          <h4>{title}</h4>
                         </EventLink>
                         <h6>Hosted by: {host}</h6>
                         <h6>
                           {!formattedEventDate ||
-                          formattedEventDate === "Invalid date"
+                          formattedEventDate.includes("undefined")
                             ? "Date TBD"
                             : `${formattedEventDate}`}
                         </h6>
@@ -279,7 +280,7 @@ export const pageQuery = graphql`
         sourceInstanceName: { eq: "events" }
         internal: { mediaType: { eq: "text/markdown" } }
       }
-      sort: { fields: childMarkdownRemark___frontmatter___date, order: DESC }
+      sort: { fields: childMarkdownRemark___frontmatter___date, order: ASC }
     ) {
       edges {
         node {
@@ -382,7 +383,7 @@ const Event = styled.article`
 
   h6 {
     :last-child {
-      padding-bottom: .5rem;
+      padding-bottom: 0.5rem;
     }
   }
 
@@ -425,8 +426,8 @@ const SignUpLink = styled(Link)`
 
   transition: 0.25s all ease-in-out;
   :hover {
-    color: var(--color-white);
-    background-color: var(--color-darkgreen);
+    color: var(--color-darkgreen);
+    background-color: var(--color-white);
   }
 `
 
