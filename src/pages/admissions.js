@@ -750,12 +750,14 @@ const TermInner = styled.div`
 const TermItem = styled.div`
   display: flex;
   justify-content: space-between;
-
+  max-width: 50%;
   h6 {
     padding-left: 1rem;
   }
   svg {
     transform: translateY(0.5rem);
+    min-width: 24px;
+    aspect-ratio: 1/1;
   }
 
   @media (max-width: ${breakpoints.l}px) {
