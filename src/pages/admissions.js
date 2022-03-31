@@ -335,7 +335,7 @@ const Admissions = ({ data }) => {
                     <TermItem>
                       <AiOutlineClockCircle size={24} />
                       <DeadlineText>
-                        Applications due: {term.endDate}
+                        Applications due: {term.info}
                       </DeadlineText>
                     </TermItem>
                   </TermInner>
