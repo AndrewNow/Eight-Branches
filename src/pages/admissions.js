@@ -740,7 +740,8 @@ const Term = styled.div``
 const TermInner = styled.div`
   padding-top: 1rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  min-width: 50%;
 
   @media (max-width: ${breakpoints.l}px) {
     flex-direction: column;
@@ -749,8 +750,11 @@ const TermInner = styled.div`
 
 const TermItem = styled.div`
   display: flex;
-  justify-content: space-between;
-  max-width: 50%;
+  justify-content: flex-start;
+  :first-child {
+    min-width: 50%;
+    margin-right: 1rem;
+  }
   h6 {
     padding-left: 1rem;
   }
@@ -763,6 +767,8 @@ const TermItem = styled.div`
   @media (max-width: ${breakpoints.l}px) {
     padding-bottom: 1rem;
     justify-content: flex-start;
+    min-width: 100%;
+    max-width: 100%;
 
     svg {
       align-self: flex-start;
