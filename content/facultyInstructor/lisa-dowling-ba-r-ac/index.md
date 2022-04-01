@@ -2,7 +2,7 @@
 ordernumber: 1
 title: "Lisa Dowling BA, R.Ac. "
 role: Instructor
-portrait: headshot.png
+portrait: lisa.png
 ---
 Acupuncturist and Manual Therapist
 
