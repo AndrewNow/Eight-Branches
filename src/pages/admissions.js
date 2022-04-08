@@ -70,6 +70,9 @@ const Admissions = ({ data }) => {
     threshold: 0.4,
     triggerOnce: true,
   })
+
+  console.log(HideImageInView)
+
   const [Requirement1Ref, Requirement1InView] = useInView({
     root: null,
     threshold: 0.35,
@@ -110,7 +113,7 @@ const Admissions = ({ data }) => {
           `best school for acupuncture`,
         ]}
       />
-      <HeaderWrapper>
+      <HeaderWrapper ref={HideImageRef}>
         <AdmissionsHeader variants={FadeIn} initial="hidden" animate="visible">
           <motion.h1 variants={FadeIn}>Student Admissions</motion.h1>
           <motion.h6 variants={FadeIn}>
@@ -129,7 +132,6 @@ const Admissions = ({ data }) => {
           </motion.h6>
         </AdmissionsHeader>
         <AdmissionsImage
-          ref={HideImageRef}
           variants={hideImage}
           initial="visible"
           animate={HideImageInView ? "hidden" : "visible"}
@@ -139,6 +141,7 @@ const Admissions = ({ data }) => {
             src="../images/Admissions/admissionsbanner.png"
             alt="Image of practitioners checking the tongue health of a student."
             quality={100}
+            placeholder="blurred"
             imgStyle={{ objectFit: "cover" }}
             style={{ minWidth: "100%", maxHeight: "525px" }}
           />
@@ -321,8 +324,8 @@ const Admissions = ({ data }) => {
 
           {admissions.list?.map((term, i) => {
             return (
-              <>
-                <Term key={i}>
+              <span key={i}>
+                <Term>
                   <h3>{term.termTitle}</h3>
                   <TermInner>
                     <TermItem>
@@ -334,14 +337,12 @@ const Admissions = ({ data }) => {
                     </TermItem>
                     <TermItem>
                       <AiOutlineClockCircle size={24} />
-                      <DeadlineText>
-                        Applications due: {term.info}
-                      </DeadlineText>
+                      <DeadlineText>Applications due: {term.info}</DeadlineText>
                     </TermItem>
                   </TermInner>
                 </Term>
                 <DividingLine />
-              </>
+              </span>
             )
           })}
         </Right>

@@ -13,7 +13,8 @@ export const GoogleMaps = () => {
           <h3>Visit Us</h3>
           <a href="https://g.page/EightBranches?share" target="blank">
             <h6>
-              112 Merton St 3rd floor, <br /> Toronto, ON M4S 2Z8
+              {/* 112 Merton St 3rd floor, <br /> Toronto, ON M4S 2Z8 */}
+              {contactInfo.address.street}
             </h6>
           </a>
           <h3>Contact Us</h3>
@@ -129,7 +130,10 @@ const MapText = styled.div`
   > :nth-child(2) {
     margin-bottom: 5rem;
   }
-
+  h6 {
+    max-width: 55%;
+    margin: 0 auto;
+  }
   a {
     font-size: 24px;
     line-height: 35px;

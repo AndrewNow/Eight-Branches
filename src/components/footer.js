@@ -132,10 +132,7 @@ const Footer = () => {
                     </a>
                     <br />
                     <br />
-                    <a
-                      href="https://goo.gl/maps/c1mUx1rVNAh6rBZ59"
-                      target="blank"
-                    >
+                    <a href="https://g.page/EightBranches?share" target="blank">
                       {contactInfo.address.street}
                     </a>
                   </div>
