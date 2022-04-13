@@ -382,9 +382,7 @@ const OurPrograms = ({ data }) => {
               <motion.h6 variants={fadeIn}>
                 This program qualifies graduates to apply for professional
                 membership as a Registered Herbalist (RH) with the Ontario
-                Herbalists Association and to write the Pan-Canadian regulatory
-                examinations. Herbology graduates can become a Registered TCM
-                Herbalist. (R.TCM.H)
+                Herbalists Association.
               </motion.h6>
               <ProgramLink
                 variants={fadeIn}
@@ -418,7 +416,6 @@ const OurPrograms = ({ data }) => {
                 animate={sectionInView4 ? "hidden" : "visible"}
                 exit="hidden"
               >
-               
                 <StaticImage
                   src="../../images/Programs/programs-herbology.png"
                   alt="A picture of a collection of herbs and jars from our Apothecary."
