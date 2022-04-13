@@ -1,5 +1,5 @@
 ---
-title: Meridian Cupping wLisa Dowling
+title: Meridian Cupping with Lisa Dowling
 link: https://eightbranches.classe365.com/form/view/MERIDIANCUPPINGLisaDowling
 date: 2022-04-23T14:00:30.301Z
 host: Lisa Dowling
