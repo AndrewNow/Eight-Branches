@@ -12,7 +12,7 @@ const Herbology = ({ data }) => {
     programName: "Herbology",
     programType: "Diploma Program",
     about:
-      "This program qualifies graduates to apply for professional membership as a Registered Herbalist (RH) with the Ontario Herbalists Association and to write the Pan-Canadian regulatory examinations and to become a Registered TCM Herbalist (R.TCM.H) The program can be completed in 2 years studying part-time (6 semesters). The program combines Eastern and Western medical theory, clinical practice and internships. In addition to herbology, the curriculum includes training in eastern nutrition, TCM Theory & Diagnostics, advanced Formula preparation, Internal & External Medicine, Gynaecology & Paediatrics.",
+      "This program qualifies graduates to apply for professional membership as a Registered Herbalist (RH) with the Ontario Herbalists Association. The program can be completed in 2 years studying part-time (6 semesters). The program combines Eastern and Western medical theory, clinical practice and internships. In addition to herbology, the curriculum includes training in eastern nutrition, TCM Theory & Diagnostics, advanced Formula preparation, Internal & External Medicine, Gynaecology & Paediatrics.",
     image: (
       <StaticImage
         src="../../../images/Programs/diploma-herbology.png"
