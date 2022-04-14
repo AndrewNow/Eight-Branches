@@ -21,6 +21,8 @@ History, safety, indications, contraindications, current research.
 
 The use of fire cups and silicone cups with mobilizations.
 
+
+
 **COURSE DETAILS**
 
 Located: Eight Branches Academy
@@ -29,7 +31,7 @@ Date: April 23-24
 
 Time: 10am - 6pm
 
-**Early bird $499 until April 10 $549 after**
+**Early bird is $499 until April 10. After it will be $549.**
 
 *This class is open to shiatsu therapists acupuncturists, and those with prior knowledge of the meridians.*
 
