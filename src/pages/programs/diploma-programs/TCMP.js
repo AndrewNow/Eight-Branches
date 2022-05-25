@@ -151,7 +151,7 @@ const Herbology = ({ data }) => {
                 label: "Summer Term",
                 courses: [
                   {
-                    code: "PRO-7002",
+                    code: "PRO-7005",
                     title: "Career Planning, Exam Preparation",
                     type: "Preparatory",
                     credits: 3,
@@ -443,7 +443,7 @@ const Herbology = ({ data }) => {
                 label: "Summer Term",
                 courses: [
                   {
-                    code: "PRO-7002",
+                    code: "PRO-7005",
                     title: "Career Planning, Exam Preparation",
                     type: "Preparatory",
                     credits: 3,
