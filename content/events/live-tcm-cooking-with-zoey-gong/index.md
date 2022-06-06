@@ -1,7 +1,7 @@
 ---
 title: Live TCM Cooking with Zoey Gong
 link: https://us02web.zoom.us/meeting/register/tZAvcO6oqzoiHNNZvTpNwfam5l1EOAJvgUp0
-date: 2022-07-07T22:00:00.000Z
+date: 2022-07-06T22:00:00.000Z
 host: Eight Branches
 thumbnail: image-from-ios-43-.jpg
 ---
