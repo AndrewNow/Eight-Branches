@@ -70,6 +70,13 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        path: `${__dirname}/content/alumni`,
+        name: `alumni`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         path: `${__dirname}/content/facultyInstructor`,
         name: `facultyInstructor`,
       },

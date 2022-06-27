@@ -6,7 +6,7 @@ import Seo from "../../../components/seo"
 import ProgramLayout from "../../../components/ProgramPageTemplates/programLayout"
 
 const Herbology = ({ data }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Herbology`
+  const siteTitle = data.site.siteMetadata?.title || `Herbology Program`
 
   const programData = {
     programName: "Herbology",
@@ -259,7 +259,11 @@ const Herbology = ({ data }) => {
 
   return (
     <Layout title={siteTitle}>
-      <Seo title="Herbology" />
+      <Seo
+        title="Herbology Program"
+        description="This program qualifies graduates to apply for professional membership as
+a Registered Herbalist (RH) with the Ontario Herbalists Association."
+      />
       <ProgramLayout programData={programData} />
     </Layout>
   )

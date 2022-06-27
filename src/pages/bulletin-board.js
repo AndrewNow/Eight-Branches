@@ -32,6 +32,8 @@ const News = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <Seo
         title="News"
+        description="See upcoming Workshops, Webinars and CEU opportunities at Eight Branches.
+Interested in hosting one? Contact us as well."
         keywords={[
           `Acupuncture learn online`,
           `Acupuncture school online`,
@@ -130,7 +132,6 @@ const News = ({ data, location }) => {
                   `${dayOfTheMonth}` +
                   suffix +
                   ` (${time})`
-
 
                 return (
                   eventDataQuery && (

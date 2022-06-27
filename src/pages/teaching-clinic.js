@@ -11,7 +11,7 @@ import { GoogleMaps } from "../components/generalcomponents"
 import teachingClinic from "../../site/settings/teaching_clinic.json"
 
 const TeachingClinic = ({ data }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Teaching Clinic`
+  const siteTitle = data.site.siteMetadata?.title || `Book a treatment with our students`
   const [open, setOpen] = useState(false)
 
   const FadeIn = {
@@ -225,7 +225,8 @@ const TeachingClinic = ({ data }) => {
   return (
     <Layout title={siteTitle}>
       <Seo
-        title="Teaching Clinic"
+        title="Book a treatment with our students"
+        description="Affordable Acupuncture starting at $10. Open to all members of the public."
         keywords={[
           `Eight Branches`,
           `Eight Branches Toronto`,

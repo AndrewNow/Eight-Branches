@@ -13,7 +13,7 @@ import { ApplyNow, AcademicAdvisor } from "../../components/generalcomponents"
 import { AiOutlineClockCircle } from "react-icons/ai"
 
 const OurPrograms = ({ data }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Our Programs`
+  const siteTitle = data.site.siteMetadata?.title || `Explore Our Programs`
 
   // ---------- INTERSECTION OBSERVER LOGIC ----------
   const [SectionRef1, sectionInView1] = useInView({
@@ -122,7 +122,8 @@ const OurPrograms = ({ data }) => {
   return (
     <Layout title={siteTitle}>
       <Seo
-        title="Our Programs"
+        title="Explore Our Programs"
+        description="Explore Programs Available at Eight Branches."
         keywords={[
           `Eight Branches`,
           `Eight Branches toronto`,
@@ -138,40 +139,46 @@ const OurPrograms = ({ data }) => {
       />
 
       <SectionWrapper>
+        <BannerText variants={fadeIn} initial="hidden" animate="visible">
+          <motion.h1 variants={fadeIn}>
+            Explore Programs Available at Eight Branches
+          </motion.h1>
+          <motion.h5 variants={fadeIn}>
+            Our college offers a rich experience across a wide gamut of academic
+            environments. Explore our programs to find one that suits you best.
+          </motion.h5>
+        </BannerText>
         <ImageBanner>
-          <BannerText variants={fadeIn} initial="hidden" animate="visible">
-            <motion.h1 variants={fadeIn}>Our Programs</motion.h1>
-            <motion.h5 variants={fadeIn}>
-              Our college offers a rich experience across a wide gamut of
-              academic environments. Explore our programs to find one that suits
-              you best.
-            </motion.h5>
-          </BannerText>
           <StaticImage
             src="../../images/TeachingClinic/banner.png"
             alt="Beige background image with a tea set in the foreground."
+            placeholder="blurred"
             quality={100}
+            width={1920}
+            // layout="fullWidth"
             layout="constrained"
+            objectPosition="65% bottom"
+            loading="eager"
+            objectFit="cover"
+            transformOptions={{ fit: "cover", cropFocus: "right bottom" }}
+            imgStyle={{ objectFit: "cover" }}
+            className="imageHeight"
           />
-        </ImageBanner>
-
-        <ImageBannerMobile>
-          <BannerText variants={fadeIn} initial="hidden" animate="visible">
-            <motion.h1 variants={fadeIn}>Our Programs</motion.h1>
-            <motion.h5 variants={fadeIn}>
-              Our college offers a rich experience across a wide gamut of
-              academic environments. Explore our programs to find one that suits
-              you best.
-            </motion.h5>
-          </BannerText>
-
           <StaticImage
             src="../../images/TeachingClinic/mobilebanner.png"
             alt="Beige background image with a bonsai in the foreground."
             quality={100}
+            placeholder="blurred"
+            width={900}
             layout="constrained"
+            loading="eager"
+            className="mobileImage"
+            objectFit="cover"
+            objectPosition="50% bottom"
+            transformOptions={{ fit: "cover", cropFocus: "right bottom" }}
+            imgStyle={{ objectFit: "cover", cropFocus: "right bottom" }}
           />
-        </ImageBannerMobile>
+        </ImageBanner>
       </SectionWrapper>
 
       <ProgramContainer>
@@ -204,10 +211,10 @@ const OurPrograms = ({ data }) => {
               animate={sectionInView1 ? "visible" : "hidden"}
               ref={SectionRef1}
             >
-              <motion.h1 variants={fadeIn}>
+              <motion.h2 variants={fadeIn}>
                 Acupuncture & <br />
                 Moxibustion
-              </motion.h1>
+              </motion.h2>
               <motion.h6 variants={fadeIn}>
                 This program qualifies graduates to write the Pan-Canadian
                 regulatory examinations and to become a Registered Acupuncturist
@@ -275,9 +282,9 @@ const OurPrograms = ({ data }) => {
               animate={sectionInView2 ? "visible" : "hidden"}
               ref={SectionRef2}
             >
-              <motion.h1 variants={fadeIn}>
+              <motion.h2 variants={fadeIn}>
                 Traditional Chinese <br /> Medicine Practitioner
-              </motion.h1>
+              </motion.h2>
               <motion.h6 variants={fadeIn}>
                 This program qualifies graduates to write the Pan-Canadian
                 regulatory examinations and to become a Registered Acupuncturist
@@ -336,10 +343,10 @@ const OurPrograms = ({ data }) => {
               animate={sectionInView3 ? "visible" : "hidden"}
               ref={SectionRef3}
             >
-              <motion.h1 variants={fadeIn}>
+              <motion.h2 variants={fadeIn}>
                 Post-Graduate <br />
                 Advanced TCMP
-              </motion.h1>
+              </motion.h2>
               <motion.h6 variants={fadeIn}>
                 This one year post-graduate program is available for R. TCMPs to
                 qualify as an Advanced Registered Traditional Chinese Medicine
@@ -378,7 +385,7 @@ const OurPrograms = ({ data }) => {
               animate={sectionInView4 ? "visible" : "hidden"}
               ref={SectionRef4}
             >
-              <motion.h1 variants={fadeIn}>Herbology</motion.h1>
+              <motion.h2 variants={fadeIn}>Herbology</motion.h2>
               <motion.h6 variants={fadeIn}>
                 This program qualifies graduates to apply for professional
                 membership as a Registered Herbalist (RH) with the Ontario
@@ -588,30 +595,73 @@ const SectionWrapper = styled.div`
   width: 100%;
   margin: 0 auto;
   background-color: var(--color-beige);
+  position: relative;
 `
 
 const ImageBanner = styled.div`
-  width: 100%;
-  overflow: hidden;
-  margin: 0 auto;
   position: relative;
-  bottom: 0;
+  display: block;
+  width: 100%;
+  height: 850px;
+  /* max-height: 90vh; */
+  /* min-height: 50vh; */
+  /* overflow: hidden;
+  margin: 0 auto;
+  bottom: 0; */
 
-  @media (max-width: ${breakpoints.m}px) {
+  & .imageHeight {
+    height: 100%;
+  }
+  & .mobileImage {
     display: none;
   }
-`
+  @media (max-width: ${breakpoints.xxl}px) {
+    height: 800px;
+  }
+  @media (max-width: ${breakpoints.xl}px) {
+    height: 700px;
+    .imageHeight {
+      max-width: 100%;
+    }
+  }
 
-const ImageBannerMobile = styled.div`
-  display: none;
+  @media (max-width: ${breakpoints.l}px) {
+    height: 600px;
+  }
 
-  @media (max-width: ${breakpoints.m}px) {
+  @media (max-width: 860px) {
     display: block;
     width: 100%;
-    /* height: 75vh; */
+    height: 65vh;
     overflow: hidden;
     margin: 0 auto;
     position: relative;
+
+    /* & .imageHeight {
+      display: none;
+    }
+    & .mobileImage {
+      height: 100%;
+      display: block;
+    } */
+  }
+  @media (max-width: 700px) {
+    height: 55vh;
+  }
+
+  @media (max-width: 600px) {
+    /* height: 90vh; */
+    height: 75vh;
+    & .imageHeight {
+      display: none;
+    }
+    & .mobileImage {
+      height: 100%;
+      display: block;
+    }
+  }
+  @media (max-width: 490px) {
+    height: 75vh;
   }
 `
 
@@ -620,24 +670,42 @@ const BannerText = styled(motion.div)`
   z-index: 20;
   top: 25%;
   left: 10%;
-  width: 37.5%;
+  width: 55%;
   h1 {
-    white-space: nowrap;
     padding-bottom: 0.5rem;
+    /* width: 50%; */
   }
 
   h5 {
     margin-top: 1rem;
-    width: 100%;
+    width: 70%;
+  }
+  @media (max-width: 1500px) {
+    width: 60%;
+    h1 {
+      width: 100%;
+    }
   }
   @media (max-width: ${breakpoints.xl}px) {
-    width: 50%;
+    width: 60%;
+    h5 {
+      width: 100%;
+    }
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    width: 75%;
+    h1 {
+      width: 100%;
+    }
+    h5 {
+      width: 80%;
+    }
   }
 
   @media (max-width: ${breakpoints.m}px) {
     width: 90%;
     left: 5vw;
-    top: 30vw;
+    /* top: 30vw; */
 
     h1 {
       padding-bottom: 0.5rem;
@@ -647,6 +715,13 @@ const BannerText = styled(motion.div)`
       margin-top: 0rem;
     }
   }
+  
+  @media (max-width: ${breakpoints.s}px) {
+    h5 {
+      width: 100%;
+    }
+  }
+
   @media (max-width: ${breakpoints.xs}px) {
     bottom: 1rem;
   }
@@ -754,7 +829,8 @@ const ProgramText = styled(motion.div)`
   z-index: 2;
   align-self: center;
 
-  h1 {
+  h2 {
+    font-family: "Reckless-light" !important;
     padding-bottom: 1rem;
     white-space: nowrap;
   }
@@ -764,7 +840,7 @@ const ProgramText = styled(motion.div)`
   }
 
   @media (max-width: ${breakpoints.xxl}px) {
-    h1 {
+    h2 {
       font-size: 50px;
       line-height: 58px;
     }
@@ -775,7 +851,7 @@ const ProgramText = styled(motion.div)`
     /* margin: 0 2rem; */
     margin-left: 2rem;
 
-    h1 {
+    h2 {
       font-size: 40px;
       line-height: 130%;
     }
@@ -785,7 +861,7 @@ const ProgramText = styled(motion.div)`
   }
 
   @media (max-width: ${breakpoints.l}px) {
-    h1 {
+    h2 {
       white-space: normal;
     }
   }
@@ -794,7 +870,7 @@ const ProgramText = styled(motion.div)`
     padding-top: 0rem;
     margin: 0;
 
-    h1 {
+    h2 {
       font-size: 45px;
     }
 
@@ -803,7 +879,7 @@ const ProgramText = styled(motion.div)`
     }
   }
   @media (max-width: ${breakpoints.s}px) {
-    h1 {
+    h2 {
       font-size: 36px;
     }
     h6 {

@@ -9,7 +9,7 @@ import FacultyInstructorQuery from "../components/Faculty/facultyInstructorQuery
 import breakpoints from "../components/breakpoints"
 
 const OurFaculty = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Our Faculty`
+  const siteTitle = data.site.siteMetadata?.title || `Meet Our Faculty`
 
   if (data.facultyLeadership.edges.length === 0) {
     return (
@@ -31,7 +31,9 @@ const OurFaculty = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Seo
-        title="Our Faculty"
+        title="Meet Our Faculty"
+        description="With a Diverse and International faculty, Eight Branches provides both traditional
+and modern takes on TCM."
         keywords={[
           `Eight Branches`,
           `Eight Branches Toronto`,
@@ -224,7 +226,7 @@ const FacultyGrid = styled.div`
   }
 `
 
-const OurPartners = styled.div`
+const OurPartners = styled.section`
   background-color: var(--color-charcoal);
   color: var(--color-beige);
   padding: 7rem 0;

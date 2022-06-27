@@ -93,6 +93,8 @@ const Admissions = ({ data }) => {
     <Layout title={siteTitle}>
       <Seo
         title="Admissions"
+        description="Book a free call with a career advisor to see which programs at Eight Branches
+are right for you."
         keywords={[
           `Eight Branches`,
           `Eight Branches admissions`,
@@ -115,7 +117,7 @@ const Admissions = ({ data }) => {
       />
       <HeaderWrapper ref={HideImageRef}>
         <AdmissionsHeader variants={FadeIn} initial="hidden" animate="visible">
-          <motion.h1 variants={FadeIn}>Student Admissions</motion.h1>
+          <motion.h1 variants={FadeIn}>Study at Eight Branches</motion.h1>
           <motion.h6 variants={FadeIn}>
             Interested in studying at Eight Branches? Learn about the admissions
             procedure and ensure that you meet the necessary requirements when

@@ -15,7 +15,8 @@ import { useInView } from "react-intersection-observer"
 import teachingClinic from "../../site/settings/teaching_clinic.json"
 
 const AboutUs = ({ data }) => {
-  const siteTitle = data.site.siteMetadata?.title || `About Us`
+  const siteTitle =
+    data.site.siteMetadata?.title || `What is Eight Branches About?`
   const [expand, setExpand] = useState(false)
 
   const clickExpand = {
@@ -205,7 +206,9 @@ const AboutUs = ({ data }) => {
   return (
     <Layout title={siteTitle}>
       <Seo
-        title="About Us"
+        title="What is Eight Branches About?"
+        description="With the highest graduate pass rates for acupuncture and herbal medicine on Pan-Canadian
+Exams, Eight Branches is the top choice for future leaders in TCM."
         keywords={[
           `Eight Branches`,
           `Eight Branches Toronto`,

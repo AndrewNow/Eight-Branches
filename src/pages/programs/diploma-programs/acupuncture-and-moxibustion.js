@@ -6,7 +6,7 @@ import Seo from "../../../components/seo"
 import ProgramLayout from "../../../components/ProgramPageTemplates/programLayout"
 
 const Herbology = ({ data }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Acupuncture & Moxibustion`
+  const siteTitle = data.site.siteMetadata?.title || `Acupuncture & Moxibustion Diploma Program`
 
   const programData = {
     programName: "Acupuncture & Moxibustion",
@@ -634,7 +634,11 @@ const Herbology = ({ data }) => {
 
   return (
     <Layout title={siteTitle}>
-      <Seo title="Acupuncture & Moxibustion" />
+      <Seo
+        title="Acupuncture Diploma Program"
+        description="Our 2 year and 3 year acupuncture diploma program trains students to
+become registered acupuncturists."
+      />
       <ProgramLayout programData={programData} />
     </Layout>
   )
