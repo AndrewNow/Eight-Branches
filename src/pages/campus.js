@@ -168,7 +168,7 @@ const Campus = ({ data }) => {
                       <GatsbyImage
                         image={image.node.childImageSharp.gatsbyImageData}
                         alt={
-                          "Images of the campus, including lecture halls, teaching "
+                          "Images of the campus, including lecture halls, teaching clinic, etc."
                         }
                         imgStyle={{ objectFit: "cover" }}
                         style={{ height: "100%" }}
