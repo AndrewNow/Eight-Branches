@@ -419,6 +419,7 @@ const AdmissionsHeader = styled(motion.div)`
   @media (max-width: ${breakpoints.s}px) {
     padding-bottom: 4rem;
     h1 {
+      width: 95%;
       padding-bottom: 1rem;
     }
     h6 {

@@ -24,9 +24,9 @@ const Footer = () => {
 
   useEffect(() => {
     const onScroll = () => {
-      const footerDivCoords = footerRef.current.getBoundingClientRect()
+      const footerDivCoords = footerRef.current?.getBoundingClientRect()
       // only show the footer if it is within 1800px from the top of the viewport
-      if (footerDivCoords.y <= 1800) {
+      if (footerDivCoords?.y <= 1800) {
         showFooter()
       } else {
         hideFooter()
@@ -78,9 +78,12 @@ const Footer = () => {
               </Newsletter>
               <MobileWrapper>
                 <SiteMenu>
-                  <Title>Menu</Title>
-                  <CollapseBreakMobile />
-                  <CollapseBreakMobile />
+                  {/* <Title>Menu</Title> */}
+                  {/* <CollapseBreakMobile /> */}
+                  {/* <CollapseBreakMobile /> */}
+                  <Link to="/careers">
+                    <p>Careers</p>
+                  </Link>
                   <Link to="/about-us">
                     <p>About Us</p>
                   </Link>
@@ -102,15 +105,18 @@ const Footer = () => {
                   <Link to="/bulletin-board">
                     <p>Bulletin Board</p>
                   </Link>
+                  <Link to="/alumni">
+                    <p>Alumni</p>
+                  </Link>
                   <a href="https://online.erealia.com/ebaem/cwv/">
                     <p>Student Portal</p>
                   </a>
                 </SiteMenu>
 
                 <GetInTouch>
-                  <Title>Get in touch</Title>
-                  <CollapseBreakMobile />
-                  <CollapseBreakMobile />
+                  {/* <Title>Get in touch</Title> */}
+                  {/* <CollapseBreakMobile /> */}
+                  {/* <CollapseBreakMobile /> */}
                   <div>
                     <a href={`mailto: ${contactInfo.email}`}>
                       {contactInfo.email}
@@ -266,7 +272,8 @@ const FlexWrapper = styled.span`
     /* padding-top: 15rem; */
   }
   @media (max-width: ${breakpoints.xs}px) {
-    p, a {
+    p,
+    a {
       font-size: 14px;
     }
   }
@@ -286,7 +293,7 @@ const Newsletter = styled.section`
   @media (max-width: ${breakpoints.xxl}px) {
     max-width: 400px;
     h4 {
-      font-size: 30px!important;
+      font-size: 30px !important;
     }
   }
   @media (max-width: ${breakpoints.xl}px) {
@@ -295,7 +302,7 @@ const Newsletter = styled.section`
   @media (max-width: ${breakpoints.l}px) {
     max-width: 350px;
     h4 {
-      font-size: 28px!important;
+      font-size: 28px !important;
     }
   }
 
@@ -312,12 +319,12 @@ const Newsletter = styled.section`
   @media (max-width: ${breakpoints.s}px) {
     width: 100%;
     h4 {
-      font-size: 22px!important;
+      font-size: 22px !important;
     }
   }
   @media (max-width: ${breakpoints.xs}px) {
     h4 {
-      font-size: 20px!important;
+      font-size: 20px !important;
     }
   }
 `
@@ -335,13 +342,13 @@ const SiteMenu = styled.section`
 `
 
 const Title = styled.p`
-  :hover{
-    color: black!important;
+  :hover {
+    color: black !important;
   }
   @media (max-width: ${breakpoints.m}px) {
-    font-family: "Matter-regular"!important;
-    font-size: 18px!important;
-    margin-bottom: .5rem;
+    font-family: "Matter-regular" !important;
+    font-size: 18px !important;
+    margin-bottom: 0.5rem;
   }
   @media (max-width: ${breakpoints.s}px) {
     margin-bottom: 0rem;
@@ -395,7 +402,6 @@ const MobileWrapper = styled.div`
     justify-content: space-between;
     /* margin-bottom: 2rem; */
   }
-  
 `
 
 const CollapseBreakMobile = styled.br`

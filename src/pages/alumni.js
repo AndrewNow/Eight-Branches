@@ -130,7 +130,7 @@ const AlumniHeader = styled.header`
     width: 60%;
   }
   @media (max-width: ${breakpoints.m}px) {
-    margin-bottom: 0rem;
+    margin-bottom: 3rem;
 
     h1 {
       padding-bottom: 1rem;
