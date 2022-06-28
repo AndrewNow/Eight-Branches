@@ -250,9 +250,10 @@ const IconWrapper = styled.div`
     backdrop-filter: blur(20px) saturate(180%);
     p {
       font-size: 20px;
+      line-height: 100%;
       font-family: "Matter-light";
       transition: var(--hover-transition);
-      padding: 0.25rem 1rem;
+      padding: 0.5rem 1rem;
       color: var(--color-black);
     }
     :hover {
@@ -263,7 +264,20 @@ const IconWrapper = styled.div`
       }
     }
   }
+  @media (max-width: ${breakpoints.m}px) {
+    a > p {
+      font-size: 16px;
+    }
+  }
   @media (max-width: ${breakpoints.s}px) {
+    a { 
+      border-radius: 6px;
+      margin-right: 1rem;
+      p {
+        padding: .45rem .5rem;
+        font-size: 15px;
+      }
+    }
     transform: scale(0.9);
   }
 `
