@@ -16,7 +16,7 @@ import { motion } from "framer-motion"
 import admissions from "../../site/settings/admissions.json"
 
 const Admissions = ({ data }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Admissions`
+  const siteTitle = data.site.siteMetadata?.title || `Student Admissions`
 
   const hideImage = {
     visible: {
@@ -92,7 +92,7 @@ const Admissions = ({ data }) => {
   return (
     <Layout title={siteTitle}>
       <Seo
-        title="Admissions"
+        title="Student Admissions"
         description="Book a free call with a career advisor to see which programs at Eight Branches
 are right for you."
         keywords={[

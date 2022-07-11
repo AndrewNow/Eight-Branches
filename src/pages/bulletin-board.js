@@ -31,7 +31,7 @@ const News = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Seo
-        title="News"
+        title="Upcoming Events"
         description="See upcoming Workshops, Webinars and CEU opportunities at Eight Branches.
 Interested in hosting one? Contact us as well."
         keywords={[

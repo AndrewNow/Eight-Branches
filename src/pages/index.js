@@ -242,7 +242,7 @@ const HomePage = ({ data }) => {
   return (
     <Layout>
       <Seo
-        title="Home"
+        title="College of Eastern Medicine"
         keywords={[
           `Eight Branches`,
           `acupuncture program in toronto`,

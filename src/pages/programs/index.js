@@ -222,7 +222,8 @@ const OurPrograms = ({ data }) => {
               </motion.h6>
               <ProgramLink
                 variants={fadeIn}
-                to="/programs/diploma-programs/acupuncture-and-moxibustion"
+                rel="canonical"
+                to="/programs/diploma-programs/acupuncture-and-moxibustion/"
               >
                 <LinkWrapper variants={fadeIn}>
                   <p>View Program</p>{" "}
@@ -292,7 +293,8 @@ const OurPrograms = ({ data }) => {
               </motion.h6>
               <ProgramLink
                 variants={fadeIn}
-                to="/programs/diploma-programs/TCMP"
+                rel="canonical"
+                to="/programs/diploma-programs/TCMP/"
               >
                 <LinkWrapper variants={fadeIn}>
                   <p>View Program</p>{" "}
@@ -355,7 +357,8 @@ const OurPrograms = ({ data }) => {
               </motion.h6>
               <ProgramLink
                 variants={fadeIn}
-                to="/programs/diploma-programs/advanced-TCMP"
+                rel="canonical"
+                to="/programs/diploma-programs/advanced-TCMP/"
               >
                 <LinkWrapper variants={fadeIn}>
                   <p>View Program</p>{" "}
@@ -393,7 +396,8 @@ const OurPrograms = ({ data }) => {
               </motion.h6>
               <ProgramLink
                 variants={fadeIn}
-                to="/programs/diploma-programs/herbology"
+                rel="canonical"
+                to="/programs/diploma-programs/herbology/"
               >
                 <LinkWrapper variants={fadeIn}>
                   <p>View Program</p>{" "}

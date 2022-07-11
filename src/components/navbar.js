@@ -141,28 +141,44 @@ const Navbar = () => {
           >
             <NavMenuInner variants={innerMenuAnimation}>
               <motion.h3 variants={navItem}>
-                <Link to="/about-us">About Us</Link>
+                <Link rel="canonical" to="/about-us/">
+                  About Us
+                </Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
-                <Link to="/programs">Programs</Link>
+                <Link rel="canonical" to="/programs/">
+                  Programs
+                </Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
-                <Link to="/admissions">Admissions</Link>
+                <Link rel="canonical" to="/admissions/">
+                  Admissions
+                </Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
-                <Link to="/campus">Campus</Link>
+                <Link rel="canonical" to="/campus/">
+                  Campus
+                </Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
-                <Link to="/our-faculty">Meet Our Faculty</Link>
+                <Link rel="canonical" to="/our-faculty/">
+                  Meet Our Faculty
+                </Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
-                <Link to="/teaching-clinic">Teaching Clinic</Link>
+                <Link rel="canonical" to="/teaching-clinic/">
+                  Teaching Clinic
+                </Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
-                <Link to="/alumni">Alumni</Link>
+                <Link rel="canonical" to="/alumni/">
+                  Alumni
+                </Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
-                <Link to="/bulletin-board">Bulletin Board</Link>
+                <Link rel="canonical" to="/bulletin-board/">
+                  Bulletin Board
+                </Link>
               </motion.h3>
               {/* <motion.h3 variants={navItem}>
                 <a href="https://online.erealia.com/ebaem/cwv/">
@@ -270,11 +286,11 @@ const IconWrapper = styled.div`
     }
   }
   @media (max-width: ${breakpoints.s}px) {
-    a { 
+    a {
       border-radius: 6px;
       margin-right: 1rem;
       p {
-        padding: .45rem .5rem;
+        padding: 0.45rem 0.5rem;
         font-size: 15px;
       }
     }
