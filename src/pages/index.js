@@ -318,7 +318,11 @@ const HomePage = ({ data }) => {
               Our college empowers students to uplift communities through the
               practice of Eastern medicine, promoting restoration of health and
               prevention of illness.
-              <ReadMore to="/about-us" aria-label="Link to About Us page">
+              <ReadMore
+                to="/about-us/"
+                rel="canonical"
+                aria-label="Link to About Us page"
+              >
                 Learn More
               </ReadMore>
             </h1>

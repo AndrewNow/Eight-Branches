@@ -81,31 +81,31 @@ const Footer = () => {
                   {/* <Title>Menu</Title> */}
                   {/* <CollapseBreakMobile /> */}
                   {/* <CollapseBreakMobile /> */}
-                  <Link to="/careers">
+                  <Link to="/careers/">
                     <p>Careers</p>
                   </Link>
-                  <Link to="/about-us">
+                  <Link to="/about-us/">
                     <p>About Us</p>
                   </Link>
-                  <Link to="/programs">
+                  <Link to="/programs/">
                     <p>Programs</p>
                   </Link>
-                  <Link to="/admissions">
+                  <Link to="/admissions/">
                     <p>Admissions</p>
                   </Link>
-                  <Link to="/campus">
+                  <Link to="/campus/">
                     <p>Campus</p>
                   </Link>
-                  <Link to="/our-faculty">
+                  <Link to="/our-faculty/">
                     <p>Meet Our Faculty</p>
                   </Link>
-                  <Link to="/teaching-clinic">
+                  <Link to="/teaching-clinic/">
                     <p>Teaching Clinic</p>
                   </Link>
-                  <Link to="/bulletin-board">
+                  <Link to="/bulletin-board/">
                     <p>Bulletin Board</p>
                   </Link>
-                  <Link to="/alumni">
+                  <Link to="/alumni/">
                     <p>Alumni</p>
                   </Link>
                   <a href="https://online.erealia.com/ebaem/cwv/">
