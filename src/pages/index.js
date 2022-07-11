@@ -274,11 +274,14 @@ const HomePage = ({ data }) => {
             <StaticImage
               src="../images/HomePage/home.png"
               alt="Soft image of a practitioner performing acupuncture on a foot."
-              quality={100}
+              quality={90}
               placeholder="none"
               transformOptions={{ cropFocus: "bottom" }}
               imgStyle={{ objectFit: "cover" }}
               style={{ height: "100%" }}
+              loading="eager"
+              // layout="constrained"
+              // width={938}
             />
           </HideImage>
         </LeftSection>
@@ -305,7 +308,8 @@ const HomePage = ({ data }) => {
           <AboutUsImage>
             <StaticImage
               src="../images/HomePage/aboutus.png"
-              quality={100}
+              quality={90}
+              placeholder="blurred"
               transformOptions={{ cropFocus: "bottom" }}
               imgStyle={{ objectFit: "cover" }}
               style={{ minHeight: "100%" }}
