@@ -1,5 +1,6 @@
 ---
 title: Acupuncture Career Fair!
+link: https://eightbranches.classe365.com/form/view/CareerFair
 date: 2022-08-08T17:00:06.433Z
 host: Eight Branches
 thumbnail: a7404914-79.jpg
