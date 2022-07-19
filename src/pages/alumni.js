@@ -39,9 +39,9 @@ const Alumni = ({ data, location }) => {
             </h6>
           </AlumniHeader>
           {/* <h2>Leadership</h2> */}
-          {data.facultyLeadership.edges.length === 0 ? (
+          {data.alumni.edges.length === 0 ? (
             <p style={{ textAlign: "center" }}>
-              Oops! Something went wrong... No alumni found.
+              Coming soon... No alumni entries to show yet!
             </p>
           ) : (
             <AlumniGrid>
@@ -63,7 +63,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    facultyLeadership: allFile(
+    alumni: allFile(
       filter: {
         sourceInstanceName: { eq: "alumni" }
         internal: { mediaType: { eq: "text/markdown" } }

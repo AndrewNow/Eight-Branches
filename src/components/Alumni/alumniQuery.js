@@ -26,7 +26,7 @@ const AlumniQuery = () => {
               frontmatter {
                 title
                 email
-                degree
+                # degree
                 portrait {
                   childImageSharp {
                     gatsbyImageData(
@@ -65,7 +65,7 @@ const AlumniQuery = () => {
         <FacultyLeadership
           key={slug}
           title={title}
-          role={degree}
+          // role={degree}
           excerpt={excerpt}
           bio={bio}
           email={email}

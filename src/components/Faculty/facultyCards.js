@@ -81,7 +81,7 @@ export const FacultyLeadership = ({
           )}
         </PortraitThumbnail>
         <TextWrapper>
-          <p style={{color: "#625f63"}}>{role}</p>
+          {role && <p style={{ color: "#625f63" }}>{role}</p>}
           <h3>{title}</h3>
           <FacultyDescription>
             <p>{excerpt}</p>
@@ -451,7 +451,7 @@ const ModalFallback = styled.div`
     height: 200px;
 
     svg {
-      transform: scale(.6);
+      transform: scale(0.6);
     }
   }
 `
@@ -518,8 +518,7 @@ const ModalText = styled.div`
     }
   }
   @media (max-width: ${breakpoints.s}px) {
-
-}
+  }
 `
 
 const GetInTouch = styled.a`
