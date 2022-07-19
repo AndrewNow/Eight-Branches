@@ -177,7 +177,7 @@ const Navbar = () => {
               </motion.h3>
               <motion.h3 variants={navItem}>
                 <Link rel="canonical" to="/bulletin-board/">
-                  Bulletin Board
+                  Events
                 </Link>
               </motion.h3>
               {/* <motion.h3 variants={navItem}>

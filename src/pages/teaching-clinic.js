@@ -11,7 +11,8 @@ import { GoogleMaps } from "../components/generalcomponents"
 import teachingClinic from "../../site/settings/teaching_clinic.json"
 
 const TeachingClinic = ({ data }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Book a treatment with our students`
+  const siteTitle =
+    data.site.siteMetadata?.title || `Book a treatment with our students`
   const [open, setOpen] = useState(false)
 
   const FadeIn = {
@@ -633,7 +634,9 @@ export const pageQuery = graphql`
       }
     }
     acupuncture: file(
-      relativePath: { eq: "TeachingClinic/treatments/acupuncture.png" }
+      relativePath: {
+        eq: "TeachingClinic/treatments/acupuncture-affordable-traditional-chinese-medicine-clinic.png"
+      }
     ) {
       id
       childImageSharp {
@@ -645,7 +648,9 @@ export const pageQuery = graphql`
       }
     }
     bodywork: file(
-      relativePath: { eq: "TeachingClinic/treatments/bodywork.png" }
+      relativePath: {
+        eq: "TeachingClinic/treatments/bodywork-affordable-traditional-chinese-medicine-clinic.png"
+      }
     ) {
       id
       childImageSharp {
@@ -657,7 +662,11 @@ export const pageQuery = graphql`
         )
       }
     }
-    herbs: file(relativePath: { eq: "TeachingClinic/treatments/herbs.png" }) {
+    herbs: file(
+      relativePath: {
+        eq: "TeachingClinic/treatments/herbology-affordable-traditional-chinese-medicine-clinic.png"
+      }
+    ) {
       id
       childImageSharp {
         gatsbyImageData(
