@@ -16,7 +16,7 @@ import { motion } from "framer-motion"
 import admissions from "../../site/settings/admissions.json"
 
 const Admissions = ({ data }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Admissions`
+  const siteTitle = data.site.siteMetadata?.title || `Student Admissions`
 
   const hideImage = {
     visible: {
@@ -92,7 +92,9 @@ const Admissions = ({ data }) => {
   return (
     <Layout title={siteTitle}>
       <Seo
-        title="Admissions"
+        title="Student Admissions"
+        description="Book a free call with a career advisor to see which programs at Eight Branches
+are right for you."
         keywords={[
           `Eight Branches`,
           `Eight Branches admissions`,
@@ -115,7 +117,7 @@ const Admissions = ({ data }) => {
       />
       <HeaderWrapper ref={HideImageRef}>
         <AdmissionsHeader variants={FadeIn} initial="hidden" animate="visible">
-          <motion.h1 variants={FadeIn}>Student Admissions</motion.h1>
+          <motion.h1 variants={FadeIn}>Study at Eight Branches</motion.h1>
           <motion.h6 variants={FadeIn}>
             Interested in studying at Eight Branches? Learn about the admissions
             procedure and ensure that you meet the necessary requirements when
@@ -417,6 +419,7 @@ const AdmissionsHeader = styled(motion.div)`
   @media (max-width: ${breakpoints.s}px) {
     padding-bottom: 4rem;
     h1 {
+      width: 95%;
       padding-bottom: 1rem;
     }
     h6 {

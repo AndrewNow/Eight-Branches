@@ -30,7 +30,7 @@ const ProgramLayout = ({ programData }) => {
       y: 0,
       opacity: 1,
       transition: {
-        delay: .45,
+        delay: 0.45,
         duration: 1,
       },
     },
@@ -53,7 +53,6 @@ const ProgramLayout = ({ programData }) => {
             animate={HideImageInView ? "hidden" : "visible"}
             variants={hideImage}
             initial="visible"
-            animate="hidden"
             exit="hidden"
           />
           {programData.image}
@@ -140,7 +139,7 @@ const LandingSection = styled.span`
   svg {
     color: black;
   }
-  
+
   @media (max-width: ${breakpoints.l}px) {
     background-color: var(--color-lightestbeige);
     flex-direction: column-reverse;
@@ -174,7 +173,7 @@ const RightSection = styled.div`
   position: relative;
   z-index: 10;
   background-color: var(--color-sandbeige);
-  
+
   @media (max-width: ${breakpoints.l}px) {
     background-color: var(--color-lightestbeige);
     width: 100vw;
@@ -184,7 +183,7 @@ const RightSection = styled.div`
       width: 45px;
     }
   }
-  
+
   @media (max-width: ${breakpoints.m}px) {
     height: auto;
     svg {
@@ -307,7 +306,7 @@ const AboutTheProgram = styled.section`
 
 const AboutProgramBG = styled.div`
   width: 100%;
-  margin: 0 auto;  
+  margin: 0 auto;
   background-color: var(--color-lightestbeige);
 `
 

@@ -122,7 +122,10 @@ const Campus = ({ data }) => {
   return (
     <Layout title={siteTitle}>
       <Seo
-        title="Our Campus"
+        title="Eight Branches Campus"
+        description="With the largest campus (7000+ sqft) in Toronto dedicated to TCM, Eight
+Branches has medication areas, a dojo, multidisciplinary clinics, a library and
+workshop spaces."
         keywords={[
           `Eight Branches`,
           `Eight Branches Campus Toronto`,
@@ -470,7 +473,6 @@ const Embla = styled.div`
   margin: 0 auto;
   padding-bottom: 15rem;
 
-
   @media (max-width: ${breakpoints.xxl}px) {
     width: 85%;
   }
@@ -491,7 +493,6 @@ const Embla = styled.div`
 const EmblaViewport = styled.div`
   overflow: hidden;
   width: 100%;
-
 
   border-radius: 20px;
   -webkit-border-radius: 20px;

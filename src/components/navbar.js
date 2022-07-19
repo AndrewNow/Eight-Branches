@@ -119,6 +119,9 @@ const Navbar = () => {
           </Link>
         </LogoWrapper>
         <IconWrapper>
+          <a href="https://online.erealia.com/ebaem/cwv/">
+            <p>Student Portal</p>
+          </a>
           <Hamburger
             toggled={open}
             toggle={setOpen}
@@ -138,31 +141,50 @@ const Navbar = () => {
           >
             <NavMenuInner variants={innerMenuAnimation}>
               <motion.h3 variants={navItem}>
-                <Link to="/about-us">About Us</Link>
+                <Link rel="canonical" to="/about-us/">
+                  About Us
+                </Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
-                <Link to="/programs">Programs</Link>
+                <Link rel="canonical" to="/programs/">
+                  Programs
+                </Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
-                <Link to="/admissions">Admissions</Link>
+                <Link rel="canonical" to="/admissions/">
+                  Admissions
+                </Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
-                <Link to="/campus">Campus</Link>
+                <Link rel="canonical" to="/campus/">
+                  Campus
+                </Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
-                <Link to="/our-faculty">Meet Our Faculty</Link>
+                <Link rel="canonical" to="/our-faculty/">
+                  Meet Our Faculty
+                </Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
-                <Link to="/teaching-clinic">Teaching Clinic</Link>
+                <Link rel="canonical" to="/teaching-clinic/">
+                  Teaching Clinic
+                </Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
-                <Link to="/bulletin-board">Bulletin Board</Link>
+                <Link rel="canonical" to="/alumni/">
+                  Alumni
+                </Link>
               </motion.h3>
               <motion.h3 variants={navItem}>
+                <Link rel="canonical" to="/bulletin-board/">
+                  Events
+                </Link>
+              </motion.h3>
+              {/* <motion.h3 variants={navItem}>
                 <a href="https://online.erealia.com/ebaem/cwv/">
                   Student Portal
                 </a>
-              </motion.h3>
+              </motion.h3> */}
             </NavMenuInner>
           </NavMenu>
         ) : null}
@@ -228,10 +250,50 @@ const LogoWrapper = styled.div`
 `
 
 const IconWrapper = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   display: relative;
   z-index: 1000;
-
+  a {
+    border-radius: 10px;
+    border: 1px solid var(--color-black);
+    margin-right: 2rem;
+    transition: var(--hover-transition);
+    font-family: "Matter-light";
+    text-decoration: none;
+    background: #ffffff50;
+    backdrop-filter: blur(20px) saturate(180%);
+    p {
+      font-size: 20px;
+      line-height: 100%;
+      font-family: "Matter-light";
+      transition: var(--hover-transition);
+      padding: 0.5rem 1rem;
+      color: var(--color-black);
+    }
+    :hover {
+      border: 1px solid transparent;
+      background: var(--color-darkgreen);
+      p {
+        color: var(--color-white);
+      }
+    }
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    a > p {
+      font-size: 16px;
+    }
+  }
   @media (max-width: ${breakpoints.s}px) {
+    a {
+      border-radius: 6px;
+      margin-right: 1rem;
+      p {
+        padding: 0.45rem 0.5rem;
+        font-size: 15px;
+      }
+    }
     transform: scale(0.9);
   }
 `
@@ -283,6 +345,12 @@ const NavMenuInner = styled(motion.div)`
     :nth-child(1) {
       /* padding-top: 15vh; */
     }
+    a :hover {
+      color: var(--color-orange) !important;
+    }
+    :active {
+      color: var(--color-orange) !important;
+    }
   }
 
   h3 > a {
@@ -292,13 +360,13 @@ const NavMenuInner = styled(motion.div)`
     text-decoration: none;
     color: var(--color-black);
     transition: color ease-in-out 0.15s;
-
+    /* 
     :hover {
-      color: var(--color-orange);
+      color: var(--color-orange) !important;
     }
     :active {
-      color: var(--color-orange);
-    }
+      color: var(--color-orange) !important;
+    } */
   }
   @media (max-width: ${breakpoints.xxl}px) {
     h3 {

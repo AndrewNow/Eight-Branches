@@ -6,7 +6,7 @@ import Seo from "../../../components/seo"
 import ProgramLayout from "../../../components/ProgramPageTemplates/programLayout"
 
 const Herbology = ({ data }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Advanced TCMP`
+  const siteTitle = data.site.siteMetadata?.title || `Advanced TCMP Program`
 
   const programData = {
     programName: "Post-Graduate Advanced TCMP",
@@ -168,7 +168,11 @@ const Herbology = ({ data }) => {
 
   return (
     <Layout title={siteTitle}>
-      <Seo title="Advanced TCMP" />
+      <Seo
+        title="Advanced TCMP Program"
+        description="For Practitioners looking for more knowledge in the Classics, Integrated
+Medicine and International Techniques."
+      />
       <ProgramLayout programData={programData} />
     </Layout>
   )

@@ -6,7 +6,9 @@ import Seo from "../../../components/seo"
 import ProgramLayout from "../../../components/ProgramPageTemplates/programLayout"
 
 const Herbology = ({ data }) => {
-  const siteTitle = data.site.siteMetadata?.title || `TCMP`
+  const siteTitle =
+    data.site.siteMetadata?.title ||
+    `TCMP (Traditional Chinese Medicine Practitioner)`
 
   const programData = {
     programName: "Traditional Chinese Medicine Practitioner",
@@ -577,7 +579,11 @@ const Herbology = ({ data }) => {
 
   return (
     <Layout title={siteTitle}>
-      <Seo title="TCMP" />
+      <Seo
+        title="TCMP (Traditional Chinese Medicine Practitioner)"
+        description="Our 1 year TCMP Program is for Acupuncturists looking to add herbs to
+their practice."
+      />
       <ProgramLayout programData={programData} />
     </Layout>
   )

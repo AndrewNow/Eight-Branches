@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: master # Branch to update (optional; defaults to master)
+  branch: seo-changes # Branch to update (optional; defaults to master)
 
 media_folder: static/img
 public_folder: /img
@@ -19,12 +19,26 @@ collections:
       preview: true
     fields:
       - { label: "Title", name: "title", widget: "string", required: true }
-      - { label: "Publish Date", name: "date", widget: "datetime", required: true}
-      - { label: "Estimated Read Time (minutes, enter only a number)", name: "readtime", widget: "number", required: true}
+      - {
+          label: "Publish Date",
+          name: "date",
+          widget: "datetime",
+          required: true,
+        }
+      - {
+          label: "Estimated Read Time (minutes, enter only a number)",
+          name: "readtime",
+          widget: "number",
+          required: true,
+        }
       - { label: "Description", name: "description", widget: "string" }
-      - { label: "Thumbnail Image", name: "thumbnail", widget: "image", required: true }
+      - {
+          label: "Thumbnail Image",
+          name: "thumbnail",
+          widget: "image",
+          required: true,
+        }
       - { label: "Body", name: "body", widget: "markdown", required: true }
-
 
   - name: "upcomingevents"
     identifier_field: Events
@@ -39,11 +53,77 @@ collections:
       preview: true
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Event Link URL", name: "link", widget: "string", required: false }
-      - { label: "Date of Event (LEAVE BLANK FOR TBD)", name: "date", widget: "datetime", required: false}
+      - {
+          label: "Event Link URL",
+          name: "link",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Date of Event (LEAVE BLANK FOR TBD)",
+          name: "date",
+          widget: "datetime",
+          required: false,
+        }
       - { label: "Host", name: "host", widget: "string" }
       - { label: "Image", name: "thumbnail", widget: "image", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "careers"
+    label: "Job Board (Careers)"
+    folder: "content/careers"
+    create: true
+    slug: "careers"
+    media_folder: ""
+    public_folder: ""
+    path: "{{title}}/index"
+    editor:
+      preview: true
+    fields:
+      - { label: "Job Title", name: "title", widget: "string", required: true }
+      - {
+          label: "Short Description",
+          name: "shortDescription",
+          widget: "string",
+        }
+      - { label: "Publish Date", name: "date", widget: "date", required: true }
+      - {
+          label: "Body",
+          name: "body",
+          widget: "markdown",
+          required: true,
+          buttons: ["bold", "italic", "heading-three", "bulleted-list", "link"],
+        }
+
+  - name: "alumni"
+    identifier_field: name
+    label: "Alumni"
+    folder: "content/alumni"
+    create: true
+    slug: "alumni"
+    media_folder: ""
+    public_folder: ""
+    path: "{{title}}/index"
+    editor:
+      preview: true
+    fields:
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - { label: "Degree", name: "degree", widget: "string", required: true }
+      - {
+          label: "Portrait (png or jpg only)",
+          name: "portrait",
+          widget: "image",
+          allow_multiple: false,
+          required: false,
+        }
+      # - { label: "Brief Description (160 char limit)", name: "description", widget: "string", required: true }
+      - { label: "Bio", name: "body", widget: "markdown", required: true }
+      - {
+          label: "Email Address",
+          name: "email",
+          widget: "string",
+          required: false,
+        }
 
   - name: "facultyLeadership"
     identifier_field: facultyLeadership
@@ -57,13 +137,30 @@ collections:
     editor:
       preview: true
     fields:
-      - { label: "Order of appearance (ex: 1 = first to appear)", name: "ordernumber", widget: "number", min: 1, required: true }
-      - { label: "Title", name: "title", widget: "string", required: true  }
+      - {
+          label: "Order of appearance (ex: 1 = first to appear)",
+          name: "ordernumber",
+          widget: "number",
+          min: 1,
+          required: true,
+        }
+      - { label: "Title", name: "title", widget: "string", required: true }
       - { label: "Role", name: "role", widget: "string", required: true }
-      - { label: "Portrait (png or jpg only)", name: "portrait", widget: "image", allow_multiple: false, required: false }
+      - {
+          label: "Portrait (png or jpg only)",
+          name: "portrait",
+          widget: "image",
+          allow_multiple: false,
+          required: false,
+        }
       # - { label: "Brief Description (160 char limit)", name: "description", widget: "string", required: true }
       - { label: "Bio", name: "body", widget: "markdown", required: true }
-      - { label: "Email Address", name: "email", widget: "string", required: false }
+      - {
+          label: "Email Address",
+          name: "email",
+          widget: "string",
+          required: false,
+        }
 
   - name: "facultyInstructor"
     identifier_field: facultyInstructor
@@ -77,13 +174,36 @@ collections:
     editor:
       preview: true
     fields:
-      - { label: "Order of appearance", name: "ordernumber", widget: "number", min: 1, required: true }
-      - { label: "Title", name: "title", widget: "string", required: true  }
-      - { label: "Role", name: "role", widget: "string", required: true, default: "Instructor" }
-      - { label: "Portrait (png or jpg only)", name: "portrait", widget: "image", allow_multiple: false, required: false}
+      - {
+          label: "Order of appearance",
+          name: "ordernumber",
+          widget: "number",
+          min: 1,
+          required: true,
+        }
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - {
+          label: "Role",
+          name: "role",
+          widget: "string",
+          required: true,
+          default: "Instructor",
+        }
+      - {
+          label: "Portrait (png or jpg only)",
+          name: "portrait",
+          widget: "image",
+          allow_multiple: false,
+          required: false,
+        }
       # - { label: "Brief Description (160 char limit)", name: "description", widget: "string", required: true }
       - { label: "Bio", name: "body", widget: "markdown", required: true }
-      - { label: "Email Address", name: "email", widget: "string", required: false }
+      - {
+          label: "Email Address",
+          name: "email",
+          widget: "string",
+          required: false,
+        }
 
   - name: "settings"
     label: "Settings"
@@ -93,15 +213,25 @@ collections:
         file: site/settings/contact_info.json
         fields:
           - { label: "Phone", name: "phone", widget: "string" }
-          - { label: "Phone (toll free)", name: "phone2", widget: "string", required: false}
+          - {
+              label: "Phone (toll free)",
+              name: "phone2",
+              widget: "string",
+              required: false,
+            }
           - { label: "Email", name: "email", widget: "string" }
           - label: "Address"
             name: "address"
             widget: "object"
             fields:
               - { label: Street, name: street, widget: string }
-              - { label: Street2, name: street2, widget: string, required: false}
-              - { label: City, name: city, widget: string, required: false } 
+              - {
+                  label: Street2,
+                  name: street2,
+                  widget: string,
+                  required: false,
+                }
+              - { label: City, name: city, widget: string, required: false }
 
   - name: "admissionsPageSettings"
     label: "Admissions Page Application Deadlines"
@@ -115,10 +245,30 @@ collections:
             widget: "list"
             allow_add: true
             fields:
-              - { label: Term Title (e.g "Fall Term"), name: "termTitle", widget: string, required: true}
-              - { label: Start Date, name: "startDate", widget: string, required: true}
-              - { label: End Date, name: "endDate", widget: string, required: true }
-              - { label: Application Due Date, name: "info", widget: string, required: true }
+              - {
+                  label: Term Title (e.g "Fall Term"),
+                  name: "termTitle",
+                  widget: string,
+                  required: true,
+                }
+              - {
+                  label: Start Date,
+                  name: "startDate",
+                  widget: string,
+                  required: true,
+                }
+              - {
+                  label: End Date,
+                  name: "endDate",
+                  widget: string,
+                  required: true,
+                }
+              - {
+                  label: Application Due Date,
+                  name: "info",
+                  widget: string,
+                  required: true,
+                }
 
   - name: "teachingClinicSettings"
     label: "Teaching Clinic Information"

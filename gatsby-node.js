@@ -46,26 +46,42 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      careers: allFile(
+        sort: {
+          fields: childrenMarkdownRemark___frontmatter___date
+          order: ASC
+        }
+        filter: {
+          sourceInstanceName: { eq: "careers" }
+          internal: { mediaType: { eq: "text/markdown" } }
+        }
+      ) {
+        nodes {
+          childMarkdownRemark {
+            fields {
+              slug
+            }
+            id
+          }
+        }
+      }
     }
   `)
   // console.log(JSON.stringify(result, null, 2))
 
   if (result.errors) {
-    reporter.panicOnBuild(
-      `There was an error loading your blog posts`,
-      result.errors
-    ) 
+    reporter.panicOnBuild(`There was an error loading your post`, result.errors)
   }
 
   const blogPosts = result.data.blog.nodes
   const eventPosts = result.data.events.nodes
+  const careerPosts = result.data.careers.nodes
 
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
   const eventPost = path.resolve(`./src/templates/event-post.js`)
+  const careerPost = path.resolve(`./src/templates/career-post.js`)
 
-  // console.log(JSON.stringify(blogPosts, null, 2))
-
-  if (blogPosts.length > 0 && eventPosts.length > 0) {
+  if (blogPosts.length > 0 && eventPosts.length > 0 && careerPosts.length > 0) {
     blogPosts.forEach((node, index) => {
       const previousId =
         index === 0 ? null : blogPosts[index - 1].childMarkdownRemark.id
@@ -84,6 +100,16 @@ exports.createPages = async ({ graphql, actions }) => {
           id: node.childMarkdownRemark.id,
           previousId,
           nextId,
+        },
+      })
+    })
+
+    careerPosts.forEach(node => {
+      createPage({
+        path: node.childMarkdownRemark.fields.slug,
+        component: careerPost,
+        context: {
+          id: node.childMarkdownRemark.id,
         },
       })
     })
@@ -162,7 +188,6 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
   `)
 }
-
 
 if (typeof document !== `undefined`) {
   return {

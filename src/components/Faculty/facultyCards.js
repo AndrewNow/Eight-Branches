@@ -81,7 +81,7 @@ export const FacultyLeadership = ({
           )}
         </PortraitThumbnail>
         <TextWrapper>
-          <p>{role}</p>
+          <p style={{color: "#625f63"}}>{role}</p>
           <h3>{title}</h3>
           <FacultyDescription>
             <p>{excerpt}</p>
@@ -210,7 +210,7 @@ export const FacultyInstructor = ({
           )}
         </PortraitThumbnail>
         <TextWrapper>
-          <p>{role}</p>
+          <p style={{ color: "#625f63" }}>{role}</p>
           <h3>{title}</h3>
           <FacultyDescription>
             <p>{excerpt}</p>
