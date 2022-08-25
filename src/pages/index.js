@@ -11,6 +11,7 @@ import { useInView } from "react-intersection-observer"
 import useEmblaCarousel from "embla-carousel-react"
 import { Arrow, LeftLogoPattern } from "../svg/misc"
 import { AcademicAdvisor } from "../components/generalcomponents"
+import YouTubeReel from "../components/Homepage/YouTubeReel"
 
 const HomePage = ({ data }) => {
   const hideImage = {
@@ -333,6 +334,7 @@ const HomePage = ({ data }) => {
           </AboutUsText>
         </AboutUsWrapper>
       </AboutUsSection>
+      <YouTubeReel />
       <DiplomaPrograms>
         <DiplomaHeader>
           <h1>Diploma Programs</h1>
