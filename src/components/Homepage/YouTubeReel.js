@@ -30,10 +30,6 @@ const Wrapper = styled.section`
   background: var(--color-sandbeige);
   position: relative;
   width: 100%;
-  /* overflow-x: hidden; */
-  /* min-height: 150vh; */
-  /* height: 150vh; */
-  /* height: 150vh; */
   padding-bottom: 25vh;
 
   @media (max-width: ${breakpoints.l}px) {
