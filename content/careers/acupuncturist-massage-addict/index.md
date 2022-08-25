@@ -3,7 +3,7 @@ title: Acupuncturist (Massage Addict)
 shortDescription: Massage Addict is Canada’s first and largest membership-based
   network of health and wellness clinics.  As we continue to grow and open new
   clinics across the country, we are looking to connect with newly graduated and
-  experienced Acupuncturists for the Niagara Falls location
+  experienced Acupuncturists for the Niagara Falls location.
 date: 2022-07-20T20:13:44.549Z
 ---
 How we support our Acupuncturists:  Our team provides full-service business and administrative support, which includes taking care of the rent, bookings, billing, and laundry so that you can successfully focus 100% on your clients’ therapeutic needs.  Additionally, we’ll provide you with: 
