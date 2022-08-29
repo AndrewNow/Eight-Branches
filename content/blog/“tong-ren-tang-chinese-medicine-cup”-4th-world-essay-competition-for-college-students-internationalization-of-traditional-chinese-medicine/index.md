@@ -18,12 +18,12 @@ With hard work comes great reward, having said that, the following are the PRIZE
 
 1. Winners will be decided through expert review and online voting.
 
-   (Main Group) Two 1st Prize winners, with a reward of RMB 10,000 each; Six 2nd Prize winners, with a reward of RMB 6,000 each; Ten 3rd Prize winners, with a reward of RMB 3,000 each; Excellence Award winners and Excellent Organizers will also be selected.
+(Main Group) Two 1st Prize winners, with a reward of RMB 10,000 each; Six 2nd Prize winners, with a reward of RMB 6,000 each; Ten 3rd Prize winners, with a reward of RMB 3,000 each; Excellence Award winners and Excellent Organizers will also be selected.
 
-   (Featured groups) Ten Impressive Presentation Award and Original Creation Award winners altogether, with a reward of RMB 3,000 each.
+(Featured groups) Ten Impressive Presentation Award and Original Creation Award winners altogether, with a reward of RMB 3,000 each.
+
 2. Winning essays must be published by the supporting publications and may be included in the Book of Essays published by the organizers. 
+
 3. Winners will be given priority when seeking internship or employment in Beijing Ton Ren Tang Chinese Medicine Company Limited. 
-
-
 
 For more information regarding joining the competition, topics/themes of the essay, and rules for the competition then please click [here](http://www.wfas.org.cn/news/detail.html?nid=6362&cid=25).
