@@ -39,7 +39,7 @@ const Wrapper = styled.section`
 const Over = styled.div`
   position: sticky;
   bottom: 0;
-  left: 50%;
+  /* left: 50%; */
   width: 52%;
   height: 80vh;
   margin: 0 auto;
