@@ -105,9 +105,9 @@ const Footer = () => {
                   <Link to="/bulletin-board/">
                     <p>Events</p>
                   </Link>
-                  {/* <Link to="/alumni/">
+                  <Link to="/alumni/">
                     <p>Alumni</p>
-                  </Link> */}
+                  </Link>
                   <a href="https://online.erealia.com/ebaem/cwv/">
                     <p>Student Portal</p>
                   </a>

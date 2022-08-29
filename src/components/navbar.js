@@ -170,11 +170,11 @@ const Navbar = () => {
                   Teaching Clinic
                 </Link>
               </motion.h3>
-              {/* <motion.h3 variants={navItem}>
+              <motion.h3 variants={navItem}>
                 <Link rel="canonical" to="/alumni/">
                   Alumni
                 </Link>
-              </motion.h3> */}
+              </motion.h3>
               <motion.h3 variants={navItem}>
                 <Link rel="canonical" to="/bulletin-board/">
                   Events

@@ -39,7 +39,6 @@ const Wrapper = styled.section`
 const Over = styled.div`
   position: sticky;
   bottom: 0;
-  /* left: 50%; */
   width: 52%;
   height: 80vh;
   margin: 0 auto;
@@ -47,13 +46,11 @@ const Over = styled.div`
   background: var(--color-sandbeige);
   z-index: 5;
   @media (max-width: ${breakpoints.xl}px) {
-    left: 0;
     width: 100%;
     margin: 0 auto;
     margin-bottom: 500px;
   }
   @media (max-width: ${breakpoints.m}px) {
-    left: 0;
     width: 100%;
     height: auto;
     aspect-ratio: 16/12;
