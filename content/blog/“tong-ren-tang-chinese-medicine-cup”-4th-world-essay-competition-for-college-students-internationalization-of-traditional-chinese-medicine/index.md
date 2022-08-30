@@ -10,11 +10,11 @@ Traditional Chinese Medicine is now known worldwide in over 196 countries and re
 
 We STRONGLY encourage all Eight Branches students to participate and showcase their knowledge and experience with Traditional Chinese Medicine for a chance to win!
 
-## **Instructions**
+## Requirements for Entering the Contest
 
 Those who are allowed to participate in this year's TCM competition are college students (junior college students, undergraduates, postgraduates, and doctoral candidates), with no restriction on nationality, university, or major. The competition will run from June to November 202 and the entire essay must be written in Chinese or English, totalling 3,000 - 10,000 words. An abstract of 200 - 300 words in both Chinese and English is also required. 
 
-With hard work comes great reward, having said that, the following are the PRIZES for the winners: 
+### With hard work comes great reward, having said that, the following are the PRIZES for the winners: 
 
 1. Winners will be decided through expert review and online voting. (Main Group) Two 1st Prize winners, with a reward of RMB 10,000 each; Six 2nd Prize winners, with a reward of RMB 6,000 each; Ten 3rd Prize winners, with a reward of RMB 3,000 each; Excellence Award winners and Excellent Organizers will also be selected. (Featured groups) Ten Impressive Presentation Award and Original Creation Award winners altogether, with a reward of RMB 3,000 each.
 2. Winning essays must be published by the supporting publications and may be included in the Book of Essays published by the organizers. 
