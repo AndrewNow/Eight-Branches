@@ -103,6 +103,10 @@ and modern takes on TCM."
             src="../images/PartnershipLogos/CCATCM.png"
             alt="Canadian College of Acupuncture & Traditional Chinese Medicine logo"
           />
+          <StaticImage
+            src="../images/PartnershipLogos/MassageAddict.png"
+            alt="Massage Addict logo"
+          />
         </LogoGrid>
       </OurPartners>
     </Layout>
@@ -253,7 +257,7 @@ const OurPartners = styled.section`
 `
 
 const LogoGrid = styled.div`
-  width: 60%;
+  width: 67%;
   margin: 0 auto;
   padding-top: 2rem;
   display: flex;

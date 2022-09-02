@@ -1,11 +1,11 @@
 import React from "react"
 import styled from "styled-components"
 import breakpoints from "../breakpoints"
+import { LeftLogoPattern } from "../../svg/misc"
 
 const YouTubeReel = () => {
   return (
     <Wrapper>
-      <Over />
       <Video>
         <iframe
           width="100%"
@@ -20,6 +20,12 @@ const YouTubeReel = () => {
           allowfullscreen
         ></iframe>
       </Video>
+      <LeftPattern>
+        <LeftLogoPattern specifiedColor={`#FAF8F2`}/>
+      </LeftPattern>
+      <RightPattern>
+        <LeftLogoPattern specifiedColor={`#FAF8F2`}/>
+      </RightPattern>
     </Wrapper>
   )
 }
@@ -30,53 +36,42 @@ const Wrapper = styled.section`
   background: var(--color-sandbeige);
   position: relative;
   width: 100%;
-  padding-bottom: 25vh;
-
-  @media (max-width: ${breakpoints.l}px) {
-    padding-bottom: 30vh;
-  }
-`
-const Over = styled.div`
-  position: sticky;
-  bottom: 0;
-  width: 52%;
-  height: 80vh;
-  margin: 0 auto;
-  margin-bottom: 600px;
-  background: var(--color-sandbeige);
-  z-index: 5;
-  @media (max-width: ${breakpoints.xl}px) {
-    width: 100%;
-    margin: 0 auto;
-    margin-bottom: 500px;
-  }
-  @media (max-width: ${breakpoints.m}px) {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16/12;
-    margin: 0 auto;
-  }
-  @media (max-width: ${breakpoints.s}px) {
-    height: 30vh;
-  }
+  padding: 15vh 0;
+  overflow: hidden;
 `
 
 const Video = styled.div`
-  position: sticky;
   display: block;
   z-index: 1;
   aspect-ratio: 16/9;
   width: 50%;
   height: auto;
-  bottom: 25%;
-  left: 0;
   margin: 0 auto;
   @media (max-width: ${breakpoints.xl}px) {
     width: 70%;
   }
   @media (max-width: ${breakpoints.m}px) {
     width: 90%;
-    left: 0;
     margin: 0 auto;
+  }
+`
+
+const LeftPattern = styled.div`
+  position: absolute;
+  left: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  @media (max-width: ${breakpoints.l}px) {
+    display: none;
+  }
+`
+
+const RightPattern = styled.div`
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%) rotate(180deg);
+  @media (max-width: ${breakpoints.l}px) {
+    display: none;
   }
 `
