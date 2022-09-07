@@ -12,7 +12,7 @@ const Herbology = ({ data }) => {
     programName: "Herbology",
     programType: "Diploma Program",
     about:
-      "This program qualifies graduates to apply for professional membership as a Registered Herbalist (RH) with the Ontario Herbalists Association. The program can be completed in 2 years studying part-time (6 semesters). The program combines Eastern and Western medical theory, clinical practice and internships. In addition to herbology, the curriculum includes training in eastern nutrition, TCM Theory & Diagnostics, advanced Formula preparation, Internal & External Medicine, Gynaecology & Paediatrics.",
+      "This program qualifies graduates to apply for professional membership as a Registered Herbalist (RH) with the Ontario Herbalists Association. The program can be completed in 2 years of studying part-time (6 semesters). The program combines Eastern and Western medical theory, clinical practice, and internships. In addition to herbology, the curriculum includes training in eastern nutrition, TCM theory & diagnostics, advanced formula preparation, internal & external Medicine, gynecology & pediatrics.",
     image: (
       <StaticImage
         src="../../../images/Programs/diploma-herbology.png"
@@ -28,7 +28,7 @@ const Herbology = ({ data }) => {
         title: "2 Year Program (September Start Date)",
         hours: "Program Hours: 1598 (includes 350 clinical hours)",
         description:
-          "This program can be completed in 2 years, studying full-time starting in September or Janurary.",
+          "This program can be completed in 2 years, studying full-time starting in September or January.",
       },
       additionalInfo:
         "Please note that the sequence of courses in this curriculum are subject to change by year. The course is 1598 hours long in total, with 350 hours of practical supervised clinic experience, 384 in the sciences and 576 for core herbal knowledge.",

@@ -251,7 +251,7 @@ Exams, Eight Branches is the top choice for future leaders in TCM."
         <Right variants={parent} initial="hidden" animate="visible">
           <motion.h3 variants={fadeIn}>
             Eight Branches College of Eastern Medicine is a Toronto Acupuncture
-            School which offers students a comprehensive education with a
+            School that offers students a comprehensive education with a
             foundation in Traditional Chinese Medicine.
           </motion.h3>
           <motion.div variants={fadeIn}>
@@ -283,18 +283,18 @@ Exams, Eight Branches is the top choice for future leaders in TCM."
                 <br />
                 We are committed to the success of our students, and to offering
                 the best Eastern Medicine education in the province of Ontario,
-                Canada. To this effect we have established a program that has
-                lead to the highest pass rates on board regulatory examinations
+                Canada. To this effect, we have established a program that has
+                led to the highest pass rates on board regulatory examinations
                 in the Province of Ontario. Eight Branches works diligently to
                 ensure programs meet (and, where possible, exceed) the criteria
                 for excellence set out by all the major North American
                 regulatory bodies so that graduates can confidently practice
                 this medicine no matter where their future takes them. Eight
-                Branches offers continuing education, professional development
-                and advancement to our students, graduates and faculty. We aim
-                to create a supportive environment that encourages growth, and
-                promotes leaders in the field of TCM. We aim to be a centre for
-                mentorship and an incubator for leading edge approaches so that
+                Branches offers continuing education, professional development,
+                and advancement to our students, graduates, and faculty. We aim
+                to create a supportive environment that encourages growth and
+                promotes leaders in the field of TCM. We aim to be a center for
+                mentorship and an incubator for leading-edge approaches so that
                 the very best this medicine has to offer is readily available
                 via our ever-expanding community of dedicated and capable
                 practitioners.
@@ -478,7 +478,7 @@ Exams, Eight Branches is the top choice for future leaders in TCM."
         <TeachingClinicFlex>
           <TCLeft>
             <StaticImage
-              src="../images/AboutUs/tcimage.png"
+              src="../images/AboutUs/tcimage2.png"
               alt="Image of a woman receiving care. She is lying down with her eyes closed as two metal rods point to her temple."
               placeholder="blurred"
               transformOptions={{ cropFocus: "top" }}

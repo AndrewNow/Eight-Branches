@@ -339,8 +339,8 @@ const HomePage = ({ data }) => {
         <DiplomaHeader>
           <h1>Diploma Programs</h1>
           <p>
-            Our programs are tailored to suit any kind of learner, at any phase
-            of life. Explore our offerings below and find out how you can take
+            Our programs are tailored to suit any kind of learner at any phase
+            of life. Explore our courses below and find out how you can take
             part in sharing and integrating the powerful healing benefits of
             Eastern medicine.
           </p>

@@ -292,6 +292,12 @@ const BlogContent = styled.section`
 
   * {
     padding-left: 25vw;
+    > iframe {
+      padding-left: 0;
+      aspect-ratio: 16/9;
+      width: 100%;
+      height: auto;
+    }
   }
 
   // target image padding -- images are nested in p > span > picture > etc.
@@ -309,6 +315,7 @@ const BlogContent = styled.section`
     font-size: 24px;
     line-height: 35px;
     font-family: "Matter-light";
+    margin-bottom: 1.5rem;
   }
 
   h2,

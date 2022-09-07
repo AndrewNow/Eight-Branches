@@ -14,7 +14,7 @@ const Herbology = ({ data }) => {
     programName: "Traditional Chinese Medicine Practitioner",
     programType: "Diploma Program",
     about:
-      "This program qualifies graduates of the Acupuncture & Moxbustion Program to become a Registered TCM Practitioner (R.TCMP). For students who have previously completed the Acupuncture & Moxibustion Program, we offer a post-graduate stream of the TCMP program which can be completed in just 1 year studying full time (including a summer term). Otherwise, the regular TCMP diploma can be achieved in 3 years of full-time studies. In addition to teaching acupuncture and moxibustion, the program integrates extensive herbology coursework and covers the main specialties of Chinese medicine, such as internal and external medicine, gynaecology and paediatrics. Interested students can also take both the Acu and PG-TCMP program simulteanously in a 3 Year TCMP Program.",
+      "This program qualifies graduates of the Acupuncture & Moxibustion Program to become a Registered TCM Practitioner (R.TCMP). For students who have previously completed the Acupuncture & Moxibustion Program, we offer a post-graduate diploma of the TCMP program which can be completed in just 1 year of studying full time (including a summer term). Otherwise, the regular TCMP diploma can be achieved in 3 years of full-time studies. In addition to teaching acupuncture and moxibustion, the program integrates extensive herbology coursework and covers the main specialties of Chinese medicine, such as internal and external medicine, gynecology, and pediatrics. Interested students can also take both the Acu and PG-TCMP program simultaneously in a 3 Year TCMP Program.",
     image: (
       <StaticImage
         src="../../../images/Programs/diploma-TCMP.png"
@@ -30,13 +30,13 @@ const Herbology = ({ data }) => {
         title: "1 Year Program",
         hours: "Program Hours: 968 (includes 250 clinical hours)",
         description:
-          "Students must be graduates of an Acupuncture & Moxibustion Program to qualify for the 1 year program stream. Course content for this program can be compelted remotely.",
+          "Students must be graduates of an Acupuncture & Moxibustion Program to qualify for the 1-year program. Course content for this program can be completed remotely.",
       },
       optionTwo: {
         title: "3 Year Program",
         hours: "Program Hours: 3142 (includes 918 clinical hours)",
         description:
-          "This program can be completed in 3 years full time study with summer semesters. The first two years of this stream are the same as the Acupuncture & Moxibustion Program.",
+          "This program can be completed in 3 years full time study with summer semesters. The first two years of this program are the same as the Acupuncture & Moxibustion Program.",
       },
       additionalInfo:
         "Both programs qualify graduates to write the Pan-Canadian regulatory examinations and to become a Registered TCM Practitioner (R.TCMP).",

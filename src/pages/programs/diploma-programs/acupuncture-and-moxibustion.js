@@ -12,7 +12,7 @@ const Herbology = ({ data }) => {
     programName: "Acupuncture & Moxibustion",
     programType: "Diploma Program",
     about:
-      "This program can be completed in 2 years (with Clinical course hours taking place throughout each year & during additional summer terms) or in 3 years (with all Clinical hours taking place during the third year). Our program is hybrid delivery, which incudes both online and on-site study formats. In addition to acupuncture, the curriculum includes training in moxibustion, nutrition, herbology, eastern massage, cupping, gua sha and the taoist arts.",
+      "This program can be completed in 2 years (with Clinical course hours taking place throughout each year & during additional summer terms) or in 3 years (with all Clinical hours taking place during the third year). Our program is hybrid delivery, which includes both online and on-site study formats. In addition to acupuncture, the curriculum includes training in moxibustion, nutrition, herbology, eastern massage, cupping, gua sha, and the taoist arts.",
     image: (
       <StaticImage
         src="../../../images/Programs/diploma-acupuncture.png"
@@ -28,7 +28,7 @@ const Herbology = ({ data }) => {
         title: "2 Year Program",
         hours: "Program Hours: 2268 (includes 668 clinical hours)",
         description:
-          "This program can be completed in 2 years studying full-time, multiple intakes per year.",
+          "This program can be completed in 2 years of studying full-time, with multiple intakes per year.",
       },
       optionTwo: {
         title: "3 Year Program",
