@@ -1,6 +1,6 @@
 ---
 title: Maria del Carmen Urquizar Contreras, R.Ac
-degree: Acupuncture & Moxibustion Diploma
+degree: Acupuncture and Moxibustion Diploma
 portrait: maria-del-carmen-urquizar-contreras-r.ac.png
 email: hello@balancewave.ca
 ---
