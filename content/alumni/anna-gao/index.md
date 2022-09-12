@@ -1,7 +1,7 @@
 ---
 title: Anna Gao, R. Ac, RMT
 degree: Acupuncture and Moxibustion Diploma
-portrait: untitled2.327192103_std.jpg
+portrait: untitled2.327192103_std-1-.jpg
 ---
 Anna is an expert in fertility and hormonal imbalance.﻿ ﻿
 
