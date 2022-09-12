@@ -2,7 +2,7 @@
 title: Carolyn Tsang, R. Ac, RMT
 degree: Acupuncture and Moxibustion
 portrait: d535a26a-6fa3-4f85-b282-1d70cf9b32e8-1080539448-1624482510747.webp
-email: carolyn@axishealthcare.ca
+email: ""
 ---
 Carolyn is a Registered Acupuncturist with a Bachelor’s Degree in Health Science and a Diploma in Acupuncture and Moxibution. She has a love for cupping therapy, mobility training and fascial release work. In conjunction with pain management, she focuses her practice on internal health, stress and anxiety management, neurological rehabilitation and chronic disease. With a comprehensive understanding of Western and Eastern medicine, she is dedicated to creating treatment protocols that are individualized to suit her clients. Carolyn also has additional training in Cosmetic Acupuncture and Functional Range Conditioning.
 
