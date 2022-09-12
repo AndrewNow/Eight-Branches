@@ -1,5 +1,5 @@
 ---
-title: Monika Plocica
+title: Monika Plocica, R. Ac
 degree: Acupuncture and Moxibustion Diploma
 portrait: ""
 ---
