@@ -1,7 +1,7 @@
 ---
 title: Kacie Kreclowich, R. Ac
 degree: Acupuncture and Moxibustion Diploma
-portrait: kacie7ftedit_jpg.webp
+portrait: kacie7ftedit_jpg-1-.png
 ---
 Kacie is a Registered Acupuncturist in Toronto, Canada.
 
