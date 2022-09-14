@@ -55,7 +55,7 @@ const FacultyInstructorQuery = () => {
     const excerpt = InstructorQuery.excerpt
     const slug = InstructorQuery.fields.slug
     const portraitpic =
-      InstructorQuery.frontmatter.portrait?.childImageSharp.gatsbyImageData
+      InstructorQuery.frontmatter.portrait?.childImageSharp?.gatsbyImageData
     
     return (
       InstructorQuery && (

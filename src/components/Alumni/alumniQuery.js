@@ -59,7 +59,7 @@ const AlumniQuery = () => {
     const excerpt = alumniQuery.excerpt
     const slug = alumniQuery.fields.slug
     const portraitpic =
-      alumniQuery.frontmatter.portrait.childImageSharp.gatsbyImageData
+      alumniQuery.frontmatter.portrait?.childImageSharp?.gatsbyImageData
     return (
       alumniQuery && (
         <FacultyLeadership
