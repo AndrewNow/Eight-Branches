@@ -95,7 +95,6 @@ const ProgramYearDataMap = ({ term, index }) => {
                 </TermInfo>
               )
             })}
-
             {/* Only show this additional info if a given course has Eastern Bodywork courses */}
             {term.hasEasternBodywork === true && (
               <AdditionalInfo variants={expandAnimation}>
