@@ -48,10 +48,11 @@ const Herbology = ({ data }) => {
             data: [
               {
                 label: "Term 1",
+                hasEasternBodywork: true,
                 courses: [
                   {
-                    code: "EMA-4001",
-                    title: "Eastern Bodywork I",
+                    code: "EMA-40XX",
+                    title: "Eastern Bodywork I*",
                     type: "Practical",
                     credits: 3,
                   },
@@ -132,6 +133,7 @@ const Herbology = ({ data }) => {
               },
               {
                 label: "Term 3",
+                hasEasternBodywork: true,
                 courses: [
                   {
                     code: "BIO-5002",
@@ -158,8 +160,8 @@ const Herbology = ({ data }) => {
                     credits: 3,
                   },
                   {
-                    code: "EMA-4002",
-                    title: "Eastern Bodywork II",
+                    code: "EMA-40XX",
+                    title: "Eastern Bodywork II*",
                     type: "Practical",
                     credits: 3,
                   },
@@ -352,10 +354,11 @@ const Herbology = ({ data }) => {
             data: [
               {
                 label: "Term 1",
+                hasEasternBodywork: true,
                 courses: [
                   {
-                    code: "EMA-4001",
-                    title: "Eastern Bodywork I",
+                    code: "EMA-40XX",
+                    title: "Eastern Bodywork I*",
                     type: "Practical",
                     credits: 3,
                   },
@@ -424,6 +427,7 @@ const Herbology = ({ data }) => {
               },
               {
                 label: "Term 3",
+                hasEasternBodywork: true,
                 courses: [
                   {
                     code: "BIO-5002",
@@ -450,8 +454,8 @@ const Herbology = ({ data }) => {
                     credits: 3,
                   },
                   {
-                    code: "EMA-4002",
-                    title: "Eastern Bodywork II",
+                    code: "EMA-40XX",
+                    title: "Eastern Bodywork II*",
                     type: "Practical",
                     credits: 3,
                   },

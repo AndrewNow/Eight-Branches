@@ -95,6 +95,23 @@ const ProgramYearDataMap = ({ term, index }) => {
                 </TermInfo>
               )
             })}
+
+            {/* Only show this additional info if a given course has Eastern Bodywork courses */}
+            {term.hasEasternBodywork === true && (
+              <AdditionalInfo variants={expandAnimation}>
+                {" "}
+                * Eastern Bodywork I and Eastern Bodywork II is completed by
+                taking two of the following courses which have rotating
+                availability:
+                <ul>
+                  <li>EMA-4011 Eastern Bodywork: Zen Shiatsu I</li>
+                  <li>EMA-4012 Eastern Bodywork: Zen Shiatsu II</li>
+                  <li>EMA-4021 Eastern Bodywork: Acupressure I</li>
+                  <li>EMA-4022 Eastern Bodywork: Acupressure II</li>
+                  <li>EMA-4032 Eastern Bodywork: Tui Na II</li>
+                </ul>
+              </AdditionalInfo>
+            )}
             <motion.h6 variants={expandAnimation}>
               Total Credits: {courseCreditsSum}
             </motion.h6>
@@ -179,8 +196,53 @@ const Term = styled(motion.div)`
     h6 {
       padding: 1.5rem 2rem;
       :last-child {
-        text-align: center;
+        /* text-align: center; */
+        /* border: 1px solid red; */
       }
+    }
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    h6 {
+      padding: 1.5rem;
+    }
+  }
+`
+
+const AdditionalInfo = styled(motion.small)`
+  display: block;
+  padding: 2.5rem;
+  padding-bottom: 0;
+  padding-top: 3rem;
+  color: #999999;
+  font-size: 16px;
+  font-family: "Matter-regular";
+  ul {
+    margin: 0;
+    padding-top: 1rem;
+    padding-left: 2rem;
+  }
+  li {
+    font-size: 16px;
+    line-height: 120%;
+  }
+
+  @media (max-width: ${breakpoints.xl}px) {
+    font-size: 14px;
+    li {
+      font-size: 14px;
+    }
+  }
+  @media (max-width: ${breakpoints.l}px) {
+    padding: 1.5rem;
+    padding-bottom: 0;
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    font-size: 12px;
+    ul {
+      padding-left: 1.5rem;
+    }
+    li {
+      line-height: 120%;
     }
   }
 `
@@ -194,6 +256,9 @@ const TermInfo = styled(motion.div)`
   padding: 0rem 2.5rem;
   align-items: start;
 
+  @media (max-width: ${breakpoints.l}px) {
+    padding: 0rem 1.5rem;
+  }
 
   @media (max-width: ${breakpoints.m}px) {
     padding: 0rem;
@@ -230,6 +295,10 @@ const TermHeader = styled(motion.div)`
     padding: 2.5rem 0;
     padding-bottom: 1rem;
     color: var(--color-darkgreen);
+  }
+
+  @media (max-width: ${breakpoints.l}px) {
+    padding: 0rem 1.5rem;
   }
 
   @media (max-width: ${breakpoints.m}px) {
