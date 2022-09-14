@@ -38,7 +38,6 @@ const Alumni = ({ data, location }) => {
               on to do.
             </h6>
           </AlumniHeader>
-          {/* <h2>Leadership</h2> */}
           {data.alumni.edges.length === 0 ? (
             <p style={{ textAlign: "center" }}>
               Coming soon... No alumni entries to show yet!
