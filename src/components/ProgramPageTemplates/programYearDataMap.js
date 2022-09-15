@@ -159,7 +159,6 @@ const Svg = styled(motion.div)`
     align-self: center;
     justify-self: center;
     margin: 0 auto;
-
     // make svg black
     filter: invert(1);
   }
