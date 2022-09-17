@@ -119,7 +119,7 @@ const Navbar = () => {
           </Link>
         </LogoWrapper>
         <IconWrapper>
-          <a href="https://online.erealia.com/ebaem/cwv/">
+          <a href="https://online.erealia.com/ebaem/cwv/login/index.php">
             <p>Student Portal</p>
           </a>
           <Hamburger
