@@ -1,9 +1,9 @@
 {
   "mon": "Closed",
-  "tues": "8:30am-10:00pm",
-  "wed": "1:00pm-10:00pm",
-  "thurs": "1:30pm-5:30pm",
-  "fri": "1:30pm-5:30pm",
+  "tues": "1:30pm-10:00pm",
+  "wed": "1:30pm-10:00pm",
+  "thurs": "Closed",
+  "fri": "Closed",
   "sat": "9:00am-6:00pm",
-  "sun": "Closed "
+  "sun": "10:00am-2:00pm"
 }
