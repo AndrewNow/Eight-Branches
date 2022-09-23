@@ -318,8 +318,8 @@ const TeachingClinic = ({ data }) => {
             exit="hidden"
           />
           <StaticImage
-            src="../images/TeachingClinic/practitioner.png"
-            alt="Image of a practitioners working on a patient, who is lying on a massage table."
+            src="../images/TeachingClinic/practitioner2.png"
+            alt="Image of a practitioners working on a cupping patient, who is lying on a massage table."
             quality={100}
             transformOptions={{ cropFocus: "center" }}
             imgStyle={{ objectFit: "cover" }}

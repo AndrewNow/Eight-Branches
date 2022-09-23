@@ -108,7 +108,7 @@ const Footer = () => {
                   <Link to="/alumni/">
                     <p>Alumni</p>
                   </Link>
-                  <a href="https://online.erealia.com/ebaem/cwv/">
+                  <a href="https://erealia.site/tcm/cwv/login/">
                     <p>Student Portal</p>
                   </a>
                 </SiteMenu>
