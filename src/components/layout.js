@@ -4,6 +4,7 @@ import Navbar from "../components/navbar.js"
 import Footer from "../components/footer.js"
 import breakpoints from "./breakpoints"
 import { motion } from "framer-motion"
+import { Script } from "gatsby"
 
 const Layout = ({ children }) => {
   const PageTransition = {
@@ -24,6 +25,7 @@ const Layout = ({ children }) => {
   }
 
   return (
+    <>
       <GlobalWrapper
         variants={PageTransition}
         initial="initial"
@@ -31,11 +33,17 @@ const Layout = ({ children }) => {
         exit="initial"
       >
         <Navbar />
-        <Main>
-          {children}
-        </Main>
+        <Main>{children}</Main>
         <Footer />
       </GlobalWrapper>
+      <Script
+        type="text/javascript"
+        id="hs-script-loader"
+        async
+        defer
+        src="//js.hs-scripts.com/22821029.js"
+      ></Script>
+    </>
   )
 }
 
