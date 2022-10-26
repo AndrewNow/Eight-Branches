@@ -465,6 +465,7 @@ const ModalImage = styled.div`
   border-radius: 5px;
   align-self: center;
   border: 1px solid black;
+  position: relative;
   max-width: 50%;
   img {
     min-height: 60vh;
