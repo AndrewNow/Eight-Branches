@@ -17,7 +17,7 @@ const Careers = ({ data }) => {
         <Header>
           <h1>Careers</h1>
           <p>
-            Interested in working at Eight Branches? Explore our open positions below.
+            Interested in working at Eight Branches? Explore our open positions below!
           </p>
         </Header>
         <Jobs>
