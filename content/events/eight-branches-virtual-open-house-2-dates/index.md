@@ -1,7 +1,7 @@
 ---
 title: Eight Branches Virtual Open House (2 dates!)
 date: 2022-11-15T23:00:00.000Z
-host: Eight Branches
+host: "Eight Branches "
 thumbnail: photo.png
 ---
 Begin your career in Acupuncture and Traditional Chinese Medicine this Fall! Our program is designed to provide students with the most flexibility so they can learn while still leading their busy lives. The full-time study schedule is 3 days of class per week plus clinic days.
