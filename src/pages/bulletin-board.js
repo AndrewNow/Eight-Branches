@@ -7,6 +7,9 @@ import Seo from "../components/seo"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 const News = ({ data, location }) => {
+
+  console.log(data)
+
   const siteTitle = data.site.siteMetadata?.title || `News`
 
   // Only display 6 posts at first

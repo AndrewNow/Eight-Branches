@@ -12,7 +12,7 @@ export const wrapPageElement = ({ element }) => {
   // Locomotive smooth scroll config, info here  https://www.npmjs.com/package/react-locomotive-scroll
 
   return (
-      <AnimatePresence exitBeforeEnter>{element}</AnimatePresence>
+    <AnimatePresence exitBeforeEnter>{element}</AnimatePresence>
   )
 }
 
