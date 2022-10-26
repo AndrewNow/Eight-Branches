@@ -244,20 +244,20 @@ export const FacultyInstructor = ({
                 animate={open ? "visible" : "hidden"}
                 exit="hidden"
               >
-                {portraitpic ? (
-                  <ModalImage>
+                <ModalImage>
+                  {portraitpic ? (
                     <GatsbyImage
                       image={portraitpic}
                       alt={title}
                       imgStyle={{ objectFit: "cover" }}
                       style={{ minWidth: "100%" }}
                     />
-                  </ModalImage>
-                ) : (
-                  <ModalFallback>
-                    <StampLogo />
-                  </ModalFallback>
-                )}
+                  ) : (
+                    <ModalFallback>
+                      <StampLogo />
+                    </ModalFallback>
+                  )}
+                </ModalImage>
                 <ModalText>
                   <p>{role}</p>
                   <h3>{title}</h3>
