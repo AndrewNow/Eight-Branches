@@ -1,5 +1,5 @@
 ---
-title: "Eight Branches Virtual Open House (2 dates!) "
+title: "Eight Branches - Virtual Open House (2 dates!) "
 date: 2022-10-26T18:54:55.490Z
 host: Eight Branches
 ---
