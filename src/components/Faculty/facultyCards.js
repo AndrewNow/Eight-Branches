@@ -434,6 +434,33 @@ const Modal = styled(motion.div)`
     overflow: scroll;
   }
 `
+
+const ModalImage = styled.div`
+  border-radius: 5px;
+  align-self: center;
+  border: 1px solid black;
+  position: relative;
+  max-width: 50%;
+  width: 100%;
+  img {
+    min-height: 60vh;
+    border-radius: 5px;
+    /* max-width: 50%; */
+  }
+
+  @media (max-width: ${breakpoints.xl}px) {
+    max-width: 50%;
+    min-height: 90%;
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    max-width: 100%;
+    img {
+      min-height: 100%;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+`
 const ModalFallback = styled.div`
   min-height: 60vh;
   background-color: white;
@@ -461,32 +488,6 @@ const ModalFallback = styled.div`
     }
   }
 `
-const ModalImage = styled.div`
-  border-radius: 5px;
-  align-self: center;
-  border: 1px solid black;
-  position: relative;
-  max-width: 50%;
-  img {
-    min-height: 60vh;
-    border-radius: 5px;
-    /* max-width: 50%; */
-  }
-
-  @media (max-width: ${breakpoints.xl}px) {
-    max-width: 50%;
-    min-height: 90%;
-  }
-  @media (max-width: ${breakpoints.m}px) {
-    max-width: 100%;
-    img {
-      min-height: 100%;
-      max-width: 100%;
-      height: auto;
-    }
-  }
-`
-
 const ModalText = styled.div`
   overflow-y: scroll;
   flex-basis: 50%;
