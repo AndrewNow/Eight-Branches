@@ -114,7 +114,13 @@ export const FacultyLeadership = ({
                 exit="hidden"
               >
                 <ModalImage>
-                  <GatsbyImage image={portraitpic} alt={title} />
+                  {portraitpic ? (
+                    <GatsbyImage image={portraitpic} alt={title} />
+                  ) : (
+                    <ModalFallback>
+                      <StampLogo />
+                    </ModalFallback>
+                  )}
                 </ModalImage>
                 <ModalText>
                   <p>{role}</p>
