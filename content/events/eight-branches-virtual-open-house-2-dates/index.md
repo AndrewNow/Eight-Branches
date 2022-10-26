@@ -1,5 +1,5 @@
 ---
-title: Eight Branches - Virtual Open House (2 dates!)
+title: Eight Branches Virtual Open House (2 dates!)
 date: 2022-11-15T23:00:00.000Z
 host: "Eight Branches "
 thumbnail: photo.png
