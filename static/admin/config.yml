@@ -80,6 +80,7 @@ collections:
     editor:
       preview: true
     fields:
+      - { label: "This job is for...", name: "jobType", widget: "select", options: ["Instructors", "Students"], required: true }
       - { label: "Job Title", name: "title", widget: "string", required: true }
       - {
           label: "Short Description",
