@@ -12,7 +12,6 @@ import { AiOutlineClockCircle } from "react-icons/ai"
 import { CheckmarkSVG } from "../svg/misc"
 import { useInView } from "react-intersection-observer"
 import { motion } from "framer-motion"
-
 import admissions from "../../site/settings/admissions.json"
 
 const Admissions = ({ data }) => {
@@ -71,7 +70,6 @@ const Admissions = ({ data }) => {
     triggerOnce: true,
   })
 
-  console.log(HideImageInView)
 
   const [Requirement1Ref, Requirement1InView] = useInView({
     root: null,
@@ -478,8 +476,6 @@ const AcademicRequirements = styled.section`
       max-width: 40px;
     }
   }
-  @media (max-width: ${breakpoints.s}px) {
-  }
 `
 
 const RequirementWrapper = styled.div`
@@ -491,7 +487,7 @@ const RequirementWrapper = styled.div`
     margin: 0 auto;
     width: 90%;
   }
-  @media (max-width: ${breakpoints.xl}px) {
+  @media (max-width: ${breakpoints.xxl}px) {
     width: 95%;
   }
 

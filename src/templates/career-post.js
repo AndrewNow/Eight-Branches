@@ -64,6 +64,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "DD.MM.YYYY")
         shortDescription
+        jobType
       }
     }
   }
@@ -90,6 +91,9 @@ const Header = styled.header`
     width: 80%;
     padding-bottom: 2.5rem;
   }
+  @media (max-width: ${breakpoints.m}px) {
+    width: 90%;
+  }
 `
 
 const Content = styled.div`
@@ -103,6 +107,9 @@ const Content = styled.div`
   @media (max-width: ${breakpoints.l}px) {
     width: 80%;
     padding-top: 0;
+  }
+  @media (max-width: ${breakpoints.m}px) {
+    width: 90%;
   }
 `
 

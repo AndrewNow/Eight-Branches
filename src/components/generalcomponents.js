@@ -83,6 +83,32 @@ export const ApplyNow = () => {
     </ApplyNowSection>
   )
 }
+export const LandingPageWebsiteRedirect = () => {
+  return (
+    <LandingRedirectSection>
+      <LandingRedirectInner>
+        <h2>
+          Want to learn more? <br /> Visit our website!
+        </h2>
+        <ReadMore to="/">
+          Click here{" "}
+          <svg
+            width="8"
+            height="12"
+            viewBox="0 0 8 12"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.590088 10.59L5.17009 6L0.590088 1.41L2.00009 0L8.00009 6L2.00009 12L0.590088 10.59Z"
+              fill="white"
+            />
+          </svg>
+        </ReadMore>
+      </LandingRedirectInner>
+    </LandingRedirectSection>
+  )
+}
 
 const MapWrapper = styled.div`
   background-color: var(--color-darkgreen);
@@ -357,15 +383,71 @@ const ReadMore = styled(Link)`
   text-decoration: none;
   font-family: "Matter-regular";
 
-  transition: 0.25s all ease-in-out;
+  transition: 0.25s all cubic-bezier(0.34, 1.56, 0.64, 1);
   :hover {
     color: var(--color-darkgreen);
     background-color: var(--color-white);
+  }
+
+  svg {
+    margin-left: 0.25rem;
+    transition: 0.25s all cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  :hover {
+    svg {
+      transform: translate3d(5px, 0, 0);
+      path {
+        fill: var(--color-darkgreen);
+      }
+    }
   }
 
   @media (max-width: ${breakpoints.s}px) {
     margin-top: 2rem;
     width: auto;
     font-size: 17px;
+  }
+`
+
+const LandingRedirectSection = styled.section`
+  background-color: var(--color-lightgreen);
+  height: 67.5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  @media (max-width: ${breakpoints.m}px) {
+    padding: 1rem;
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    height: auto;
+  }
+`
+
+const LandingRedirectInner = styled.div`
+  border: 1px solid white;
+  border-radius: 40px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    color: white;
+    font-family: "Matter-Light";
+    /* max-width: 35%; */
+    text-align: center;
+    white-space: nowrap;
+    line-height: 130%;
+  }
+
+  @media (max-width: ${breakpoints.l}px) {
+    border-radius: 20px;
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    padding: 5rem 0;
+    border-radius: 10px;
   }
 `

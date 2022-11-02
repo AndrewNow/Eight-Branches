@@ -10,10 +10,12 @@
   --color-darkgreen: #316C5F;
   --color-white: #ffffff;
   --color-black: #000000;
+  --color-grey: #3d3d3d;
   --color-charcoal: #3D3841;
   --color-orange: #D33A21;
   --color-lightorange: #D27241;
   --hover-transition: all ease-in-out 0.15s;
+  --hover-transition-slow: all ease-in-out 0.25s;
 
   --footer-height: 550px;
 }

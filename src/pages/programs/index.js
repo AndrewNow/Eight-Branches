@@ -902,10 +902,7 @@ const LinkWrapper = styled(motion.div)`
   align-items: baseline;
   font-family: "matter-regular";
 
-  svg {
-    transition: 0.2s all cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-
+  
   p {
     padding-right: 0.75rem;
     padding-top: 1rem;
@@ -913,7 +910,10 @@ const LinkWrapper = styled(motion.div)`
     font-size: 19px;
     transition: var(--hover-transition);
   }
-
+  
+  svg {
+    transition: 0.2s all cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
   :hover {
     p {
       color: #00000095;
