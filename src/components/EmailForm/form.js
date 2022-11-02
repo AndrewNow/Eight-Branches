@@ -44,8 +44,8 @@ const Form = ({ landingPageType }) => {
           console.log(error.text)
         }
       )
+      // reset form after submission
     e.target.reset()
-    // reset form after submission
   }
 
   return (
