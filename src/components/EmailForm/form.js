@@ -129,17 +129,18 @@ const Form = ({ landingPageType }) => {
         <input type="hidden" name="landing_page_type" value={landingPageType} />
         <span />
         <SendButton type="submit" value="Submit" />
-        {SuccessfulSubmission && (
-          <motion.p
-            variants={successMessageAnim}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-          >
-            Thank you for your interest! We'll get back to you shortly.
-          </motion.p>
-        )}
       </EmailJSForm>
+      {SuccessfulSubmission && (
+        <Success
+          variants={successMessageAnim}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+        >
+          Success! Thank you for your interest. <br /> We'll get back to you
+          shortly.
+        </Success>
+      )}
     </ComponentWrapper>
   )
 }
@@ -318,4 +319,9 @@ const SendButton = styled.input`
   @media (max-width: ${breakpoints.s}px) {
     min-height: 35px;
   }
+`
+
+const Success = styled(motion.p)`
+  padding-bottom: 0.5rem;
+  text-align: center;
 `
