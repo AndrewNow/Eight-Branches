@@ -44,7 +44,7 @@ const Form = ({ landingPageType }) => {
           console.log(error.text)
         }
       )
-      // reset form after submission
+    // reset form after submission
     e.target.reset()
   }
 
@@ -56,7 +56,7 @@ const Form = ({ landingPageType }) => {
       <h4>Get your information package today!</h4>
       <EmailJSForm onSubmit={sendEmail} ref={form}>
         <WrapInputLabel>
-          <label>First Name:</label>
+          <label htmlFor="first_name">First Name:</label>
           <Input
             type="text"
             name="first_name"
@@ -65,7 +65,7 @@ const Form = ({ landingPageType }) => {
           />
         </WrapInputLabel>
         <WrapInputLabel>
-          <label>Last Name:</label>
+          <label htmlFor="last_name">Last Name:</label>
           <Input
             type="text"
             name="last_name"
@@ -74,7 +74,7 @@ const Form = ({ landingPageType }) => {
           />
         </WrapInputLabel>
         <WrapInputLabel>
-          <label>Email:</label>
+          <label htmlFor="user_email">Email:</label>
           <Input
             type="email"
             name="user_email"
@@ -83,7 +83,7 @@ const Form = ({ landingPageType }) => {
           />
         </WrapInputLabel>
         <WrapInputLabel>
-          <label>Phone Number:</label>
+          <label htmlFor="user_phone">Phone Number:</label>
           <Input
             type="text"
             name="user_phone"
@@ -92,10 +92,20 @@ const Form = ({ landingPageType }) => {
           />
         </WrapInputLabel>
         <WrapInputLabel>
-          <label>Province:</label>
+          <label htmlFor="user_province">Province:</label>
           <CustomSelect>
-            <select name="user_province" id="province" placeholder="" required>
-              <option disabled selected value>
+            <select
+              name="user_province"
+              id="province"
+              placeholder=""
+              required
+              defaultValue="default"
+            >
+              <option
+                disabled
+                value="default"
+                // selected defaultValue
+              >
                 Select an option...
               </option>
               <option>Alberta</option>
@@ -241,6 +251,7 @@ const WrapInputLabel = styled.span`
 const CustomSelect = styled.div`
   position: relative;
   select {
+    min-height: 35px;
     background: white;
     color: var(--color-grey);
     width: 100%;
@@ -295,12 +306,15 @@ const SendButton = styled.input`
     margin: 1rem 0;
   }
   @media (max-width: ${breakpoints.l}px) {
-
     /* margin: 2rem auto; */
     /* display: block; */
   }
   @media (max-width: ${breakpoints.m}px) {
+    border-radius: 5px;
     margin: 2rem auto;
     display: block;
+  }
+  @media (max-width: ${breakpoints.s}px) {
+    min-height: 35px;
   }
 `
