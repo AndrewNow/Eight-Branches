@@ -298,6 +298,7 @@ const SendButton = styled.input`
   color: white;
   cursor: pointer;
   transition: var(--hover-transition);
+  -webkit-appearance: none;
   :hover {
   }
 
