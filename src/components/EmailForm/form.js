@@ -85,29 +85,20 @@ const Form = ({ landingPageType }) => {
         <WrapInputLabel>
           <label htmlFor="user_phone">Phone Number:</label>
           <Input
-            type="number"
+            type="tel"
             inputmode="numeric"
-            pattern="[0-9]*"
+            pattern="^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$"
             name="user_phone"
             placeholder="Phone number..."
+            title="### ### ####, (###) ###-####, or ##########"
             required
           />
         </WrapInputLabel>
         <WrapInputLabel>
           <label htmlFor="user_province">Province:</label>
           <CustomSelect>
-            <select
-              name="user_province"
-              id="province"
-              placeholder=""
-              required
-              defaultValue="default"
-            >
-              <option
-                disabled
-                value="default"
-                // selected defaultValue
-              >
+            <select name="user_province" id="province" required>
+              <option value="" hidden disabled selected>
                 Select an option...
               </option>
               <option>Alberta</option>
