@@ -85,7 +85,9 @@ const Form = ({ landingPageType }) => {
         <WrapInputLabel>
           <label htmlFor="user_phone">Phone Number:</label>
           <Input
-            type="text"
+            type="number"
+            inputmode="numeric"
+            pattern="[0-9]*"
             name="user_phone"
             placeholder="Phone number..."
             required
