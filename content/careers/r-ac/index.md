@@ -1,7 +1,7 @@
 ---
 jobType: Students
-title: R. Ac
-shortDescription: Full Time, Part Time
+title: VC Athletic Therapy
+shortDescription: R. Ac
 date: 2022-11-08T19:59:01.351Z
 ---
 VC Athletic Therapy is located in Petawawa Ontario and we are entering our 12th year of business. Petawawa is home to Canada's largest military base and enjoy a mix of clientele of all ages and backgrounds. This is truly a diverse community that enjoys being active.
