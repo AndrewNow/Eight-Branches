@@ -101,7 +101,15 @@ const Content = styled.div`
   margin: 0 auto;
   padding: 2rem 0;
   p {
+    display: block;
+    padding: 1rem 0;
     font-family: "Matter-light";
+    a {
+      color: var(--color-orange);
+    }
+  }
+  a {
+    color: var(--color-orange);
   }
 
   @media (max-width: ${breakpoints.l}px) {

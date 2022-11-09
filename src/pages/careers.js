@@ -9,6 +9,8 @@ import { Arrow } from "../svg/misc"
 const Careers = ({ data }) => {
   const siteTitle = data.site.siteMetadata?.title || `Work at Eight Branches`
 
+  console.log(data)
+
   // From all data, only show ones that has a jobType === "Instructors"
   let instructorJobs
   instructorJobs = data.careers.edges?.filter(article => {
@@ -56,7 +58,8 @@ const Careers = ({ data }) => {
                   if (!careerDataQuery) {
                     return null
                   }
-                  const { title } = careerDataQuery.frontmatter
+                  const { title, shortDescription } =
+                    careerDataQuery.frontmatter
                   const slug = careerDataQuery.fields.slug
                   return (
                     <HideArrowLi key={slug}>
@@ -65,6 +68,7 @@ const Careers = ({ data }) => {
                       </ArrowWrapper>
                       <Link to={slug} itemProp="url">
                         <h4>{title}</h4>
+                        {shortDescription && <small>{shortDescription}</small>}
                       </Link>
                     </HideArrowLi>
                   )
@@ -98,7 +102,8 @@ const Careers = ({ data }) => {
                   if (!careerDataQuery) {
                     return null
                   }
-                  const { title } = careerDataQuery.frontmatter
+                  const { title, shortDescription } =
+                    careerDataQuery.frontmatter
                   const slug = careerDataQuery.fields.slug
                   return (
                     <HideArrowLi key={slug}>
@@ -107,6 +112,7 @@ const Careers = ({ data }) => {
                       </ArrowWrapper>
                       <Link to={slug} itemProp="url">
                         <h4>{title}</h4>
+                        {shortDescription && <small>{shortDescription}</small>}
                       </Link>
                     </HideArrowLi>
                   )
@@ -148,6 +154,7 @@ export const pageQuery = graphql`
               title
               date
               jobType
+              shortDescription
             }
           }
         }
@@ -235,7 +242,6 @@ const Job = styled.ul`
 
   li {
     transition: var(--hover-transition-slow);
-    padding: 0 2rem;
     display: flex;
     justify-content: space-between;
     align-items: baseline;
@@ -256,25 +262,24 @@ const Job = styled.ul`
       }
     }
   }
-  @media (max-width: ${breakpoints.l}px) {
-    li {
-      padding: 0 1rem;
-    }
-  }
 `
 
 const HideArrowLi = styled.li`
   position: relative;
+  padding: 1rem 2rem;
   h4 {
     position: relative;
     z-index: 2;
     cursor: pointer;
     background: var(--color-lightestbeige);
     box-sizing: border-box;
-    padding: 1rem 0;
     width: 100%;
     color: var(--color-black) !important;
     transition: var(--hover-transition-slow);
+  }
+  small {
+    color: var(--color-grey);
+    font-family: "Matter-Light";
   }
   :hover {
     div {
@@ -302,13 +307,16 @@ const HideArrowLi = styled.li`
       }
     }
   }
+  @media (max-width: ${breakpoints.s}px) {
+    padding: 1rem 1rem;
+  }
 `
 
 const ArrowWrapper = styled.div`
   position: absolute;
   z-index: 0;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-100%);
 
   @media (max-width: ${breakpoints.l}px) {
     display: none;
