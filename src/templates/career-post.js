@@ -100,15 +100,24 @@ const Content = styled.div`
   width: 50%;
   margin: 0 auto;
   padding: 2rem 0;
-  p {
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  small {
     display: block;
     padding: 1rem 0;
     font-family: "Matter-light";
     a {
+      font-family: "Matter-light";
       color: var(--color-orange);
     }
   }
   a {
+    font-family: "Matter-light";
     color: var(--color-orange);
   }
 

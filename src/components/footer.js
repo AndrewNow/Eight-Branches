@@ -81,9 +81,9 @@ const Footer = () => {
                   {/* <Title>Menu</Title> */}
                   {/* <CollapseBreakMobile /> */}
                   {/* <CollapseBreakMobile /> */}
-                  {/* <Link to="/careers/">
+                  <Link to="/careers/">
                     <p>Careers</p>
-                  </Link> */}
+                  </Link>
                   <Link to="/about-us/">
                     <p>About Us</p>
                   </Link>

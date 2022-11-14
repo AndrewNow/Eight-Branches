@@ -243,9 +243,9 @@ const Job = styled.ul`
   li {
     transition: var(--hover-transition-slow);
     display: flex;
+    border-radius: 5px;
     justify-content: space-between;
     align-items: baseline;
-    border-radius: 5px;
     cursor: pointer;
     a {
       display: inline-block;
@@ -308,7 +308,7 @@ const HideArrowLi = styled.li`
     }
   }
   @media (max-width: ${breakpoints.s}px) {
-    padding: 1rem 1rem;
+    padding: 1rem;
   }
 `
 
