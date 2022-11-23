@@ -46,6 +46,8 @@ const Form = ({ landingPageType }) => {
       )
     // reset form after submission
     e.target.reset()
+    typeof window !== "undefined" &&
+      window.gtag("event", "generate_lead", { ...data })
   }
 
   return (
@@ -54,7 +56,7 @@ const Form = ({ landingPageType }) => {
         <NavLogo />
       </LogoWrapper>
       <h4>Get your information package today!</h4>
-      <EmailJSForm onSubmit={sendEmail} ref={form}>
+      <EmailJSForm onSubmit={sendEmail} ref={form} id="landing-form">
         <WrapInputLabel>
           <label htmlFor="first_name">First Name:</label>
           <Input
