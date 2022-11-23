@@ -46,8 +46,8 @@ const Form = ({ landingPageType }) => {
       )
     // reset form after submission
     e.target.reset()
-    typeof window !== "undefined" &&
-      window.gtag("event", "generate_lead", { ...data, debug_mode: true })
+    typeof window !== "undefined" && window.gtag("event", "generate_lead")
+    // window.gtag("event", "generate_lead", { ...data })
   }
 
   return (

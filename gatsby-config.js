@@ -17,7 +17,10 @@ module.exports = {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.
-        trackingIds: ["G-7S7VZRT31C", "UA-190810976-1"],
+        trackingIds: [
+          "G-7S7VZRT31C",
+          // "UA-190810976-1"
+        ],
         // The first ID ("g-7...") is the main one at the time of writing this (Nov 2022)
         // This object gets passed directly to the gtag config command
         // This config will be shared across all trackingIds
