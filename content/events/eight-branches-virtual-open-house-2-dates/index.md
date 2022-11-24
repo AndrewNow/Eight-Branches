@@ -1,7 +1,7 @@
 ---
 title: Eight Branches Virtual Open House
 link: https://us02web.zoom.us/meeting/register/tZAtdu-hqjMpGdRlEQvsqmUJmcNyBne0jF5q
-date: 2022-11-15T23:00:00.000Z
+date: 2022-12-10T17:00:00.000Z
 host: "Eight Branches "
 thumbnail: photo.png
 ---
