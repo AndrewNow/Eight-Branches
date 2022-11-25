@@ -7,4 +7,4 @@ thumbnail: photo.png
 ---
 Begin your career in Acupuncture and Traditional Chinese Medicine this Fall! Our program is designed to provide students with the most flexibility so they can learn while still leading their busy lives. The full-time study schedule is 3 days of class per week plus clinic days.
 
-W﻿e will be hosting an Eight Branches Virtual Open House where we will have a Q&A as well as a virtual campus tour. Learn more about what a career in TCM means toady!
+W﻿e will be hosting an Eight Branches Virtual Open House where we will have a Q&A as well as a virtual campus tour. Learn more about what a career in TCM means today!
