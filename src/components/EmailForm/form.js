@@ -54,7 +54,6 @@ const Form = ({ landingPageType }) => {
           )
       }
     }
-
     // reset form after submission
     typeof window !== "undefined" &&
       window.gtag("event", "generate_lead", {
