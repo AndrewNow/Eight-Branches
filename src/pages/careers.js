@@ -9,11 +9,8 @@ import { Arrow } from "../svg/misc"
 const Careers = ({ data }) => {
   const siteTitle = data.site.siteMetadata?.title || `Work at Eight Branches`
 
-  console.log(data)
-
   // From all data, only show ones that has a jobType === "Instructors"
-  let instructorJobs
-  instructorJobs = data.careers.edges?.filter(article => {
+  let instructorJobs = data.careers.edges?.filter(article => {
     if (
       article.node.childrenMarkdownRemark[0].frontmatter.jobType ===
       "Instructors"
@@ -23,8 +20,7 @@ const Careers = ({ data }) => {
   })
 
   // From all data, only show ones that has a jobType === "Students"
-  let studentJobs
-  studentJobs = data.careers.edges?.filter(article => {
+  let studentJobs = data.careers.edges?.filter(article => {
     if (
       article.node.childrenMarkdownRemark[0].frontmatter.jobType === "Students"
     ) {

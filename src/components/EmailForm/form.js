@@ -27,27 +27,42 @@ const Form = ({ landingPageType }) => {
 
   const sendEmail = e => {
     e.preventDefault()
-    emailjs
-      .sendForm(
-        "service_hy8kuhd",
-        "8b_landing_template",
-        form.current,
-        "Sl8R2Sih7-dFqBqKz"
-      )
-      .then(
-        result => {
-          setSuccessfulSubmission(true)
-          console.log(result.text)
-        },
-        error => {
-          setSuccessfulSubmission(false)
-          console.log(error.text)
-        }
-      )
+
+    setTimeout(submitForm, 1000)
+
+    let formSubmitted = false
+
+    function submitForm() {
+      if (!formSubmitted) {
+        formSubmitted = true
+        emailjs
+          .sendForm(
+            "service_hy8kuhd",
+            "8b_landing_template",
+            form.current,
+            "Sl8R2Sih7-dFqBqKz"
+          )
+          .then(
+            result => {
+              setSuccessfulSubmission(true)
+              console.log(result.text)
+            },
+            error => {
+              setSuccessfulSubmission(false)
+              console.log(error.text)
+            }
+          )
+      }
+    }
+
     // reset form after submission
+    typeof window !== "undefined" &&
+      window.gtag("event", "generate_lead", {
+        send_to: "G-7S7VZRT31C",
+        method: "Acupuncture landing form",
+        event_callback: submitForm,
+      })
     e.target.reset()
-    typeof window !== "undefined" && window.gtag("event", "generate_lead")
-    // window.gtag("event", "generate_lead", { ...data })
   }
 
   return (
