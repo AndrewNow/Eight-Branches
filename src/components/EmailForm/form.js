@@ -36,7 +36,6 @@ const Form = ({ landingPageType }) => {
     //   if (!formSubmitted) {
     //     formSubmitted = true
 
-    //     console.log(form.current)
     //     emailjs
     //       .sendForm(
     //         "service_hy8kuhd",
@@ -56,30 +55,30 @@ const Form = ({ landingPageType }) => {
     //       )
     //   }
     // }
-
-    emailjs
-      .sendForm(
-        "service_hy8kuhd",
-        "8b_landing_template",
-        form.current,
-        "Sl8R2Sih7-dFqBqKz"
-      )
-      .then(
-        result => {
-          setSuccessfulSubmission(true)
-          console.log(result.text)
-        },
-        error => {
-          setSuccessfulSubmission(false)
-          console.log(error.text)
-        }
-      )
-
     typeof window !== "undefined" &&
       window.gtag("event", "generate_lead", {
         send_to: "G-7S7VZRT31C",
         method: "Acupuncture landing form",
-        // event_callback: submitForm,
+        event_callback: function () {
+          console.log("callback fired")
+          emailjs
+            .sendForm(
+              "service_hy8kuhd",
+              "8b_landing_template",
+              form.current,
+              "Sl8R2Sih7-dFqBqKz"
+            )
+            .then(
+              result => {
+                setSuccessfulSubmission(true)
+                console.log(result.text)
+              },
+              error => {
+                setSuccessfulSubmission(false)
+                console.log(error.text)
+              }
+            )
+        },
       })
     // reset form after submission
     e.target.reset()
