@@ -42,7 +42,7 @@ const Form = ({ landingPageType }) => {
     const submitForm = () => {
       if (!formSubmitted) {
         formSubmitted = true
-
+        console.log('sending form...')
         emailjs
           .sendForm(
             "service_hy8kuhd",
