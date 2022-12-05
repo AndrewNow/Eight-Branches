@@ -28,57 +28,47 @@ const Form = ({ landingPageType }) => {
   const sendEmail = e => {
     e.preventDefault()
 
-    // setTimeout(submitForm, 1000)
+    // https://developers.google.com/analytics/devguides/collection/gtagjs/sending-data
 
-    // let formSubmitted = false
+    // Creates a timeout to call submitForm after one second.
+    setTimeout(submitForm, 1000)
 
-    // const submitForm = () => {
-    //   if (!formSubmitted) {
-    //     formSubmitted = true
+    // Monitors whether or not the form has been submitted.
+    // This prevents the form from being submitted twice in cases
+    // where the event callback function fires normally.
 
-    //     emailjs
-    //       .sendForm(
-    //         "service_hy8kuhd",
-    //         "8b_landing_template",
-    //         form.current,
-    //         "Sl8R2Sih7-dFqBqKz"
-    //       )
-    //       .then(
-    //         result => {
-    //           setSuccessfulSubmission(true)
-    //           console.log(result.text)
-    //         },
-    //         error => {
-    //           setSuccessfulSubmission(false)
-    //           console.log(error.text)
-    //         }
-    //       )
-    //   }
-    // }
+    let formSubmitted = false
+
+    const submitForm = () => {
+      if (!formSubmitted) {
+        formSubmitted = true
+
+        emailjs
+          .sendForm(
+            "service_hy8kuhd",
+            "8b_landing_template",
+            form.current,
+            "Sl8R2Sih7-dFqBqKz"
+          )
+          .then(
+            result => {
+              setSuccessfulSubmission(true)
+              console.log(result.text)
+            },
+            error => {
+              setSuccessfulSubmission(false)
+              console.log(error.text)
+            }
+          )
+      }
+    }
     typeof window !== "undefined" &&
       window.gtag("event", "generate_lead", {
         send_to: "G-7S7VZRT31C",
         method: "Acupuncture landing form",
-        event_callback: function () {
-          console.log("callback fired")
-          emailjs
-            .sendForm(
-              "service_hy8kuhd",
-              "8b_landing_template",
-              form.current,
-              "Sl8R2Sih7-dFqBqKz"
-            )
-            .then(
-              result => {
-                setSuccessfulSubmission(true)
-                console.log(result.text)
-              },
-              error => {
-                setSuccessfulSubmission(false)
-                console.log(error.text)
-              }
-            )
-        },
+        // Sends the event to Google Analytics and
+        // resubmits the form once the hit is done.
+        event_callback: submitForm,
       })
     // reset form after submission
     e.target.reset()
