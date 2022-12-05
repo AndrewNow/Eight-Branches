@@ -28,47 +28,62 @@ const Form = ({ landingPageType }) => {
   const sendEmail = e => {
     e.preventDefault()
 
-    // https://developers.google.com/analytics/devguides/collection/gtagjs/sending-data
+    // // https://developers.google.com/analytics/devguides/collection/gtagjs/sending-data
+    // // Creates a timeout to call submitForm after one second.
+    // setTimeout(submitForm, 1000)
 
-    // Creates a timeout to call submitForm after one second.
-    setTimeout(submitForm, 1000)
+    // // Monitors whether or not the form has been submitted.
+    // // This prevents the form from being submitted twice in cases
+    // // where the event callback function fires normally.
+    // let formSubmitted = false
 
-    // Monitors whether or not the form has been submitted.
-    // This prevents the form from being submitted twice in cases
-    // where the event callback function fires normally.
-
-    let formSubmitted = false
-
-    const submitForm = () => {
-      if (!formSubmitted) {
-        formSubmitted = true
-        console.log('sending form...')
-        emailjs
-          .sendForm(
-            "service_hy8kuhd",
-            "8b_landing_template",
-            form.current,
-            "Sl8R2Sih7-dFqBqKz"
-          )
-          .then(
-            result => {
-              setSuccessfulSubmission(true)
-              console.log(result.text)
-            },
-            error => {
-              setSuccessfulSubmission(false)
-              console.log(error.text)
-            }
-          )
-      }
-    }
+    // const submitForm = () => {
+    //   if (!formSubmitted) {
+    //     formSubmitted = true
+    //     console.log("sending form...")
+    //     emailjs
+    //       .sendForm(
+    //         "service_hy8kuhd",
+    //         "8b_landing_template",
+    //         form.current,
+    //         "Sl8R2Sih7-dFqBqKz"
+    //       )
+    //       .then(
+    //         result => {
+    //           setSuccessfulSubmission(true)
+    //           console.log(result.text)
+    //         },
+    //         error => {
+    //           setSuccessfulSubmission(false)
+    //           console.log(error.text)
+    //         }
+    //       )
+    //   }
+    // }
+    emailjs
+      .sendForm(
+        "service_hy8kuhd",
+        "8b_landing_template",
+        form.current,
+        "Sl8R2Sih7-dFqBqKz"
+      )
+      .then(
+        result => {
+          setSuccessfulSubmission(true)
+          console.log(result.text)
+        },
+        error => {
+          setSuccessfulSubmission(false)
+          console.log(error.text)
+        }
+      )
     typeof window !== "undefined" &&
       window.gtag("event", "generate_lead", {
         send_to: "G-7S7VZRT31C",
         method: "Acupuncture landing form",
         // Sends the event to Google Analytics and
         // resubmits the form once the hit is done.
-        event_callback: submitForm,
+        // event_callback: submitForm,
       })
     // reset form after submission
     e.target.reset()
