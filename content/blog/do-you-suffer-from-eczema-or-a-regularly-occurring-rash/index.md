@@ -6,7 +6,7 @@ description: "Do you suffer from skin irritants? Here's how Traditional Chinese
   Medicine may help. "
 thumbnail: eight-branches-acupuncture.jpg
 ---
-B﻿y: Marilyn Hubley
+B﻿y: Marilyn Hubley (2nd-year student)
 
 Through the therapy of Traditional Chinese Medicine, common skin irritants such as eczema can be put into remission by a series of treatments. Eczema is quite prevalent where approximately 20% of children and 3-4% of adults are affected. Eczema is a form of dermatosis and can often be interpreted as a persistent rash as it’s itchy in nature. It can vary in degrees, where it could be barely visible to the eye - yet itchy. It can also present as dry, scaly, red, weepy, or show as pustules, whether these aspects are combined or standalone. 
 
