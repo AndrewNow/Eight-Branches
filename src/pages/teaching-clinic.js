@@ -334,7 +334,7 @@ const TeachingClinic = ({ data }) => {
           >
             <motion.h6 variants={FadeIn}>About The Clinic</motion.h6>
             <motion.h2 variants={FadeIn}>
-              Supervised by our most talented instructors, the clinc is a great
+              Supervised by our most talented instructors, the clinic is a great
               way for our students to gain real-world expertise and knowledge in
               patient care.
             </motion.h2>
