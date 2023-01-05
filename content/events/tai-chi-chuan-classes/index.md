@@ -1,6 +1,6 @@
 ---
 title: Tai Chi Chuan Classes
-date: 2023-01-15T15:25:05.861Z
+date: 2023-01-15T18:00:05.861Z
 host: Donrub Wangchuk
 thumbnail: unnamed-5-.png
 ---
