@@ -6,6 +6,8 @@ description: Learn about the Chinese Medicine Clock, a traditional way of
   understanding how the body's organs function at different times of the day.
 thumbnail: everything-you-should-know-about-the-chinese-medicine-clock.jpg
 ---
+B﻿y: Madison Clarke
+
 The Chinese Body clock is rooted and based on Ancient Traditional Chinese Medicine. The clock is based on a 24-hour period - this helps us optimize our energy by matching tasks to certain times of the day. It is said that Qi moves through the organ system every 2 hours and is a helpful tool used to discover any imbalances we may be experiencing within the body. Every Zang and Fu organ in the body gets a 2-hour time window where Qi is most concentrated, and every element gets a 4-hour window where the Qi is most concentrated.
 
 # F﻿unction of the Chinese Organ Body Clock
@@ -24,7 +26,5 @@ I﻿f someone were following the Chinese clock this is what an ideal day would l
 * 9﻿ pm - 11 pm is the time of the endocrine system - during this time, enzymes are replenished and the body comes back to homeostasis. It's recommended to go to bed around this time
 * 1﻿1 pm - 1 am is the time of the gall bladder - this is the time your body should be asleep as regeneration and healing happen. 
 * 1﻿ am - 3 am is the time of the liver - this is when toxins are released from the body, fresh is made and it's a time for deep sleep and dreaming
-
-
 
 Following a consistent daily routine and getting enough sleep can help to improve energy levels, focus, and overall well-being. Aligning your body's natural rhythms with your daily schedule may also help to improve productivity and reduce the risk of certain health conditions, such as obesity, diabetes, and heart disease. In addition, paying attention to your body's natural rhythms can help you to better understand your own needs and habits, which can be a valuable tool for self-improvement. Overall, living according to the Chinese body clock can be a simple but effective way to promote better health and well-being and can enhance your acupuncture experince!
