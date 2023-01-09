@@ -10,8 +10,10 @@ import breakpoints from "../components/breakpoints"
 const BlogPostTemplate = ({ data }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
+
   const { previous, next } = data
-  const image = getImage(post.frontmatter.thumbnail)
+
+  const image = getImage(post?.frontmatter.thumbnail)
   const nextImage = getImage(next?.frontmatter.thumbnail)
   const previousImage = getImage(previous?.frontmatter.thumbnail)
 
@@ -38,7 +40,9 @@ const BlogPostTemplate = ({ data }) => {
             <BlogContentHeader>
               <h6>{post.frontmatter.description}</h6>
             </BlogContentHeader>
-            <GatsbyImage image={image} alt={post.frontmatter.description} />
+            {image && (
+              <GatsbyImage image={image} alt={post.frontmatter.description} />
+            )}
             <BlogContent
               dangerouslySetInnerHTML={{ __html: post.html }}
               itemProp="articleBody"
@@ -63,10 +67,12 @@ const BlogPostTemplate = ({ data }) => {
                   </Link>
                 </h6>
                 <Link to={previous.fields.slug} itemProp="url">
-                  <GatsbyImage
-                    image={previousImage}
-                    alt={previous.frontmatter.description}
-                  />
+                  {previousImage && (
+                    <GatsbyImage
+                      image={previousImage}
+                      alt={previous.frontmatter.description}
+                    />
+                  )}
                 </Link>
                 <BulletinDescription>
                   <p>{previous.frontmatter.readtime} minute read</p>
@@ -82,7 +88,7 @@ const BlogPostTemplate = ({ data }) => {
                   </Link>
                 </h6>
                 <Link to={next.fields.slug} itemProp="url">
-                  {next.frontmatter.thumbnail && (
+                  {nextImage && (
                     <GatsbyImage
                       image={nextImage}
                       alt={next.frontmatter.description}

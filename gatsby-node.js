@@ -112,11 +112,17 @@ exports.createPages = async ({ graphql, actions }) => {
 
     careerPosts.forEach(node => {
       createPage({
-        path: node.childMarkdownRemark.fields.slug,
+        path: `/careers${node.childMarkdownRemark.fields.slug}`,
         component: careerPost,
         context: {
           id: node.childMarkdownRemark.id,
         },
+      })
+      createRedirect({
+        fromPath: node.childMarkdownRemark.fields.slug,
+        toPath: `/careers${node.childMarkdownRemark.fields.slug}`,
+        isPermanent: true,
+        redirectInBrowser: true,
       })
     })
 
@@ -129,13 +135,19 @@ exports.createPages = async ({ graphql, actions }) => {
           : eventPosts[index + 1].childMarkdownRemark.id
 
       createPage({
-        path: node.childMarkdownRemark.fields.slug,
+        path: `/bulletin-board/events${node.childMarkdownRemark.fields.slug}`,
         component: eventPost,
         context: {
           id: node.childMarkdownRemark.id,
           previousId,
           nextId,
         },
+      })
+      createRedirect({
+        fromPath: node.childMarkdownRemark.fields.slug,
+        toPath: `/bulletin-board/events${node.childMarkdownRemark.fields.slug}`,
+        isPermanent: true,
+        redirectInBrowser: true,
       })
     })
   }
