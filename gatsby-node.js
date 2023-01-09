@@ -2,7 +2,7 @@ const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage, createRedirect } = actions
   // Define a template for blog post
 
   // Get all markdown blog posts sorted by date
@@ -94,13 +94,19 @@ exports.createPages = async ({ graphql, actions }) => {
       // console.log(JSON.stringify(node.childMarkdownRemark, null, 0))
 
       createPage({
-        path: node.childMarkdownRemark.fields.slug,
+        path: `/bulletin-board${node.childMarkdownRemark.fields.slug}`,
         component: blogPost,
         context: {
           id: node.childMarkdownRemark.id,
           previousId,
           nextId,
         },
+      })
+      createRedirect({
+        fromPath: node.childMarkdownRemark.fields.slug,
+        toPath: `/bulletin-board${node.childMarkdownRemark.fields.slug}`,
+        isPermanent: true,
+        redirectInBrowser: true,
       })
     })
 

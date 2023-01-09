@@ -356,17 +356,23 @@ const EventLink = styled.a`
 `
 
 const BlogContent = styled.section`
-  /* padding-top: 5rem; */
+  padding-top: 5rem;
   overflow-x: hidden;
 
   * {
     padding-left: 25vw;
+    > iframe {
+      padding-left: 0;
+      aspect-ratio: 16/9;
+      width: 100%;
+      height: auto;
+    }
   }
 
   // target image padding -- images are nested in p > span > picture > etc.
   p {
     span {
-      margin: 1.5em 0;
+      /* margin: 1.5em 0; */
     }
   }
 
@@ -375,11 +381,13 @@ const BlogContent = styled.section`
   }
 
   p {
-    font-size: 24px;
-    line-height: 35px;
+    font-size: 22px;
+    line-height: 175%;
     font-family: "Matter-light";
+    margin-bottom: 1.5rem;
   }
 
+  h1,
   h2,
   h3,
   h4,
@@ -401,7 +409,7 @@ const BlogContent = styled.section`
 
   ul,
   ol {
-    padding-left: 28vw;
+    padding-left: 30vw;
     font-size: 18px;
     line-height: 25px;
     font-family: "Matter-regular";
@@ -427,15 +435,17 @@ const BlogContent = styled.section`
     padding-left: 0;
   }
 
-  ul {
+  ul,
+  ol {
     li {
+      font-size: 22px;
+      line-height: 150%;
       padding-left: 1rem;
-      ul {
-        padding-left: 1rem;
+      padding-bottom: 1rem;
+      font-family: "Matter-light";
+      strong {
+        font-family: "Matter-regular";
       }
-    }
-    p {
-      padding-left: 0;
     }
   }
 
@@ -520,6 +530,10 @@ const BlogContent = styled.section`
 
     ul,
     ol {
+      li {
+        font-size: 18px;
+        line-height: 30px;
+      }
       padding-left: 2rem;
       font-size: 18px;
       line-height: 30px;
@@ -583,6 +597,10 @@ const BlogContent = styled.section`
 
     ul,
     ol {
+      li {
+        font-size: 16px;
+        line-height: 27.5px;
+      }
       padding-left: 1.5rem;
       font-size: 16px;
       line-height: 27.5px;

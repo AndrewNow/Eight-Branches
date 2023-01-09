@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -11,6 +11,9 @@ const BlogPostTemplate = ({ data }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
+  const image = getImage(post.frontmatter.thumbnail)
+  const nextImage = getImage(next?.frontmatter.thumbnail)
+  const previousImage = getImage(previous?.frontmatter.thumbnail)
 
   return (
     <Layout title={siteTitle}>
@@ -35,10 +38,7 @@ const BlogPostTemplate = ({ data }) => {
             <BlogContentHeader>
               <h6>{post.frontmatter.description}</h6>
             </BlogContentHeader>
-            <GatsbyImage
-              image={post.frontmatter.thumbnail.childImageSharp.gatsbyImageData}
-              alt={post.frontmatter.description}
-            />
+            <GatsbyImage image={image} alt={post.frontmatter.description} />
             <BlogContent
               dangerouslySetInnerHTML={{ __html: post.html }}
               itemProp="articleBody"
@@ -64,10 +64,7 @@ const BlogPostTemplate = ({ data }) => {
                 </h6>
                 <Link to={previous.fields.slug} itemProp="url">
                   <GatsbyImage
-                    image={
-                      previous.frontmatter.thumbnail.childImageSharp
-                        .gatsbyImageData
-                    }
+                    image={previousImage}
                     alt={previous.frontmatter.description}
                   />
                 </Link>
@@ -87,10 +84,7 @@ const BlogPostTemplate = ({ data }) => {
                 <Link to={next.fields.slug} itemProp="url">
                   {next.frontmatter.thumbnail && (
                     <GatsbyImage
-                      image={
-                        next.frontmatter.thumbnail.childImageSharp
-                          .gatsbyImageData
-                      }
+                      image={nextImage}
                       alt={next.frontmatter.description}
                     />
                   )}
@@ -151,7 +145,7 @@ export const pageQuery = graphql`
               width: 1150
               quality: 90
               placeholder: BLURRED
-              formats: [WEBP]
+              formats: [AUTO, WEBP, AVIF]
               aspectRatio: 1.75
             )
           }
@@ -173,7 +167,7 @@ export const pageQuery = graphql`
               width: 1150
               quality: 90
               placeholder: BLURRED
-              formats: [WEBP]
+              formats: [AUTO, WEBP, AVIF]
               aspectRatio: 1.75
             )
           }
@@ -195,7 +189,7 @@ export const pageQuery = graphql`
               width: 1150
               quality: 90
               placeholder: BLURRED
-              formats: [WEBP]
+              formats: [AUTO, WEBP, AVIF]
               aspectRatio: 1.75
             )
           }
@@ -303,21 +297,23 @@ const BlogContent = styled.section`
   // target image padding -- images are nested in p > span > picture > etc.
   p {
     span {
-      margin: 1.5em 0;
+      /* margin: 1.5em 0; */
     }
   }
 
   img {
+    height: auto;
     padding-left: 0;
   }
 
   p {
-    font-size: 24px;
-    line-height: 35px;
+    font-size: 22px;
+    line-height: 175%;
     font-family: "Matter-light";
     margin-bottom: 1.5rem;
   }
 
+  h1,
   h2,
   h3,
   h4,
@@ -365,15 +361,17 @@ const BlogContent = styled.section`
     padding-left: 0;
   }
 
-  ul {
+  ul,
+  ol {
     li {
+      font-size: 22px;
+      line-height: 150%;
       padding-left: 1rem;
-      ul {
-        padding-left: 1rem;
+      padding-bottom: 1rem;
+      font-family: "Matter-light";
+      strong {
+        font-family: "Matter-regular";
       }
-    }
-    p {
-      padding-left: 0;
     }
   }
 
@@ -458,6 +456,10 @@ const BlogContent = styled.section`
 
     ul,
     ol {
+      li {
+        font-size: 18px;
+        line-height: 30px;
+      }
       padding-left: 2rem;
       font-size: 18px;
       line-height: 30px;
@@ -521,6 +523,10 @@ const BlogContent = styled.section`
 
     ul,
     ol {
+      li {
+        font-size: 16px;
+        line-height: 27.5px;
+      }
       padding-left: 1.5rem;
       font-size: 16px;
       line-height: 27.5px;
@@ -557,7 +563,7 @@ const BlogContent = styled.section`
 const ContinueReading = styled.section`
   width: 90%;
   margin: 0 auto;
-  margin-top: 15rem;
+  margin-top: 10rem;
 
   h1 {
     margin: 0 auto;
@@ -632,7 +638,7 @@ const BulletinDescription = styled.small`
 
 const EndArticle = styled.div`
   margin-top: 7.5rem;
-  margin-bottom: 20rem;
+  margin-bottom: 0rem;
   display: flex;
 
   svg {

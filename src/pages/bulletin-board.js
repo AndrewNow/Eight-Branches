@@ -4,10 +4,9 @@ import styled from "styled-components"
 import breakpoints from "../components/breakpoints"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import { GatsbyImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const News = ({ data, location }) => {
-
   console.log(data)
 
   const siteTitle = data.site.siteMetadata?.title || `News`
@@ -30,6 +29,8 @@ const News = ({ data, location }) => {
       </Layout>
     )
   }
+
+  console.log(visiblePosts)
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -187,9 +188,9 @@ Interested in hosting one? Contact us as well."
               const { title, date, readtime } = blogDataQuery.frontmatter
               const slug = blogDataQuery.fields.slug
               const entryTitle = title || slug
-              const thumbnail =
-                blogDataQuery.frontmatter.thumbnail.childImageSharp
-                  .gatsbyImageData
+              const thumbnail = getImage(
+                blogDataQuery.frontmatter.thumbnail
+              )
               return (
                 // second query check just in case
                 blogDataQuery && (
@@ -211,20 +212,20 @@ Interested in hosting one? Contact us as well."
               )
             })}
           </Bulletingrid>
-          {visiblePosts > 6 && (
+          {data.blog.edges?.length > 6 && (
             <>
               {visiblePosts >= data.blog.edges?.length ? (
                 // if user hits end of data.blog.edges array, button closes posts
                 <LoadMore>
                   <EventsButton onClick={handleClosePosts}>
-                    <p>View less posts</p>
+                    <p>Show less posts</p>
                   </EventsButton>
                 </LoadMore>
               ) : (
                 // Button to open more posts
                 <LoadMore>
                   <EventsButton onClick={handleLoadNewPosts}>
-                    <p>Load more posts</p>
+                    <p>Show more posts</p>
                   </EventsButton>
                 </LoadMore>
               )}
@@ -269,7 +270,7 @@ export const pageQuery = graphql`
                     width: 550
                     quality: 90
                     placeholder: BLURRED
-                    formats: [WEBP]
+                    formats: [AUTO, WEBP, AVIF]
                     aspectRatio: 1.75
                   )
                 }
@@ -284,7 +285,7 @@ export const pageQuery = graphql`
         sourceInstanceName: { eq: "events" }
         internal: { mediaType: { eq: "text/markdown" } }
       }
-      sort: { fields: childMarkdownRemark___frontmatter___date, order: ASC }
+      sort: { fields: childMarkdownRemark___frontmatter___date, order: DESC }
     ) {
       edges {
         node {
