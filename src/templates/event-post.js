@@ -113,7 +113,7 @@ const EventPostTemplate = ({ data }) => {
                 </EventLink>
               )}
             </Header>
-            {post.frontmatter.thumbnail && (
+            {image && (
               <HeaderImg>
                 <GatsbyImage image={image} alt={post.frontmatter.description} />
               </HeaderImg>
