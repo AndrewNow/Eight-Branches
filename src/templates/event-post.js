@@ -358,7 +358,6 @@ const EventLink = styled.a`
 const BlogContent = styled.section`
   padding-top: 5rem;
   overflow-x: hidden;
-
   * {
     padding-left: 25vw;
     > iframe {
