@@ -118,10 +118,10 @@ const EventPostTemplate = ({ data }) => {
                 <GatsbyImage image={image} alt={post.frontmatter.description} />
               </HeaderImg>
             )}
-            <BlogContent
+            {/* <BlogContent
               dangerouslySetInnerHTML={{ __html: post.html }}
               itemProp="articleBody"
-            />
+            /> */}
             <EndArticle>
               <FooterStamp />
             </EndArticle>
