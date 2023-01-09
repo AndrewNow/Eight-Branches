@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import FooterStamp from "../svg/footerStamp"
 import breakpoints from "../components/breakpoints"
-import { GatsbyImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const EventPostTemplate = ({ data }) => {
   const post = data.markdownRemark
@@ -78,6 +78,8 @@ const EventPostTemplate = ({ data }) => {
   const formattedEventDate =
     `${day}, ` + `${month} ` + dayOfTheMonth + suffix + ` (${time})`
 
+  const image = getImage(post.frontmatter.thumbnail)
+
   return (
     <Layout title={siteTitle}>
       <Seo
@@ -113,12 +115,7 @@ const EventPostTemplate = ({ data }) => {
             </Header>
             {post.frontmatter.thumbnail && (
               <HeaderImg>
-                <GatsbyImage
-                  image={
-                    post.frontmatter.thumbnail.childImageSharp.gatsbyImageData
-                  }
-                  alt={post.frontmatter.description}
-                />
+                <GatsbyImage image={image} alt={post.frontmatter.description} />
               </HeaderImg>
             )}
             <BlogContent
@@ -224,7 +221,7 @@ export const pageQuery = graphql`
               width: 1150
               quality: 90
               placeholder: BLURRED
-              formats: [WEBP]
+              formats: [AUTO, WEBP, AVIF]
               aspectRatio: 1.75
             )
           }
