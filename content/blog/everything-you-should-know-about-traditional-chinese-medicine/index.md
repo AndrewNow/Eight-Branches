@@ -5,7 +5,7 @@ readtime: 2
 description: Learn more about what is Traditional Chinese Medicine and how it came to be!
 thumbnail: eight-branches.jpg
 ---
-B﻿y: Alexis Viau (3rd year student)
+By: Alexis Viau (3rd year student)
 
 The world of Traditional Chinese Medicine dates back decades. In this current moment, we live in a world ruled by western medicine. However, many don't know of the various alternatives that are offered. In the past ten years, we've seen an increase in interest in eastern/alternative medicine. It's great to see these alternative healing modalities grow in popularity.
 
@@ -13,14 +13,14 @@ The world of Traditional Chinese Medicine dates back decades. In this current mo
 
 TCM is a complete medical system and is composed of many modalities such as:
 
-* T﻿ongue and Pulse Diagnosis
-* A﻿cupuncture
-* A﻿cupressure Massage
-* F﻿ire Cupping
-* G﻿ua Sha
-* H﻿erbal Medicine
-* M﻿oxibustion
-* T﻿ai Chi / Qi Gong
+* Tongue and Pulse Diagnosis
+* Acupuncture
+* Acupressure Massage
+* Fire Cupping
+* Gua Sha
+* Herbal Medicine
+* Moxibustion
+* Tai Chi / Qi Gong
 
 # T﻿raditional Chinese Medicine Today
 
@@ -28,4 +28,4 @@ Long before technology, observations were leading to discoveries. This is now wh
 
 Reconnecting someone to a balanced state can end up solving more problems than they even came to see practitioners for. In our busy society, most of us will spend a lifetime without experiencing optimal health. We brush things off and accept pain. Chinese medicine helps to reroute the system and create an internal/external balance. We all deserve to feel like our best selves.
 
-F﻿or more interesting blogs like this click [here](https://www.eightbranches.ca/bulletin-board/) to view them!
+For more interesting blogs like this click [here](https://www.eightbranches.ca/bulletin-board/) to view them!
