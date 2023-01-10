@@ -127,7 +127,6 @@ Interested in hosting one? Contact us as well."
                 ) {
                   suffix = "th"
                 }
-
                 // format into (Day, Month Dayofthemonth Time Locale)
                 const formattedEventDate =
                   `${day}, ` +
