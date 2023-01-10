@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import styled from "styled-components"
 import { Squash as Hamburger } from "hamburger-react"
 import NavLogo from "../svg/navLogo"
-import breakpoints from "../components/breakpoints"
+import breakpoints from "./breakpoints"
 
 const Navbar = () => {
   const showNavbar = {
