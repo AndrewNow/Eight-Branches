@@ -22,6 +22,7 @@ const News = ({ data, location }) => {
   // When we reach the end of the array, load more posts button becomes a "close posts" button
   const handleClosePosts = () => setVisiblePosts(6)
 
+  
   if (data.blog.edges.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
