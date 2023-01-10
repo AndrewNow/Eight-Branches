@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/gatsbyjs/gatSAsby/issues"
   },
   "dependencies": {
     "@emailjs/browser": "^3.9.0",
