@@ -211,7 +211,7 @@ Interested in hosting one? Contact us as well."
               )
             })}
           </Bulletingrid>
-          {visiblePosts > 6 && (
+          {data.blog.edges?.length > 6 && (
             <>
               {visiblePosts >= data.blog.edges?.length ? (
                 // if user hits end of data.blog.edges array, button closes posts
