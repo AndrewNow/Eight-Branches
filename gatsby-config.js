@@ -144,7 +144,7 @@ module.exports = {
               staticFolderName: "static",
               // [Optional] Include the following fields, use dot notation for nested fields
               // All fields are included by default
-              // include: ["featured"],
+              include: ["featured"],
               // [Optional] Exclude the following fields, use dot notation for nested fields
               // No fields are excluded by default
               exclude: ["featured.skip"],
