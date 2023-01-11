@@ -13,11 +13,11 @@ const BlogPostTemplate = ({ data }) => {
 
   const { previous, next } = data
 
-  const image = getImage(post?.frontmatter.thumbnail)
+  // const image = getImage(post?.frontmatter.thumbnail)
   // const nextImage = getImage(next?.frontmatter.thumbnail)
   // const previousImage = getImage(previous?.frontmatter.thumbnail)
 
-  console.log(nextImage)
+  // console.log(nextImage)
 
   return (
     <Layout title={siteTitle}>
@@ -42,13 +42,13 @@ const BlogPostTemplate = ({ data }) => {
             <BlogContentHeader>
               <h6>{post.frontmatter.description}</h6>
             </BlogContentHeader>
-            {image && (
+            {/* {image && (
               <GatsbyImage image={image} alt={post.frontmatter.description} />
-            )}
-            {/* <BlogContent
+            )} */}
+            <BlogContent
               dangerouslySetInnerHTML={{ __html: post.html }}
               itemProp="articleBody"
-            /> */}
+            />
 
             <EndArticle>
               <FooterStamp />
