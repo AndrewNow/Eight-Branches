@@ -188,7 +188,7 @@ Interested in hosting one? Contact us as well."
               const { title, date, readtime } = blogDataQuery.frontmatter
               const slug = blogDataQuery.fields.slug
               const entryTitle = title || slug
-              const thumbnail = getImage(blogDataQuery.frontmatter.thumbnail)
+              // const thumbnail = getImage(blogDataQuery.frontmatter.thumbnail)
               return (
                 // second query check just in case
                 blogDataQuery && (
@@ -199,9 +199,9 @@ Interested in hosting one? Contact us as well."
                       </Link>
                     </h6>
                     <Link to={slug} itemProp="url">
-                      {thumbnail && (
-                        <GatsbyImage image={thumbnail} alt={entryTitle} />
-                      )}
+                      {/* {thumbnail && ( */}
+                        {/* // <GatsbyImage image={thumbnail} alt={entryTitle} /> */}
+                      {/* )} */}
                     </Link>
                     <BulletinDescription>
                       <p>{readtime} minute read</p>
