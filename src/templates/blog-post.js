@@ -14,8 +14,8 @@ const BlogPostTemplate = ({ data }) => {
   const { previous, next } = data
 
   const image = getImage(post?.frontmatter.thumbnail)
-  const nextImage = getImage(next?.frontmatter.thumbnail)
-  const previousImage = getImage(previous?.frontmatter.thumbnail)
+  // const nextImage = getImage(next?.frontmatter.thumbnail)
+  // const previousImage = getImage(previous?.frontmatter.thumbnail)
 
   console.log(nextImage)
 
@@ -45,10 +45,10 @@ const BlogPostTemplate = ({ data }) => {
             {image && (
               <GatsbyImage image={image} alt={post.frontmatter.description} />
             )}
-            <BlogContent
+            {/* <BlogContent
               dangerouslySetInnerHTML={{ __html: post.html }}
               itemProp="articleBody"
-            />
+            /> */}
 
             <EndArticle>
               <FooterStamp />
