@@ -59,7 +59,7 @@ const BlogPostTemplate = ({ data }) => {
           <h1>More Posts</h1>
           <ContinueReadingPostWrapper>
             {/* check to see if previous exists, if so display previous post */}
-            {previous && (
+            {/* {previous && (
               <BulletinPost key={previous.fields.slug}>
                 <h6>
                   <Link to={previous.fields.slug} itemProp="url">
@@ -102,7 +102,7 @@ const BlogPostTemplate = ({ data }) => {
                   <p>{next.frontmatter.date}</p>
                 </BulletinDescription>
               </BulletinPost>
-            )}
+            )} */}
           </ContinueReadingPostWrapper>
           <ReturnBack>
             <ProgramLink to="/bulletin-board">
@@ -160,50 +160,50 @@ export const pageQuery = graphql`
         }
       }
     }
-    previous: markdownRemark(id: { eq: $previousId }) {
-      fields {
-        slug
-      }
-      frontmatter {
-        title
-        readtime
-        date(formatString: "DD.MM.YYYY")
-        description
-        thumbnail {
-          childImageSharp {
-            gatsbyImageData(
-              width: 1150
-              quality: 90
-              placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
-              aspectRatio: 1.75
-            )
-          }
-        }
-      }
-    }
-    next: markdownRemark(id: { eq: $nextId }) {
-      fields {
-        slug
-      }
-      frontmatter {
-        title
-        readtime
-        date(formatString: "DD.MM.YYYY")
-        description
-        thumbnail {
-          childImageSharp {
-            gatsbyImageData(
-              width: 1150
-              quality: 90
-              placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
-              aspectRatio: 1.75
-            )
-          }
-        }
-      }
-    }
+    # previous: markdownRemark(id: { eq: $previousId }) {
+    #   fields {
+    #     slug
+    #   }
+    #   frontmatter {
+    #     title
+    #     readtime
+    #     date(formatString: "DD.MM.YYYY")
+    #     description
+    #     thumbnail {
+    #       childImageSharp {
+    #         gatsbyImageData(
+    #           width: 1150
+    #           quality: 90
+    #           placeholder: BLURRED
+    #           formats: [AUTO, WEBP, AVIF]
+    #           aspectRatio: 1.75
+    #         )
+    #       }
+    #     }
+    #   }
+    # }
+    # next: markdownRemark(id: { eq: $nextId }) {
+    #   fields {
+    #     slug
+    #   }
+    #   frontmatter {
+    #     title
+    #     readtime
+    #     date(formatString: "DD.MM.YYYY")
+    #     description
+    #     thumbnail {
+    #       childImageSharp {
+    #         gatsbyImageData(
+    #           width: 1150
+    #           quality: 90
+    #           placeholder: BLURRED
+    #           formats: [AUTO, WEBP, AVIF]
+    #           aspectRatio: 1.75
+    #         )
+    #       }
+    #     }
+    #   }
+    # }
   }
 `
 
