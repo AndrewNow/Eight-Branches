@@ -264,17 +264,17 @@ export const pageQuery = graphql`
               description
               date(formatString: "DD.MM.YYYY", locale: "est")
               readtime
-              thumbnail {
-                childImageSharp {
-                  gatsbyImageData(
-                    width: 550
-                    quality: 90
-                    placeholder: BLURRED
-                    formats: [AUTO, WEBP, AVIF]
-                    aspectRatio: 1.75
-                  )
-                }
-              }
+              # thumbnail {
+              #   childImageSharp {
+              #     gatsbyImageData(
+              #       width: 550
+              #       quality: 90
+              #       placeholder: BLURRED
+              #       formats: [AUTO, WEBP, AVIF]
+              #       aspectRatio: 1.75
+              #     )
+              #   }
+              # }
             }
           }
         }
