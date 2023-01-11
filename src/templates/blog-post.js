@@ -45,10 +45,10 @@ const BlogPostTemplate = ({ data }) => {
             {/* {image && (
               <GatsbyImage image={image} alt={post.frontmatter.description} />
             )} */}
-            <BlogContent
+            {/* <BlogContent
               dangerouslySetInnerHTML={{ __html: post.html }}
               itemProp="articleBody"
-            />
+            /> */}
 
             <EndArticle>
               <FooterStamp />
