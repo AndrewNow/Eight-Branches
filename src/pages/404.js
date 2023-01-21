@@ -30,8 +30,8 @@ const NotFoundPage = ({ data, location }) => {
         <TextWrapper variants={FadeIn} initial="hidden" animate="visible">
           <h1>404</h1>
           <p>
-            Oops! You've reached a page that no longer exists. Please click the
-            button below to return to the home page.
+            Oops! You&apos;ve reached a page that no longer exists. Please click
+            the button below to return to the home page.
           </p>
           <ReadMore to="/">Home</ReadMore>
         </TextWrapper>

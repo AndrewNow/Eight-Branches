@@ -4,9 +4,10 @@ import styled from "styled-components"
 import breakpoints from "../components/breakpoints"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 const News = ({ data, location }) => {
+
   console.log(data)
 
   const siteTitle = data.site.siteMetadata?.title || `News`
@@ -29,8 +30,6 @@ const News = ({ data, location }) => {
       </Layout>
     )
   }
-
-  console.log(visiblePosts)
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -128,7 +127,6 @@ Interested in hosting one? Contact us as well."
                 ) {
                   suffix = "th"
                 }
-
                 // format into (Day, Month Dayofthemonth Time Locale)
                 const formattedEventDate =
                   `${day}, ` +
@@ -188,7 +186,9 @@ Interested in hosting one? Contact us as well."
               const { title, date, readtime } = blogDataQuery.frontmatter
               const slug = blogDataQuery.fields.slug
               const entryTitle = title || slug
-              // const thumbnail = getImage(blogDataQuery.frontmatter.thumbnail)
+              const thumbnail =
+                blogDataQuery.frontmatter.thumbnail.childImageSharp
+                  .gatsbyImageData
               return (
                 // second query check just in case
                 blogDataQuery && (
@@ -199,9 +199,7 @@ Interested in hosting one? Contact us as well."
                       </Link>
                     </h6>
                     <Link to={slug} itemProp="url">
-                      {/* {thumbnail && (
-                        <GatsbyImage image={thumbnail} alt={entryTitle} />
-                      )} */}
+                      <GatsbyImage image={thumbnail} alt={entryTitle} />
                     </Link>
                     <BulletinDescription>
                       <p>{readtime} minute read</p>
@@ -218,14 +216,14 @@ Interested in hosting one? Contact us as well."
                 // if user hits end of data.blog.edges array, button closes posts
                 <LoadMore>
                   <EventsButton onClick={handleClosePosts}>
-                    <p>Show less posts</p>
+                    <p>View less posts</p>
                   </EventsButton>
                 </LoadMore>
               ) : (
                 // Button to open more posts
                 <LoadMore>
                   <EventsButton onClick={handleLoadNewPosts}>
-                    <p>Show more posts</p>
+                    <p>Load more posts</p>
                   </EventsButton>
                 </LoadMore>
               )}
@@ -264,17 +262,17 @@ export const pageQuery = graphql`
               description
               date(formatString: "DD.MM.YYYY", locale: "est")
               readtime
-              # thumbnail {
-              #   childImageSharp {
-              #     gatsbyImageData(
-              #       width: 550
-              #       quality: 90
-              #       placeholder: BLURRED
-              #       formats: [AUTO, WEBP, AVIF]
-              #       aspectRatio: 1.75
-              #     )
-              #   }
-              # }
+              thumbnail {
+                childImageSharp {
+                  gatsbyImageData(
+                    width: 550
+                    quality: 90
+                    placeholder: BLURRED
+                    formats: [WEBP]
+                    aspectRatio: 1.75
+                  )
+                }
+              }
             }
           }
         }
@@ -285,7 +283,7 @@ export const pageQuery = graphql`
         sourceInstanceName: { eq: "events" }
         internal: { mediaType: { eq: "text/markdown" } }
       }
-      sort: { fields: childMarkdownRemark___frontmatter___date, order: DESC }
+      sort: { fields: childMarkdownRemark___frontmatter___date, order: ASC }
     ) {
       edges {
         node {
