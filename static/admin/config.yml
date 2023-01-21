@@ -1,9 +1,9 @@
 backend:
   name: git-gateway
-  branch: master # Branch to update (optional; defaults to master)
+  branch: main # Branch to update (optional; defaults to master)
 
-media_folder: '' # Was static/img
-public_folder: '' # Was img
+media_folder: static/img # Was static/img
+public_folder: /img # Was img
 publish_mode: editorial_workflow
 
 collections:
@@ -80,7 +80,13 @@ collections:
     editor:
       preview: true
     fields:
-      - { label: "This job is for...", name: "jobType", widget: "select", options: ["Instructors", "Students"], required: true }
+      - {
+          label: "This job is for...",
+          name: "jobType",
+          widget: "select",
+          options: ["Instructors", "Students"],
+          required: true,
+        }
       - { label: "Job Title", name: "title", widget: "string", required: true }
       - {
           label: "Short Description",
