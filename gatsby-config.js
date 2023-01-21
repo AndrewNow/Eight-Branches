@@ -78,6 +78,13 @@ module.exports = {
         name: `events`,
       },
     },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     path: `${__dirname}/static/img`,
+    //     name: `thumbnail`,
+    //   },
+    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
