@@ -1,28 +1,22 @@
 {
   "list": [
     {
-      "termTitle": "Spring Term 2022",
-      "startDate": "April 19, 2022",
-      "endDate": "July 9, 2022",
-      "info": "April 9, 2022"
+      "termTitle": "Spring Term 2023",
+      "startDate": "April 10, 2023",
+      "endDate": "July 1, 2023",
+      "info": "March 10, 2023"
     },
     {
-      "termTitle": "Summer Term 2022",
-      "startDate": "July 4, 2022",
-      "endDate": "September 3, 2022",
-      "info": "No intake. New students can apply for the next available intake in Fall."
+      "termTitle": "Fall Term 2023",
+      "startDate": "September 18, 2023",
+      "endDate": "December 18, 2023",
+      "info": "August 18, 2023"
     },
     {
-      "termTitle": "Fall Term 2022",
-      "startDate": "September 19, 2022",
-      "endDate": "December 17, 2022",
-      "info": "August 19, 2022"
-    },
-    {
-      "termTitle": "Winter Term 2023",
-      "startDate": "January 4, 2023",
-      "endDate": "April 8, 2023",
-      "info": "December 2, 2022"
+      "termTitle": "Winter Term 2024",
+      "startDate": "January 3, 2023",
+      "endDate": "April 4, 2023",
+      "info": "December 3, 2023"
     }
   ]
 }
