@@ -1,5 +1,5 @@
 ---
-title: "Online Webinar: Tongue Diagnosis with Dr. Guo"
+title: "Online Webinar: Tongue Diagnosis with Dr. Guo "
 link: https://us02web.zoom.us/meeting/register/tZEsd-ChpzIvGtSX22qFDdg1dkcQGv0zDW7o
 date: 2023-03-04T18:00:00.000Z
 host: Dr. Guo
