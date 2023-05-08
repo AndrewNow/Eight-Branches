@@ -280,8 +280,7 @@ const HomePage = ({ data }) => {
               transformOptions={{ cropFocus: "bottom" }}
               imgStyle={{ objectFit: "cover" }}
               style={{ height: "100%" }}
-              loading="eager"
-              // layout="constrained"
+              loading="eager" 
               // width={938}
             />
           </HideImage>
