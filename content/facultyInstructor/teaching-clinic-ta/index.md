@@ -2,6 +2,7 @@
 ordernumber: 9
 title: Teaching Clinic TA
 role: Teaching Clinic TA
+portrait: img_20230211_150433.jpg
 ---
 Christine takes a holistic view toward the source of pain &amp; related movement limitation disorders. After asking detailed questions, examining closely the pulse, the tongue and palpating the affected
 body (shape, color, temperature, marks etc.), Christine will come up with Traditional Chinese
